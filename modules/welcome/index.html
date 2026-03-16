@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome & Orientation - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+        }
+
+        /* Partner Logos Header */
+        .partner-logos {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .partner-logos a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logos a:hover {
+            opacity: 1;
+        }
+
+        .partner-logos img {
+            height: 60px;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: calc(100vh - 120px);
+            max-height: calc(100vh - 120px);
+            padding: 40px 60px 20px 60px;
+            animation: fadeIn 0.5s ease-in;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--bright-cyan);
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slide-subtitle {
+            font-size: 1.5rem;
+            color: var(--bright-yellow);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .content-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .key-points {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.05));
+            border: 2px solid var(--bright-cyan);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .point-icon {
+            color: var(--bright-green);
+            margin-right: 15px;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .point-text {
+            color: var(--light-gray);
+        }
+
+        .highlight {
+            color: var(--bright-yellow);
+            font-weight: 700;
+        }
+
+        .urgent {
+            color: var(--bright-red);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .action-box {
+            background: linear-gradient(135deg, rgba(255,99,71,0.1), rgba(255,99,71,0.05));
+            border: 3px solid var(--bright-red);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .action-title {
+            color: var(--bright-red);
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .action-steps {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .step {
+            background: var(--dark-bg);
+            border: 1px solid var(--bright-orange);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .step-number {
+            color: var(--bright-orange);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .nav-card {
+            background: var(--dark-accent);
+            border: 2px solid var(--bright-purple);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.3);
+        }
+
+        .nav-card-title {
+            color: var(--bright-purple);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .nav-card-desc {
+            color: var(--light-gray);
+            font-size: 1rem;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(20, 40, 71, 0.9);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 2px solid var(--bright-cyan);
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-accent);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--bright-cyan);
+            color: var(--dark-bg);
+            transform: scale(1.1);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-indicator {
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-accent);
+            border: 2px solid var(--bright-cyan);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: var(--bright-cyan);
+            transform: scale(1.3);
+        }
+
+        .top-buttons {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 101;
+            display: flex;
+            gap: 15px;
+        }
+
+        .home-btn {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            background: rgba(20, 40, 71, 0.9);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .home-btn:hover {
+            background: rgba(0, 255, 255, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .code-box {
+            background: var(--dark-bg);
+            border: 1px solid var(--bright-cyan);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            color: var(--bright-green);
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .timer {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: rgba(255, 99, 71, 0.1);
+            border: 2px solid var(--bright-red);
+            border-radius: 15px;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            color: var(--bright-red);
+            font-weight: 700;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+    <link rel="stylesheet" href="../../presentation-styles.css">
+</head>
+<body>
+    <!-- Partner Logos Header -->
+    <div class="partner-logos">
+        <a href="https://hcss.nl" target="_blank" title="The Hague Centre for Strategic Studies">
+            <img src="../openalex/hcss_logo.svg" alt="HCSS Logo">
+        </a>
+        <a href="https://hcss.nl/rubase/" target="_blank" title="RuBase">
+            <img src="../openalex/rubase_logo.svg" alt="RuBase Logo">
+        </a>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Slide 1: Welcome -->
+        <div class="slide active">
+            <h2 class="slide-title">Welcome to the RuBase Workshop!</h2>
+            <div class="slide-subtitle">LLMs as Research Assistants</div>
+
+            <div class="content-container">
+                <div class="key-points">
+                    <div class="point">
+                        <span class="point-icon">🎯</span>
+                        <span class="point-text">
+                            <span class="highlight">3 Days, 3 Phases:</span> DISCOVER → FRAME → ANALYZE
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">👥</span>
+                        <span class="point-text">
+                            <span class="highlight">Your Instructors:</span> Adam Stulberg (Georgia Tech) & Stephan De Spiegeleire (HCSS)
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">💡</span>
+                        <span class="point-text">
+                            <span class="highlight">Our Goal:</span> Transform how you discover, organize, and analyze research literature
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🚀</span>
+                        <span class="point-text">
+                            <span class="highlight">Interactive & Hands-On:</span> You'll build your own research corpus today!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Workshop Philosophy -->
+        <div class="slide">
+            <h2 class="slide-title">Our Workshop Philosophy</h2>
+
+            <div class="content-container">
+                <div class="key-points">
+                    <div class="point">
+                        <span class="point-icon">🗣️</span>
+                        <span class="point-text">
+                            <span class="highlight">Please Interrupt!</span> Questions are welcome at ANY time
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🔄</span>
+                        <span class="point-text">
+                            <span class="highlight">Flexibility is Key:</span> Topics may bleed into the next day - that's perfectly fine!
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🎯</span>
+                        <span class="point-text">
+                            <span class="highlight">Quality Over Quantity:</span> We won't finish everything today, and that's by design
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🤝</span>
+                        <span class="point-text">
+                            <span class="highlight">Learn From Each Other:</span> Share your experiences and challenges
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">⚡</span>
+                        <span class="point-text">
+                            <span class="highlight">Adapt to Your Needs:</span> We'll adjust pace and focus based on your interests
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: CRITICAL Dropbox Setup -->
+        <div class="slide">
+            <h2 class="slide-title">🚨 CRITICAL: Dropbox Setup</h2>
+            <div class="timer">⏰ Do This TODAY!</div>
+
+            <div class="content-container" style="display: flex; gap: 50px; align-items: center; justify-content: center; padding: 20px;">
+                <div style="flex: 1; max-width: 550px;">
+                    <div class="action-box" style="margin: 0;">
+                        <div class="action-title">You MUST Do This Before We Break!</div>
+                        <div class="action-steps">
+                            <div class="step">
+                                <span class="step-number">1.</span>
+                                Scan QR code or go to this link:
+                            </div>
+                            <div class="code-box" style="font-size: 1rem; text-align: center; padding: 15px; word-break: break-all;">
+                                https://www.dropbox.com/scl/fo/0is0u63ng8vguc5pzkq3w/ANXEY93apqRa0jBjFXW54SM?rlkey=h5ds0oonwhm05ajypcgjf2sy9&dl=0
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2.</span>
+                                Sign into YOUR Dropbox account (create one if needed - it's free!)
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3.</span>
+                                Click <span class="highlight">"Add to Dropbox"</span> button
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4.</span>
+                                Verify it syncs to your account
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,0,0.1); border: 2px solid var(--bright-yellow); border-radius: 15px;">
+                            <p style="color: var(--bright-yellow); font-size: 1.2rem; font-weight: 700;">
+                                ⚠️ After tonight, the folder becomes PRIVATE!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 25px; margin-right: 20px;">
+                    <div id="qrcode-dropbox" style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,255,255,0.3); border: 3px solid var(--bright-cyan);"></div>
+                    <div style="background: var(--dark-accent); padding: 20px; border-radius: 15px; border: 2px solid var(--bright-cyan);">
+                        <div style="color: var(--bright-cyan); font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 10px;">
+                            📱 Scan with Phone
+                        </div>
+                        <div style="font-size: 0.9rem; color: var(--bright-yellow); text-align: center; font-weight: 600;">
+                            Takes you to Dropbox folder
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: How to Navigate This App -->
+        <div class="slide">
+            <h2 class="slide-title">How to Navigate This Workshop App</h2>
+
+            <div class="content-container">
+                <div class="nav-grid">
+                    <div class="nav-card">
+                        <div class="nav-card-title">🏠 Home Button</div>
+                        <div class="nav-card-desc">Always returns you to the main hub with all modules</div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-card-title">📅 Day Modules</div>
+                        <div class="nav-card-desc">Day 1: INGEST, Day 2: FRAME, Day 3: ANALYZE</div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-card-title">📚 Resources</div>
+                        <div class="nav-card-desc">All documentation, guides, and setup instructions</div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-card-title">🔧 Interactive Tools</div>
+                        <div class="nav-card-desc">OpenAlex Explorer, Dashboard, Live demos</div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-card-title">⬅️➡️ Navigation</div>
+                        <div class="nav-card-desc">Use arrow buttons or dots to move between slides</div>
+                    </div>
+                    <div class="nav-card">
+                        <div class="nav-card-title">📖 MD Viewer</div>
+                        <div class="nav-card-desc">Click any documentation link to read with copy buttons for code</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Where to Find Everything -->
+        <div class="slide">
+            <h2 class="slide-title">Where to Find What You Need</h2>
+
+            <div class="content-container">
+                <div class="key-points">
+                    <div class="point">
+                        <span class="point-icon">📱</span>
+                        <span class="point-text">
+                            <span class="highlight">This App:</span> https://sdspieg.github.io/rubase-workshop-fletcher-2603/
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">📂</span>
+                        <span class="point-text">
+                            <span class="highlight">Dropbox Materials:</span> Presentations, code, datasets, papers
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">💻</span>
+                        <span class="point-text">
+                            <span class="highlight">Setup Guides:</span> Resources → CLI/LLM Setup Guide
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">📊</span>
+                        <span class="point-text">
+                            <span class="highlight">OpenAlex Tools:</span> Day 1 Module → OpenAlex section
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">❓</span>
+                        <span class="point-text">
+                            <span class="highlight">Technical Help:</span> Resources → Technical Help (or ask us!)
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">📧</span>
+                        <span class="point-text">
+                            <span class="highlight">Contact:</span> stephan@hcss.nl | adam.stulberg@inta.gatech.edu
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Today's Schedule -->
+        <div class="slide">
+            <h2 class="slide-title">Today's Journey (Day 1: DISCOVER)</h2>
+
+            <div class="content-container">
+                <div class="key-points" style="font-size: 1.1rem;">
+                    <div class="point">
+                        <span class="point-icon">🎬</span>
+                        <span class="point-text">
+                            <span class="highlight">5:30-5:40:</span> Adam Kicks Off - Workshop Overview
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🚀</span>
+                        <span class="point-text">
+                            <span class="highlight">5:40-6:25:</span> Stephan's RuBase What/Why/How
+                        </span>
+                    </div>
+                    <div class="point" style="background: rgba(255, 200, 0, 0.1); border: 2px solid #ffc800; border-radius: 10px; padding: 12px;">
+                        <span class="point-icon">💻</span>
+                        <span class="point-text">
+                            <span class="highlight">6:25-6:40:</span> Technical Setup & Student Introductions<br>
+                            <strong style="color: #ffc800;">📱 WHILE Installing WSL & LLM CLI!</strong>
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">☕</span>
+                        <span class="point-text">
+                            <span class="highlight">6:40-6:55:</span> BREAK <span class="urgent">(Finish Dropbox & Installs!)</span>
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">📊</span>
+                        <span class="point-text">
+                            <span class="highlight">6:55-7:35:</span> Adam's Bibliometrics & The Lens Demo
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🔍</span>
+                        <span class="point-text">
+                            <span class="highlight">7:35-8:20:</span> Stephan's OpenAlex Deep Dive & Practice
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">📝</span>
+                        <span class="point-text">
+                            <span class="highlight">8:20-8:30:</span> Wrap-up & Homework Assignment
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: URGENT Installation Requirements -->
+        <div class="slide">
+            <h2 class="slide-title">🚨 INSTALL NOW: During Introductions!</h2>
+            <div class="timer">⏰ Start Installing at 5:40 PM!</div>
+
+            <div class="content-container">
+                <div class="action-box">
+                    <div class="action-title">CLI & LLM Tools Required TODAY!</div>
+                    <div class="action-steps">
+                        <div class="step">
+                            <span class="step-number">Windows Users:</span>
+                            Install WSL (Windows Subsystem for Linux)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">All Users:</span>
+                            Install LLM CLI tools (Claude, etc.)
+                        </div>
+                        <div class="step">
+                            <span class="step-number">Where:</span>
+                            Resources → CLI/LLM Setup Guide has full instructions
+                        </div>
+                        <div class="step">
+                            <span class="step-number">When:</span>
+                            START NOW during student introductions (5:40-6:25 PM)
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(0,255,255,0.1); border: 2px solid var(--bright-cyan); border-radius: 15px;">
+                        <p style="color: var(--bright-cyan); font-size: 1.2rem; font-weight: 700;">
+                            💡 Stephan will help troubleshoot while Adam presents!
+                        </p>
+                    </div>
+                </div>
+                <div class="key-points" style="margin-top: 20px;">
+                    <div class="point">
+                        <span class="point-icon">✅</span>
+                        <span class="point-text">
+                            <span class="highlight">Also Required:</span> Dropbox account (during break)
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">💻</span>
+                        <span class="point-text">
+                            <span class="highlight">We'll Use These:</span> For hands-on corpus building today!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Tech Requirements Summary -->
+        <div class="slide">
+            <h2 class="slide-title">Quick Tech Check Summary</h2>
+
+            <div class="content-container">
+                <div class="key-points">
+                    <div class="point">
+                        <span class="point-icon">✅</span>
+                        <span class="point-text">
+                            <span class="highlight">Browser:</span> You're already using it!
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">✅</span>
+                        <span class="point-text">
+                            <span class="highlight">Dropbox:</span> Free account - set up during break
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">⚡</span>
+                        <span class="point-text">
+                            <span class="highlight">WSL/CLI:</span> Installing NOW during introductions
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">📊</span>
+                        <span class="point-text">
+                            <span class="highlight">OpenAlex:</span> No account needed - we'll use the API
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🔮</span>
+                        <span class="point-text">
+                            <span class="highlight">Claude AI:</span> Account setup instructions in Resources
+                        </span>
+                    </div>
+                    <div class="point" style="background: rgba(0,255,127,0.05); padding: 15px; border-radius: 10px;">
+                        <span class="point-icon">🆓</span>
+                        <span class="point-text">
+                            <span class="highlight">Everything:</span> Has a free tier - no paid subscriptions required!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Interactive Learning -->
+        <div class="slide">
+            <h2 class="slide-title">This is YOUR Workshop</h2>
+
+            <div class="content-container">
+                <div class="key-points">
+                    <div class="point">
+                        <span class="point-icon">🎯</span>
+                        <span class="point-text">
+                            <span class="highlight">Customize Your Search:</span> Use YOUR research topic for exercises
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🤔</span>
+                        <span class="point-text">
+                            <span class="highlight">Ask Questions:</span> "What about my specific use case...?"
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🐛</span>
+                        <span class="point-text">
+                            <span class="highlight">Errors are Learning:</span> Something broke? Let's debug together!
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">💬</span>
+                        <span class="point-text">
+                            <span class="highlight">Share Insights:</span> "I found something interesting..."
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🔧</span>
+                        <span class="point-text">
+                            <span class="highlight">Request Demos:</span> "Can you show how to...?"
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">📝</span>
+                        <span class="point-text">
+                            <span class="highlight">Take Notes:</span> Everything is in Dropbox for reference
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Let's Begin! -->
+        <div class="slide">
+            <h2 class="slide-title">Ready? Let's Transform Your Research!</h2>
+
+            <div class="content-container">
+                <div class="key-points">
+                    <div class="point">
+                        <span class="point-icon">🚀</span>
+                        <span class="point-text" style="font-size: 1.5rem;">
+                            <span class="highlight">First Up:</span> Adam will set the scene
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">🎯</span>
+                        <span class="point-text" style="font-size: 1.5rem;">
+                            <span class="highlight">Then:</span> We dive into OpenAlex
+                        </span>
+                    </div>
+                    <div class="point">
+                        <span class="point-icon">💡</span>
+                        <span class="point-text" style="font-size: 1.5rem;">
+                            <span class="highlight">Remember:</span> Interrupt with questions!
+                        </span>
+                    </div>
+                </div>
+
+                <div class="action-box" style="margin-top: 40px;">
+                    <div class="action-title" style="color: var(--bright-green);">Quick Reminders</div>
+                    <div style="font-size: 1.3rem; color: var(--light-gray);">
+                        <p>📱 Bookmark this app: https://sdspieg.github.io/rubase-workshop-fletcher-2603/</p>
+                        <p style="margin-top: 15px;">📂 Dropbox link is on the next screen during break</p>
+                        <p style="margin-top: 15px;">🏠 Hit the Home button anytime to navigate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Navigation Button -->
+        <div class="top-buttons">
+            <button class="home-btn" onclick="window.location.href='../../index.html'">
+                🏠 Home
+            </button>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">←</button>
+            <div class="slide-indicator" id="slideIndicator"></div>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">→</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+
+            slides[currentSlide].classList.add('active');
+            updateIndicators();
+            updateNavButtons();
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        function updateIndicators() {
+            const indicatorContainer = document.getElementById('slideIndicator');
+            indicatorContainer.innerHTML = '';
+
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('indicator-dot');
+                if (i === currentSlide) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                indicatorContainer.appendChild(dot);
+            }
+        }
+
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            prevBtn.disabled = false;
+            nextBtn.disabled = false;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Home') goToSlide(0);
+            if (e.key === 'End') goToSlide(totalSlides - 1);
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Generate QR Code for Dropbox link
+        function generateQRCode() {
+            const qrContainer = document.getElementById('qrcode-dropbox');
+            if (qrContainer && typeof QRCode !== 'undefined') {
+                // Clear any existing QR code
+                qrContainer.innerHTML = '';
+
+                // Generate new QR code with the actual Dropbox URL
+                new QRCode(qrContainer, {
+                    text: 'https://www.dropbox.com/scl/fo/0is0u63ng8vguc5pzkq3w/ANXEY93apqRa0jBjFXW54SM?rlkey=h5ds0oonwhm05ajypcgjf2sy9&dl=0',
+                    width: 250,
+                    height: 250,
+                    colorDark: '#0a192f',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        }
+
+        // Generate QR code when slide becomes active
+        const originalShowSlide = showSlide;
+        showSlide = function(n) {
+            originalShowSlide(n);
+            // Generate QR code when we reach slide 3 (index 2)
+            if (currentSlide === 2) {
+                setTimeout(generateQRCode, 100);
+            }
+        };
+
+        // Also generate on initial load if we're on slide 3
+        document.addEventListener('DOMContentLoaded', () => {
+            if (currentSlide === 2) {
+                generateQRCode();
+            }
+        });
+    </script>
+
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</body>
+</html>

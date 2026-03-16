@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Help - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        /* Partner Logos Header */
+        .partner-logos {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .partner-logos a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logos a:hover {
+            opacity: 1;
+        }
+
+        .partner-logos img {
+            height: 60px;
+        }
+
+        .container {
+            padding-top: 150px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--bright-cyan);
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+
+        .help-section {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.05));
+            border: 2px solid var(--bright-cyan);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--bright-yellow);
+            margin-bottom: 25px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .issue-card {
+            background: var(--dark-bg);
+            border-left: 4px solid var(--bright-green);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .issue-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .issue-title {
+            color: var(--bright-green);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .issue-solution {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .warning-card {
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 99, 71, 0.05));
+            border: 2px solid var(--bright-red);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .warning-title {
+            color: var(--bright-red);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(147, 112, 219, 0.05));
+            border: 2px solid var(--bright-purple);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .tip-title {
+            color: var(--bright-purple);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 101;
+            background: rgba(20, 40, 71, 0.9);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 255, 255, 0.15);
+            transform: translateX(-50%);
+        }
+
+        .code-block {
+            background: var(--dark-bg);
+            border: 1px solid var(--bright-cyan);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            color: var(--bright-green);
+            overflow-x: auto;
+        }
+
+        ul {
+            margin-left: 30px;
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .contact-box {
+            background: var(--dark-bg);
+            border: 2px solid var(--bright-cyan);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-title {
+            color: var(--bright-cyan);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: var(--bright-yellow);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Partner Logos Header -->
+    <div class="partner-logos">
+        <a href="https://hcss.nl" target="_blank" title="The Hague Centre for Strategic Studies">
+            <img src="../openalex/hcss_logo.svg" alt="HCSS Logo">
+        </a>
+        <a href="https://hcss.nl/rubase/" target="_blank" title="RuBase">
+            <img src="../openalex/rubase_logo.svg" alt="RuBase Logo">
+        </a>
+    </div>
+
+    <button class="back-button" onclick="window.location.href='../../index.html'">
+        🏠 Home
+    </button>
+
+    <div class="container">
+        <h1 class="page-title">Technical Help</h1>
+        <p class="page-subtitle">Troubleshooting Guide & Common Solutions</p>
+
+        <!-- Common Issues Section -->
+        <div class="help-section">
+            <h2 class="section-title">
+                <span>🔧</span>
+                Common Issues & Solutions
+            </h2>
+
+            <div class="issue-card">
+                <div class="issue-title">Can't see slide content / Content is cut off</div>
+                <div class="issue-solution">
+                    <ul>
+                        <li>Try refreshing the page (F5 or Ctrl+R)</li>
+                        <li>Zoom out slightly (Ctrl+- or Cmd+-)</li>
+                        <li>Use Chrome or Firefox for best compatibility</li>
+                        <li>Check if you're in full-screen mode (F11 to toggle)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">Can't access Dropbox folder</div>
+                <div class="issue-solution">
+                    <ul>
+                        <li>Check your email for the shared link invitation</li>
+                        <li>Make sure you're logged into Dropbox</li>
+                        <li>Contact instructors if you haven't received the invitation</li>
+                        <li>Try opening the link in an incognito/private window</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">API Key not working</div>
+                <div class="issue-solution">
+                    <ul>
+                        <li>Verify you've registered at <a href="https://openalex.org" target="_blank" style="color: var(--bright-cyan);">openalex.org</a></li>
+                        <li>Check that you've copied the entire API key</li>
+                        <li>Ensure there are no extra spaces before/after the key</li>
+                        <li>API keys are case-sensitive - copy exactly as shown</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">Navigation buttons not working</div>
+                <div class="issue-solution">
+                    <ul>
+                        <li>Use arrow keys (← →) to navigate between slides</li>
+                        <li>Press ESC to return to the main menu</li>
+                        <li>Click the slide dots at the bottom for direct navigation</li>
+                        <li>Clear browser cache (Ctrl+Shift+Delete)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Setup Requirements -->
+        <div class="help-section">
+            <h2 class="section-title">
+                <span>💻</span>
+                Setup Requirements
+            </h2>
+
+            <div class="tip-card">
+                <div class="tip-title">Required Accounts</div>
+                <ul>
+                    <li><strong>OpenAlex:</strong> Free registration at <a href="https://openalex.org" target="_blank" style="color: var(--bright-cyan);">openalex.org</a></li>
+                    <li><strong>The Lens:</strong> Free account at <a href="https://lens.org" target="_blank" style="color: var(--bright-cyan);">lens.org</a></li>
+                    <li><strong>Zotero:</strong> Download from <a href="https://zotero.org" target="_blank" style="color: var(--bright-cyan);">zotero.org</a></li>
+                    <li><strong>GitHub:</strong> Optional, for accessing code repositories</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <div class="tip-title">Browser Recommendations</div>
+                <ul>
+                    <li><strong>Best:</strong> Google Chrome (latest version)</li>
+                    <li><strong>Good:</strong> Mozilla Firefox (latest version)</li>
+                    <li><strong>OK:</strong> Microsoft Edge (Chromium-based)</li>
+                    <li><strong>Not Recommended:</strong> Internet Explorer, Safari (older versions)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick Fixes -->
+        <div class="help-section">
+            <h2 class="section-title">
+                <span>⚡</span>
+                Quick Fixes
+            </h2>
+
+            <div class="warning-card">
+                <div class="warning-title">⚠️ Before You Start</div>
+                <ul>
+                    <li>Disable ad blockers for workshop sites</li>
+                    <li>Allow popups from workshop domains</li>
+                    <li>Enable JavaScript in your browser</li>
+                    <li>Use a stable internet connection</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">Keyboard Shortcuts</div>
+                <div class="issue-solution">
+                    <div class="code-block">
+                        Arrow Keys (← →) : Navigate slides<br>
+                        ESC : Return to main menu<br>
+                        F5 : Refresh page<br>
+                        F11 : Toggle fullscreen<br>
+                        Ctrl/Cmd + 0 : Reset zoom<br>
+                        Ctrl/Cmd + +/- : Zoom in/out
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Setup Guide -->
+        <div class="help-section">
+            <h2 class="section-title">
+                <span>🔑</span>
+                API Setup Guide
+            </h2>
+
+            <div class="issue-card">
+                <div class="issue-title">OpenAlex API Setup</div>
+                <div class="issue-solution">
+                    <ol>
+                        <li>Go to <a href="https://openalex.org" target="_blank" style="color: var(--bright-cyan);">openalex.org</a></li>
+                        <li>Click "Get API Key" or "Sign Up"</li>
+                        <li>Fill in your email and affiliation</li>
+                        <li>Check your email for the API key</li>
+                        <li>Save the key in a secure location</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">The Lens API Setup</div>
+                <div class="issue-solution">
+                    <ol>
+                        <li>Visit <a href="https://lens.org" target="_blank" style="color: var(--bright-cyan);">lens.org</a></li>
+                        <li>Create a free account</li>
+                        <li>Go to Account Settings → API</li>
+                        <li>Request API access (may take 24h)</li>
+                        <li>Copy your token once approved</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="contact-box">
+            <h2 class="contact-title">Still Need Help?</h2>
+            <div class="contact-info">
+                <strong>During Workshop:</strong> Raise your hand or use the chat
+            </div>
+            <div class="contact-info">
+                <strong>Email:</strong>
+                <a href="mailto:stephan@hcss.nl">stephan@hcss.nl</a> or
+                <a href="mailto:adam.stulberg@inta.gatech.edu">adam.stulberg@inta.gatech.edu</a>
+            </div>
+            <div class="contact-info">
+                <strong>GitHub Issues:</strong>
+                <a href="https://github.com/sdspieg/rubase-workshop-fletcher-2603/issues" target="_blank">Report a bug</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

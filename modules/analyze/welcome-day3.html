@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: ANALYZE - Welcome & Overview</title>
+    
+    <link rel="stylesheet" href="slides.css">
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../presentation-styles.css">
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide active">
+        <h1>Day 3: ANALYZE</h1>
+        <p class="subtitle">From Data to Insights with LLM-Powered Analysis</p>
+        <div class="quote-box" style="margin-top: 50px;">
+            <p style="color: #ffffff; opacity: 0.9;">RuBase Workshop Series</p>
+            <p style="color: #00ff7f; margin-top: 10px;">Advanced Research Methods with CLI Tools</p>
+        </div>
+        <p class="date-location">Thursday, March 13, 2026 • 5:30 PM - 8:30 PM</p>
+        <p class="date-location" style="color: #ffffff; opacity: 0.7; margin-top: 10px;">Fletcher School at Tufts University</p>
+        <div class="logo-container">
+            <span style="color: #00ffff; font-size: 1.2em;">HCSS</span>
+            <span style="color: #00ff7f; font-size: 1.2em;">•</span>
+            <span style="color: #00ffff; font-size: 1.2em;">Georgia Tech</span>
+        </div>
+    </div>
+
+    <!-- Slide 2: Workshop Overview -->
+    <div class="slide">
+        <span class="slide-number">2 / 11</span>
+        <h2>Workshop Journey</h2>
+
+        <div class="toolkit-grid">
+            <div class="toolkit-item">
+                <div class="toolkit-icon">🔨</div>
+                <div class="toolkit-title">Day 1: BUILD</div>
+                <p>Set up your toolkit</p>
+                <p style="font-size: 0.9em; opacity: 0.8;">CLI tools installed ✓</p>
+            </div>
+
+            <div class="toolkit-item">
+                <div class="toolkit-icon">📊</div>
+                <div class="toolkit-title">Day 2: COLLECT</div>
+                <p>Gather your data</p>
+                <p style="font-size: 0.9em; opacity: 0.8;">OpenAlex mastered ✓</p>
+            </div>
+
+            <div class="toolkit-item" style="border-color: #ffff00; background: rgba(255, 255, 0, 0.1);">
+                <div class="toolkit-icon">🎯</div>
+                <div class="toolkit-title" style="color: #ffff00;">Day 3: ANALYZE</div>
+                <p>Transform to insights</p>
+                <p style="font-size: 0.9em; color: #ffff00;">Tonight's mission!</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="font-size: 1.4em; color: #00ff7f;">From Questions → Data → Answers</p>
+            <p style="margin-top: 15px;">Using the most powerful research assistants available</p>
+        </div>
+    </div>
+
+    <!-- Slide 3: Teaching to Fish -->
+    <div class="slide">
+        <span class="slide-number">3 / 11</span>
+        <h2>Teaching to Fish: The Complete Philosophy</h2>
+
+        <div class="quote-box">
+            <p class="quote">"Give a man a fish and you feed him for a day.<br>
+            Teach a man to fish and you feed him for a lifetime."</p>
+            <p class="quote-attribution">— Chinese Proverb</p>
+        </div>
+
+        <div class="toolkit-grid" style="margin-top: 40px;">
+            <div class="toolkit-item">
+                <div class="toolkit-icon">🐟</div>
+                <div class="toolkit-title">The Fish</div>
+                <p>Scripts we provided:</p>
+                <ul style="text-align: left; font-size: 0.9em;">
+                    <li>fetch_openalex.py</li>
+                    <li>analyze_content.py</li>
+                </ul>
+                <p style="margin-top: 10px; color: #ffa500;">One-time solution</p>
+            </div>
+
+            <div class="toolkit-item">
+                <div class="toolkit-icon">🎣</div>
+                <div class="toolkit-title">The Fishing Rod</div>
+                <p>Exercises & modifications:</p>
+                <ul style="text-align: left; font-size: 0.9em;">
+                    <li>Adapting scripts</li>
+                    <li>Understanding logic</li>
+                </ul>
+                <p style="margin-top: 10px; color: #ffa500;">Reusable skills</p>
+            </div>
+
+            <div class="toolkit-item" style="border-color: #ffff00; background: rgba(255, 255, 0, 0.1);">
+                <div class="toolkit-icon">🤖</div>
+                <div class="toolkit-title" style="color: #ffff00;">The Fishing Guide</div>
+                <p><strong>CLI Tools:</strong></p>
+                <ul style="text-align: left; font-size: 0.9em;">
+                    <li>Claude Code</li>
+                    <li>Gemini CLI</li>
+                </ul>
+                <p style="margin-top: 10px; color: #ffff00;">Infinite solutions!</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p class="emphasis" style="font-size: 1.4em;">Your CLI assistant writes custom scripts on demand</p>
+            <p style="margin-top: 10px;">It's like having an expert programmer at your fingertips 24/7</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: Today's Schedule -->
+    <div class="slide">
+        <span class="slide-number">4 / 11</span>
+        <h2>Tonight's Schedule</h2>
+
+        <div class="schedule-block">
+            <div class="schedule-time">5:30 PM - 6:30 PM</div>
+            <div class="schedule-activity"><strong>Loose Ends & Review</strong></div>
+            <ul style="margin-left: 20px;">
+                <li>Address questions from yesterday</li>
+                <li>Complete any pending setup</li>
+                <li>Quick wins and clarifications</li>
+                <li>Voice input demonstration</li>
+            </ul>
+        </div>
+
+        <div class="schedule-block">
+            <div class="schedule-time">6:30 PM - 8:00 PM</div>
+            <div class="schedule-activity"><strong>Ottoman Bank Case Study</strong></div>
+            <ul style="margin-left: 20px;">
+                <li>Revisit yesterday's OpenAlex concepts</li>
+                <li>Complete pipeline walkthrough</li>
+                <li>596 papers: From discovery to analysis</li>
+                <li>Hands-on LLM classification</li>
+            </ul>
+        </div>
+
+        <div class="schedule-block">
+            <div class="schedule-time">8:00 PM - 8:30 PM</div>
+            <div class="schedule-activity"><strong>Wrap-up & Next Steps</strong></div>
+            <ul style="margin-left: 20px;">
+                <li>Q&A session</li>
+                <li>Resources for continued learning</li>
+                <li>Your research roadmap</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 5: CLI Integration -->
+    <div class="slide">
+        <span class="slide-number">5 / 11</span>
+        <h2>CLI Integration: Your AI Research Assistant</h2>
+
+        <div class="principle-card" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05)); border-color: #00ffff;">
+            <div class="principle-title" style="color: #00ffff;">The Game Changer: Voice Control</div>
+            <p>Don't type everything - speak your commands!</p>
+        </div>
+
+        <div class="cli-instructions">
+            <h3 style="text-align: center; margin-bottom: 25px;">How to Send Voice Messages to CLI</h3>
+
+            <div class="cli-platform">
+                <h4>🍎 macOS</h4>
+                <p>Press <span class="code-inline">Fn</span> key twice → Dictation mode</p>
+                <p>Speak naturally → Text appears in terminal → Press Enter</p>
+            </div>
+
+            <div class="cli-platform">
+                <h4>🪟 Windows</h4>
+                <p>Press <span class="code-inline">Win + H</span> → Voice typing activates</p>
+                <p>Dictate your command → Windows converts to text → Send to CLI</p>
+            </div>
+
+            <div class="cli-platform">
+                <h4>🐧 Linux</h4>
+                <p>Install tools: <span class="code-inline">nerd-dictation</span> or <span class="code-inline">whisper.cpp</span></p>
+                <p>Configure hotkeys → Speak → Text appears</p>
+            </div>
+
+            <div class="cli-platform">
+                <h4>📱 Universal Alternative</h4>
+                <p>Use phone's voice-to-text → Copy → Paste to terminal</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p class="emphasis">Live Demo: Watch me control Claude Code with voice!</p>
+        </div>
+    </div>
+
+    <!-- Slide 6: LLMs as a Jury -->
+    <div class="slide">
+        <span class="slide-number">6 / 11</span>
+        <h2>LLMs as a Jury: Universal Principle</h2>
+
+        <div class="principle-card">
+            <div class="principle-title">The Consensus Approach</div>
+            <p style="font-size: 1.3em; margin-bottom: 20px;">For EVERY important decision:</p>
+            <ol style="font-size: 1.2em; line-height: 2;">
+                <li>Get multiple <span class="emphasis">independent</span> solutions</li>
+                <li>Have LLMs <span class="emphasis">deliberate</span> amongst themselves</li>
+                <li>Extract <span class="emphasis">consensus</span> recommendations</li>
+                <li>You make the <span class="emphasis">final decision</span></li>
+            </ol>
+        </div>
+
+        <div class="tech-grid" style="margin-top: 30px;">
+            <div class="tech-card">
+                <h4>Applications</h4>
+                <ul>
+                    <li>Code solutions</li>
+                    <li>Research interpretations</li>
+                    <li>Data analysis approaches</li>
+                    <li>Taxonomy development</li>
+                    <li>Classification decisions</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4>Benefits</h4>
+                <ul>
+                    <li>Reduces hallucinations</li>
+                    <li>Catches edge cases</li>
+                    <li>Multiple perspectives</li>
+                    <li>Higher confidence</li>
+                    <li>Better decisions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Cost Warning:</strong> Running multiple LLMs for consensus can become expensive quickly. Use judiciously for critical decisions, not routine tasks.
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="font-size: 1.2em;">Example: 3 LLMs analyzing Ottoman Bank papers → 95% agreement on categories</p>
+        </div>
+    </div>
+
+    <!-- Slide 7: Discovery Methods -->
+    <div class="slide">
+        <span class="slide-number">7 / 11</span>
+        <h2>Discovery Methods Overview</h2>
+
+        <div class="tech-grid">
+            <div class="principle-card" style="margin: 0;">
+                <div class="principle-title" style="color: #00ffff;">Bibliographic vs Fulltext</div>
+                <p><strong>Bibliographic (OpenAlex):</strong></p>
+                <ul style="font-size: 0.95em;">
+                    <li>Metadata: titles, abstracts, authors</li>
+                    <li>Citations and references</li>
+                    <li>Fast and comprehensive</li>
+                    <li>596 Ottoman Bank papers found!</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Fulltext:</strong></p>
+                <ul style="font-size: 0.95em;">
+                    <li>Complete article content</li>
+                    <li>Deep textual analysis</li>
+                    <li>Often behind paywalls</li>
+                </ul>
+            </div>
+
+            <div class="principle-card" style="margin: 0;">
+                <div class="principle-title" style="color: #00ff7f;">Corpora & Databases</div>
+                <p><strong>Pre-built Collections:</strong></p>
+                <ul style="font-size: 0.95em;">
+                    <li>Domain-specific databases</li>
+                    <li>Government repositories</li>
+                    <li>Organization archives</li>
+                    <li>Historical collections</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Official Sources:</strong></p>
+                <ul style="font-size: 0.95em;">
+                    <li>Central bank archives</li>
+                    <li>Ministry publications</li>
+                    <li>International organizations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(0, 255, 255, 0.1); border-radius: 10px;">
+            <p class="emphasis" style="font-size: 1.3em;">Key Insight: Start with bibliographic discovery</p>
+            <p style="margin-top: 10px;">Then selectively acquire fulltext for deep analysis</p>
+        </div>
+    </div>
+
+    <!-- Slide 8: Advanced Discovery Tools -->
+    <div class="slide">
+        <span class="slide-number">8 / 11</span>
+        <h2>Advanced Discovery Tools</h2>
+
+        <div class="principle-card">
+            <div class="principle-title">Web Scraping with ParseHub</div>
+            <p style="font-size: 1.2em; margin-bottom: 15px;">Transform any website into structured data</p>
+            <ul>
+                <li><strong>Visual Selection:</strong> Click what you want to extract</li>
+                <li><strong>Pattern Recognition:</strong> Automatically finds similar elements</li>
+                <li><strong>Pagination:</strong> Handles multi-page results</li>
+                <li><strong>Export:</strong> CSV, JSON, Excel formats</li>
+            </ul>
+            <p style="margin-top: 15px; color: #00ff7f;">Perfect for: News articles, forum posts, product listings, research databases</p>
+        </div>
+
+        <div class="principle-card" style="background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0.05)); border-color: #ffff00;">
+            <div class="principle-title" style="color: #ffff00;">Google Search at Scale</div>
+            <p style="font-size: 1.2em; margin-bottom: 15px;">Beyond manual searching</p>
+            <ul>
+                <li><strong>Programmable Search Engine:</strong> Custom search parameters</li>
+                <li><strong>API Access:</strong> Thousands of queries automated</li>
+                <li><strong>Advanced Operators:</strong> site:, filetype:, intitle:</li>
+                <li><strong>Time Filtering:</strong> Historical data discovery</li>
+            </ul>
+            <p style="margin-top: 15px; color: #ffff00;">Combine with ParseHub for comprehensive web data collection</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <p>These tools turn the entire web into your research database</p>
+        </div>
+    </div>
+
+    <!-- Slide 9: Key Technologies -->
+    <div class="slide">
+        <span class="slide-number">9 / 11</span>
+        <h2>Key Technologies Recap</h2>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h4 style="color: #00ffff; font-size: 1.4em;">🔍 Discovery</h4>
+                <ul>
+                    <li><strong>OpenAlex API:</strong> 250M+ publications</li>
+                    <li><strong>The Lens:</strong> Patents + papers</li>
+                    <li><strong>ParseHub:</strong> Web scraping</li>
+                    <li><strong>Google PSE:</strong> Custom search</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4 style="color: #00ff7f; font-size: 1.4em;">🤖 Analysis</h4>
+                <ul>
+                    <li><strong>Claude Code:</strong> Your AI pair programmer</li>
+                    <li><strong>Gemini CLI:</strong> Free tier available</li>
+                    <li><strong>OpenAI Codex:</strong> Professional features</li>
+                    <li><strong>Python:</strong> Data processing</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4 style="color: #ffff00; font-size: 1.4em;">📚 Management</h4>
+                <ul>
+                    <li><strong>Git:</strong> Version control everything</li>
+                    <li><strong>Zotero:</strong> Reference management</li>
+                    <li><strong>Tana:</strong> Knowledge graphs</li>
+                    <li><strong>Markdown:</strong> Documentation</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h4 style="color: #ffa500; font-size: 1.4em;">🔗 Integration</h4>
+                <ul>
+                    <li><strong>Voice Input:</strong> Speak commands</li>
+                    <li><strong>Auto-documentation:</strong> CLI → Tana</li>
+                    <li><strong>Pipeline automation:</strong> End-to-end</li>
+                    <li><strong>Cross-verification:</strong> LLM jury</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p class="emphasis" style="font-size: 1.3em;">All tools are installed and ready to use!</p>
+        </div>
+    </div>
+
+    <!-- Slide 10: Getting Started -->
+    <div class="slide">
+        <span class="slide-number">10 / 11</span>
+        <h2>Getting Started Checklist</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+            <div class="principle-card">
+                <div class="principle-title" style="color: #00ff7f;">✅ Prerequisites Verified</div>
+                <ul style="font-size: 1.1em; line-height: 2;">
+                    <li>☑️ Python 3.8+ installed</li>
+                    <li>☑️ Git configured</li>
+                    <li>☑️ CLI tools installed</li>
+                    <li>☑️ API keys set up</li>
+                    <li>☑️ Workshop materials synced</li>
+                </ul>
+            </div>
+
+            <div class="principle-card">
+                <div class="principle-title" style="color: #00ffff;">📁 Resource Locations</div>
+                <ul style="font-size: 1.1em; line-height: 2;">
+                    <li>Scripts: Day3_Workshop_Package/</li>
+                    <li>Data: ottoman_bank_papers.json</li>
+                    <li>Docs: OTTOMAN_BANK_GUIDE.md</li>
+                    <li>Slides: modules/analyze/</li>
+                    <li>GitHub: sdspieg/rubase-workshop</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="principle-card" style="margin-top: 30px;">
+            <div class="principle-title" style="color: #ffff00;">🆘 Support Contacts</div>
+            <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                <div>
+                    <p><strong>Technical Support:</strong></p>
+                    <p>Stephan De Spiegeleire</p>
+                    <p style="color: #00ffff;">stephan@hcss.nl</p>
+                </div>
+                <div>
+                    <p><strong>Academic Lead:</strong></p>
+                    <p>Adam Stulberg</p>
+                    <p style="color: #00ffff;">adam.stulberg@inta.gatech.edu</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <p style="font-size: 1.2em;">Ready? Let's dive into the Ottoman Bank case study!</p>
+        </div>
+    </div>
+
+    <!-- Slide 11: Tonight's Focus -->
+    <div class="slide">
+        <span class="slide-number">11 / 11</span>
+        <h2>Tonight's Focus: Ottoman Bank Journey</h2>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 30px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 3em;">❓</div>
+                    <p style="color: #00ffff; font-weight: bold;">Question</p>
+                    <p style="font-size: 0.9em;">"Ottoman Bank"</p>
+                </div>
+                <div style="font-size: 2em; color: #00ff7f;">→</div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3em;">🔍</div>
+                    <p style="color: #00ffff; font-weight: bold;">Discovery</p>
+                    <p style="font-size: 0.9em;">596 papers</p>
+                </div>
+                <div style="font-size: 2em; color: #00ff7f;">→</div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3em;">📊</div>
+                    <p style="color: #00ffff; font-weight: bold;">Analysis</p>
+                    <p style="font-size: 0.9em;">LLM classification</p>
+                </div>
+                <div style="font-size: 2em; color: #00ff7f;">→</div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3em;">💡</div>
+                    <p style="color: #ffff00; font-weight: bold;">Insights</p>
+                    <p style="font-size: 0.9em;">Your findings!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-box" style="margin-top: 50px;">
+            <p style="font-size: 1.4em; color: #00ff7f;">Building on Yesterday's Foundation</p>
+            <p style="margin-top: 15px;">We'll revisit OpenAlex queries, data structures, and filtering</p>
+            <p style="margin-top: 10px;">Then add the power of LLM analysis</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <p class="emphasis" style="font-size: 1.6em;">Your Turn to Fish!</p>
+            <p style="margin-top: 15px; font-size: 1.2em;">With your CLI assistant by your side</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <button class="nav-btn" onclick="window.location.href='../../index.html'">🏠 Home</button>
+        <button class="nav-btn" onclick="window.location.href='index.html'">📚 Module 3</button>
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <span id="slide-indicator" style="color: white; font-weight: bold; margin: 0 15px;">1 / 11</span>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 11;
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('slide');
+
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+
+            slides[currentSlide - 1].classList.add('active');
+
+            // Update navigation
+            document.getElementById('slide-indicator').textContent = `${currentSlide} / ${totalSlides}`;
+
+            // Update button states
+            const prevBtn = document.querySelector('.nav-btn:nth-child(3)');
+            const nextBtn = document.querySelector('.nav-btn:last-child');
+
+            if (prevBtn && nextBtn) {
+                prevBtn.disabled = currentSlide === 1;
+                nextBtn.disabled = currentSlide === totalSlides;
+            }
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            }
+            if (e.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>

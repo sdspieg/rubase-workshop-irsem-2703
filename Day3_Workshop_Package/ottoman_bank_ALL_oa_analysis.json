@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "analyzed_file": "ottoman_bank_ALL.json",
+    "analysis_date": "2026-03-13T01:41:11.917899",
+    "total_papers": 21397
+  },
+  "statistics": {
+    "open_access_count": 21153,
+    "open_access_percent": 98.85965322241435,
+    "closed_access_count": 244,
+    "repository_count": 12038,
+    "downloadable_count": 21148
+  },
+  "oa_status_distribution": {
+    "bronze": 2996,
+    "green": 7500,
+    "hybrid": 2315,
+    "diamond": 5143,
+    "gold": 3199,
+    "closed": 244
+  },
+  "oa_type_distribution": {
+    "Bronze OA (Free to read)": 2996,
+    "Green OA (Repository)": 7500,
+    "Hybrid OA": 2315,
+    "Other (diamond)": 5143,
+    "Gold OA (Publisher)": 3199
+  },
+  "sample_oa_urls": [
+    "https://elibrary.worldbank.org/doi/epdf/10.1596/1813-9450-2462",
+    "https://www.intechopen.com/chapter/pdf-download/61823",
+    "https://link.springer.com/content/pdf/10.1007/BF02686330.pdf",
+    "http://ir.unimas.my/958/1/ANT13-177-John-Taskinsoy-Full-Paper%20%281%29.pdf",
+    "https://digitalscholarship.unlv.edu/history_fac_articles/1",
+    "https://www.aeaweb.org/articles/pdf/doi/10.1257/jel.53.4.898",
+    "https://journal.culanth.org/index.php/ca/article/download/3860/423",
+    "https://academic.oup.com/gji/article-pdf/96/2/311/1680298/96-2-311.pdf",
+    "https://research.manchester.ac.uk/en/publications/a72ad4ff-24c7-4061-a00b-a74f5e948054",
+    "https://ejournals.epublishing.ekt.gr/index.php/historicalReview/article/download/4020/3810",
+    "http://rcin.org.pl/Content/54776/PDF/WA308_74908_P244_Remains-of-the-Negle_I.pdf",
+    "https://doi.org/10.4000/ejts.4411",
+    "https://link.springer.com/content/pdf/bfm:978-1-137-10596-7/1?pdf=chapter%20toc",
+    "https://doi.org/10.32602/jafas.2019.37",
+    "http://dl.acm.org/ft_gateway.cfm?id=1699627&type=pdf",
+    "http://journals.openedition.org/cdlm/128",
+    "https://doi.org/10.3386/w13608",
+    "https://www.sciencedirect.com/science/article/pii/S0014292108000998",
+    "https://www.aeaweb.org/articles/pdf/doi/10.1257/jep.13.3.23",
+    "https://www.aeaweb.org/articles/pdf/doi/10.1257/0895330027120"
+  ]
+}

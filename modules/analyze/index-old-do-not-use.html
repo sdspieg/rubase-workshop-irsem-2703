@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: ANALYZE - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+        }
+
+        /* Partner Logos Header */
+        .partner-logos {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .partner-logos a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logos a:hover {
+            opacity: 1;
+        }
+
+        .partner-logos img {
+            height: 60px;
+        }
+
+        .slide {
+            width: 100%;
+            height: calc(100vh - 120px);
+            max-height: calc(100vh - 120px);
+            padding: 40px 20px 5px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--bright-green);
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 300px 1fr 350px;
+            gap: 30px;
+            height: calc(100vh - 180px);
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: rgba(20, 40, 71, 0.4);
+            border: 2px solid var(--bright-green);
+            border-radius: 15px;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            color: var(--bright-green);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-item {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: rgba(0, 255, 127, 0.05);
+            border: 1px solid var(--bright-green);
+            border-radius: 8px;
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(0, 255, 127, 0.15);
+            color: var(--bright-white);
+            transform: translateX(5px);
+        }
+
+        .sidebar-item.active {
+            background: rgba(0, 255, 127, 0.2);
+            color: var(--bright-green);
+            font-weight: 600;
+        }
+
+        .sidebar-item.highlight {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: var(--bright-cyan);
+            color: var(--bright-cyan);
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: rgba(20, 40, 71, 0.3);
+            border: 2px solid var(--bright-cyan);
+            border-radius: 15px;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        /* Resources */
+        .resources {
+            background: rgba(20, 40, 71, 0.4);
+            border: 2px solid var(--bright-purple);
+            border-radius: 15px;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .resources h3 {
+            color: var(--bright-purple);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .resource-item {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 12px;
+            background: rgba(147, 112, 219, 0.1);
+            border: 1px solid var(--bright-purple);
+            border-radius: 8px;
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            background: rgba(147, 112, 219, 0.2);
+            color: var(--bright-white);
+        }
+
+        .top-buttons {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 101;
+            display: flex;
+            gap: 15px;
+        }
+
+        .back-btn {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            background: rgba(20, 40, 71, 0.9);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 255, 0.15);
+        }
+
+        .coming-soon {
+            background: linear-gradient(135deg, rgba(0,255,127,0.1), rgba(0,255,127,0.05));
+            border: 3px solid var(--bright-green);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .coming-soon h2 {
+            color: var(--bright-green);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon p {
+            color: var(--light-gray);
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .available-banner {
+            background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(0,255,255,0.1));
+            border: 2px solid var(--bright-cyan);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .available-banner p {
+            color: var(--bright-cyan);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .available-banner a {
+            color: var(--bright-cyan);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                grid-template-columns: 250px 1fr;
+            }
+            .resources {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partner Logos Header -->
+    <div class="partner-logos">
+        <a href="https://hcss.nl" target="_blank" title="The Hague Centre for Strategic Studies">
+            <img src="../openalex/hcss_logo.svg" alt="HCSS Logo">
+        </a>
+        <a href="https://hcss.nl/rubase/" target="_blank" title="RuBase">
+            <img src="../openalex/rubase_logo.svg" alt="RuBase Logo">
+        </a>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="slide">
+            <h2 class="slide-title">Day 3: ANALYZE</h2>
+            <div style="text-align: center; margin-top: -5px; margin-bottom: 15px;">
+                <span style="color: var(--bright-green); font-size: 1.4rem; font-weight: 700;">From Frameworks to Findings</span>
+            </div>
+
+            <div class="content-wrapper">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <h3>Module Contents</h3>
+                    <a href="#overview" class="sidebar-item active">📋 Overview</a>
+                    <a href="welcome-day3.html" class="sidebar-item highlight">👋 Welcome</a>
+                    <a href="ottoman-bank-case-study.html" class="sidebar-item highlight">📊 Ottoman Bank</a>
+                    <a href="cli-llms-guide.html" class="sidebar-item highlight">🤖 CLI Guide</a>
+                    <a href="deep-research-guide.html" class="sidebar-item highlight">🔍 Deep Research</a>
+                    <a href="llm-selection-guide.html" class="sidebar-item highlight">🎯 LLM Selection</a>
+                    <a href="wacko-presentation.html" class="sidebar-item highlight">🎯 WACKO</a>
+                    <a href="#taxonomy" class="sidebar-item">Taxonomy Dev</a>
+                    <a href="#analysis" class="sidebar-item">Analysis Methods</a>
+                    <a href="#visualization" class="sidebar-item">Visualization</a>
+                    <a href="#exercises" class="sidebar-item">Exercises</a>
+                </div>
+
+                <!-- Main Content -->
+                <div class="main-content">
+                    <div style="background: linear-gradient(135deg, rgba(0,255,127,0.1), rgba(0,255,127,0.05)); border: 3px solid var(--bright-green); border-radius: 20px; padding: 40px; text-align: center;">
+                        <h2 style="color: var(--bright-green); font-size: 2.5rem; margin-bottom: 20px;">✅ Module 3 ANALYZE: Complete & Ready!</h2>
+                        <p style="color: var(--light-gray); font-size: 1.3rem; line-height: 1.6; margin-bottom: 30px;">All presentations and materials are now available for Day 3</p>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+                            <div style="background: rgba(0,255,255,0.1); border: 1px solid #00ffff; padding: 20px; border-radius: 10px;">
+                                <h3 style="color: #00ffff; margin-bottom: 10px;">🎯 Core Content</h3>
+                                <p style="font-size: 0.9rem;">Complete research pipeline from data collection to insights</p>
+                            </div>
+                            <div style="background: rgba(255,255,0,0.1); border: 1px solid #ffff00; padding: 20px; border-radius: 10px;">
+                                <h3 style="color: #ffff00; margin-bottom: 10px;">🤖 CLI Mastery</h3>
+                                <p style="font-size: 0.9rem;">Advanced techniques for AI-powered research automation</p>
+                            </div>
+                            <div style="background: rgba(255,165,0,0.1); border: 1px solid #ffa500; padding: 20px; border-radius: 10px;">
+                                <h3 style="color: #ffa500; margin-bottom: 10px;">📊 Real Case Study</h3>
+                                <p style="font-size: 0.9rem;">596 Ottoman Bank papers: From discovery to classification</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="available-banner" style="margin-top: 30px;">
+                        <p style="color: var(--bright-cyan); font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">📚 Available Presentations</p>
+                        <div style="text-align: left;">
+                            <p style="font-size: 1rem; margin: 8px 0;">• <a href="welcome-day3.html" style="color: #00ffff;">Day 3 Welcome</a>: Schedule, philosophy, and CLI voice demo</p>
+                            <p style="font-size: 1rem; margin: 8px 0;">• <a href="ottoman-bank-case-study.html" style="color: #00ffff;">Ottoman Bank Case Study</a>: Complete pipeline (16 slides)</p>
+                            <p style="font-size: 1rem; margin: 8px 0;">• <a href="cli-llms-guide.html" style="color: #00ffff;">CLI LLMs Guide</a>: Master Claude Code, Gemini & OpenAI (16 slides)</p>
+                            <p style="font-size: 1rem; margin: 8px 0;">• <a href="deep-research-guide.html" style="color: #00ffff;">Deep Research Guide</a>: Cross-LLM capabilities (24 slides)</p>
+                            <p style="font-size: 1rem; margin: 8px 0;">• <a href="llm-selection-guide.html" style="color: #00ffff;">LLM Selection Guide</a>: Benchmarks & model choice (10 slides)</p>
+                            <p style="font-size: 1rem; margin: 8px 0;">• <a href="wacko-presentation.html" style="color: #00ffff;">WACKO Analysis</a>: Strategic deterrence findings (5 slides)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="resources">
+                    <h3>Resources</h3>
+
+                    <!-- Presentations Section -->
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #00ffff; font-size: 1.1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">📚 Presentations</h4>
+                        <a href="ottoman-bank-case-study.html" class="resource-item">📊 Ottoman Bank Case Study (16 slides)</a>
+                        <a href="cli-llms-guide.html" class="resource-item">🤖 CLI LLMs Guide (16 slides)</a>
+                        <a href="deep-research-guide.html" class="resource-item">🔍 Deep Research Across LLMs (24 slides)</a>
+                        <a href="wacko-presentation.html" class="resource-item">🎯 WACKO Strategic Analysis (5 slides)</a>
+                    </div>
+
+                    <!-- Scripts & Data Section -->
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #00ff7f; font-size: 1.1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">🛠️ Scripts & Data</h4>
+                        <a href="../../Day3_Workshop_Package/fetch_openalex.py" class="resource-item" target="_blank">🐍 OpenAlex Fetcher Script</a>
+                        <a href="../../Day3_Workshop_Package/analyze_downloaded_content.py" class="resource-item" target="_blank">📝 Content Analysis Script</a>
+                        <a href="../../Day3_Workshop_Package/ottoman_bank_taxonomy.tsv" class="resource-item" target="_blank">📋 Ottoman Bank Taxonomy</a>
+                    </div>
+
+                    <!-- Documentation Section -->
+                    <div>
+                        <h4 style="color: #ffff00; font-size: 1.1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">📖 Documentation</h4>
+                        <a href="../../Day3_Workshop_Package/OTTOMAN_BANK_COMPLETE_GUIDE.md" class="resource-item" target="_blank">📖 Complete Ottoman Bank Guide</a>
+                        <a href="#" class="resource-item">📚 Additional Resources (Coming)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Navigation Button -->
+        <div class="top-buttons">
+            <button class="back-btn" onclick="window.location.href='../workshop-overview/index.html'">
+                ← Back to Overview
+            </button>
+        </div>
+    </div>
+</body>
+</html>

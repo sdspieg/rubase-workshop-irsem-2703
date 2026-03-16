@@ -1,0 +1,444 @@
+/**
+ * RuBase Workshop Unified Presentation Styles
+ * ============================================
+ * Standard CSS for all workshop presentations
+ * Font: Titillium Web
+ * Created: March 2026
+ */
+
+/* ==================== IMPORTS ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
+
+/* ==================== CSS VARIABLES ==================== */
+:root {
+    /* Primary Colors */
+    --primary-bg: #0a192f;        /* Deep blue background */
+    --secondary-bg: #112240;       /* Lighter blue for cards */
+    --tertiary-bg: #1e293b;        /* Alternative card background */
+
+    /* Text Colors */
+    --text-primary: #ccd6f6;       /* Light blue-white for main text */
+    --text-secondary: #8892b0;     /* Muted blue-gray for secondary text */
+    --text-bright: #64ffda;        /* Bright cyan for highlights */
+
+    /* Accent Colors */
+    --accent-cyan: #00ffff;        /* Bright cyan */
+    --accent-green: #00ff7f;       /* Spring green */
+    --accent-yellow: #ffd700;      /* Gold */
+    --accent-orange: #ff6b35;      /* Orange */
+    --accent-purple: #b794f4;      /* Light purple */
+    --accent-pink: #ff00ff;        /* Magenta */
+
+    /* Gradients */
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #00ffff 0%, #0099ff 100%);
+    --gradient-3: linear-gradient(135deg, #ffd700 0%, #ff6b35 100%);
+    --gradient-4: linear-gradient(135deg, #00ff7f 0%, #00ffff 100%);
+    --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    --gradient-vibrant: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+
+    /* Slide Backgrounds */
+    --slide-bg-1: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    --slide-bg-2: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    --slide-bg-3: linear-gradient(135deg, #232526 0%, #414345 100%);
+    --slide-bg-4: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+
+    /* Typography */
+    --font-primary: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', monospace;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-round: 50%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 20px rgba(100, 255, 218, 0.5);
+}
+
+/* ==================== BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--primary-bg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================== SLIDE CONTAINER ==================== */
+.slide-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    width: 92%;
+    height: 88vh;
+    padding: var(--spacing-2xl);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--slide-bg-1);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    animation: slideIn 0.5s ease-out;
+}
+
+.slide.active {
+    display: flex;
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text-bright);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-bottom: var(--spacing-md);
+}
+
+h4 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+}
+
+strong {
+    font-weight: 700;
+    color: var(--text-bright);
+}
+
+em {
+    font-style: italic;
+    color: var(--accent-yellow);
+}
+
+/* ==================== LISTS ==================== */
+ul, ol {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-xl);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+li strong {
+    color: var(--text-primary);
+}
+
+/* ==================== CARDS & CONTAINERS ==================== */
+.card {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    border-color: var(--accent-cyan);
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(100, 126, 234, 0.1));
+    border: 2px solid var(--accent-cyan);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-2);
+}
+
+/* ==================== NAVIGATION ==================== */
+.nav-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    background: rgba(30, 41, 59, 0.95);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 50px;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+}
+
+.nav-btn {
+    background: var(--gradient-2);
+    color: var(--primary-bg);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md), 0 0 15px rgba(100, 255, 218, 0.5);
+}
+
+.nav-btn:active {
+    transform: scale(0.98);
+}
+
+#slide-indicator {
+    color: var(--text-bright);
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0 var(--spacing-md);
+}
+
+/* ==================== CODE BLOCKS ==================== */
+pre {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--accent-cyan);
+    margin: var(--spacing-md) 0;
+}
+
+code {
+    font-family: var(--font-mono);
+    background: rgba(100, 255, 218, 0.1);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    color: var(--accent-yellow);
+    font-size: 0.9em;
+}
+
+/* ==================== TABLES ==================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-lg) 0;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+th {
+    background: var(--gradient-2);
+    color: var(--primary-bg);
+    padding: var(--spacing-md);
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+}
+
+td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+    color: var(--text-secondary);
+}
+
+tr:hover {
+    background: rgba(100, 255, 218, 0.05);
+}
+
+/* ==================== SLIDE NUMBERS ==================== */
+.slide-number {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+.text-center {
+    text-align: center;
+}
+
+.text-bright {
+    color: var(--text-bright) !important;
+}
+
+.text-accent {
+    color: var(--accent-cyan) !important;
+}
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xl); }
+
+.gradient-text {
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .slide {
+        width: 95%;
+        height: 92vh;
+        padding: var(--spacing-lg);
+    }
+
+    .nav-container {
+        bottom: 20px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+
+    .nav-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: 0.85rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .nav-container {
+        display: none;
+    }
+
+    .slide {
+        box-shadow: none;
+        background: white;
+        color: black;
+    }
+
+    * {
+        color: black !important;
+        background: white !important;
+    }
+}

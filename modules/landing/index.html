@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RuBase Methods Workshop - Fletcher - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+        }
+
+        /* Partner Logos Header */
+        .partner-logos {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .partner-logos a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logos a:hover {
+            opacity: 1;
+        }
+
+        .partner-logos img {
+            height: 60px;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: calc(100vh - 120px);
+            max-height: calc(100vh - 120px);
+            padding: 40px 20px 5px 20px;
+            animation: fadeIn 0.5s ease-in;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--bright-cyan);
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .visual-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(20, 40, 71, 0.9);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 2px solid var(--bright-cyan);
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-accent);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--bright-cyan);
+            color: var(--dark-bg);
+            transform: scale(1.1);
+        }
+
+        .slide-indicator {
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-accent);
+            border: 2px solid var(--bright-cyan);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: var(--bright-cyan);
+            transform: scale(1.3);
+        }
+
+        .top-buttons {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 101;
+            display: flex;
+            gap: 15px;
+        }
+
+        .exit-btn, .back-btn {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            background: rgba(20, 40, 71, 0.9);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .exit-btn:hover, .back-btn:hover {
+            background: rgba(0, 255, 255, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Link Buttons */
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--bright-purple), var(--bright-cyan));
+            color: var(--dark-bg);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .link-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Partner Logos Header -->
+    <div class="partner-logos">
+        <a href="https://hcss.nl" target="_blank" title="The Hague Centre for Strategic Studies">
+            <img src="../openalex/hcss_logo.svg" alt="HCSS Logo">
+        </a>
+        <a href="https://hcss.nl/rubase/" target="_blank" title="RuBase">
+            <img src="../openalex/rubase_logo.svg" alt="RuBase Logo">
+        </a>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Slide 0: Welcome -->
+        <div class="slide active">
+            <h1 class="slide-title">Welcome to RuBase Methods Workshop - Fletcher</h1>
+            <div style="text-align: center; margin-top: -5px; margin-bottom: 15px;">
+                <span style="color: var(--bright-cyan); font-size: 1.4rem; font-weight: 700;">AI-Augmented Research at The Fletcher School</span>
+            </div>
+
+            <div class="visual-container">
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                        <!-- Instructors Box -->
+                        <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.1)); border: 2px solid var(--bright-cyan); border-radius: 20px; padding: 30px;">
+                            <div style="font-size: 1.8rem; color: var(--bright-cyan); margin-bottom: 20px; font-weight: 700;">Your Instructors</div>
+                            <div style="margin-bottom: 15px;">
+                                <div style="color: var(--bright-yellow); font-size: 1.3rem; font-weight: 600;">Stephan De Spiegeleire</div>
+                                <div style="color: var(--light-gray); font-size: 0.9rem;">Principal Scientist, HCSS</div>
+                            </div>
+                            <div>
+                                <div style="color: var(--bright-green); font-size: 1.3rem; font-weight: 600;">Adam Stulberg</div>
+                                <div style="color: var(--light-gray); font-size: 0.9rem;">Chair, Sam Nunn School, Georgia Tech</div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Links Box -->
+                        <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(147,112,219,0.1)); border: 2px solid var(--bright-purple); border-radius: 20px; padding: 30px;">
+                            <div style="font-size: 1.8rem; color: var(--bright-purple); margin-bottom: 20px; font-weight: 700;">Quick Links</div>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <a href="../ingest/index.html" class="link-button" style="text-align: center;">🚀 Start Workshop</a>
+                                <a href="../resources/index.html" class="link-button" style="text-align: center;">📚 All Resources</a>
+                                <a href="../techhelp/index.html" class="link-button" style="text-align: center;">🛠️ Tech Help</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 1: 3-Day Schedule -->
+        <div class="slide">
+            <h2 class="slide-title">3-Day Workshop Schedule</h2>
+
+            <div class="visual-container">
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <!-- Day 1 -->
+                        <div style="background: rgba(0,255,255,0.1); border: 3px solid var(--bright-cyan); border-radius: 20px; padding: 25px;">
+                            <div style="color: var(--bright-cyan); font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">DAY 1: DISCOVER</div>
+                            <div style="color: var(--bright-yellow); margin-bottom: 15px;">Tuesday, March 11</div>
+                            <div style="color: var(--light-gray); font-size: 0.95rem; line-height: 1.6;">
+                                <strong>5:30-8:30 PM</strong><br>
+                                • Welcome & Setup<br>
+                                • RuBase Overview<br>
+                                • Bibliometrics Fundamentals<br>
+                                • OpenAlex Deep Dive<br>
+                                • Corpus Building
+                            </div>
+                        </div>
+
+                        <!-- Day 2 -->
+                        <div style="background: rgba(148,0,211,0.1); border: 3px solid var(--bright-purple); border-radius: 20px; padding: 25px;">
+                            <div style="color: var(--bright-purple); font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">DAY 2: FRAME</div>
+                            <div style="color: var(--bright-yellow); margin-bottom: 15px;">Thursday, March 13</div>
+                            <div style="color: var(--light-gray); font-size: 0.95rem; line-height: 1.6;">
+                                <strong>5:30-8:30 PM</strong><br>
+                                • Taxonomy Theory<br>
+                                • Building Categories<br>
+                                • Hands-on Workshop<br>
+                                • Advanced Techniques<br>
+                                • Group Exercise
+                            </div>
+                        </div>
+
+                        <!-- Day 3 -->
+                        <div style="background: rgba(0,255,0,0.1); border: 3px solid var(--bright-green); border-radius: 20px; padding: 25px;">
+                            <div style="color: var(--bright-green); font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">DAY 3: ANALYZE</div>
+                            <div style="color: var(--bright-yellow); margin-bottom: 15px;">Friday, March 14</div>
+                            <div style="color: var(--light-gray); font-size: 0.95rem; line-height: 1.6;">
+                                <strong>5:30-8:30 PM</strong><br>
+                                • LLM Classification<br>
+                                • Data Visualization<br>
+                                • Statistical Analysis<br>
+                                • Research Outputs<br>
+                                • Final Presentations
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Resources & Materials -->
+        <div class="slide">
+            <h2 class="slide-title">Resources & Materials</h2>
+
+            <div class="visual-container">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                        <!-- Documentation -->
+                        <div style="background: var(--dark-accent); border: 2px solid var(--bright-cyan); border-radius: 20px; padding: 30px;">
+                            <div style="font-size: 1.6rem; color: var(--bright-cyan); margin-bottom: 20px; font-weight: 700;">📚 Documentation</div>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <a href="../mdviewer/index.html?file=DAY_1_ACTION_PLAN.md&return=../landing/index.html" class="link-button">Day 1 Action Plan</a>
+                                <a href="../mdviewer/index.html?file=RESPONSIVENESS_ISSUES.md&return=../landing/index.html" class="link-button">Technical Notes</a>
+                                <a href="https://github.com/sdspieg/rubase-workshop-fletcher-2603" class="link-button">GitHub Repository</a>
+                            </div>
+                        </div>
+
+                        <!-- Presentations -->
+                        <div style="background: var(--dark-accent); border: 2px solid var(--bright-purple); border-radius: 20px; padding: 30px;">
+                            <div style="font-size: 1.6rem; color: var(--bright-purple); margin-bottom: 20px; font-weight: 700;">🎯 Presentations</div>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <a href="../../presentations/RuBase_Overview.pptx" class="link-button">RuBase Overview</a>
+                                <a href="../../presentations/Taxonomy_Workshop.pptx" class="link-button">Taxonomy Workshop</a>
+                                <a href="../../presentations/LLM_Classification.pptx" class="link-button">LLM Classification</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Technical Help -->
+        <div class="slide">
+            <h2 class="slide-title">Technical Help & Troubleshooting</h2>
+
+            <div class="visual-container">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(255,99,71,0.1)); border: 2px solid var(--bright-red); border-radius: 20px; padding: 40px;">
+                        <div style="font-size: 1.8rem; color: var(--bright-red); margin-bottom: 30px; font-weight: 700; text-align: center;">Common Issues & Solutions</div>
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <a href="../techhelp/index.html" class="link-button">🔧 Open Full Help Center</a>
+                        </div>
+
+                        <div style="display: grid; gap: 20px;">
+                            <div style="background: var(--dark-bg); border-left: 4px solid var(--bright-yellow); padding: 20px; border-radius: 10px;">
+                                <div style="color: var(--bright-yellow); font-weight: 600; margin-bottom: 10px;">Can't access Dropbox folder?</div>
+                                <div style="color: var(--light-gray);">Check your email for the shared link. Contact Adam or Stephan for access.</div>
+                            </div>
+
+                            <div style="background: var(--dark-bg); border-left: 4px solid var(--bright-green); padding: 20px; border-radius: 10px;">
+                                <div style="color: var(--bright-green); font-weight: 600; margin-bottom: 10px;">API Key Issues?</div>
+                                <div style="color: var(--light-gray);">Make sure you've registered at openalex.org and lens.org for free API keys.</div>
+                            </div>
+
+                            <div style="background: var(--dark-bg); border-left: 4px solid var(--bright-cyan); padding: 20px; border-radius: 10px;">
+                                <div style="color: var(--bright-cyan); font-weight: 600; margin-bottom: 10px;">Display Problems?</div>
+                                <div style="color: var(--light-gray);">Try refreshing (F5) or use Chrome/Firefox for best compatibility.</div>
+                            </div>
+
+                            <div style="background: var(--dark-bg); border-left: 4px solid var(--bright-purple); padding: 20px; border-radius: 10px;">
+                                <div style="color: var(--bright-purple); font-weight: 600; margin-bottom: 10px;">Need Help?</div>
+                                <div style="color: var(--light-gray);">Raise your hand or message in the chat. We're here to help!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">←</button>
+            <div class="slide-indicator" id="slideIndicator"></div>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">→</button>
+        </div>
+
+        <!-- Top Navigation Buttons -->
+        <div class="top-buttons">
+            <button class="back-btn" onclick="window.location.href='../../index.html'">
+                🏠 Home
+            </button>
+            <button class="exit-btn" onclick="window.location.href='../ingest/index.html'">
+                Day 1: Ingest →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function initSlideshow() {
+            createIndicators();
+            updateSlideVisibility();
+            setupKeyboardNav();
+        }
+
+        function createIndicators() {
+            const indicatorContainer = document.getElementById('slideIndicator');
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'indicator-dot';
+                dot.onclick = () => goToSlide(i);
+                indicatorContainer.appendChild(dot);
+            }
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            updateSlideVisibility();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlideVisibility();
+        }
+
+        function updateSlideVisibility() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+
+            document.getElementById('prevBtn').style.opacity = currentSlide === 0 ? '0.5' : '1';
+            document.getElementById('nextBtn').style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+        }
+
+        function setupKeyboardNav() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') changeSlide(-1);
+                if (e.key === 'ArrowRight') changeSlide(1);
+                if (e.key === 'Escape') window.location.href = '../../index.html';
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', initSlideshow);
+    </script>
+</body>
+</html>

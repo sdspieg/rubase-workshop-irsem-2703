@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which LLM Should You Use? A Researcher's Guide</title>
+    <link rel="stylesheet" href="slides.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../presentation-styles.css">
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide active">
+        <h1>Which LLM Should You Use?</h1>
+        <p class="subtitle">A Researcher's Guide to Model Selection</p>
+        <div class="quote-box" style="margin-top: 50px;">
+            <p style="color: #ffffff; opacity: 0.9;">Beyond Marketing Claims</p>
+            <p style="color: #00ff7f; margin-top: 10px;">Evidence-Based Model Selection for Research Tasks</p>
+        </div>
+        <p class="date-location">RuBase Workshop Series • Anthropic & Independent Benchmarks</p>
+    </div>
+
+    <!-- Slide 2: The Benchmark Problem -->
+    <div class="slide">
+        <span class="slide-number">2 / 11</span>
+        <h2>The Benchmark Problem</h2>
+
+        <div class="warning-box">
+            <h4>⚠️ Lab Benchmarks: Approach with Suspicion</h4>
+            <p>Every AI lab publishes benchmarks showing their model is "best"</p>
+            <ul>
+                <li><strong>Cherry-picked metrics:</strong> Highlight where they excel</li>
+                <li><strong>Custom evaluations:</strong> Designed to favor their approach</li>
+                <li><strong>Timing games:</strong> Comparing against outdated models</li>
+                <li><strong>Marketing first:</strong> Science second</li>
+            </ul>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-title">The Golden Rule</div>
+            <p style="font-size: 1.4em;">Never trust a benchmark published by the company selling the model</p>
+        </div>
+
+        <div class="best-practice">
+            <h4>What We Need Instead</h4>
+            <ul>
+                <li><strong>Independent evaluations:</strong> Third-party testing</li>
+                <li><strong>Open methodologies:</strong> Reproducible results</li>
+                <li><strong>Task-specific benchmarks:</strong> Relevant to your work</li>
+                <li><strong>Real-world performance:</strong> Not just test scores</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 3: Trustworthy Benchmarks -->
+    <div class="slide">
+        <span class="slide-number">3 / 11</span>
+        <h2>Trustworthy Independent Benchmarks</h2>
+
+        <div class="tech-grid">
+            <div class="feature-card">
+                <h4 style="color: #00ffff;">🏆 Chatbot Arena (LMSYS)</h4>
+                <p><strong>What it tests:</strong> Head-to-head human preferences</p>
+                <p><strong>Why it matters:</strong> Real users, blind evaluation</p>
+                <p><strong>Best for:</strong> Conversational tasks, reasoning</p>
+                <p style="margin-top: 15px;"><a href="https://chat.lmsys.org/?leaderboard" style="color: #00ffff;">chat.lmsys.org/?leaderboard</a></p>
+            </div>
+
+            <div class="feature-card">
+                <h4 style="color: #00ff7f;">📊 Open LLM Leaderboard (HF)</h4>
+                <p><strong>What it tests:</strong> Multiple academic benchmarks</p>
+                <p><strong>Why it matters:</strong> Standardized, open evaluation</p>
+                <p><strong>Best for:</strong> Academic reasoning, knowledge</p>
+                <p style="margin-top: 15px;"><a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard" style="color: #00ff7f;">huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard</a></p>
+            </div>
+
+            <div class="feature-card">
+                <h4 style="color: #ffff00;">🧠 BigBench</h4>
+                <p><strong>What it tests:</strong> 200+ diverse reasoning tasks</p>
+                <p><strong>Why it matters:</strong> Beyond scaling, diverse abilities</p>
+                <p><strong>Best for:</strong> Complex reasoning, edge cases</p>
+                <p style="margin-top: 15px;"><a href="https://github.com/google/BIG-bench" style="color: #ffff00;">github.com/google/BIG-bench</a></p>
+            </div>
+
+            <div class="feature-card">
+                <h4 style="color: #ffa500;">⚡ Artificial Analysis</h4>
+                <p><strong>What it tests:</strong> Speed, cost, quality balance</p>
+                <p><strong>Why it matters:</strong> Real-world deployment metrics</p>
+                <p><strong>Best for:</strong> Production decisions</p>
+                <p style="margin-top: 15px;"><a href="https://artificialanalysis.ai/" style="color: #ffa500;">artificialanalysis.ai</a></p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p class="emphasis">These evaluate models you actually have access to</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: Latest Arena Rankings (March 2026) -->
+    <div class="slide">
+        <span class="slide-number">4 / 11</span>
+        <h2>🏆 LMSYS Arena Rankings - March 2026</h2>
+
+        <div class="warning-box" style="background: linear-gradient(135deg, rgba(0,255,127,0.1), rgba(0,255,255,0.1)); border-color: #00ff7f;">
+            <h4>✨ User-Voted Champion Rankings (March 5, 2026)</h4>
+            <div style="font-size: 1.1em; line-height: 1.8;">
+                <p>1. <strong style="color: #00ffff;">GPT-5.4 Thinking</strong> - 1512 Elo 🆕 March 5</p>
+                <p>2. <strong style="color: #ffa500;">Claude Opus 4.6</strong> - 1504 Elo (Feb 2026)</p>
+                <p>3. <strong style="color: #ffff00;">Gemini 3.1 Pro</strong> - 1500 Elo (Feb 19) 🆕</p>
+                <p>4. <strong style="color: #00ffff;">Claude Sonnet 4.6</strong> - 1492 Elo (Feb 2026)</p>
+                <p>5. <strong style="color: #ff6347;">GPT-5.3 Codex</strong> - 1485 Elo (Feb 5)</p>
+            </div>
+        </div>
+
+        <div class="best-practice">
+            <h4>Key Insights from 6M+ User Votes</h4>
+            <ul>
+                <li><strong>GPT-5.4 just released:</strong> March 5 with native computer use</li>
+                <li><strong>February was huge:</strong> Claude 4.6 series, Gemini 3.1, GPT-5.3</li>
+                <li><strong>Context wars:</strong> 1M tokens now standard for flagship models</li>
+                <li><strong>Mid-tier surprise:</strong> Sonnet 4.6 nearly matches Opus at 20% cost</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <p class="emphasis" style="color: #00ff7f;">Real users, blind testing, head-to-head battles</p>
+        </div>
+    </div>
+
+    <!-- Slide 5: Research-Specific Benchmarks -->
+    <div class="slide">
+        <span class="slide-number">5 / 11</span>
+        <h2>Research-Specific Benchmarks</h2>
+
+        <div class="principle-card" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05)); border-color: #00ffff;">
+            <div class="principle-title" style="color: #00ffff;">For Our Workshop Tasks</div>
+            <p>Focus on reasoning, analysis, and knowledge synthesis - not coding performance</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>📚 MMLU (Massive Multitask Language Understanding)</h4>
+                <p><strong>Tests:</strong> Knowledge across 57 academic subjects</p>
+                <p><strong>Relevant for:</strong> Domain expertise, factual accuracy</p>
+                <p><strong>Key insight:</strong> Gemini 3.1 Pro: 94.3%, Claude Opus 4.6: 91.2%</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>🧩 HellaSwag</h4>
+                <p><strong>Tests:</strong> Commonsense reasoning completion</p>
+                <p><strong>Relevant for:</strong> Understanding context, logical inference</p>
+                <p><strong>Key insight:</strong> Important for text analysis tasks</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>📖 Reading Comprehension (QuAC, CoQA)</h4>
+                <p><strong>Tests:</strong> Understanding and answering from long texts</p>
+                <p><strong>Relevant for:</strong> Paper analysis, document processing</p>
+                <p><strong>Key insight:</strong> Critical for Ottoman Bank-style research</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>🔍 TruthfulQA</h4>
+                <p><strong>Tests:</strong> Avoiding false claims, misinformation</p>
+                <p><strong>Relevant for:</strong> Fact-checking, citation verification</p>
+                <p><strong>Key insight:</strong> Essential for research integrity</p>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>Skip coding benchmarks</strong> like HumanEval - irrelevant for our research tasks
+        </div>
+    </div>
+
+    <!-- Slide 5: Current Model Landscape -->
+    <div class="slide">
+        <span class="slide-number">5 / 11</span>
+        <h2>Current Model Landscape (March 2026)</h2>
+
+        <div class="schedule-block">
+            <div class="schedule-time">🥇 Tier 1: Research Leaders</div>
+            <div class="schedule-activity">
+                <strong>GPT-5.4</strong> - Latest flagship (March 5), unified general + coding model<br>
+                <strong>Claude Opus 4.6</strong> - 1M context, 80.8% SWE-bench (Feb 2026)<br>
+                <strong>Gemini 3.1 Pro</strong> - 77.1% ARC-AGI-2, 94.3% GPQA Diamond (Feb 19)<br>
+                <strong>Claude Sonnet 4.6</strong> - 79.6% SWE-bench at 1/5 Opus price (Feb 2026)
+            </div>
+        </div>
+
+        <div class="schedule-block">
+            <div class="schedule-time">🥈 Tier 2: Specialized Excellence</div>
+            <div class="schedule-activity">
+                <strong>GPT-5.3 Codex</strong> - Specialized coding, 77.3% Terminal-Bench (Feb 5)<br>
+                <strong>GPT-5.2</strong> - Previous flagship, still strong for general tasks<br>
+                <strong>Gemini 3 Pro</strong> - Solid all-rounder, good ecosystem integration
+            </div>
+        </div>
+
+        <div class="schedule-block">
+            <div class="schedule-time">⚠️ Now Outdated for Research</div>
+            <div class="schedule-activity">
+                <strong>Claude 3.5 Sonnet</strong> - Superseded by Opus/Sonnet 4.6 series<br>
+                <strong>GPT-4o/4o-mini</strong> - Replaced by GPT-5.x series<br>
+                <strong>Gemini 1.5 Pro</strong> - Upgraded to Gemini 3.x series
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <p class="emphasis">⚡ February 2026 saw major releases - all flagship models refreshed!</p>
+        </div>
+    </div>
+
+    <!-- Slide 6: Task-Specific Recommendations -->
+    <div class="slide">
+        <span class="slide-number">6 / 11</span>
+        <h2>Task-Specific Recommendations (March 2026)</h2>
+
+        <div class="toolkit-grid">
+            <div class="toolkit-item">
+                <div class="toolkit-icon">📊</div>
+                <div class="toolkit-title">Data Analysis</div>
+                <p><strong>Best:</strong> Claude Opus 4.6</p>
+                <p><strong>Why:</strong> Adaptive reasoning, 1M context</p>
+                <p><strong>Example:</strong> Complex research synthesis</p>
+            </div>
+
+            <div class="toolkit-item">
+                <div class="toolkit-icon">💻</div>
+                <div class="toolkit-title">Coding & Agents</div>
+                <p><strong>Best:</strong> GPT-5.4 (new) or GPT-5.3 Codex</p>
+                <p><strong>Why:</strong> Native computer use, 77.3% Terminal-Bench</p>
+                <p><strong>Example:</strong> Autonomous code generation</p>
+            </div>
+
+            <div class="toolkit-item">
+                <div class="toolkit-icon">🧠</div>
+                <div class="toolkit-title">Pure Reasoning</div>
+                <p><strong>Best:</strong> Gemini 3.1 Pro</p>
+                <p><strong>Why:</strong> 77.1% on ARC-AGI-2</p>
+                <p><strong>Example:</strong> Novel problem-solving</p>
+            </div>
+        </div>
+
+        <div class="toolkit-grid" style="margin-top: 30px;">
+            <div class="toolkit-item">
+                <div class="toolkit-icon">💰</div>
+                <div class="toolkit-title">Cost-Sensitive</div>
+                <p><strong>Best:</strong> Claude Sonnet 4.6</p>
+                <p><strong>Why:</strong> 79.6% SWE-bench at 1/5 Opus price</p>
+                <p><strong>Example:</strong> Bulk processing</p>
+            </div>
+
+            <div class="toolkit-item">
+                <div class="toolkit-icon">🚀</div>
+                <div class="toolkit-title">Speed-Critical</div>
+                <p><strong>Best:</strong> Mercury 2</p>
+                <p><strong>Why:</strong> 756.1 tokens/second</p>
+                <p><strong>Example:</strong> Real-time interaction</p>
+            </div>
+
+            <div class="toolkit-item">
+                <div class="toolkit-icon">🏢</div>
+                <div class="toolkit-title">Enterprise</div>
+                <p><strong>Best:</strong> DeepSeek R1</p>
+                <p><strong>Why:</strong> Best performance/price ratio</p>
+                <p><strong>Example:</strong> Large-scale deployment</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: The LLM Jury Approach -->
+    <div class="slide">
+        <span class="slide-number">7 / 11</span>
+        <h2>The LLM Jury Approach</h2>
+
+        <div class="principle-card">
+            <div class="principle-title">Why Use Multiple Models?</div>
+            <p style="font-size: 1.3em;">Even the best models have blind spots and biases</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🎯 Consensus Building</h4>
+                <p><strong>Method:</strong> Run same task on 2-3 different models</p>
+                <p><strong>Benefit:</strong> Catches individual model errors</p>
+                <p><strong>Example:</strong> Claude + GPT-4o + Gemini for classification</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>🔄 Cross-Validation</h4>
+                <p><strong>Method:</strong> Models critique each other's outputs</p>
+                <p><strong>Benefit:</strong> Identifies weak reasoning, hallucinations</p>
+                <p><strong>Example:</strong> Model A analyzes, Model B fact-checks</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>⚖️ Deliberation</h4>
+                <p><strong>Method:</strong> Models discuss disagreements</p>
+                <p><strong>Benefit:</strong> Higher quality final decisions</p>
+                <p><strong>Example:</strong> "GPT-4o says X, Claude says Y. Discuss."</p>
+            </div>
+
+            <div class="feature-card">
+                <h4>📊 Voting Systems</h4>
+                <p><strong>Method:</strong> Majority rule or weighted consensus</p>
+                <p><strong>Benefit:</strong> Democratic decision making</p>
+                <p><strong>Example:</strong> 3/5 models agree → high confidence</p>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>Cost Warning:</strong> Multiple models = multiple API calls. Budget accordingly.
+        </div>
+    </div>
+
+    <!-- Slide 8: Humanity's Last Exam -->
+    <div class="slide">
+        <span class="slide-number">8 / 11</span>
+        <h2>Humanity's Last Exam</h2>
+
+        <div class="quote-box">
+            <p class="quote">"We're rapidly approaching human-level performance<br>across virtually all cognitive tasks"</p>
+            <p class="quote-attribution">— Multiple AI Research Labs, 2024-2026</p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="principle-card">
+                <div class="principle-title" style="color: #00ffff;">The Threshold Moment</div>
+                <ul style="font-size: 1.1em;">
+                    <li><strong>MMLU scores:</strong> 90%+ (human expert: ~89%)</li>
+                    <li><strong>Graduate exams:</strong> 95th percentile consistently</li>
+                    <li><strong>Professional tests:</strong> Bar exam, medical boards passed</li>
+                    <li><strong>Research tasks:</strong> Literature reviews, hypothesis generation</li>
+                </ul>
+                <p style="margin-top: 15px; color: #ffff00;">We may be taking humanity's last standardized tests</p>
+            </div>
+
+            <div class="principle-card" style="border-color: #00ff7f;">
+                <div class="principle-title" style="color: #00ff7f;">What This Means</div>
+                <ul style="font-size: 1.1em;">
+                    <li><strong>Research acceleration:</strong> Months → weeks → days</li>
+                    <li><strong>Quality amplification:</strong> Better analysis, fewer errors</li>
+                    <li><strong>Accessibility revolution:</strong> Expert-level analysis for everyone</li>
+                    <li><strong>New bottlenecks:</strong> Questions, not answers</li>
+                </ul>
+                <p style="margin-top: 15px; color: #ffff00;">The constraint becomes asking the right questions</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <p style="font-size: 1.2em;">Your research methodology matters more than ever</p>
+        </div>
+    </div>
+
+    <!-- Slide 9: Exponential Improvement -->
+    <div class="slide">
+        <span class="slide-number">9 / 11</span>
+        <h2>Exponential Improvement Reality</h2>
+
+        <div class="principle-card" style="background: linear-gradient(135deg, rgba(0, 255, 127, 0.15), rgba(0, 255, 127, 0.05)); border-color: #00ff7f;">
+            <div class="principle-title" style="color: #00ff7f;">The Pace is Accelerating</div>
+            <div style="display: flex; justify-content: space-around; margin: 20px 0;">
+                <div style="text-align: center;">
+                    <p style="font-size: 1.4em; color: #ffff00;">2022</p>
+                    <p>GPT-3.5: Basic chat</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 1.4em; color: #ffff00;">2023</p>
+                    <p>GPT-4: Reasoning</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 1.4em; color: #ffff00;">2024</p>
+                    <p>Claude 3.5: Research-grade</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 1.4em; color: #ffff00;">2025</p>
+                    <p>Agents: Autonomous work</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 1.4em; color: #00ff7f;">Feb 2026</p>
+                    <p>GPT-5.4, Claude 4.6 series, Gemini 3.1</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>✅ Current Capabilities</h4>
+                <ul>
+                    <li>Human-level text analysis</li>
+                    <li>Complex reasoning chains</li>
+                    <li>Multi-document synthesis</li>
+                    <li>Code generation & debugging</li>
+                    <li>Domain expertise simulation</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>⚠️ Current Limitations</h4>
+                <ul>
+                    <li>Hallucination risks</li>
+                    <li>Context window limits</li>
+                    <li>Inconsistent performance</li>
+                    <li>No real-world grounding</li>
+                    <li>Training data cutoffs</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>🔮 Near Future (6-18 months)</h4>
+                <ul>
+                    <li>10M+ token contexts</li>
+                    <li>Multimodal integration</li>
+                    <li>Real-time web access</li>
+                    <li>Tool use mastery</li>
+                    <li>Scientific reasoning</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>🚀 Further Horizon</h4>
+                <ul>
+                    <li>Autonomous research agents</li>
+                    <li>Novel hypothesis generation</li>
+                    <li>Experimental design</li>
+                    <li>Peer review automation</li>
+                    <li>Scientific discovery</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Conclusions & Strategies -->
+    <div class="slide">
+        <span class="slide-number">10 / 11</span>
+        <h2>Conclusions & Strategic Recommendations</h2>
+
+        <div class="principle-card" style="background: linear-gradient(135deg, rgba(255, 255, 0, 0.15), rgba(255, 255, 0, 0.05)); border-color: #ffff00;">
+            <div class="principle-title" style="color: #ffff00;">Core Insights</div>
+            <ul style="font-size: 1.2em; line-height: 2;">
+                <li><strong>Models are improving exponentially</strong> - what's impossible today is routine tomorrow</li>
+                <li><strong>Flaws exist but are addressable</strong> - verification protocols work</li>
+                <li><strong>The bottleneck is shifting</strong> - from "can we get answers?" to "are we asking the right questions?"</li>
+            </ul>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🛡️ Mitigation Strategies</h4>
+                <ul>
+                    <li><strong>LLM Jury:</strong> Multiple model consensus</li>
+                    <li><strong>Citation Verification:</strong> Check sources systematically</li>
+                    <li><strong>Staged Verification:</strong> Progressive confidence building</li>
+                    <li><strong>Human Oversight:</strong> Expert review at key points</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>📈 Leverage Strategies</h4>
+                <ul>
+                    <li><strong>Choose the right model:</strong> Task-specific selection</li>
+                    <li><strong>Use independent benchmarks:</strong> Ignore marketing claims</li>
+                    <li><strong>Build verification pipelines:</strong> Trust but verify</li>
+                    <li><strong>Stay current:</strong> Landscape changes monthly</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quote-box" style="margin-top: 30px;">
+            <p style="color: #00ffff; font-size: 1.4em; margin-bottom: 20px;">The Future is Already Here</p>
+            <p>LLMs aren't just tools anymore - they're research partners.</p>
+            <p style="margin-top: 15px;">The question isn't whether to use them,<br>but how to use them responsibly and effectively.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <p class="emphasis" style="font-size: 1.3em;">Welcome to the age of AI-augmented research!</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <button class="nav-btn" onclick="window.location.href='../../index.html'">🏠 Home</button>
+        <button class="nav-btn" onclick="window.location.href='index.html'">📚 Module 3</button>
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <span id="slide-indicator" style="color: white; font-weight: bold; margin: 0 15px;">1 / 11</span>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('slide');
+
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+
+            slides[currentSlide - 1].classList.add('active');
+
+            // Update navigation
+            document.getElementById('slide-indicator').textContent = `${currentSlide} / ${totalSlides}`;
+
+            // Update button states
+            const prevBtn = document.querySelector('.nav-btn:nth-child(3)');
+            const nextBtn = document.querySelector('.nav-btn:last-child');
+
+            if (prevBtn && nextBtn) {
+                prevBtn.disabled = currentSlide === 1;
+                nextBtn.disabled = currentSlide === totalSlides;
+            }
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            }
+            if (e.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>

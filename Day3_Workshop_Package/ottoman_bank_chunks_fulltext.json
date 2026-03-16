@@ -1,0 +1,1225 @@
+{
+  "metadata": {
+    "created": "2026-03-13T00:02:35.043412",
+    "total_chunks": 135,
+    "chunk_size": 500,
+    "overlap_size": 50
+  },
+  "chunks": [
+    {
+      "chunk_id": "https://openalex.org/W2591654989_chunk_0",
+      "paper_id": "https://openalex.org/W2591654989",
+      "paper_title": "Culture and Institutions",
+      "chunk_index": 0,
+      "total_chunks": 1,
+      "chunk_text": "A growing body of empirical work measuring different types of cultural traits has shown that culture matters for a variety of economic outcomes. This paper focuses on one specific aspect of the relevance of culture: its relationship to institutions. We review work with a theoretical, empirical, and historical bent to assess the presence of a two-way causal effect between culture and institutions. ( JEL D02, D72, I32, J12, Z13)",
+      "chunk_length": 430
+    },
+    {
+      "chunk_id": "https://openalex.org/W2148911925_chunk_0",
+      "paper_id": "https://openalex.org/W2148911925",
+      "paper_title": "Endocrine Treatment of Transsexual Persons:An Endocrine Society Clinical Practice Guideline",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Transsexual persons seeking to develop the physical characteristics of the desired gender require a safe, effective hormone regimen that will 1) suppress endogenous hormone secretion determined by the person's genetic/biologic sex and 2) maintain sex hormone levels within the normal range for the person's desired gender. A mental health professional (MHP) must recommend endocrine treatment and participate in ongoing care throughout the endocrine transition and decision for surgical sex reassignm",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2148911925_chunk_1",
+      "paper_id": "https://openalex.org/W2148911925",
+      "paper_title": "Endocrine Treatment of Transsexual Persons:An Endocrine Society Clinical Practice Guideline",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "transition and decision for surgical sex reassignment. The endocrinologist must confirm the diagnostic criteria the MHP used to make these recommendations. Because a diagnosis of transsexualism in a prepubertal child cannot be made with certainty, we do not recommend endocrine treatment of prepubertal children. We recommend treating transsexual adolescents (Tanner stage 2) by suppressing puberty with GnRH analogues until age 16 years old, after which cross-sex hormones may be given.",
+      "chunk_length": 487
+    },
+    {
+      "chunk_id": "https://openalex.org/W2148911925_chunk_2",
+      "paper_id": "https://openalex.org/W2148911925",
+      "paper_title": "Endocrine Treatment of Transsexual Persons:An Endocrine Society Clinical Practice Guideline",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "old, after which cross-sex hormones may be given. We suggest suppressing endogenous sex hormones, maintaining physiologic levels of gender-appropriate sex hormones and monitoring for known risks in adult transsexual persons.",
+      "chunk_length": 224
+    },
+    {
+      "chunk_id": "https://openalex.org/W2101418055_chunk_0",
+      "paper_id": "https://openalex.org/W2101418055",
+      "paper_title": "The Economic Consequences of Legal Origins",
+      "chunk_index": 0,
+      "total_chunks": 1,
+      "chunk_text": "In the last decade, economists have produced a considerable body of research suggesting that the historical origin of a country's laws is highly correlated with a broad range of its legal rules and regulations, as well as with economic outcomes.We summarize this evidence and attempt a unified interpretation.We also address several objections to the empirical claim that legal origins matter.Finally, we assess the implications of this research for economic reform.",
+      "chunk_length": 466
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_0",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 0,
+      "total_chunks": 9,
+      "chunk_text": "2010, he raised a ruckus with his book Deutschland schafft sich ab (Germany is Doing Away with Itself; Deutsche Verlags-Anstalt).Part of his appeal is dry wit: \"Being wealthy in Germany these days is immoral unless you made the money in sports or entertainment.\"Part of it is the demagogue's perennial hook: I am only saying out loud what you think but are afraid to say.Part of it is that his prose is accessible; neither too highbrow nor too vulgar.The incessant use of bullet points and we've just",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_1",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 1,
+      "total_chunks": 9,
+      "chunk_text": ".The incessant use of bullet points and we've just-left-this-town and here's-the-next-one-we're-headed-for road signs are helpful for quick reading, but they also remind you that you are on a strictly guided tour.Similarly, there is overuse of shock italics; the guide is frog-marching you along.And so, to the book.Sarrazin's argument is as follows.For centuries, Islam in Europe, having been expelled from Spain and latterly repelled at the gates of Vienna, was confined to Turkey and a few patches",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_2",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 2,
+      "total_chunks": 9,
+      "chunk_text": "f Vienna, was confined to Turkey and a few patches of that miserable neighborhood today known as the Western Balkans.Over the last 75 years, Europe has, in a folly unparalleled in modern history, taken to its bosom a substantial and growing Muslim minority population that, on average, (1) does not accept European values of democracy, wellbeing, and freedom; (2) despises European culture and religion; and is, in no particular order, (3) oversexed (the men), ( 4) overfertile (the women), ( 5) ined",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_3",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 3,
+      "total_chunks": 9,
+      "chunk_text": "(the men), ( 4) overfertile (the women), ( 5) ineducable (the young), and (6) poorly performing overall (everyone).There is, this critic would agree, more than enough evidence to indict and so, Auf gehts!Let's go! Chapter 1 is foundational for the rest of Feindliche bernahme; therefore, it deserves more attention than it warrants on its merits.A believer in induction to the point of pedantry, Sarrazin starts from the source.This is the Koran, which he declares to have read from alpha to omega (s",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_4",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 4,
+      "total_chunks": 9,
+      "chunk_text": "ch he declares to have read from alpha to omega (so to speak) in a respected translation, as well as the hadiths.The divide between believers and non-believers is absolute; the first are going to heaven and the second to hell.The believer should not be distracted by any knowledge not derived from the sacred text.Non-believers are fair game; jihad demands conquest and annihilation, whether through conversion or more prejudicial measures.Islam is a political system in religion-drag; there is no po",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_5",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 5,
+      "total_chunks": 9,
+      "chunk_text": "political system in religion-drag; there is no possible compromise between the imams and the Montesquieuan rule of law.Women are inferior, periodically unclean creatures from the holy get-go.Those who hope for a Westernized, liberal, humanist, historicized, critical Islam are delusional.Those Muslim preachers, theologians, and public intellectuals who advocate for one do so, Sarrazin correctly reports, at their professional and personal risk.Sarrazin reproduces copious excerpts to support this",
+      "chunk_length": 498
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_6",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 6,
+      "total_chunks": 9,
+      "chunk_text": "razin reproduces copious excerpts to support this swingeing criticism.But his hermeneutics consist not of exegesis, the search from scratch for what the text means; but eisegesis, scouring the text to prove that it means what he has already decided it means.Sarrazin is correct, to the extent that this reader (never having cracked the cover) would know, that the Koran and other early texts contain propositions that are in varying degree absurd and obnoxious.But that is true of any religious Grund",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_7",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 7,
+      "total_chunks": 9,
+      "chunk_text": "obnoxious.But that is true of any religious Grundtext.If a religion were not founded in mumbo-jumbo legitimacy claims and humbug secular rules, would it-adoration of the Archangel Uriel, Buddhism, Christianity, Eckankar, Hinduism, Islam, Judaism, Rastafarianism, Santeria, Satanism, Voodoo, Wicca, Zoroastianism; you name it-be a religion?No.A religion that hopes to become a going concern requires only two things: a hailing message (Althusser there) to attain critical mass, and a pitch that its a",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W2974521388_chunk_8",
+      "paper_id": "https://openalex.org/W2974521388",
+      "paper_title": "IPBES, 2019. Summary for policymakers of the global assessment report on biodiversity and ecosystem services of the Intergovernmental Science‐Policy Platform on Biodiversity and Ecosystem Services",
+      "chunk_index": 8,
+      "total_chunks": 9,
+      "chunk_text": "e) to attain critical mass, and a pitch that its adherents can employ to sell it on; whether by preaching merits, promising profits, or swinging swords.Judging Islam, and by extension Islamic society and the Muslims who comprise it, based on the Koran makes as much sense as judging Judaism and Jews on the Torah,",
+      "chunk_length": 313
+    },
+    {
+      "chunk_id": "https://openalex.org/W1489437940_chunk_0",
+      "paper_id": "https://openalex.org/W1489437940",
+      "paper_title": "Diaspora and Transnationalism : Concepts, Theories and Methods",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "The IMISCOE Research Network unites researchers from, at present, 25 institutes specialising in studies of international migration, integration and social cohesion in Europe. What began in 2004 as a Network of Excellence sponsored by the Sixth Framework Programme of the European Commission has become, as of April 2009, an independent self-funding endeavour.",
+      "chunk_length": 359
+    },
+    {
+      "chunk_id": "https://openalex.org/W1489437940_chunk_1",
+      "paper_id": "https://openalex.org/W1489437940",
+      "paper_title": "Diaspora and Transnationalism : Concepts, Theories and Methods",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "April 2009, an independent self-funding endeavour. From the start, IMISCOE has promoted integrated, multidisciplinary and globally comparative research led by scholars from various branches of the economic and social sciences, the humanities and law. The Network furthers existing studies and pioneers new scholarship on migration and migrant integration. Encouraging innovative lines of inquiry key to European policymaking and governance is also a priority.",
+      "chunk_length": 459
+    },
+    {
+      "chunk_id": "https://openalex.org/W2057843669_chunk_0",
+      "paper_id": "https://openalex.org/W2057843669",
+      "paper_title": "Commodity Prices and Growth in Africa",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "African states that came to independence by the late 1960s made a rapid transition to authoritarian rule during a period of reasonably robust growth. Growth then faltered badly from the mid-1970s to the mid-1990s as these regimes coped with external shocks and varying degrees of fiscal crisis. Leading critics embed Africa's slow growth in failures of governance associated with “weak” authoritarian rule.",
+      "chunk_length": 406
+    },
+    {
+      "chunk_id": "https://openalex.org/W2057843669_chunk_1",
+      "paper_id": "https://openalex.org/W2057843669",
+      "paper_title": "Commodity Prices and Growth in Africa",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "ernance associated with “weak” authoritarian rule. These provide important insights into policy patterns while suggesting the growth-promoting potential of Africa's recent Democratization.",
+      "chunk_length": 188
+    },
+    {
+      "chunk_id": "https://openalex.org/W2890919688_chunk_0",
+      "paper_id": "https://openalex.org/W2890919688",
+      "paper_title": "Persecution Perpetuated: The Medieval Origins of Anti-Semitic Violence in Nazi Germany*",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "Abstract How persistent are cultural traits? Using data on anti-Semitism in Germany, we find local continuity over 600 years. Jews were often blamed when the Black Death killed at least a third of Europe’s population during 1348–50. We use plague-era pogroms as an indicator for medieval anti-Semitism. They reliably predict violence against Jews in the 1920s, votes for the Nazi Party, deportations after 1933, attacks on synagogues, and letters to Der Stürmer .",
+      "chunk_length": 463
+    },
+    {
+      "chunk_id": "https://openalex.org/W2890919688_chunk_1",
+      "paper_id": "https://openalex.org/W2890919688",
+      "paper_title": "Persecution Perpetuated: The Medieval Origins of Anti-Semitic Violence in Nazi Germany*",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "ttacks on synagogues, and letters to Der Stürmer . We also identify areas where persistence was lower: cities with high levels of trade or immigration. Finally, we show that our results are not driven by political extremism or by different attitudes toward violence.",
+      "chunk_length": 266
+    },
+    {
+      "chunk_id": "https://openalex.org/W2482620546_chunk_0",
+      "paper_id": "https://openalex.org/W2482620546",
+      "paper_title": "Public Management and Administration",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "The public sector plays an important role for both regulation and in the delivery of services directly or indirectly. In this context, it is important to consider transformation, change, and innovation, which are the elements on which the main determinants that influence public management and the administration of economic, social, and political systems are based.",
+      "chunk_length": 366
+    },
+    {
+      "chunk_id": "https://openalex.org/W2482620546_chunk_1",
+      "paper_id": "https://openalex.org/W2482620546",
+      "paper_title": "Public Management and Administration",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "economic, social, and political systems are based. This book describes the nature of the problem, its multidimensionality, and the need for original approaches, through the contribution of scholars belonging to different disciplines. This book contains nine chapters in a single section (Public Management and Administration), which, through the different approaches to the subject by the authors, help to explain the issues of the public sector.",
+      "chunk_length": 446
+    },
+    {
+      "chunk_id": "https://openalex.org/W2772802389_chunk_0",
+      "paper_id": "https://openalex.org/W2772802389",
+      "paper_title": "Mapping the frontiers and front lines of global environmental justice: the EJAtlas",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "This article highlights the need for collaborative research on ecological conflicts within a global perspective. As the social metabolism of our industrial economy increases, intensifying extractive activities and the production of waste, the related social and environmental impacts generate conflicts and resistance across the world. This expansion of global capitalism leads to greater disconnection between the diverse geographies of injustice along commodity chains.",
+      "chunk_length": 471
+    },
+    {
+      "chunk_id": "https://openalex.org/W2772802389_chunk_1",
+      "paper_id": "https://openalex.org/W2772802389",
+      "paper_title": "Mapping the frontiers and front lines of global environmental justice: the EJAtlas",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": "e geographies of injustice along commodity chains. Yet, at the same time, through the globalization of governance processes and Environmental Justice (EJ) movements, local political ecologies are becoming increasingly transnational and interconnected. We first make the case for the need for new approaches to understanding such interlinked conflicts through collaborative and engaged research between academia and civil society.",
+      "chunk_length": 429
+    },
+    {
+      "chunk_id": "https://openalex.org/W2772802389_chunk_2",
+      "paper_id": "https://openalex.org/W2772802389",
+      "paper_title": "Mapping the frontiers and front lines of global environmental justice: the EJAtlas",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "gaged research between academia and civil society. We then present a large-scale research project aimed at understanding the determinants of resource extraction and waste disposal conflicts globally through a collaborative mapping initiative: The EJAtlas, the Global Atlas of Environmental Justice. This article introduces the EJAtlas mapping process and its methodology, describes the process of co-design and development of the atlas, and assesses the initial outcomes and contribution of the tool",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W2772802389_chunk_3",
+      "paper_id": "https://openalex.org/W2772802389",
+      "paper_title": "Mapping the frontiers and front lines of global environmental justice: the EJAtlas",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "the initial outcomes and contribution of the tool for activism, advocacy and scientific knowledge. We explain how the atlas can enrich EJ studies by going beyond the isolated case study approach to offer a wider systematic evidence-based enquiry into the politics, power relations and socio-metabolic processes surrounding environmental justice struggles locally and globally.",
+      "chunk_length": 376
+    },
+    {
+      "chunk_id": "https://openalex.org/W847076072_chunk_0",
+      "paper_id": "https://openalex.org/W847076072",
+      "paper_title": "The Ties That Bind Us",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Most social scientists endorse some version of the claim that participating in collective rituals promotes social cohesion. The systematic testing and evaluation of this claim, however, has been prevented by a lack of precision regarding the nature of both “ritual” and “social cohesion” as well as a lack of integration between the theories and findings of the social and evolutionary sciences.",
+      "chunk_length": 395
+    },
+    {
+      "chunk_id": "https://openalex.org/W847076072_chunk_1",
+      "paper_id": "https://openalex.org/W847076072",
+      "paper_title": "The Ties That Bind Us",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "findings of the social and evolutionary sciences. By directly addressing these challenges, we argue that a systematic investigation and evaluation of the claim that ritual promotes social cohesion is achievable. We present a general and testable theory of the relationship between ritual, cohesion, and cooperation that more precisely connects particular elements of “ritual,” such as causal opacity and emotional arousal, to two particular forms of “social cohesion”: group identification and ident",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W847076072_chunk_2",
+      "paper_id": "https://openalex.org/W847076072",
+      "paper_title": "The Ties That Bind Us",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "“social cohesion”: group identification and identity fusion. Further, we ground this theory in an evolutionary account of why particular modes of ritual practice would be adaptive for societies with particular resource-acquisition strategies. In setting out our conceptual framework, we report numerous ongoing investigations that test our hypotheses against data from controlled psychological experiments as well as from the ethnographic, archaeological, and historical records.",
+      "chunk_length": 479
+    },
+    {
+      "chunk_id": "https://openalex.org/W2761231721_chunk_0",
+      "paper_id": "https://openalex.org/W2761231721",
+      "paper_title": "Does Exposure to the Refugee Crisis Make Natives More Hostile?",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Although Europe has experienced unprecedented numbers of refugee arrivals in recent years, there exists almost no causal evidence regarding the impact of the refugee crisis on natives’ attitudes, policy preferences, and political engagement. We exploit a natural experiment in the Aegean Sea, where Greek islands close to the Turkish coast experienced a sudden and massive increase in refugee arrivals, while similar islands slightly farther away did not.",
+      "chunk_length": 455
+    },
+    {
+      "chunk_id": "https://openalex.org/W2761231721_chunk_1",
+      "paper_id": "https://openalex.org/W2761231721",
+      "paper_title": "Does Exposure to the Refugee Crisis Make Natives More Hostile?",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "ile similar islands slightly farther away did not. Leveraging a targeted survey of 2,070 island residents and distance to Turkey as an instrument, we find that direct exposure to refugee arrivals induces sizable and lasting increases in natives’ hostility toward refugees, immigrants, and Muslim minorities; support for restrictive asylum and immigration policies; and political engagement to effect such exclusionary policies.",
+      "chunk_length": 427
+    },
+    {
+      "chunk_id": "https://openalex.org/W2761231721_chunk_2",
+      "paper_id": "https://openalex.org/W2761231721",
+      "paper_title": "Does Exposure to the Refugee Crisis Make Natives More Hostile?",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "l engagement to effect such exclusionary policies. Since refugees only passed through these islands, our findings challenge both standard economic and cultural explanations of anti-immigrant sentiment and show that mere exposure suffices in generating lasting increases in hostility.",
+      "chunk_length": 283
+    },
+    {
+      "chunk_id": "https://openalex.org/W3123561300_chunk_0",
+      "paper_id": "https://openalex.org/W3123561300",
+      "paper_title": "Right-Wing Populism in Europe",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "<JATS1:p>Right-wing populist movements and related political parties are gaining ground in many EU member states. This unique, interdisciplinary book provides an overall picture of the dynamics and development of these parties across Europe and beyond. Combining theory with in-depth case studies, it offers a comparative analysis of the policies and rhetoric of existing and emerging parties including the British BNP, the Hungarian Jobbik and the Danish Folkeparti.</JATS1:p> <JATS1:p>The case stud",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W3123561300_chunk_1",
+      "paper_id": "https://openalex.org/W3123561300",
+      "paper_title": "Right-Wing Populism in Europe",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "anish Folkeparti.</JATS1:p> <JATS1:p>The case studies qualitatively and quantitatively analyse right-wing populist groups in the following countries: Austria, Germany, Britain, France, Sweden, Norway, Denmark, Italy, Netherlands, Hungary, Belgium, Ukraine, Estonia, and Latvia, with one essay exclusively focused on the US.</JATS1:p> <JATS1:p>This timely and socially relevant collection is essential reading for scholars, students and practitioners wanting to understand the recent rise of populist",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W3123561300_chunk_2",
+      "paper_id": "https://openalex.org/W3123561300",
+      "paper_title": "Right-Wing Populism in Europe",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "wanting to understand the recent rise of populist right wing parties at local, countrywide and regional levels.</JATS1:p>",
+      "chunk_length": 121
+    },
+    {
+      "chunk_id": "https://openalex.org/W4393946461_chunk_0",
+      "paper_id": "https://openalex.org/W4393946461",
+      "paper_title": "Maddison‐style estimates of the evolution of the world economy: A new 2023 update",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Abstract This paper surveys the literature on historical national accounting, discusses the importance of relative income benchmarks for, in particular, historical income estimates, and presents an update of long run global economic development with a new version of the Maddison Project Database (MPD). As benchmarks are central to methodologies for global income comparisons over time, and therefore vital to MPD, we analyze the consequences and biases of three benchmarks, the 1990 benchmark, the",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W4393946461_chunk_1",
+      "paper_id": "https://openalex.org/W4393946461",
+      "paper_title": "Maddison‐style estimates of the evolution of the world economy: A new 2023 update",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "ases of three benchmarks, the 1990 benchmark, the 2011 benchmark and the multiple benchmark method following the recent Penn World Tables (PWT) methodology, for pre‐1940 income estimates. We develop a methodology to determine which benchmark in combination with time series produces the best anchor for the historical income estimates in the MPD. We conclude that the best way forward for the Maddison Project is to stick to the original 1990 benchmark, yet with two important changes.",
+      "chunk_length": 485
+    },
+    {
+      "chunk_id": "https://openalex.org/W4393946461_chunk_2",
+      "paper_id": "https://openalex.org/W4393946461",
+      "paper_title": "Maddison‐style estimates of the evolution of the world economy: A new 2023 update",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "al 1990 benchmark, yet with two important changes. First, we integrate the 2011 benchmark for the post‐1990 period, and second, we fine tune the dataset for the pre‐1940 period by integrating a new historical benchmark for the US/UK comparison in 1909. By integrating more benchmarks, the MPD moves closer to a multiple benchmark approach as developed by the PWT.",
+      "chunk_length": 363
+    },
+    {
+      "chunk_id": "https://openalex.org/W2550640635_chunk_0",
+      "paper_id": "https://openalex.org/W2550640635",
+      "paper_title": "Skin Color and Colorism: Global Research, Concepts, and Measurement",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "We examine a vast, interdisciplinary, and increasingly global literature concerning skin color and colorism, which are related to status throughout the world. The vast majority of research has investigated Western societies, where color and colorism have been closely related to race and racism. In Latin America, the two sets of concepts have particularly overlapped.",
+      "chunk_length": 368
+    },
+    {
+      "chunk_id": "https://openalex.org/W2550640635_chunk_1",
+      "paper_id": "https://openalex.org/W2550640635",
+      "paper_title": "Skin Color and Colorism: Global Research, Concepts, and Measurement",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "two sets of concepts have particularly overlapped. In the rest of the world, particularly in Asia, color and colorism have also been important but have evolved separately from the relatively new concepts of race and racism. In recent years, however, color consciousness and white supremacy appear to have been increasingly united, globalized, and commodified, as exemplified by the global multibillion-dollar skin-lightening industry.",
+      "chunk_length": 434
+    },
+    {
+      "chunk_id": "https://openalex.org/W2550640635_chunk_2",
+      "paper_id": "https://openalex.org/W2550640635",
+      "paper_title": "Skin Color and Colorism: Global Research, Concepts, and Measurement",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "obal multibillion-dollar skin-lightening industry. Finally, we document the growing methodological attention to measurements of skin color and social science data that incorporate skin color measures.",
+      "chunk_length": 200
+    },
+    {
+      "chunk_id": "https://openalex.org/W2130833178_chunk_0",
+      "paper_id": "https://openalex.org/W2130833178",
+      "paper_title": "Persecution Perpetuated: The Medieval Origins of Anti-Semitic Violence in Nazi Germany",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "How persistent are cultural traits? This paper uses data on anti-Semitism in Germany and finds continuity at the local level over more than half a millennium. When the Black Death hit Europe in 1348-50, killing between one third and one half of the population, its cause was unknown. Many contemporaries blamed the Jews. Cities all over Germany witnessed mass killings of their Jewish population. At the same time, numerous Jewish communities were spared.",
+      "chunk_length": 455
+    },
+    {
+      "chunk_id": "https://openalex.org/W2130833178_chunk_1",
+      "paper_id": "https://openalex.org/W2130833178",
+      "paper_title": "Persecution Perpetuated: The Medieval Origins of Anti-Semitic Violence in Nazi Germany",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "ame time, numerous Jewish communities were spared. We use plague pogroms as an indicator for medieval anti-Semitism. Pogroms during the Black Death are a strong and robust predictor of violence against Jews in the 1920s, and of votes for the Nazi Party. In addition, cities that saw medieval anti-Semitic violence also had higher deportation rates for Jews after 1933, were more likely to see synagogues damaged or destroyed in the 'Night of Broken' Glass in 1938, and their inhabitants wrote more an",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2128985728_chunk_0",
+      "paper_id": "https://openalex.org/W2128985728",
+      "paper_title": "Macroeconomic Crises since 1870",
+      "chunk_index": 0,
+      "total_chunks": 5,
+      "chunk_text": "We build on the Maddison GDP data to assemble international time series from before 1914 on real per capita personal consumer expenditure, C. We also improve the GDP data in many cases. The C variable comes closer than GDP to the consumption concept that enters into usual asset-pricing equations. (A separation of consumer expenditure into durables and non-durables is feasible for only a minority of cases.) We have essentially full annual data on C for 22 countries and GDP for 35 countries, and w",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2128985728_chunk_1",
+      "paper_id": "https://openalex.org/W2128985728",
+      "paper_title": "Macroeconomic Crises since 1870",
+      "chunk_index": 1,
+      "total_chunks": 5,
+      "chunk_text": "C for 22 countries and GDP for 35 countries, and we plan to complete the long-term time series for a few more countries. For samples that start as early as 1870, we apply a peak-to-trough method for each country to isolate economic crises, defined as cumulative declines in C or GDP by at least 10%. The principal world economic crises ranked by importance are World War II, World War I and the Great Depression, the early 1920s (possibly reflecting the influenza epidemic of 1918-20), and post-World",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2128985728_chunk_2",
+      "paper_id": "https://openalex.org/W2128985728",
+      "paper_title": "Macroeconomic Crises since 1870",
+      "chunk_index": 2,
+      "total_chunks": 5,
+      "chunk_text": "the influenza epidemic of 1918-20), and post-World War II events such as the Latin American debt crisis and the Asian financial crisis. We find 87 crises for C and 148 for GDP, implying disaster probabilities around 3.6% per year. The disaster size has a mean of 21-22% and an average duration of 3.5 years. A comparison of C and GDP declines shows roughly coincident timing. The average fractional decline in C exceeds that in GDP during wartime crises but is similar for non-war crises.",
+      "chunk_length": 488
+    },
+    {
+      "chunk_id": "https://openalex.org/W2128985728_chunk_3",
+      "paper_id": "https://openalex.org/W2128985728",
+      "paper_title": "Macroeconomic Crises since 1870",
+      "chunk_index": 3,
+      "total_chunks": 5,
+      "chunk_text": "wartime crises but is similar for non-war crises. We simulate a Lucas-tree model with i.i.d. growth shocks and Epstein-Zin-Weil preferences. This simulation accords with the observed average equity premium of around 7% on levered equity, using a \"reasonable\" coefficient of relative risk aversion of 3.5. This result is robust to a number of perturbations, except for limiting the sample to non-war crises, a selection that eliminates most of the largest declines in C and GDP.",
+      "chunk_length": 477
+    },
+    {
+      "chunk_id": "https://openalex.org/W2128985728_chunk_4",
+      "paper_id": "https://openalex.org/W2128985728",
+      "paper_title": "Macroeconomic Crises since 1870",
+      "chunk_index": 4,
+      "total_chunks": 5,
+      "chunk_text": "minates most of the largest declines in C and GDP. We plan a statistical analysis that uses all the time-series data and includes estimation of long-run effects of crises on levels and growth rates of C and GDP. We will also study the bond-bill premium (empirically around 1%) and allow for time-varying disaster probabilities.",
+      "chunk_length": 327
+    },
+    {
+      "chunk_id": "https://openalex.org/W2033593667_chunk_0",
+      "paper_id": "https://openalex.org/W2033593667",
+      "paper_title": "Polylingual topic models",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "Topic models are a useful tool for analyzing large text collections, but have previously been applied in only monolingual, or at most bilingual, contexts. Meanwhile, massive collections of interlinked documents in dozens of languages, such as Wikipedia, are now widely available, calling for tools that can characterize content in many languages. We introduce a polylingual topic model that discovers topics aligned across multiple languages.",
+      "chunk_length": 442
+    },
+    {
+      "chunk_id": "https://openalex.org/W2033593667_chunk_1",
+      "paper_id": "https://openalex.org/W2033593667",
+      "paper_title": "Polylingual topic models",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "iscovers topics aligned across multiple languages. We explore the model's characteristics using two large corpora, each with over ten different languages, and demonstrate its usefulness in supporting machine translation and tracking topic trends across languages.",
+      "chunk_length": 263
+    },
+    {
+      "chunk_id": "https://openalex.org/W2068312360_chunk_0",
+      "paper_id": "https://openalex.org/W2068312360",
+      "paper_title": "Temporary seismic quiescence: SE Turkey",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "The Border Zone that is the contact of the Arabian plate with the three plates of Turkey, Eurasia and Iran to the north has been remarkably aseismic during this century. By extending the period of observation backwards in time by a few centuries it is shown that this seismicity is atypical of the long-term behaviour of the zone and due to a quiescent period in the activity of the area during the 20th Century.",
+      "chunk_length": 412
+    },
+    {
+      "chunk_id": "https://openalex.org/W2068312360_chunk_1",
+      "paper_id": "https://openalex.org/W2068312360",
+      "paper_title": "Temporary seismic quiescence: SE Turkey",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "the activity of the area during the 20th Century. In turn, this implies that short-term data alone do not provide a reliable assessment of earthquake hazard.",
+      "chunk_length": 157
+    },
+    {
+      "chunk_id": "https://openalex.org/W1973650593_chunk_0",
+      "paper_id": "https://openalex.org/W1973650593",
+      "paper_title": "Global Administrative Law: The Quest for Principles and Values",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "There is currently much interest in the question whether a global administrative law is coming into being and, if so, whether this is desirable or otherwise. This paper addresses the question of principles for a global administrative law. It considers four potential sources and their suitability as a foundation for a global administrative law system: first, the largely procedural principles that have emerged in national administrative law systems, notably the principle of legality and due proces",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W1973650593_chunk_1",
+      "paper_id": "https://openalex.org/W1973650593",
+      "paper_title": "Global Administrative Law: The Quest for Principles and Values",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": ", notably the principle of legality and due process principles (Section 3); second, the set of rule of law values, promoted by proponents of free trade and economic liberalism (Section 4); third, the good governance values, and more particularly transparency, participation and accountability, promoted by the World Bank and International Monetary Fund (Section 5); and finally, human rights values (Section 6).",
+      "chunk_length": 411
+    },
+    {
+      "chunk_id": "https://openalex.org/W1973650593_chunk_2",
+      "paper_id": "https://openalex.org/W1973650593",
+      "paper_title": "Global Administrative Law: The Quest for Principles and Values",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "5); and finally, human rights values (Section 6). The paper ends on a sceptical note, concluding that a universal set of administrative law principles is difficult to identify and not especially desirable. First, administrative law is primarily a Western construct, protective of Western interests. It may impact unfavourably on developing economies. Secondly, the evolution of global administrative law in adjudicative forums is leading to an undesirable 'juridification of the political process'.",
+      "chunk_length": 498
+    },
+    {
+      "chunk_id": "https://openalex.org/W1973650593_chunk_3",
+      "paper_id": "https://openalex.org/W1973650593",
+      "paper_title": "Global Administrative Law: The Quest for Principles and Values",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "sirable 'juridification of the political process'. The paper concludes that diversity and pluralism are preferable.",
+      "chunk_length": 115
+    },
+    {
+      "chunk_id": "https://openalex.org/W4281483047_chunk_0",
+      "paper_id": "https://openalex.org/W4281483047",
+      "paper_title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "Chain-of-thought prompting has demonstrated remarkable performance on various natural language reasoning tasks. However, it tends to perform poorly on tasks which requires solving problems harder than the exemplars shown in the prompts. To overcome this challenge of easy-to-hard generalization, we propose a novel prompting strategy, least-to-most prompting. The key idea in this strategy is to break down a complex problem into a series of simpler subproblems and then solve them in sequence.",
+      "chunk_length": 494
+    },
+    {
+      "chunk_id": "https://openalex.org/W4281483047_chunk_1",
+      "paper_id": "https://openalex.org/W4281483047",
+      "paper_title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": "mpler subproblems and then solve them in sequence. Solving each subproblem is facilitated by the answers to previously solved subproblems. Our experimental results on tasks related to symbolic manipulation, compositional generalization, and math reasoning reveal that least-to-most prompting is capable of generalizing to more difficult problems than those seen in the prompts.",
+      "chunk_length": 377
+    },
+    {
+      "chunk_id": "https://openalex.org/W4281483047_chunk_2",
+      "paper_id": "https://openalex.org/W4281483047",
+      "paper_title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "difficult problems than those seen in the prompts. A notable finding is that when the GPT-3 code-davinci-002 model is used with least-to-most prompting, it can solve the compositional generalization benchmark SCAN in any split (including length split) with an accuracy of at least 99% using just 14 exemplars, compared to only 16% accuracy with chain-of-thought prompting.",
+      "chunk_length": 372
+    },
+    {
+      "chunk_id": "https://openalex.org/W4281483047_chunk_3",
+      "paper_id": "https://openalex.org/W4281483047",
+      "paper_title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "only 16% accuracy with chain-of-thought prompting. This is particularly noteworthy because neural-symbolic models in the literature that specialize in solving SCAN are trained on the entire training set containing over 15,000 examples. We have included prompts for all the tasks in the Appendix.",
+      "chunk_length": 295
+    },
+    {
+      "chunk_id": "https://openalex.org/W2015118036_chunk_0",
+      "paper_id": "https://openalex.org/W2015118036",
+      "paper_title": "Climate-driven introduction of the Black Death and successive plague reintroductions into Europe",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "The Black Death, originating in Asia, arrived in the Mediterranean harbors of Europe in 1347 CE, via the land and sea trade routes of the ancient Silk Road system. This epidemic marked the start of the second plague pandemic, which lasted in Europe until the early 19th century. This pandemic is generally understood as the consequence of a singular introduction of Yersinia pestis, after which the disease established itself in European rodents over four centuries.",
+      "chunk_length": 466
+    },
+    {
+      "chunk_id": "https://openalex.org/W2015118036_chunk_1",
+      "paper_id": "https://openalex.org/W2015118036",
+      "paper_title": "Climate-driven introduction of the Black Death and successive plague reintroductions into Europe",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "ed itself in European rodents over four centuries. To locate these putative plague reservoirs, we studied the climate fluctuations that preceded regional plague epidemics, based on a dataset of 7,711 georeferenced historical plague outbreaks and 15 annually resolved tree-ring records from Europe and Asia. We provide evidence for repeated climate-driven reintroductions of the bacterium into European harbors from reservoirs in Asia, with a delay of 15 ± 1 y.",
+      "chunk_length": 460
+    },
+    {
+      "chunk_id": "https://openalex.org/W2015118036_chunk_2",
+      "paper_id": "https://openalex.org/W2015118036",
+      "paper_title": "Climate-driven introduction of the Black Death and successive plague reintroductions into Europe",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "from reservoirs in Asia, with a delay of 15 ± 1 y. Our analysis finds no support for the existence of permanent plague reservoirs in medieval Europe.",
+      "chunk_length": 149
+    },
+    {
+      "chunk_id": "https://openalex.org/W2175620918_chunk_0",
+      "paper_id": "https://openalex.org/W2175620918",
+      "paper_title": "Frontiers and Boundaries in Archaeological Perspective",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "Most archaeological studies of frontiers and boundaries are informed by a colonialist perspective of core-periphery relationships. In this review, we identify three problems with colonialist models of territorial expansion, boundary maintenance, and homogeneousc olonial populations. These problems are (a) insular models of culture change that treat frontiers as passive recipients of core innovations, (b) the reliance on macro scales of analysis employed frontier research, and (c) the expectation",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2175620918_chunk_1",
+      "paper_id": "https://openalex.org/W2175620918",
+      "paper_title": "Frontiers and Boundaries in Archaeological Perspective",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "mployed frontier research, and (c) the expectation of sharp frontier boundaries visible material culture. In the final section, we reconceptualize frontiers as zones of cross-cutting social networks based largely on our research on fur-trade outposts in western North America. Our approach considers the study of diverse and overlapping segmentary or factional groups that cross-cut traditionally perceived colonial-indigenous boundaries on the frontier at different spatial and temporal scales of an",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2027469057_chunk_0",
+      "paper_id": "https://openalex.org/W2027469057",
+      "paper_title": "Dams as Symbols of Modernization: The Urbanization of Nature Between Geographical Imagination and Materiality",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "The article offers an analysis of the iconography and symbolism of dam constructions at three levels: first, as embodiments of the dialectics between geographical imaginations and material practices in the process of modernization; second, as symbols of modernity's quest to conquer and urbanize nature; and third, as the catalysts for reconfiguring the relationship between nature and the city.",
+      "chunk_length": 395
+    },
+    {
+      "chunk_id": "https://openalex.org/W2027469057_chunk_1",
+      "paper_id": "https://openalex.org/W2027469057",
+      "paper_title": "Dams as Symbols of Modernization: The Urbanization of Nature Between Geographical Imagination and Materiality",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": "ring the relationship between nature and the city. The article grounds its analysis on the study of the Marathon dam, the first dam project for watering Athens, constructed in the 1920s. Being the biggest dam construction at the time in the Balkans, it became an iconic marker of Athens's modernization and of Greece's modernist project for controlling and taming nature.",
+      "chunk_length": 371
+    },
+    {
+      "chunk_id": "https://openalex.org/W2027469057_chunk_2",
+      "paper_id": "https://openalex.org/W2027469057",
+      "paper_title": "Dams as Symbols of Modernization: The Urbanization of Nature Between Geographical Imagination and Materiality",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "dernist project for controlling and taming nature. It also signaled a new era of trade relations between the United States and Greece by introducing American capital and work practices into Greece. However, this decidedly modern project was wrought with heavy neoclassical ornamentation and symbolism, and was veneered with the same marble as that used for the Parthenon.",
+      "chunk_length": 371
+    },
+    {
+      "chunk_id": "https://openalex.org/W2027469057_chunk_3",
+      "paper_id": "https://openalex.org/W2027469057",
+      "paper_title": "Dams as Symbols of Modernization: The Urbanization of Nature Between Geographical Imagination and Materiality",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "th the same marble as that used for the Parthenon. The article interprets this as an effort to reconcile iconographically the two prevailing geographical imaginations that infused the modernizing desires of Athens: modernizing the city through connecting it to the West and modernizing it through reconnecting it to its classical past. In the analysis, the article draws on original material from the archives of the National Library of Greece in Athens.",
+      "chunk_length": 454
+    },
+    {
+      "chunk_id": "https://openalex.org/W2193120322_chunk_0",
+      "paper_id": "https://openalex.org/W2193120322",
+      "paper_title": "Weber’s theory of domination and post-communist capitalisms",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "This article has four main objectives. First, it introduces the ideal types of domination of Weber. Contrary to the received wisdom, which knows only “three ideal types” (traditional, charismatic and legal rational) I present the “fourth” type of domination, Weber called “Wille der Beherrschten” as an important correction of his ideal type of legal-rational authority. Next I make a novel, critical distinction between patrimonial and prebendal types of traditional authority.",
+      "chunk_length": 478
+    },
+    {
+      "chunk_id": "https://openalex.org/W2193120322_chunk_1",
+      "paper_id": "https://openalex.org/W2193120322",
+      "paper_title": "Weber’s theory of domination and post-communist capitalisms",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "nial and prebendal types of traditional authority. Third, I discuss various ways that communist regimes tried to legitimate themselves and how they entered eventually a legitimation crisis, leading to the collapse of communism. In the next section, I explore the different ways post-communist capitalisms seek legitimacy (with various combinations of legal rational authority and patrimonialism), and finally I conclude with a trend of re-convergence of some post-communist systems (especially Russia",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2193120322_chunk_2",
+      "paper_id": "https://openalex.org/W2193120322",
+      "paper_title": "Weber’s theory of domination and post-communist capitalisms",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "of some post-communist systems (especially Russia and Hungary, but with signs for similar trends elsewhere) into an illiberal, prebendal quasi-democratic system.",
+      "chunk_length": 161
+    },
+    {
+      "chunk_id": "https://openalex.org/W2004480871_chunk_0",
+      "paper_id": "https://openalex.org/W2004480871",
+      "paper_title": "International relations and domestic structures: Foreign economic policies of advanced industrial states",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Recent writings on problems of the international economy have focused attention primarily on changes in the international system. This paper attempts to show that foreign economic policy can be understood only if domestic factors are systematically included in the analysis. The paper's first part groups the recent literature into three paradigms which distinguish between three international effects.",
+      "chunk_length": 402
+    },
+    {
+      "chunk_id": "https://openalex.org/W2004480871_chunk_1",
+      "paper_id": "https://openalex.org/W2004480871",
+      "paper_title": "International relations and domestic structures: Foreign economic policies of advanced industrial states",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "h distinguish between three international effects. The second part offers a comparison of the differences between a state-centered policy network in France and a society-centered network in the United States. The third part of the paper combines the arguments of the first two and analyzes French and American commercial, financial, and energy policies as the outcome of both international effects and domestic structures.",
+      "chunk_length": 422
+    },
+    {
+      "chunk_id": "https://openalex.org/W2004480871_chunk_2",
+      "paper_id": "https://openalex.org/W2004480871",
+      "paper_title": "International relations and domestic structures: Foreign economic policies of advanced industrial states",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "oth international effects and domestic structures. These case studies show that domestic factors must be included in an analysis of foreign economic policies. The paper's main results are analyzed further in its fourth part.",
+      "chunk_length": 224
+    },
+    {
+      "chunk_id": "https://openalex.org/W2589779391_chunk_0",
+      "paper_id": "https://openalex.org/W2589779391",
+      "paper_title": "β-thalassemia distribution in the old world: a historical standpoint of an ancient disease",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "Various processes are known to determine the frequency of genetic disease in human populations. However, it is almost impossible to decide to what extent each process is responsible for the presence of a particular genetic disease. The wide spectrum of β-thalassemia mutations could well be explained by looking at their geographical distribution, the history of malaria, wars, invasions, mass migrations, consanguinity, and settlements.",
+      "chunk_length": 437
+    },
+    {
+      "chunk_id": "https://openalex.org/W2589779391_chunk_1",
+      "paper_id": "https://openalex.org/W2589779391",
+      "paper_title": "β-thalassemia distribution in the old world: a historical standpoint of an ancient disease",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": ", mass migrations, consanguinity, and settlements. An analysis of the distribution of the molecular spectrum of haemoglobinopathies allows for the development and improvement of diagnostic tests and management of these disorders.",
+      "chunk_length": 229
+    },
+    {
+      "chunk_id": "https://openalex.org/W4319336827_chunk_0",
+      "paper_id": "https://openalex.org/W4319336827",
+      "paper_title": "Marketing of commercial milk formula: a system to capture parents, communities, science, and policy",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "Despite proven benefits, less than half of infants and young children globally are breastfed in accordance with the recommendations of WHO. In comparison, commercial milk formula (CMF) sales have increased to about US$55 billion annually, with more infants and young children receiving formula products than ever. This Series paper describes the CMF marketing playbook and its influence on families, health professionals, science, and policy processes, drawing on national survey data, company report",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W4319336827_chunk_1",
+      "paper_id": "https://openalex.org/W4319336827",
+      "paper_title": "Marketing of commercial milk formula: a system to capture parents, communities, science, and policy",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": "s, drawing on national survey data, company reports, case studies, methodical scoping reviews, and two multicountry research studies. We report how CMF sales are driven by multifaceted, well resourced marketing strategies that portray CMF products, with little or no supporting evidence, as solutions to common infant health and developmental challenges in ways that systematically undermine breastfeeding.",
+      "chunk_length": 406
+    },
+    {
+      "chunk_id": "https://openalex.org/W4319336827_chunk_2",
+      "paper_id": "https://openalex.org/W4319336827",
+      "paper_title": "Marketing of commercial milk formula: a system to capture parents, communities, science, and policy",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "ways that systematically undermine breastfeeding. Digital platforms substantially extend the reach and influence of marketing while circumventing the International Code of Marketing of Breast-milk Substitutes. Creating an enabling policy environment for breastfeeding that is free from commercial influence requires greater political commitment, financial investment, CMF industry transparency, and sustained advocacy.",
+      "chunk_length": 418
+    },
+    {
+      "chunk_id": "https://openalex.org/W4319336827_chunk_3",
+      "paper_id": "https://openalex.org/W4319336827",
+      "paper_title": "Marketing of commercial milk formula: a system to capture parents, communities, science, and policy",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "CMF industry transparency, and sustained advocacy. A framework convention on the commercial marketing of food products for infants and children is needed to end CMF marketing.",
+      "chunk_length": 175
+    },
+    {
+      "chunk_id": "https://openalex.org/W2105315323_chunk_0",
+      "paper_id": "https://openalex.org/W2105315323",
+      "paper_title": "The Great Divide and Beyond: Financial Architecture in Transition",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "The Great Divide in economic and financial development and the convergence in financial architecture among the successful countries raise fundamental questions about how financial development interacts with economic growth. Is it possible to engineer a development takeoff by creating a modern financial architecture from scratch? Or are financial institutions and markets a reflection of underlying conditions in the real sector? Or are both financial development and economic growth driven by some",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W2105315323_chunk_1",
+      "paper_id": "https://openalex.org/W2105315323",
+      "paper_title": "The Great Divide and Beyond: Financial Architecture in Transition",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "al development and economic growth driven by some other underlying variables? Is it possible to leapfrog certain stages of financial development or must all countries go through a phase of bank-oriented financial architecture? The experience of the transition economies represents a unique opportunity to shed new light on these issues.",
+      "chunk_length": 336
+    },
+    {
+      "chunk_id": "https://openalex.org/W3124514489_chunk_0",
+      "paper_id": "https://openalex.org/W3124514489",
+      "paper_title": "State Capacity and Long‐Run Economic Performance",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "We present new evidence about the long-run relationship between state capacitythe fiscal and administrative power of statesand economic performance. Our database is novel and spans 11 European countries and four centuries from the Old Regime to World War I. We argue that national governments undertook two political transformations over this period: fiscal centralisation and limited government. We find a significant direct relationship between fiscal centralisation and economic growth.",
+      "chunk_length": 489
+    },
+    {
+      "chunk_id": "https://openalex.org/W3124514489_chunk_1",
+      "paper_id": "https://openalex.org/W3124514489",
+      "paper_title": "State Capacity and Long‐Run Economic Performance",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "between fiscal centralisation and economic growth. Furthermore, we find that an increase in the state's capacity to extract greater tax revenues was one mechanism through which both political transformations improved economic performance. Our analysis shows systematic evidence that state capacity is an important determinant of long-run economic growth.",
+      "chunk_length": 354
+    },
+    {
+      "chunk_id": "https://openalex.org/W2120192219_chunk_0",
+      "paper_id": "https://openalex.org/W2120192219",
+      "paper_title": "Populist Democracies: Post-Authoritarian Greece and Post-Communist Hungary",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "This article makes the case for a novel democratic subtype, populist democracy , indicating a situation in which both the party in office and at least the major opposition force(s) in a pluralist system are populist. Based on a minimal definition of populism as ‘democratic illiberalism’, and through the comparative analysis of post-authoritarian Greece and post-communist Hungary, the article reveals the particular stages, as well as the causal mechanisms, that may prompt the emergence of populis",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2120192219_chunk_1",
+      "paper_id": "https://openalex.org/W2120192219",
+      "paper_title": "Populist Democracies: Post-Authoritarian Greece and Post-Communist Hungary",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "chanisms, that may prompt the emergence of populist democracy in contemporary politics. It also points to the tendency of such systems to produce polarized two-party systems, and it calls for further research on the topic.",
+      "chunk_length": 222
+    },
+    {
+      "chunk_id": "https://openalex.org/W2008749442_chunk_0",
+      "paper_id": "https://openalex.org/W2008749442",
+      "paper_title": "The Legacy of Western Overseas Colonialism on Democratic Survival",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Using an original dataset that covers the period from 1951 to 1995, we consider the enduring effects of Western overseas colonialism on the democratic survival of postcolonial democracies. We treat colonialism as a holistic phenomenon and differentiate the relative effects of its legacies with regard to the level of economic development, social fragmentation, and the relationship between the state and civil society.",
+      "chunk_length": 419
+    },
+    {
+      "chunk_id": "https://openalex.org/W2008749442_chunk_1",
+      "paper_id": "https://openalex.org/W2008749442",
+      "paper_title": "The Legacy of Western Overseas Colonialism on Democratic Survival",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "relationship between the state and civil society. We find that Western overseas colonialism, a factor often overlooked in recent large-n studies, continues to have an effect on the survival of democratic regimes. We further find that the legacy of specific colonial powers has an important effect on survival as well. Unlike previous studies, we find that former Spanish colonies outperform British colonies when colonialism is conceptualized holistically.",
+      "chunk_length": 456
+    },
+    {
+      "chunk_id": "https://openalex.org/W2008749442_chunk_2",
+      "paper_id": "https://openalex.org/W2008749442",
+      "paper_title": "The Legacy of Western Overseas Colonialism on Democratic Survival",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "s when colonialism is conceptualized holistically. However, when we break colonial legacy into separate components (development, social fragmentation, and the relationship between the state and civil society), we find that the advantages former British colonies enjoy are attributable to the legacy of the state/civil society relationship. Moreover, we show that at least in the case of former British colonies, time spent under colonial rule is positively associated with democratic survival.",
+      "chunk_length": 493
+    },
+    {
+      "chunk_id": "https://openalex.org/W1970186224_chunk_0",
+      "paper_id": "https://openalex.org/W1970186224",
+      "paper_title": "Constructing Scarcity and Sensationalising Water Politics: 170 Days That Shook Athens",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "This paper examines the drought that hit Athens between 1989 and 1991 and analyses the role of this natural phenomenon as the “ferment” for ongoing political‐economic transformations in the direction of liberalisation and privatisation of water management and allocation in Greece. The paper analyses how the drought was marshalled as an effective discursive vehicle to facilitate and expedite the state‐led neoliberal political‐economic agenda.",
+      "chunk_length": 445
+    },
+    {
+      "chunk_id": "https://openalex.org/W1970186224_chunk_1",
+      "paper_id": "https://openalex.org/W1970186224",
+      "paper_title": "Constructing Scarcity and Sensationalising Water Politics: 170 Days That Shook Athens",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "he state‐led neoliberal political‐economic agenda. It shows how the social consensus around a number of “emergency measures” that the state adopted to deal with a “natural” crisis was grounded in a particular discourse on water and in the political‐economic “positioning” of “nature” as a source of crisis. In turn, this change in the “discursive” production of nature fused with the rhetoric and practice of market‐led development and privatisation and, ultimately, facilitated important transformat",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W1970186224_chunk_2",
+      "paper_id": "https://openalex.org/W1970186224",
+      "paper_title": "Constructing Scarcity and Sensationalising Water Politics: 170 Days That Shook Athens",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "and, ultimately, facilitated important transformations in the social and political‐economic (material) production of nature.",
+      "chunk_length": 124
+    },
+    {
+      "chunk_id": "https://openalex.org/W2113765229_chunk_0",
+      "paper_id": "https://openalex.org/W2113765229",
+      "paper_title": "The political consequences of the product cycle: industrial history and political outcomes",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "What explains the continuing stagnation in the industrial economies of the West? What will be the impact of such stagnation upon domestic politics and upon international relations? Are there domestic and foreign policies which the state can undertake to bring about a return to sustained economic prosperity and a recapitulation of that lost golden age of 1948–1973? These are now the central questions for scholars in the emerging field of international political economy.",
+      "chunk_length": 473
+    },
+    {
+      "chunk_id": "https://openalex.org/W2113765229_chunk_1",
+      "paper_id": "https://openalex.org/W2113765229",
+      "paper_title": "The political consequences of the product cycle: industrial history and political outcomes",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "emerging field of international political economy. A recent special issue of International Organization , edited by Peter Katzenstein, has presented some of the most useful and sophisticated approaches to these questions and analyses of the international political economy of the West during the period of the last thirty years.",
+      "chunk_length": 328
+    },
+    {
+      "chunk_id": "https://openalex.org/W2035247929_chunk_0",
+      "paper_id": "https://openalex.org/W2035247929",
+      "paper_title": "The Classical Soviet-Type Economy: Nature of the System and Implications for Reform",
+      "chunk_index": 0,
+      "total_chunks": 2,
+      "chunk_text": "Below I will outline the traditional Soviet economic system, developing its logic of institutions and interactions, and pointing out their natural economic consequences. This will lead me to a list of defining characteristics of that system, characteristics that are mutually dependent and supporting and hence must be changed more or less simultaneously if effective reform is to take place. One implication is that step-by-step measures are likely to fail.",
+      "chunk_length": 458
+    },
+    {
+      "chunk_id": "https://openalex.org/W2035247929_chunk_1",
+      "paper_id": "https://openalex.org/W2035247929",
+      "paper_title": "The Classical Soviet-Type Economy: Nature of the System and Implications for Reform",
+      "chunk_index": 1,
+      "total_chunks": 2,
+      "chunk_text": "is that step-by-step measures are likely to fail. Instead, complete replacement of the economic system, as apparently intended by many East European reformers, seems necessary for a market-based system to begin functioning. This will be a truly monumental task and nowhere more so than in the Soviet Union.",
+      "chunk_length": 306
+    },
+    {
+      "chunk_id": "https://openalex.org/W2125688819_chunk_0",
+      "paper_id": "https://openalex.org/W2125688819",
+      "paper_title": "A Lexical Index of Electoral Democracy",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Recent years have seen an efflorescence of work focused on the definition and operationalization of democracy. One debate concerns whether democracy is best measured by binary or graded scales. Critics of binary indices point out at that they are overly reductionist, while defenders counter that the different levels of graded measures are not associated with a specific set of conditions.",
+      "chunk_length": 390
+    },
+    {
+      "chunk_id": "https://openalex.org/W2125688819_chunk_1",
+      "paper_id": "https://openalex.org/W2125688819",
+      "paper_title": "A Lexical Index of Electoral Democracy",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "not associated with a specific set of conditions. Against this backdrop, we propose to operationalize electoral democracy as a series of necessary and sufficient conditions arrayed in an ordinal scale. The resulting “lexical” index of electoral democracy, based partly on new data, covers all independent countries of the world from 1800 to 2013. It incorporates binary coding of its subcomponents, which are aggregated into an ordinal scale using a cumulative logic.",
+      "chunk_length": 467
+    },
+    {
+      "chunk_id": "https://openalex.org/W2125688819_chunk_2",
+      "paper_id": "https://openalex.org/W2125688819",
+      "paper_title": "A Lexical Index of Electoral Democracy",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "ed into an ordinal scale using a cumulative logic. In this fashion, we arrive at an index that performs a classificatory function—each level identifies a unique and theoretically meaningful regime-type—as well as a discriminating function.",
+      "chunk_length": 239
+    },
+    {
+      "chunk_id": "https://openalex.org/W1629693186_chunk_0",
+      "paper_id": "https://openalex.org/W1629693186",
+      "paper_title": "This Time is Different: A Panoramic View of Eight Centuries of Financial Crises",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "This paper offers a \"panoramic\" analysis of the history of financial crises dating from England's fourteenth-century default to the current United States sub-prime financial crisis. Our study is based on a new dataset that spans all regions. It incorporates a number of important credit episodes seldom covered in the literature, including for example, defaults and restructurings in India and China.",
+      "chunk_length": 400
+    },
+    {
+      "chunk_id": "https://openalex.org/W1629693186_chunk_1",
+      "paper_id": "https://openalex.org/W1629693186",
+      "paper_title": "This Time is Different: A Panoramic View of Eight Centuries of Financial Crises",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": "e, defaults and restructurings in India and China. As the first paper employing this data, our aim is to illustrate some of the broad insights that can be gleaned from such a sweeping historical database. We find that serial default is a nearly universal phenomenon as countries struggle to transform themselves from emerging markets to advanced economies.",
+      "chunk_length": 356
+    },
+    {
+      "chunk_id": "https://openalex.org/W1629693186_chunk_2",
+      "paper_id": "https://openalex.org/W1629693186",
+      "paper_title": "This Time is Different: A Panoramic View of Eight Centuries of Financial Crises",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "elves from emerging markets to advanced economies. Major default episodes are typically spaced some years (or decades) apart, creating an illusion that \"this time is different\" among policymakers and investors. A recent example of the \"this time is different\" syndrome is the false belief that domestic debt is a novel feature of the modern financial landscape.",
+      "chunk_length": 361
+    },
+    {
+      "chunk_id": "https://openalex.org/W1629693186_chunk_3",
+      "paper_id": "https://openalex.org/W1629693186",
+      "paper_title": "This Time is Different: A Panoramic View of Eight Centuries of Financial Crises",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "a novel feature of the modern financial landscape. We also confirm that crises frequently emanate from the financial centers with transmission through interest rate shocks and commodity price collapses. Thus, the recent US sub-prime financial crisis is hardly unique. Our data also documents other crises that often accompany default: including inflation, exchange rate crashes, banking crises, and currency debasements.",
+      "chunk_length": 420
+    },
+    {
+      "chunk_id": "https://openalex.org/W1493401126_chunk_0",
+      "paper_id": "https://openalex.org/W1493401126",
+      "paper_title": "Transformation of cities in Central and Eastern Europe: towards globalization",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "&lt;p&gt;This book identifies and describes the inter- and intra-urban transformations of Central and Eastern European cities and considers their pre-1945 historic legacies, the socialist period and their contemporary transition towards market oriented and democratic systems. The dramatic changes since 1989 including the collapse of Communist ideology, the break-up of the Soviet Union, Czechoslovakia and Yugoslavia, the end of the Cold War and the impact of globalisation and European integration",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W1493401126_chunk_1",
+      "paper_id": "https://openalex.org/W1493401126",
+      "paper_title": "Transformation of cities in Central and Eastern Europe: towards globalization",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "e impact of globalisation and European integration, have reconfigured this region and affected their re-integration into European and global networks.The similarities and differences between significant Central and Eastern European cities are examined, comparing the differing patterns of historical context and socialist legacies before 1990, and the impacts of internal and external forces on re-shaping these cities and their paths of transformation since 1990.",
+      "chunk_length": 464
+    },
+    {
+      "chunk_id": "https://openalex.org/W1493401126_chunk_2",
+      "paper_id": "https://openalex.org/W1493401126",
+      "paper_title": "Transformation of cities in Central and Eastern Europe: towards globalization",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "ties and their paths of transformation since 1990. It also examines the role of contemporary planning within the overall development of Central and Eastern European cities.The conclusion demonstrates the similarities and differences between Central and Eastern European cities and their re-integration into global networks.&lt;/p&gt;",
+      "chunk_length": 333
+    },
+    {
+      "chunk_id": "https://openalex.org/W1493314299_chunk_0",
+      "paper_id": "https://openalex.org/W1493314299",
+      "paper_title": "Trademarks as an Indicator of Product and Marketing Innovations",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "Non-technological innovation is a major factor of competitiveness and productivity growth in the economy, notably in the service industries. However, the measurement of non-technological innovation and of innovation in the service industries is currently very poor, as traditional data sources like R&D or patents do not apply to these types of innovations. This document presents a strong candidate for quantifying non-technological innovation: trademark data.",
+      "chunk_length": 461
+    },
+    {
+      "chunk_id": "https://openalex.org/W1493314299_chunk_1",
+      "paper_id": "https://openalex.org/W1493314299",
+      "paper_title": "Trademarks as an Indicator of Product and Marketing Innovations",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "ying non-technological innovation: trademark data. Trademarks constitute a rich and easily accessible source of data. Besides, several studies have shown that they are highly correlated with various innovation variables (patents, share of innovative sales). Lastly, trademarks have a large perimeter of application; they are present in almost every sector of the economy.",
+      "chunk_length": 371
+    },
+    {
+      "chunk_id": "https://openalex.org/W1493314299_chunk_2",
+      "paper_id": "https://openalex.org/W1493314299",
+      "paper_title": "Trademarks as an Indicator of Product and Marketing Innovations",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "are present in almost every sector of the economy. Trademark data are then likely to convey information on two key (overlapping) aspects of innovation that are not well covered by traditional indicators: innovation in the service sectors and marketing innovation. This paper aims at presenting trademarks, their potential link with innovations and their main statistical properties, to see if they may actually serve as an innovation indicator.",
+      "chunk_length": 444
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_0",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 0,
+      "total_chunks": 9,
+      "chunk_text": "East African landscapes today are the result of the cumulative effects of climate and land-use change over millennial timescales. In this review, we compile archaeological and palaeoenvironmental data from East Africa to document land-cover change, and environmental, subsistence and land-use transitions, over the past 6000 years. Throughout East Africa there have been a series of relatively rapid and high-magnitude environmental shifts characterised by changing hydrological budgets during the mi",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_1",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 1,
+      "total_chunks": 9,
+      "chunk_text": "sed by changing hydrological budgets during the mid- to late Holocene. For example, pronounced environmental shifts that manifested as a marked change in the rainfall amount or seasonality and subsequent hydrological budget throughout East Africa occurred around 4000, 800 and 300 radiocarbon years before present (yr BP). The past 6000 years have also seen numerous shifts in human interactions with East African ecologies.",
+      "chunk_length": 424
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_2",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 2,
+      "total_chunks": 9,
+      "chunk_text": "in human interactions with East African ecologies. From the mid-Holocene, land use has both diversified and increased exponentially, this has been associated with the arrival of new subsistence systems, crops, migrants and technologies, all giving rise to a sequence of significant phases of land-cover change. The first large-scale human influences began to occur around 4000 yr BP, associated with the introduction of domesticated livestock and the expansion of pastoral communities.",
+      "chunk_length": 485
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_3",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 3,
+      "total_chunks": 9,
+      "chunk_text": "vestock and the expansion of pastoral communities. The first widespread and intensive forest clearances were associated with the arrival of iron-using early farming communities around 2500 yr BP, particularly in productive and easily-cleared mid-altitudinal areas. Extensive and pervasive land-cover change has been associated with population growth, immigration and movement of people.",
+      "chunk_length": 386
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_4",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 4,
+      "total_chunks": 9,
+      "chunk_text": "lation growth, immigration and movement of people. The expansion of trading routes between the interior and the coast, starting around 1300 years ago and intensifying in the eighteenth and nineteenth centuries CE, was one such process. These caravan routes possibly acted as conduits for spreading New World crops such as maize (Zea mays), tobacco (Nicotiana spp.) and tomatoes (Solanum lycopersicum), although the processes and timings of their introductions remains poorly documented.",
+      "chunk_length": 486
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_5",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 5,
+      "total_chunks": 9,
+      "chunk_text": "of their introductions remains poorly documented. The introduction of southeast Asian domesticates, especially banana (Musa spp.), rice (Oryza spp.), taro (Colocasia esculenta), and chicken (Gallus gallus), via transoceanic biological transfers around and across the Indian Ocean, from at least around 1300 yr BP, and potentially significantly earlier, also had profound social and ecological consequences across parts of the region.",
+      "chunk_length": 433
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_6",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 6,
+      "total_chunks": 9,
+      "chunk_text": "cological consequences across parts of the region. Through an interdisciplinary synthesis of information and metadatasets, we explore the different drivers and directions of changes in land-cover, and the associated environmental histories and interactions with various cultures, technologies, and subsistence strategies through time and across space in East Africa.",
+      "chunk_length": 366
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_7",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 7,
+      "total_chunks": 9,
+      "chunk_text": "gies through time and across space in East Africa. This review suggests topics for targeted future research that focus on areas and/or time periods where our understanding of the interactions between people, the environment and land-cover change are most contentious and/or poorly resolved. The review also offers a perspective on how knowledge of regional land-use change can be used to inform and provide perspectives on contemporary issues such as climate and ecosystem change models, conservation",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2781561156_chunk_8",
+      "paper_id": "https://openalex.org/W2781561156",
+      "paper_title": "Drivers and trajectories of land cover change in East Africa: Human and environmental interactions from 6000 years ago to present",
+      "chunk_index": 8,
+      "total_chunks": 9,
+      "chunk_text": "climate and ecosystem change models, conservation strategies, and the achievement of nature-based solutions for development purposes.",
+      "chunk_length": 133
+    },
+    {
+      "chunk_id": "https://openalex.org/W2048217346_chunk_0",
+      "paper_id": "https://openalex.org/W2048217346",
+      "paper_title": "Daily Mean Sea Level Pressure Reconstructions for the European–North Atlantic Region for the Period 1850–2003",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "Abstract The development of a daily historical European–North Atlantic mean sea level pressure dataset (EMSLP) for 1850–2003 on a 5° latitude by longitude grid is described. This product was produced using 86 continental and island stations distributed over the region 25°–70°N, 70°W–50°E blended with marine data from the International Comprehensive Ocean–Atmosphere Data Set (ICOADS). The EMSLP fields for 1850–80 are based purely on the land station data and ship observations.",
+      "chunk_length": 480
+    },
+    {
+      "chunk_id": "https://openalex.org/W2048217346_chunk_1",
+      "paper_id": "https://openalex.org/W2048217346",
+      "paper_title": "Daily Mean Sea Level Pressure Reconstructions for the European–North Atlantic Region for the Period 1850–2003",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": "ly on the land station data and ship observations. From 1881, the blended land and marine fields are combined with already available daily Northern Hemisphere fields. Complete coverage is obtained by employing reduced space optimal interpolation. Squared correlations (r 2) indicate that EMSLP generally captures 80%–90% of daily variability represented in an existing historical mean sea level pressure product and over 90% in modern 40-yr European Centre for Medium-Range Weather Forecasts Re-Analy",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2048217346_chunk_2",
+      "paper_id": "https://openalex.org/W2048217346",
+      "paper_title": "Daily Mean Sea Level Pressure Reconstructions for the European–North Atlantic Region for the Period 1850–2003",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "Centre for Medium-Range Weather Forecasts Re-Analyses (ERA-40) over most of the region. A lack of sufficient observations over Greenland and the Middle East, however, has resulted in poorer reconstructions there. Error estimates, produced as part of the reconstruction technique, flag these as regions of low confidence. It is shown that the EMSLP daily fields and associated error estimates provide a unique opportunity to examine the circulation patterns associated with extreme events across the E",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W2048217346_chunk_3",
+      "paper_id": "https://openalex.org/W2048217346",
+      "paper_title": "Daily Mean Sea Level Pressure Reconstructions for the European–North Atlantic Region for the Period 1850–2003",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "tterns associated with extreme events across the European–North Atlantic region, such as the 2003 heat wave, in the context of historical events.",
+      "chunk_length": 145
+    },
+    {
+      "chunk_id": "https://openalex.org/W2891779117_chunk_0",
+      "paper_id": "https://openalex.org/W2891779117",
+      "paper_title": "Culture, Institutions and the Wealth of Nations",
+      "chunk_index": 0,
+      "total_chunks": 3,
+      "chunk_text": "We construct an endogenous growth model that includes a cultural variable along the dimension of individualism-collectivism. The model predicts that more individualism leads to more innovation because of the social rewards associated with innovation in an individualist culture. This cultural effect may offset the negative effects of bad institutions on growth.",
+      "chunk_length": 362
+    },
+    {
+      "chunk_id": "https://openalex.org/W2891779117_chunk_1",
+      "paper_id": "https://openalex.org/W2891779117",
+      "paper_title": "Culture, Institutions and the Wealth of Nations",
+      "chunk_index": 1,
+      "total_chunks": 3,
+      "chunk_text": "he negative effects of bad institutions on growth. Collectivism leads to efficiency gains relative to individualism, but these gains are static, unlike the dynamic effect of individualism on growth through innovation. Using genetic data as instruments for culture we provide strong evidence of a causal effect of individualism on income per worker and total factor productivity as well as on innovation.",
+      "chunk_length": 403
+    },
+    {
+      "chunk_id": "https://openalex.org/W2891779117_chunk_2",
+      "paper_id": "https://openalex.org/W2891779117",
+      "paper_title": "Culture, Institutions and the Wealth of Nations",
+      "chunk_index": 2,
+      "total_chunks": 3,
+      "chunk_text": "otal factor productivity as well as on innovation. The baseline genetic markers we use are interpreted as proxies for cultural transmission but others have a direct effect on individualism and collectivism, in line with recent advances in biology and neuro-science. The effect of culture on long-run growth remains very robust even after controlling for the effect of institutions and other factors. We also provide evidence of a two-way causal effect between culture and institutions.",
+      "chunk_length": 485
+    },
+    {
+      "chunk_id": "https://openalex.org/W2040543785_chunk_0",
+      "paper_id": "https://openalex.org/W2040543785",
+      "paper_title": "Authoritarian persistence, democratization theory and the Middle East: An overview and critique",
+      "chunk_index": 0,
+      "total_chunks": 4,
+      "chunk_text": "What explains the democratic deficit and authoritarian persistence in the Middle East? An overview and critique of the cumulative layers of theoretical tradition that seeks to explain democratic and non-democratic outcomes provides a wealth of tools for understanding the Middle East case. Early modernization theory's analysis of ‘requisites’ proved indeterminate and cultural exceptionalist arguments identified merely an intervening variable.",
+      "chunk_length": 445
+    },
+    {
+      "chunk_id": "https://openalex.org/W2040543785_chunk_1",
+      "paper_id": "https://openalex.org/W2040543785",
+      "paper_title": "Authoritarian persistence, democratization theory and the Middle East: An overview and critique",
+      "chunk_index": 1,
+      "total_chunks": 4,
+      "chunk_text": "guments identified merely an intervening variable. Later theories of developmental imbalances and nation-building dilemmas explained more convincingly why democracy failed in the Middle East. Historical sociology, in identifying the social structural bases of alternative regime paths, showed what put Middle East states on their own distinctive authoritarian pathways.",
+      "chunk_length": 369
+    },
+    {
+      "chunk_id": "https://openalex.org/W2040543785_chunk_2",
+      "paper_id": "https://openalex.org/W2040543785",
+      "paper_title": "Authoritarian persistence, democratization theory and the Middle East: An overview and critique",
+      "chunk_index": 2,
+      "total_chunks": 4,
+      "chunk_text": "s on their own distinctive authoritarian pathways. Institutionalist approaches to state-building helped explain the consolidation of authoritarian regimes in the region while political-economy analysis showed how these regimes adapted to changes in their environment. Rational choice approaches help show why the agency to lead democratic transitions has been lacking.",
+      "chunk_length": 368
+    },
+    {
+      "chunk_id": "https://openalex.org/W2040543785_chunk_3",
+      "paper_id": "https://openalex.org/W2040543785",
+      "paper_title": "Authoritarian persistence, democratization theory and the Middle East: An overview and critique",
+      "chunk_index": 3,
+      "total_chunks": 4,
+      "chunk_text": "y to lead democratic transitions has been lacking. Analyses of the impact of globalization and of the United States hegemon suggest the international variable is compatible with liberalization of authoritarian regimes but not with democratization.",
+      "chunk_length": 247
+    },
+    {
+      "chunk_id": "https://openalex.org/W2577110407_chunk_0",
+      "paper_id": "https://openalex.org/W2577110407",
+      "paper_title": "A Whole Genome DArTseq and SNP Analysis for Genetic Diversity Assessment in Durum Wheat from Central Fertile Crescent",
+      "chunk_index": 0,
+      "total_chunks": 5,
+      "chunk_text": "Until now, little attention has been paid to the geographic distribution and evaluation of genetic diversity of durum wheat from the Central Fertile Crescent (modern-day Turkey and Syria). Turkey and Syria are considered as primary centers of wheat diversity, and thousands of locally adapted wheat landraces are still present in the farmers' small fields.",
+      "chunk_length": 356
+    },
+    {
+      "chunk_id": "https://openalex.org/W2577110407_chunk_1",
+      "paper_id": "https://openalex.org/W2577110407",
+      "paper_title": "A Whole Genome DArTseq and SNP Analysis for Genetic Diversity Assessment in Durum Wheat from Central Fertile Crescent",
+      "chunk_index": 1,
+      "total_chunks": 5,
+      "chunk_text": "es are still present in the farmers' small fields. We planned this study to evaluate the genetic diversity of durum wheat landraces from the Central Fertile Crescent by genotyping based on DArTseq and SNP analysis. A total of 39,568 DArTseq and 20,661 SNP markers were used to characterize the genetic characteristic of 91 durum wheat land races. Clustering based on Neighbor joining analysis, principal coordinate as well as Bayesian model implemented in structure, clearly showed that the grouping",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W2577110407_chunk_2",
+      "paper_id": "https://openalex.org/W2577110407",
+      "paper_title": "A Whole Genome DArTseq and SNP Analysis for Genetic Diversity Assessment in Durum Wheat from Central Fertile Crescent",
+      "chunk_index": 2,
+      "total_chunks": 5,
+      "chunk_text": "ed in structure, clearly showed that the grouping pattern is not associated with the geographical distribution of the durum wheat due to the mixing of the Turkish and Syrian landraces. Significant correlation between DArTseq and SNP markers was observed in the Mantel test. However, we detected a non-significant relationship between geographical coordinates and DArTseq (r = -0.085) and SNP (r = -0.039) loci.",
+      "chunk_length": 410
+    },
+    {
+      "chunk_id": "https://openalex.org/W2577110407_chunk_3",
+      "paper_id": "https://openalex.org/W2577110407",
+      "paper_title": "A Whole Genome DArTseq and SNP Analysis for Genetic Diversity Assessment in Durum Wheat from Central Fertile Crescent",
+      "chunk_index": 3,
+      "total_chunks": 5,
+      "chunk_text": "nd DArTseq (r = -0.085) and SNP (r = -0.039) loci. These results showed that unconscious farmer selection and lack of the commercial varieties might have resulted in the exchange of genetic material and this was apparent in the genetic structure of durum wheat in Turkey and Syria. The genomic characterization presented here is an essential step towards a future exploitation of the available durum wheat genetic resources in genomic and breeding programs.",
+      "chunk_length": 457
+    },
+    {
+      "chunk_id": "https://openalex.org/W2577110407_chunk_4",
+      "paper_id": "https://openalex.org/W2577110407",
+      "paper_title": "A Whole Genome DArTseq and SNP Analysis for Genetic Diversity Assessment in Durum Wheat from Central Fertile Crescent",
+      "chunk_index": 4,
+      "total_chunks": 5,
+      "chunk_text": "enetic resources in genomic and breeding programs. The results of this study have also depicted a clear insight about the genetic diversity of wheat accessions from the Central Fertile Crescent.",
+      "chunk_length": 194
+    }
+  ]
+}

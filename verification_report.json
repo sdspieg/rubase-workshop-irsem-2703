@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-03-15T05:19:24.634Z",
+  "url": "https://sdspieg.github.io/rubase-workshop-fletcher-2603/modules/analyze/llm-selection-guide.html",
+  "results": {
+    "slide4": {
+      "screenshot": "slide_4_lmsys_arena_rankings.png",
+      "content": "\n        4 / 11\n        🏆 LMSYS Arena Rankings - March 2026\n\n        \n            ✨ User-Voted Champion Rankings (March 5, 2026)\n            \n                1. GPT-5.4 Thinking - 1512 Elo 🆕 March 5\n                2. Claude Opus 4.6 - 1504 Elo (Feb 2026)\n                3. Gemini 3.1 Pro - 1500 Elo (Feb 19) 🆕\n                4. Claude Sonnet 4.6 - 1492 Elo (Feb 2026)\n                5. GPT-5.3 Codex - 1485 Elo (Feb 5)\n            \n        \n\n        \n            Key Insights from 6M+ User Votes\n            \n                GPT-5.4 just released: March 5 with native computer use\n                February was huge: Claude 4.6 series, Gemini 3.1, GPT-5.3\n                Context wars: 1M tokens now standard for flagship models\n                Mid-tier surprise: Sonnet 4.6 nearly matches Opus at 20% cost\n            \n        \n\n        \n            Real users, blind testing, head-to-head battles\n        \n    ",
+      "hasArena": true
+    },
+    "slide5": {
+      "screenshot": "slide_5_current_model_landscape.png",
+      "content": "\n        5 / 11\n        Research-Specific Benchmarks\n\n        \n            For Our Workshop Tasks\n            Focus on reasoning, analysis, and knowledge synthesis - not coding performance\n        \n\n        \n            \n                📚 MMLU (Massive Multitask Language Understanding)\n                Tests: Knowledge across 57 academic subjects\n                Relevant for: Domain expertise, factual accuracy\n                Key insight: Gemini 3.1 Pro: 94.3%, Claude Opus 4.6: 91.2%\n            \n\n            \n                🧩 HellaSwag\n                Tests: Commonsense reasoning completion\n                Relevant for: Understanding context, logical inference\n                Key insight: Important for text analysis tasks\n            \n\n            \n                📖 Reading Comprehension (QuAC, CoQA)\n                Tests: Understanding and answering from long texts\n                Relevant for: Paper analysis, document processing\n                Key insight: Critical for Ottoman Bank-style research\n            \n\n            \n                🔍 TruthfulQA\n                Tests: Avoiding false claims, misinformation\n                Relevant for: Fact-checking, citation verification\n                Key insight: Essential for research integrity\n            \n        \n\n        \n            Skip coding benchmarks like HumanEval - irrelevant for our research tasks\n        \n    ",
+      "tier1Text": "",
+      "hasNewModels": [
+        "Claude Opus 4.6",
+        "Gemini 3.1 Pro"
+      ],
+      "hasMissingOldModels": []
+    },
+    "slide6": {
+      "screenshot": "slide_6_task_specific_recommendations.png",
+      "content": "\n        5 / 11\n        Current Model Landscape (March 2026)\n\n        \n            🥇 Tier 1: Research Leaders\n            \n                GPT-5.4 - Latest flagship (March 5), unified general + coding model\n                Claude Opus 4.6 - 1M context, 80.8% SWE-bench (Feb 2026)\n                Gemini 3.1 Pro - 77.1% ARC-AGI-2, 94.3% GPQA Diamond (Feb 19)\n                Claude Sonnet 4.6 - 79.6% SWE-bench at 1/5 Opus price (Feb 2026)\n            \n        \n\n        \n            🥈 Tier 2: Specialized Excellence\n            \n                GPT-5.3 Codex - Specialized coding, 77.3% Terminal-Bench (Feb 5)\n                GPT-5.2 - Previous flagship, still strong for general tasks\n                Gemini 3 Pro - Solid all-rounder, good ecosystem integration\n            \n        \n\n        \n            ⚠️ Now Outdated for Research\n            \n                Claude 3.5 Sonnet - Superseded by Opus/Sonnet 4.6 series\n                GPT-4o/4o-mini - Replaced by GPT-5.x series\n                Gemini 1.5 Pro - Upgraded to Gemini 3.x series\n            \n        \n\n        \n            ⚡ February 2026 saw major releases - all flagship models refreshed!\n        \n    ",
+      "hasRecommendations": true
+    },
+    "modelsFound": {
+      "newModels": {
+        "GPT-5.4": true,
+        "Claude Opus 4.6": true,
+        "Gemini 3.1 Pro": true
+      },
+      "oldModelsRemoved": {
+        "Claude 3.5 Sonnet": true,
+        "GPT-4o": true,
+        "Gemini 1.5 Pro": true
+      }
+    }
+  }
+}

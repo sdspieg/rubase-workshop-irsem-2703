@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: DISCOVER - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+        }
+
+        /* Partner Logos Header */
+        .partner-logos {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .partner-logos a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logos a:hover {
+            opacity: 1;
+        }
+
+        .partner-logos img {
+            height: 60px;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: calc(100vh - 120px);
+            max-height: calc(100vh - 120px);
+            padding: 40px 20px 5px 20px;
+            animation: fadeIn 0.5s ease-in;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--bright-cyan);
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .visual-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(20, 40, 71, 0.9);
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 2px solid var(--bright-cyan);
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--dark-accent);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--bright-cyan);
+            color: var(--dark-bg);
+            transform: scale(1.1);
+        }
+
+        .slide-indicator {
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--dark-accent);
+            border: 2px solid var(--bright-cyan);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: var(--bright-cyan);
+            transform: scale(1.3);
+        }
+
+        .top-buttons {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 101;
+            display: flex;
+            gap: 15px;
+        }
+
+        .back-btn {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            background: rgba(20, 40, 71, 0.9);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Partner Logos Header -->
+    <div class="partner-logos">
+        <a href="https://hcss.nl" target="_blank" title="The Hague Centre for Strategic Studies">
+            <img src="../openalex/hcss_logo.svg" alt="HCSS Logo">
+        </a>
+        <a href="https://hcss.nl/rubase/" target="_blank" title="RuBase">
+            <img src="../openalex/rubase_logo.svg" alt="RuBase Logo">
+        </a>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Slide 0: Tonight's Schedule (moved from OpenAlex) -->
+        <div class="slide active">
+            <h2 class="slide-title">Day 1: DISCOVER</h2>
+            <div style="text-align: center; margin-top: -5px; margin-bottom: 15px;">
+                <span style="color: var(--bright-cyan); font-size: 1.4rem; font-weight: 700;">Building Your Research Corpus</span>
+            </div>
+
+            <div class="visual-container">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <!-- Today's Schedule -->
+                    <div style="background: var(--dark-accent); border: 2px solid var(--bright-yellow); border-radius: 15px; padding: 25px; margin-bottom: 30px;">
+                        <div style="font-size: 1.5rem; color: var(--bright-yellow); text-align: center; margin-bottom: 20px; font-weight: 700;">
+                            Tonight's Schedule (5:30-8:30 PM)
+                        </div>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 15px 25px; color: var(--light-gray); font-size: 1.1rem;">
+                            <div style="color: var(--bright-cyan);">5:30-5:40</div>
+                            <div>Welcome & Introductions</div>
+                            <div style="color: var(--bright-cyan);">5:40-6:25</div>
+                            <div>RuBase: What, Why, How (Stephan De Spiegeleire)</div>
+                            <div style="color: var(--bright-cyan);">6:25-6:40</div>
+                            <div>Setup & Student Introductions</div>
+                            <div style="color: var(--bright-yellow);">6:40-6:55</div>
+                            <div style="color: var(--bright-yellow);">☕ BREAK</div>
+                            <div style="color: var(--bright-cyan);">6:55-7:35</div>
+                            <div>Bibliometrics & The Lens (Adam Stulberg)</div>
+                            <div style="color: var(--bright-cyan);">7:35-8:20</div>
+                            <div>OpenAlex Deep Dive (Stephan De Spiegeleire)</div>
+                            <div style="color: var(--bright-cyan);">8:20-8:30</div>
+                            <div>Wrap-up & Homework</div>
+                        </div>
+                    </div>
+
+                    <!-- Module Links -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <a href="../../presentations/Welcome_Intro.pptx" style="text-decoration: none;">
+                            <div style="background: rgba(0,255,255,0.1); border: 2px solid var(--bright-cyan); border-radius: 15px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s;">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">👋</div>
+                                <div style="color: var(--bright-cyan); font-weight: 700;">Welcome & Intro</div>
+                                <div style="color: var(--light-gray); font-size: 0.9rem; margin-top: 5px;">PowerPoint</div>
+                            </div>
+                        </a>
+
+                        <a href="../../presentations/RuBase_Overview.pptx" style="text-decoration: none;">
+                            <div style="background: rgba(148,0,211,0.1); border: 2px solid var(--bright-purple); border-radius: 15px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s;">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🎯</div>
+                                <div style="color: var(--bright-purple); font-weight: 700;">RuBase Overview</div>
+                                <div style="color: var(--light-gray); font-size: 0.9rem; margin-top: 5px;">PowerPoint</div>
+                            </div>
+                        </a>
+
+                        <a href="../openalex/index.html" style="text-decoration: none;">
+                            <div style="background: rgba(0,255,0,0.1); border: 2px solid var(--bright-green); border-radius: 15px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s;">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">🔍</div>
+                                <div style="color: var(--bright-green); font-weight: 700;">OpenAlex Explorer</div>
+                                <div style="color: var(--light-gray); font-size: 0.9rem; margin-top: 5px;">Interactive Slides</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls" style="display: none;">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">←</button>
+            <div class="slide-indicator" id="slideIndicator"></div>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">→</button>
+        </div>
+
+        <!-- Top Navigation Button -->
+        <div class="top-buttons">
+            <button class="back-btn" onclick="window.location.href='../../index.html'">
+                🏠 Home
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Simple slide management (currently just one slide)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+    </script>
+</body>
+</html>

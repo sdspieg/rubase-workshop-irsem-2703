@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        /* Partner Logos Header */
+        .partner-logos {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .partner-logos a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logos a:hover {
+            opacity: 1;
+        }
+
+        .partner-logos img {
+            height: 60px;
+        }
+
+        .container {
+            padding-top: 150px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--bright-cyan);
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .resource-section {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.05));
+            border: 2px solid var(--bright-cyan);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--bright-cyan);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .resource-item {
+            background: var(--dark-bg);
+            border: 1px solid var(--bright-cyan);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .resource-item:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .resource-name {
+            color: var(--bright-yellow);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .resource-desc {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 101;
+            background: rgba(20, 40, 71, 0.9);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 255, 255, 0.15);
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .external-link {
+            color: var(--bright-green);
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Partner Logos Header -->
+    <div class="partner-logos">
+        <a href="https://hcss.nl" target="_blank" title="The Hague Centre for Strategic Studies">
+            <img src="../openalex/hcss_logo.svg" alt="HCSS Logo">
+        </a>
+        <a href="https://hcss.nl/rubase/" target="_blank" title="RuBase">
+            <img src="../openalex/rubase_logo.svg" alt="RuBase Logo">
+        </a>
+    </div>
+
+    <button class="back-button" onclick="window.location.href='../../index.html'">
+        🏠 Home
+    </button>
+
+    <div class="container">
+        <h1 class="page-title">Workshop Resources</h1>
+        <p class="page-subtitle">Documentation, Presentations, and Reference Materials</p>
+
+        <div class="resources-grid">
+            <!-- Documentation Section -->
+            <div class="resource-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📚</span>
+                    Documentation
+                </h2>
+                <div class="resource-list">
+                    <a href="../mdviewer/index.html?file=CLI_LLM_Setup_Guide.md&return=../resources/index.html" class="resource-item">
+                        <div class="resource-name">CLI/LLM Setup Guide</div>
+                        <div class="resource-desc">Installation instructions for Claude, OpenAI, and Gemini CLI tools</div>
+                    </a>
+                    <a href="../mdviewer/index.html?file=DROPBOX_SHARING_STRATEGY.md&return=../resources/index.html" class="resource-item">
+                        <div class="resource-name">Dropbox Access Instructions</div>
+                        <div class="resource-desc">How to access and sync workshop materials via Dropbox</div>
+                    </a>
+                    <a href="../mdviewer/index.html?file=OpenAlex_Exercise_Instructions.md&return=../resources/index.html" class="resource-item">
+                        <div class="resource-name">OpenAlex Exercise Guide</div>
+                        <div class="resource-desc">Complete guide for the Day 1 bibliometric discovery exercise</div>
+                    </a>
+                    <a href="../mdviewer/index.html?file=Taxonomy_Exercise_Instructions.md&return=../resources/index.html" class="resource-item">
+                        <div class="resource-name">Taxonomy Building Exercise</div>
+                        <div class="resource-desc">Day 2 hands-on exercise: Manual and AI-powered taxonomy creation</div>
+                    </a>
+                    <a href="../mdtdf-guide/index.html" class="resource-item" style="border: 2px solid var(--bright-purple); background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(147, 112, 219, 0.05));">
+                        <div class="resource-name" style="color: var(--bright-purple); font-weight: 700;">🎯 MDTDF Complete Guide</div>
+                        <div class="resource-desc">Multi-Dimensional Taxonomy Development Framework - Full prompt & scripts</div>
+                    </a>
+                    <a href="../mdviewer/index.html?file=OPENALEX_API_STUDENT_GUIDE.md&return=../resources/index.html" class="resource-item">
+                        <div class="resource-name">OpenAlex API Reference</div>
+                        <div class="resource-desc">Complete API guide with examples and best practices</div>
+                    </a>
+                    <a href="../mdviewer/index.html?file=OPENALEX_DASHBOARD_GUIDE.md&return=../resources/index.html" class="resource-item">
+                        <div class="resource-name">Dashboard Guide</div>
+                        <div class="resource-desc">Step-by-step guide to using the OpenAlex Dashboard</div>
+                    </a>
+                    <a href="../mdviewer/index.html?file=RuBase_Workshop_Fletcher_Program.md&return=../resources/index.html" class="resource-item">
+                        <div class="resource-name">Workshop Program</div>
+                        <div class="resource-desc">Overview of the 3-day workshop structure</div>
+                    </a>
+                    <a href="https://github.com/sdspieg/rubase-workshop-fletcher-2603/blob/main/README.md" target="_blank" class="resource-item">
+                        <div class="resource-name">GitHub Repository<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Source code and project documentation</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Presentations Section -->
+            <div class="resource-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🎯</span>
+                    Presentations
+                </h2>
+                <div class="resource-list">
+                    <a href="https://www.dropbox.com/scl/fi/2i9fwg51auu1d9qemjeh8/260311-13-RuBase-Workshop-Fletcher-Part-1-Setting-the-Scene.pptx?rlkey=rtyzj4l0rzlginmamathophny&dl=0" target="_blank" class="resource-item">
+                        <div class="resource-name">Part 1: Setting the Scene<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Introduction to LLMs in research workflows</div>
+                    </a>
+                    <a href="https://www.dropbox.com/scl/fo/0is0u63ng8vguc5pzkq3w/ANXEY93apqRa0jBjFXW54SM?rlkey=h5ds0oonwhm05ajypcgjf2sy9&dl=0" target="_blank" class="resource-item">
+                        <div class="resource-name">All Workshop Materials<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Complete Dropbox folder with all presentations and resources</div>
+                    </a>
+                    <a href="../analyze/ottoman-bank-case-study.html" class="resource-item">
+                        <div class="resource-name">Ottoman Bank Case Study</div>
+                        <div class="resource-desc">Complete pipeline from OpenAlex to LLM analysis (16 slides)</div>
+                    </a>
+                    <a href="../analyze/cli-llms-guide.html" class="resource-item">
+                        <div class="resource-name">CLI LLMs Guide</div>
+                        <div class="resource-desc">Master Claude Code, Gemini CLI & OpenAI Codex (16 slides)</div>
+                    </a>
+                    <a href="../analyze/deep-research-guide.html" class="resource-item">
+                        <div class="resource-name">Deep Research Across LLMs</div>
+                        <div class="resource-desc">American & Non-American LLM Research Capabilities (24 slides)</div>
+                    </a>
+                    <a href="../analyze/wacko-presentation.html" class="resource-item">
+                        <div class="resource-name">WACKO Strategic Analysis</div>
+                        <div class="resource-desc">Strategic Analysis & Deterrence Findings (5 slides)</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Tools Section -->
+            <div class="resource-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🔧</span>
+                    Interactive Tools
+                </h2>
+                <div class="resource-list">
+                    <a href="../openalex/index.html" class="resource-item">
+                        <div class="resource-name">OpenAlex Explorer</div>
+                        <div class="resource-desc">Interactive slides and search demonstrations</div>
+                    </a>
+                    <a href="../openalex/dashboard.html" class="resource-item">
+                        <div class="resource-name">OpenAlex Dashboard</div>
+                        <div class="resource-desc">Live data exploration interface</div>
+                    </a>
+                    <a href="https://openalex.org" target="_blank" class="resource-item">
+                        <div class="resource-name">OpenAlex Platform<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Official OpenAlex website</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- External Resources Section -->
+            <div class="resource-section">
+                <h2 class="section-title">
+                    <span class="section-icon">🌐</span>
+                    External Resources
+                </h2>
+                <div class="resource-list">
+                    <a href="https://www.lens.org" target="_blank" class="resource-item">
+                        <div class="resource-name">The Lens<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Patent and scholarly search platform</div>
+                    </a>
+                    <a href="https://www.zotero.org" target="_blank" class="resource-item">
+                        <div class="resource-name">Zotero<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Reference management software</div>
+                    </a>
+                    <a href="https://hcss.nl/rubase/" target="_blank" class="resource-item">
+                        <div class="resource-name">RuBase Project<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Official RuBase project page</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- API Documentation Section -->
+            <div class="resource-section">
+                <h2 class="section-title">
+                    <span class="section-icon">⚡</span>
+                    API Documentation
+                </h2>
+                <div class="resource-list">
+                    <a href="https://docs.openalex.org" target="_blank" class="resource-item">
+                        <div class="resource-name">OpenAlex API Docs<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Complete API reference and examples</div>
+                    </a>
+                    <a href="https://docs.lens.org/api" target="_blank" class="resource-item">
+                        <div class="resource-name">Lens API Documentation<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Scholarly API endpoints and usage</div>
+                    </a>
+                    <a href="https://www.zotero.org/support/dev/web_api/v3/start" target="_blank" class="resource-item">
+                        <div class="resource-name">Zotero Web API<span class="external-link">↗</span></div>
+                        <div class="resource-desc">Integration with Zotero libraries</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Support Section -->
+            <div class="resource-section">
+                <h2 class="section-title">
+                    <span class="section-icon">💬</span>
+                    Support & Contact
+                </h2>
+                <div class="resource-list">
+                    <a href="mailto:stephan@hcss.nl" class="resource-item">
+                        <div class="resource-name">Stephan De Spiegeleire</div>
+                        <div class="resource-desc">Principal Scientist, HCSS</div>
+                    </a>
+                    <a href="mailto:adam.stulberg@inta.gatech.edu" class="resource-item">
+                        <div class="resource-name">Adam Stulberg</div>
+                        <div class="resource-desc">Chair, Sam Nunn School, Georgia Tech</div>
+                    </a>
+                    <a href="../techhelp/index.html" class="resource-item">
+                        <div class="resource-name">Technical Help</div>
+                        <div class="resource-desc">Troubleshooting guide and FAQs</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

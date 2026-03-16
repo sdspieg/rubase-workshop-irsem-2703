@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ottoman Bank Case Study: From OpenAlex to LLM Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            width: 92%;
+            max-width: 1400px;
+            height: 88vh;
+            background: linear-gradient(135deg, #1a2a4a 0%, #243655 100%);
+            border-radius: 20px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            padding: 50px 60px;
+            display: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+            animation: slideIn 0.5s ease;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, #00ff7f, #00ffff, #ffff00) 1;
+            padding-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: #00ffff;
+            font-size: 1.6em;
+            margin: 25px 0 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.3em;
+            margin: 20px 0 12px;
+            font-weight: 600;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: #00ff7f;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background: #95a5a6;
+        }
+
+        .title-slide {
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 20px;
+        }
+
+        .slide.title-slide.active {
+            display: flex;
+        }
+
+        .title-slide h1 {
+            font-size: 3em;
+            border: none;
+            margin-bottom: 20px;
+            color: #00ffff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,255,255,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #5a6c7d;
+            margin-bottom: 30px;
+        }
+
+        .author {
+            font-size: 1.1em;
+            color: #00ff7f;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #4CAF50, #45B860);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .stat-card:nth-child(2n) {
+            background: linear-gradient(135deg, #2196F3, #42A5F5);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .stat-card:nth-child(3n) {
+            background: linear-gradient(135deg, #9C27B0, #AB47BC);
+            box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+        }
+
+        .stat-card:nth-child(4n) {
+            background: linear-gradient(135deg, #FF9800, #FFA726);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.95;
+        }
+
+        .methodology-box {
+            background: linear-gradient(135deg, #e8f5e9, #f3f4f6);
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #64ffda;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-size: 0.9em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e8f5e9;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd, #ffe8a1);
+            border-left: 5px solid #ff9800;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(255, 152, 0, 0.2);
+        }
+
+        .warning-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            border-left: 5px solid #28a745;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(40, 167, 69, 0.2);
+        }
+
+        .success-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .bar {
+            display: inline-block;
+            width: 50px;
+            margin: 0 4px;
+            background: linear-gradient(to top, #4CAF50, #8BC34A);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .bar:nth-child(2n) {
+            background: linear-gradient(to top, #2196F3, #64B5F6);
+        }
+
+        .bar:nth-child(3n) {
+            background: linear-gradient(to top, #9C27B0, #BA68C8);
+        }
+
+        .bar:hover {
+            transform: scaleY(1.05);
+            filter: brightness(1.1);
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75em;
+            white-space: nowrap;
+            color: #5a6c7d;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            color: #2a5298;
+            font-size: 0.85em;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+            line-height: 1.7;
+        }
+
+        li {
+            margin: 8px 0;
+            color: #ffffff;
+            opacity: 0.95;
+        }
+
+        /* Fix table cell colors */
+        td {
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 25px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 10px;
+            margin: 5px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+            color: #667eea;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-step h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .process-step p {
+            font-size: 0.85em;
+            color: #34495e;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 15px 0;
+        }
+
+        .timeline-item {
+            margin: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 15px;
+            width: 2px;
+            height: calc(100% + 5px);
+            background: #ddd;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        /* Compact content for better visibility */
+        p {
+            font-size: 0.88em;
+            line-height: 1.4;
+            color: #ffffff;
+            opacity: 0.95;
+        }
+
+        /* Ensure scrollbar is styled */
+        .slide::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .slide::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .slide::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+        }
+
+        .slide::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+                height: 90vh;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-flow {
+                flex-direction: column;
+            }
+
+            .process-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active title-slide">
+            <h1>Ottoman Bank Case Study</h1>
+            <div class="subtitle">From OpenAlex Discovery to LLM Analysis</div>
+            <div class="author">RuBase Workshop - Day 3<br>March 13, 2026</div>
+            <div class="slide-number">1 / 15</div>
+        </div>
+
+        <!-- Slide 2: Overview -->
+        <div class="slide">
+            <h1>Case Study Overview</h1>
+            <h2>🎯 The Challenge</h2>
+            <p>Find and analyze all academic research mentioning the Imperial Ottoman Bank (Banque Impériale Ottomane), a British-French institution that served as the Ottoman Empire's de facto central bank (1863-1920s).</p>
+
+            <h2>🔄 Our Approach</h2>
+            <div class="process-flow">
+                <div class="process-step">
+                    <h4>1. Discovery</h4>
+                    <p>OpenAlex API</p>
+                </div>
+                <div class="process-step">
+                    <h4>2. Collection</h4>
+                    <p>Full-text download</p>
+                </div>
+                <div class="process-step">
+                    <h4>3. Analysis</h4>
+                    <p>Metadata + Content</p>
+                </div>
+                <div class="process-step">
+                    <h4>4. LLM Processing</h4>
+                    <p>Taxonomy & Insights</p>
+                </div>
+            </div>
+
+            <div class="slide-number">2 / 15</div>
+        </div>
+
+        <!-- Slide 3: Critical Discovery -->
+        <div class="slide">
+            <h1>🚨 Critical Discovery: Quotes Matter!</h1>
+
+            <div class="warning-box">
+                <h4>⚠️ The Quote Problem</h4>
+                <p>OpenAlex full-text search behavior depends entirely on quotation marks!</p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Search Method</th>
+                        <th>Query</th>
+                        <th>Results</th>
+                        <th>Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>❌ WITHOUT quotes</td>
+                        <td><code>fulltext.search:Ottoman Bank</code></td>
+                        <td><strong>21,388 papers</strong></td>
+                        <td>~14% relevant</td>
+                    </tr>
+                    <tr>
+                        <td>✅ WITH quotes</td>
+                        <td><code>fulltext.search:"Ottoman Bank"</code></td>
+                        <td><strong>511 papers</strong></td>
+                        <td>~59% relevant</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Impact Analysis</h2>
+            <ul>
+                <li><strong>42x difference</strong> in result count</li>
+                <li><strong>4x improvement</strong> in relevance rate</li>
+                <li><strong>97.6% noise reduction</strong> with exact phrase search</li>
+            </ul>
+
+            <div class="slide-number">3 / 15</div>
+        </div>
+
+        <!-- Slide 4: Data Collection Pipeline -->
+        <div class="slide">
+            <h1>Data Collection Pipeline</h1>
+
+            <h2>🔧 Script: fetch_openalex.py</h2>
+            <div class="code-block">
+# Correct API call with exact phrase
+params = {
+    'filter': 'fulltext.search:"Ottoman Bank"',
+    'per_page': '200',
+    'cursor': cursor  # Unlimited pagination
+}
+            </div>
+
+            <h2>✨ Key Features</h2>
+            <ul>
+                <li><span class="emoji">🔍</span>Exact phrase search using quotes</li>
+                <li><span class="emoji">♾️</span>Cursor-based pagination (no 10K limit)</li>
+                <li><span class="emoji">⏱️</span>Rate limiting (50ms delay)</li>
+                <li><span class="emoji">📊</span>Progress tracking with ETA</li>
+            </ul>
+
+            <h2>📈 Collection Results</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">511</div>
+                    <div class="stat-label">Total Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">API Pages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">11.7s</div>
+                    <div class="stat-label">Fetch Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">99.8%</div>
+                    <div class="stat-label">Open Access</div>
+                </div>
+            </div>
+
+            <div class="slide-number">4 / 15</div>
+        </div>
+
+        <!-- Slide 5: Dataset Statistics -->
+        <div class="slide">
+            <h1>Dataset Statistics</h1>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">511</div>
+                    <div class="stat-label">Papers with "Ottoman Bank"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">99.8%</div>
+                    <div class="stat-label">Open Access</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">91.8%</div>
+                    <div class="stat-label">Have Abstracts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">50.9%</div>
+                    <div class="stat-label">Published 2020+</div>
+                </div>
+            </div>
+
+            <h2>📅 Temporal Distribution</h2>
+            <ul>
+                <li><strong>Earliest:</strong> 1859</li>
+                <li><strong>Latest:</strong> 2026</li>
+                <li><strong>Peak Year:</strong> 2023 (61 papers)</li>
+                <li><strong>Recent Surge:</strong> 260 papers since 2020</li>
+            </ul>
+
+            <h2>📚 Document Types</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">73.4%</div>
+                    <div class="stat-label">Articles (375)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">13.9%</div>
+                    <div class="stat-label">Dissertations (71)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5.1%</div>
+                    <div class="stat-label">Book Chapters (26)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">4.5%</div>
+                    <div class="stat-label">Books (23)</div>
+                </div>
+            </div>
+
+            <div class="slide-number">5 / 15</div>
+        </div>
+
+        <!-- Slide 6: Full-Text Download -->
+        <div class="slide">
+            <h1>Full-Text Download Challenge</h1>
+
+            <h2>💾 Script: 06_download_fulltext_enhanced.py</h2>
+
+            <div class="methodology-box">
+                <h4>Hybrid Download Approach</h4>
+                <ol>
+                    <li>Try direct PDF download first</li>
+                    <li>If HTML, use Playwright browser automation</li>
+                    <li>Extract PDF URLs from metadata</li>
+                    <li>Capture page content as PDF/screenshot</li>
+                </ol>
+            </div>
+
+            <h2>📊 Download Results (Sample of 20)</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Success Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Attempted</td>
+                        <td>20 papers</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr>
+                        <td>Successfully Downloaded</td>
+                        <td>15 papers</td>
+                        <td>75%</td>
+                    </tr>
+                    <tr>
+                        <td>Direct PDF</td>
+                        <td>11 files</td>
+                        <td>55%</td>
+                    </tr>
+                    <tr>
+                        <td>Page Captures</td>
+                        <td>4 files</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>Failed</td>
+                        <td>5 papers</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td>Total Size</td>
+                        <td>14 MB</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="slide-number">6 / 15</div>
+        </div>
+
+        <!-- Slide 7: Content Analysis Stats -->
+        <div class="slide">
+            <h1>Content Analysis: Word Count Statistics</h1>
+
+            <h2>📝 Script: analyze_downloaded_content.py</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">5,569</div>
+                    <div class="stat-label">Avg Words/Paper</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">122</div>
+                    <div class="stat-label">Min Words</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">11,625</div>
+                    <div class="stat-label">Max Words</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">94,672</div>
+                    <div class="stat-label">Total Words</div>
+                </div>
+            </div>
+
+            <h2>🏦 Ottoman Bank Mentions</h2>
+            <ul>
+                <li><strong>Papers with mentions:</strong> 10/17 (58.8%)</li>
+                <li><strong>Total mentions:</strong> 30</li>
+                <li><strong>Average per paper:</strong> 1.8 mentions</li>
+                <li><strong>Max in single paper:</strong> 9 mentions</li>
+            </ul>
+
+            <h3>🏆 Top Papers by Mentions</h3>
+            <ol>
+                <li>Voyvoda Street Characteristics (9 mentions)</li>
+                <li>Armenian Massacre in Istanbul (5 mentions)</li>
+                <li>Greece and Ottoman History (4 mentions)</li>
+                <li>Integration of Ottoman Empire into Global Economy (4 mentions)</li>
+            </ol>
+
+            <div class="slide-number">7 / 15</div>
+        </div>
+
+        <!-- Slide 8: Metadata Analysis -->
+        <div class="slide">
+            <h1>Metadata Analysis</h1>
+
+            <h2>📚 Citation Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">1,235</div>
+                    <div class="stat-label">Total Citations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2.4</div>
+                    <div class="stat-label">Avg Citations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">88</div>
+                    <div class="stat-label">Most Cited</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">28</div>
+                    <div class="stat-label">Papers 10+ cites</div>
+                </div>
+            </div>
+
+            <h2>🎓 Top Publishing Institutions</h2>
+            <ol>
+                <li>Trinity College (9 papers)</li>
+                <li>SOAS University of London (9 papers)</li>
+                <li>Istanbul University (7 papers)</li>
+                <li>Ankara Yıldırım Beyazıt University (6 papers)</li>
+                <li>Middle East Technical University (6 papers)</li>
+            </ol>
+
+            <h2>📖 Top Venues</h2>
+            <ol>
+                <li>DergiPark - Istanbul University (44 papers)</li>
+                <li>Iraq (6 papers)</li>
+                <li>Selçuk Üniversitesi Türkiyat Araştırmaları (6 papers)</li>
+            </ol>
+
+            <div class="slide-number">8 / 15</div>
+        </div>
+
+        <!-- Slide 9: LLM Analysis Setup -->
+        <div class="slide">
+            <h1>LLM Analysis Methodology</h1>
+
+            <h2>🤖 Approach: "LLM-Only" Analysis</h2>
+            <div class="methodology-box">
+                <h4>No Additional Scripts - Pure LLM Intelligence</h4>
+                <p>Used Claude to directly analyze JSON metadata and extracted text without writing analysis scripts</p>
+            </div>
+
+            <h2>🔄 Analysis Pipeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>1. Load JSON Metadata</strong>
+                    <p>Read 511 papers from ottoman_bank_papers_CORRECT.json + merged 106 from Galata searches</p>
+                </div>
+                <div class="timeline-item">
+                    <strong>2. Extract Abstract Text</strong>
+                    <p>Reconstruct abstracts from inverted index format</p>
+                </div>
+                <div class="timeline-item">
+                    <strong>3. Thematic Analysis</strong>
+                    <p>Identify themes, temporal focus, geographic distribution</p>
+                </div>
+                <div class="timeline-item">
+                    <strong>4. Substantive Synthesis</strong>
+                    <p>Understand Ottoman Bank's role and significance</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+# Example: Direct Python analysis in Claude
+papers = data['results']
+abstracts = reconstruct_abstracts(papers)
+themes = analyze_themes(abstracts)
+            </div>
+
+            <div class="slide-number">9 / 15</div>
+        </div>
+
+        <!-- Slide 10: LLM Theme Analysis -->
+        <div class="slide">
+            <h1>LLM Analysis: Research Themes</h1>
+
+            <h2>📊 Major Themes (from 469 abstracts)</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Theme</th>
+                        <th>Papers</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Social & Cultural</td>
+                        <td>144</td>
+                        <td>30.7%</td>
+                    </tr>
+                    <tr>
+                        <td>Imperialism</td>
+                        <td>130</td>
+                        <td>27.7%</td>
+                    </tr>
+                    <tr>
+                        <td>War & Conflict</td>
+                        <td>124</td>
+                        <td>26.4%</td>
+                    </tr>
+                    <tr>
+                        <td>Trade</td>
+                        <td>110</td>
+                        <td>23.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Economic Development</td>
+                        <td>108</td>
+                        <td>23.0%</td>
+                    </tr>
+                    <tr>
+                        <td>Foreign Influence</td>
+                        <td>95</td>
+                        <td>20.3%</td>
+                    </tr>
+                    <tr>
+                        <td>Reform</td>
+                        <td>62</td>
+                        <td>13.2%</td>
+                    </tr>
+                    <tr>
+                        <td>Debt</td>
+                        <td>45</td>
+                        <td>9.6%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="slide-number">10 / 15</div>
+        </div>
+
+        <!-- Slide 11: Geographic & Temporal -->
+        <div class="slide">
+            <h1>LLM Analysis: Geographic & Temporal Focus</h1>
+
+            <h2>🌍 Geographic Distribution</h2>
+            <div class="chart-container">
+                <div style="position: relative; height: 180px; margin-bottom: 30px;">
+                    <div class="bar" style="height: 100%; left: 0px;">
+                        <span class="bar-value">23.2%</span>
+                        <span class="bar-label">Istanbul</span>
+                    </div>
+                    <div class="bar" style="height: 86%; left: 60px;">
+                        <span class="bar-value">20.0%</span>
+                        <span class="bar-label">Europe</span>
+                    </div>
+                    <div class="bar" style="height: 80%; left: 120px;">
+                        <span class="bar-value">18.6%</span>
+                        <span class="bar-label">Global</span>
+                    </div>
+                    <div class="bar" style="height: 34%; left: 180px;">
+                        <span class="bar-value">7.9%</span>
+                        <span class="bar-label">Anatolia</span>
+                    </div>
+                    <div class="bar" style="height: 33%; left: 240px;">
+                        <span class="bar-value">7.7%</span>
+                        <span class="bar-label">Arab</span>
+                    </div>
+                    <div class="bar" style="height: 32%; left: 300px;">
+                        <span class="bar-value">7.5%</span>
+                        <span class="bar-label">Balkans</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2>⏰ Temporal Focus</h2>
+            <ul>
+                <li><strong>19th Century:</strong> 86 papers (18.3%)</li>
+                <li><strong>World War I Era:</strong> 63 papers (13.4%)</li>
+                <li><strong>Late Ottoman:</strong> 29 papers (6.2%)</li>
+                <li><strong>Early 20th Century:</strong> 27 papers (5.8%)</li>
+                <li><strong>Republican Era:</strong> 25 papers (5.3%)</li>
+            </ul>
+
+            <div class="slide-number">11 / 15</div>
+        </div>
+
+        <!-- Slide 12: Substantive Findings -->
+        <div class="slide">
+            <h1>Substantive Findings: Ottoman Bank's Role</h1>
+
+            <h2>🏛️ 1. Institutional Identity</h2>
+            <ul>
+                <li>De facto central bank of Ottoman Empire (1863-1920s)</li>
+                <li>British-French joint venture (Banque Impériale Ottomane)</li>
+                <li>State banker & currency issuer with monopoly rights</li>
+            </ul>
+
+            <h2>💰 2. Economic Functions</h2>
+            <ul>
+                <li>Foreign capital intermediary for modernization</li>
+                <li>Infrastructure finance (railways, ports, utilities)</li>
+                <li>Government debt management & loan negotiations</li>
+                <li>Trade finance facilitating import-export operations</li>
+            </ul>
+
+            <h2>🌐 3. Political Dimensions</h2>
+            <ul>
+                <li>Symbol of European financial penetration</li>
+                <li>Tool of economic imperialism</li>
+                <li>Site of 1896 Armenian Revolutionary raid</li>
+                <li>Survived empire's collapse, operated until 1930s</li>
+            </ul>
+
+            <div class="slide-number">12 / 15</div>
+        </div>
+
+        <!-- Slide 13: Key Insights -->
+        <div class="slide">
+            <h1>Key Research Questions & Insights</h1>
+
+            <h2>❓ Questions Addressed in Literature</h2>
+            <ol>
+                <li>How did foreign banking shape Ottoman economic development?</li>
+                <li>What was the bank's role in Ottoman debt crisis?</li>
+                <li>How did it facilitate European economic imperialism?</li>
+                <li>What was its impact on modernization efforts?</li>
+                <li>How did it survive the empire-to-republic transition?</li>
+            </ol>
+
+            <h2>🔬 Interdisciplinary Perspectives</h2>
+            <div class="methodology-box">
+                <ul style="list-style: none; padding: 0;">
+                    <li>📊 <strong>Economic History:</strong> Banking development, financial crises</li>
+                    <li>🏛️ <strong>Political History:</strong> State-bank relations, sovereignty</li>
+                    <li>👥 <strong>Social History:</strong> Elite networks, minority communities</li>
+                    <li>🏙️ <strong>Urban Studies:</strong> Galata financial district, architecture</li>
+                    <li>🌍 <strong>International Relations:</strong> Great Power rivalry, diplomacy</li>
+                </ul>
+            </div>
+
+            <div class="slide-number">13 / 15</div>
+        </div>
+
+        <!-- Slide 14: Lessons Learned -->
+        <div class="slide">
+            <h1>Lessons Learned</h1>
+
+            <div class="warning-box">
+                <h4>Critical Lesson #1</h4>
+                <p><strong>Always use quotes for exact phrases!</strong> The difference between 21,388 and 511 results is massive.</p>
+            </div>
+
+            <div class="success-box">
+                <h4>Success Factor #1</h4>
+                <p><strong>99.8% Open Access</strong> enabled comprehensive full-text analysis</p>
+            </div>
+
+            <h2>✅ Technical Takeaways</h2>
+            <ul>
+                <li>Cursor pagination enables unlimited results (beyond 10K limit)</li>
+                <li>Hybrid download approach necessary (direct PDF + browser automation)</li>
+                <li>LLM can directly analyze complex JSON structures effectively</li>
+                <li>Abstract inverted index can be reconstructed for analysis</li>
+            </ul>
+
+            <h2>🎯 Methodological Insights</h2>
+            <ul>
+                <li>Full-text search ≠ Abstract mentions (only 59% overlap)</li>
+                <li>Recent surge in Ottoman studies (51% published since 2020)</li>
+                <li>Interdisciplinary topic spans multiple fields</li>
+                <li>Historical institutions remain relevant for contemporary research</li>
+            </ul>
+
+            <div class="slide-number">14 / 15</div>
+        </div>
+
+        <!-- Slide 15: Critical Discovery - Galata Search Strategy -->
+        <div class="slide">
+            <h1>🚨 Critical Discovery: The Missing Ottoman Bank Director</h1>
+
+            <div class="alert-box" style="background: linear-gradient(135deg, #4a7c8c 0%, #5a8c9c 100%); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(0,255,255,0.3);">
+                <h3 style="color: #00ffff; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">🎯 The Galata Search Breakthrough</h3>
+                <p style="font-size: 0.95em; color: #ffffff;">A 2024 paper about an Ottoman Bank director was <strong style="color: #00ff7f;">found via "Galata district" search but MISSED by direct "Ottoman Bank" search!</strong></p>
+            </div>
+
+            <div class="discovery-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                <div style="background: linear-gradient(135deg, #2a4a5a 0%, #3a5a6a 100%); padding: 18px; border-radius: 12px; border: 1px solid rgba(0, 255, 255, 0.3);">
+                    <h3 style="color: #00ffff; margin-bottom: 12px;">📄 The Paper</h3>
+                    <p><strong>Title:</strong> "Ottoman Bank Müdürü Francis de Palézieux Falconnet'nin İstanbul Serüveni (1856-1861)"</p>
+                    <p><strong>Translation:</strong> "Ottoman Bank Director Francis de Palézieux Falconnet's Istanbul Adventure"</p>
+                    <p><strong>Year:</strong> 2024 | <strong>Citations:</strong> 2 | <strong>Language:</strong> Turkish</p>
+                    <p style="font-size: 0.85em; margin-top: 10px;"><strong>DOI:</strong> 10.26650/iuturkiyat.1413733</p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #2a4a5a 0%, #3a5a6a 100%); padding: 18px; border-radius: 12px; border: 1px solid rgba(0, 255, 255, 0.3);">
+                    <h3 style="color: #00ffff; margin-bottom: 12px;">🔍 Search Strategy Impact</h3>
+                    <p><strong>Found by:</strong> "Galata district" AND bankers</p>
+                    <p><strong>Missed by:</strong> "Ottoman Bank" direct search</p>
+                    <p><strong>Why:</strong> Turkish title indexing issue in OpenAlex</p>
+                    <p style="margin-top: 10px; color: #00ff7f;"><strong>Lesson:</strong> Geographic search terms reveal research missed by institutional names!</p>
+                </div>
+            </div>
+
+            <h2>📊 Multi-Strategy Search Results</h2>
+            <div class="stats-comparison" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px;">
+                <div style="text-align: center; padding: 15px; background: linear-gradient(135deg, #2a4a5a 0%, #3a5a6a 100%); border-radius: 10px;">
+                    <h4 style="color: #00ffff; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">"Ottoman Bank" Direct</h4>
+                    <p style="font-size: 1.1em; font-weight: bold;">511 papers</p>
+                    <p style="font-size: 0.85em;">Years: 1859-2026</p>
+                </div>
+                <div style="text-align: center; padding: 15px; background: linear-gradient(135deg, #2a4a5a 0%, #3a5a6a 100%); border-radius: 10px;">
+                    <h4 style="color: #00ffff; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">"Galata district" + bankers</h4>
+                    <p style="font-size: 1.1em; font-weight: bold;">6 papers</p>
+                    <p style="font-size: 0.85em;">Years: 2010-2024</p>
+                </div>
+                <div style="text-align: center; padding: 15px; background: linear-gradient(135deg, #2a4a5a 0%, #3a5a6a 100%); border-radius: 10px;">
+                    <h4 style="color: #00ffff; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">"Galata" + banking</h4>
+                    <p style="font-size: 1.1em; font-weight: bold;">100 papers</p>
+                    <p style="font-size: 0.85em;">Broader context</p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #4a7c8c 0%, #5a8c9c 100%); padding: 15px; border-radius: 12px; margin-top: 20px; text-align: center; border: 1px solid rgba(0,255,255,0.3);">
+                <p style="color: #ffffff; font-size: 0.95em;"><strong>📚 Research Methodology Insight:</strong> "Absence of evidence ≠ evidence of absence" - Multiple search strategies reveal different facets of the same research domain!</p>
+            </div>
+
+            <div class="slide-number">15 / 16</div>
+        </div>
+
+        <!-- Slide 16: Conclusion -->
+        <div class="slide">
+            <h1>Conclusion</h1>
+
+            <div class="success-box">
+                <h4>Complete Pipeline Success</h4>
+                <p>From 596 total papers (3 search strategies) → Multi-source analysis → Critical discoveries</p>
+            </div>
+
+            <h2>📈 Final Statistics (Merged Dataset)</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">596</div>
+                    <div class="stat-label">Total Unique Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">99.2%</div>
+                    <div class="stat-label">Open Access</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3.9</div>
+                    <div class="stat-label">Avg Citations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">85</div>
+                    <div class="stat-label">Galata-Only Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">167</div>
+                    <div class="stat-label">Year Span (1859-2026)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Search Strategies</div>
+                </div>
+            </div>
+
+            <h2>🏦 Ottoman Bank: A Contested Institution</h2>
+            <div class="methodology-box">
+                <p style="font-size: 1.1em; text-align: center; margin-top: 20px;">
+                    The research reveals Ottoman Bank as simultaneously an agent of modernization
+                    and symbol of foreign domination - a pivotal institution at the intersection
+                    of finance, politics, and imperial transformation.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p><strong>Thank You!</strong></p>
+                <p>RuBase Workshop - Fletcher School</p>
+            </div>
+
+            <div class="slide-number">16 / 16</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-btn" onclick="window.location.href='../../index.html'">🏠 Home</button>
+        <button class="nav-btn" onclick="window.location.href='index.html'">📚 Module 3</button>
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            if (n >= totalSlides) {
+                currentSlide = totalSlides - 1;
+            } else if (n < 0) {
+                currentSlide = 0;
+            } else {
+                currentSlide = n;
+            }
+
+            slides[currentSlide].classList.add('active');
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                showSlide(0);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides - 1);
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Add smooth scroll for slides with overflow
+        slides.forEach(slide => {
+            slide.addEventListener('wheel', function(e) {
+                if (this.scrollHeight > this.clientHeight) {
+                    e.stopPropagation();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

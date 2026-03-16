@@ -1,0 +1,203 @@
+{
+  "metadata": {
+    "source_file": "ottoman_bank_papers_CORRECT.json",
+    "download_date": "2026-03-13T10:35:53.895796",
+    "total_papers": 511,
+    "attempted": 20,
+    "elapsed_seconds": 86.0666401386261,
+    "playwright_available": true
+  },
+  "statistics": {
+    "success": 15,
+    "exists": 0,
+    "failed": 5,
+    "methods": {
+      "page_capture": 4,
+      "direct_pdf": 11,
+      "none": 2
+    }
+  },
+  "results": [
+    {
+      "status": "success",
+      "method": "page_capture",
+      "files": [
+        "ottoman_bank_correct_content/W1826566718_2000.png",
+        "ottoman_bank_correct_content/W1826566718_2000_rendered.pdf",
+        "ottoman_bank_correct_content/W1826566718_2000.txt"
+      ],
+      "paper_id": "https://openalex.org/W1826566718",
+      "title": "Foreign Entry in Turkey's Banking Sector, 1980-97",
+      "url": "https://elibrary.worldbank.org/doi/epdf/10.1596/1813-9450-2462"
+    },
+    {
+      "paper_id": "https://openalex.org/W2920254569",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W2920254569_2019.pdf"
+      ],
+      "title": "The Afterlife of Gender: Sovereignty, Intimacy and Muslim Funerals of Transgender People in Turkey"
+    },
+    {
+      "paper_id": "https://openalex.org/W2077042012",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W2077042012_2010.pdf"
+      ],
+      "title": "Greece and the Greeks in Ottoman History and Turkish Historiography"
+    },
+    {
+      "status": "success",
+      "method": "page_capture",
+      "files": [
+        "ottoman_bank_correct_content/W1926897321_2020.png",
+        "ottoman_bank_correct_content/W1926897321_2020_rendered.pdf"
+      ],
+      "paper_id": "https://openalex.org/W1926897321",
+      "title": "The Taboo within the Taboo: The Fate of \u2018Armenian Capital\u2019 at the End of the Ottoman Empire",
+      "url": "https://doi.org/10.4000/ejts.4411"
+    },
+    {
+      "status": "error",
+      "method": "none",
+      "files": [],
+      "message": "object Locator can't be used in 'await' expression",
+      "paper_id": "https://openalex.org/W2131741844",
+      "title": "Smyrna's Ashes: Humanitarianism, Genocide, and the Birth of the Middle East",
+      "url": "https://digitalscholarship.unlv.edu/history_fac_articles/1"
+    },
+    {
+      "paper_id": "https://openalex.org/W1423212486",
+      "status": "failed",
+      "message": "Not a direct PDF and Playwright not available",
+      "title": "Rigorous Capital Requirements under Basel iii Possible Impact on Turkey\u2019s Financial Sector"
+    },
+    {
+      "status": "success",
+      "method": "page_capture",
+      "files": [
+        "ottoman_bank_correct_content/W1759404182_2003.png",
+        "ottoman_bank_correct_content/W1759404182_2003_rendered.pdf"
+      ],
+      "paper_id": "https://openalex.org/W1759404182",
+      "title": "Cosmopolitan imperialists and the ottoman port cities. Conflicting logics in the urban social fabric",
+      "url": "http://journals.openedition.org/cdlm/128"
+    },
+    {
+      "paper_id": "https://openalex.org/W4210592174",
+      "status": "failed",
+      "message": "Not a direct PDF and Playwright not available",
+      "title": "Historic architecture in tourism consumption"
+    },
+    {
+      "status": "success",
+      "method": "page_capture",
+      "files": [
+        "ottoman_bank_correct_content/W3123306579_2019.png",
+        "ottoman_bank_correct_content/W3123306579_2019_rendered.pdf",
+        "ottoman_bank_correct_content/W3123306579_2019.txt"
+      ],
+      "paper_id": "https://openalex.org/W3123306579",
+      "title": "A Hiccup in Turkey s Prolonged Credit Fueled Economic Transition: A Comparative Analysis of Before a",
+      "url": "https://doi.org/10.32602/jafas.2019.37"
+    },
+    {
+      "paper_id": "https://openalex.org/W4317034480",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W4317034480_2023.pdf"
+      ],
+      "title": "INTEGRATION OF OTTOMAN EMPIRE INTO GLOBAL ECONOMY BETWEEN 1830-1840"
+    },
+    {
+      "status": "error",
+      "method": "none",
+      "files": [],
+      "message": "object Locator can't be used in 'await' expression",
+      "paper_id": "https://openalex.org/W2158758815",
+      "title": "Critical Overview of the History of Islamic Economics: Formation, Transformation, and New Horizons",
+      "url": "http://hdl.handle.net/2433/155648"
+    },
+    {
+      "paper_id": "https://openalex.org/W2615021066",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W2615021066_2013.pdf"
+      ],
+      "title": "The Armenian massacre in Istanbul (1896)"
+    },
+    {
+      "paper_id": "https://openalex.org/W4233331385",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W4233331385_2015.pdf"
+      ],
+      "title": "Hyderabad, British India, and the World"
+    },
+    {
+      "paper_id": "https://openalex.org/W4224329797",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W4224329797_2022.pdf"
+      ],
+      "title": "27 Aral\u0131k 1886 Tarihli \u0130nhisar-\u0131 Duhan Nizamnamesinin Tatbikine Dair Bir De\u011ferlendirme"
+    },
+    {
+      "paper_id": "https://openalex.org/W4287010371",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W4287010371_2022.pdf"
+      ],
+      "title": "LEGAL ISSUES OF WORKING FROM HOME AMID THE COVID-19 PANDEMIC IN MALAYSIA"
+    },
+    {
+      "paper_id": "https://openalex.org/W2767153847",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W2767153847_2017.pdf"
+      ],
+      "title": "T\u00fcrkiye\u2019de Halka A\u00e7\u0131k \u00d6zel Sermayeli Ve Kamu Sermayeli Ticaret Bankalar\u0131\u2019n\u0131n Performanslar\u0131\u2019n\u0131n Tops"
+    },
+    {
+      "paper_id": "https://openalex.org/W2078501257",
+      "status": "failed",
+      "message": "Not a direct PDF and Playwright not available",
+      "title": "Truth in Telling: Reconciling Realities in the Genocide of the Ottoman Armenians"
+    },
+    {
+      "paper_id": "https://openalex.org/W1604718380",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W1604718380_2014.pdf"
+      ],
+      "title": "Marriage and Divorce in the Late Ottoman Empire"
+    },
+    {
+      "paper_id": "https://openalex.org/W2021474983",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W2021474983_2009.pdf"
+      ],
+      "title": "Gendering Ottoman Labor History: The Cibali R\u00e9gie Factory in the Early Twentieth Century"
+    },
+    {
+      "paper_id": "https://openalex.org/W3175388841",
+      "status": "success",
+      "method": "direct_pdf",
+      "files": [
+        "ottoman_bank_correct_content/W3175388841_2021.pdf"
+      ],
+      "title": "The Urban and Architectural Characteristics of Voyvoda Street from Past to Present"
+    }
+  ]
+}

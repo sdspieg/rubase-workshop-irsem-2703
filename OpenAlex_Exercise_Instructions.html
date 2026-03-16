@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAlex Bibliometric Exercise: Discovering Your Research Domain</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        h4 {
+            color: #666;
+        }
+        .critical-warning {
+            background-color: #fff3cd;
+            border: 2px solid #ff9800;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .critical-warning h4 {
+            color: #ff6b00;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        .critical-warning h4::before {
+            content: "⚠️";
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-item {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+        }
+        .comparison-item.correct {
+            border-left-color: #28a745;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        pre code {
+            background-color: transparent;
+            color: #ecf0f1;
+            padding: 0;
+        }
+        .example-queries {
+            background-color: #e8f4f8;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .task-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        ul, ol {
+            line-height: 1.8;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .api-endpoint {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+        .stats-result {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>OpenAlex Bibliometric Exercise: Discovering Your Research Domain</h1>
+
+        <h2>Workshop Exercise for Day 1: DISCOVER</h2>
+
+        <h3>Learning Objectives</h3>
+        <p>By the end of this exercise, you will:</p>
+        <ol>
+            <li>Understand how to use OpenAlex's API for systematic literature discovery</li>
+            <li>Learn to construct effective search queries for YOUR specific research area</li>
+            <li>Practice extracting and analyzing bibliometric metadata</li>
+            <li>Prepare a corpus for subsequent LLM analysis</li>
+        </ol>
+
+        <h3>What is OpenAlex?</h3>
+        <p>OpenAlex is a free, open-source index of over 250 million academic works. It provides:</p>
+        <ul>
+            <li>Full-text search across 60+ million open-access papers</li>
+            <li>Complete bibliometric metadata (citations, authors, institutions, topics)</li>
+            <li>RESTful API with no authentication required (though email is recommended)</li>
+            <li>Daily updates from thousands of publishers and repositories</li>
+        </ul>
+
+        <h2>Part 1: Crafting Your Search Strategy</h2>
+
+        <h3>Example Search Queries by Discipline</h3>
+
+        <h4>Political Science / International Relations</h4>
+        <div class="example-queries">
+            <pre><code>"Russian foreign policy" OR "Russian defense policy" OR "Russian security policy"
+# OR try: "NATO expansion" OR "European security architecture"
+# OR try: "China belt and road" OR "BRI geopolitics"</code></pre>
+        </div>
+
+        <h4>History</h4>
+        <div class="example-queries">
+            <pre><code>"Soviet collapse" OR "post-Soviet transition" OR "Russian democratization"
+# OR try: "Cold War archives" OR "Soviet documents declassified"
+# OR try: "Gorbachev reforms" OR "perestroika glasnost"</code></pre>
+        </div>
+
+        <h4>Economics</h4>
+        <div class="example-queries">
+            <pre><code>"Russian economy sanctions" OR "Russia energy exports" OR "ruble crisis"
+# OR try: "emerging markets volatility" OR "BRICS economies"
+# OR try: "resource curse" AND "Russia"</code></pre>
+        </div>
+
+        <h3>Constructing Your Own Query</h3>
+        <ol>
+            <li><strong>Identify 2-3 key concepts</strong> in your research area</li>
+            <li><strong>Use quoted phrases</strong> for exact matches: <code>"your exact phrase"</code></li>
+            <li><strong>Connect with OR</strong> to broaden: <code>"concept A" OR "concept B"</code></li>
+            <li><strong>Use AND to narrow</strong>: <code>"broad topic" AND "specific aspect"</code></li>
+            <li><strong>Consider synonyms</strong>: Include alternative terms for the same concept</li>
+        </ol>
+
+        <div class="critical-warning">
+            <h4>CRITICAL: Quotes Matter for Exact Phrases!</h4>
+            <p>When using full-text search (<code>filter=fulltext.search:</code>), quotes determine the search behavior:</p>
+
+            <div class="comparison-box">
+                <div class="comparison-item">
+                    <strong>❌ WITHOUT quotes:</strong><br>
+                    <code>fulltext.search:Ottoman Bank</code>
+                    <ul>
+                        <li>Searches for Ottoman OR Bank anywhere</li>
+                        <li>Returns papers with either word</li>
+                        <li>Result: 21,388 papers (mostly irrelevant)</li>
+                    </ul>
+                </div>
+                <div class="comparison-item correct">
+                    <strong>✅ WITH quotes:</strong><br>
+                    <code>fulltext.search:"Ottoman Bank"</code>
+                    <ul>
+                        <li>Searches for exact phrase "Ottoman Bank"</li>
+                        <li>Returns only papers with words together</li>
+                        <li>Result: 513 papers (actually relevant)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p><strong>This applies to all search types in OpenAlex:</strong></p>
+            <ul>
+                <li><code>search=</code> (title/abstract search)</li>
+                <li><code>filter=fulltext.search:</code> (full-text search)</li>
+                <li><code>filter=title.search:</code> (title-only search)</li>
+            </ul>
+        </div>
+
+        <h3>API Endpoints</h3>
+        <div class="api-endpoint">
+            # Basic search (titles/abstracts):<br>
+            https://api.openalex.org/works?search=YOUR_QUERY<br><br>
+
+            # Full-text search:<br>
+            https://api.openalex.org/works?filter=fulltext.search:YOUR_QUERY<br><br>
+
+            # With exact phrase (note the quotes):<br>
+            https://api.openalex.org/works?filter=fulltext.search:"exact phrase"
+        </div>
+
+        <h2>Part 2: Running the Exercise</h2>
+
+        <h3>Prerequisites</h3>
+        <ol>
+            <li>Python 3.x installed</li>
+            <li><code>requests</code> library (<code>pip install requests</code>)</li>
+            <li>Internet connection</li>
+            <li>Your email address (for polite pool access)</li>
+        </ol>
+
+        <h3>Step-by-Step Instructions</h3>
+
+        <h4>Step 1: Set Up Your Environment</h4>
+        <pre><code># Navigate to the workshop folder
+cd "/mnt/c/Users/Stephan/Dropbox/Presentations/2603 - Boston"
+
+# Install required library if needed
+pip install requests</code></pre>
+
+        <h4>Step 2: Configure the Script for YOUR Research</h4>
+        <p>Edit <code>openalex_russian_policy_exercise.py</code>:</p>
+
+        <p><strong>Line 16 - Add your email:</strong></p>
+        <pre><code>MAILTO = "your.email@fletcher.edu"  # Replace with YOUR email</code></pre>
+
+        <p><strong>Line 24 - Add YOUR search query:</strong></p>
+        <pre><code># Replace this with YOUR research topic from Part 1 above
+SEARCH_QUERY = '"your first concept" OR "your second concept"'
+
+# Examples:
+# SEARCH_QUERY = '"NATO expansion" OR "European security architecture"'  # IR
+# SEARCH_QUERY = '"Soviet collapse" OR "post-Soviet transition"'  # History
+# SEARCH_QUERY = '"emerging markets" AND "financial crisis"'  # Economics
+# SEARCH_QUERY = '"Chinese soft power" OR "China public diplomacy"'  # China studies</code></pre>
+
+        <h4>Step 3: Run the Script</h4>
+        <pre><code>python openalex_russian_policy_exercise.py</code></pre>
+
+        <h2>Part 3: Understanding the Output</h2>
+
+        <h3>Generated Files</h3>
+        <ol>
+            <li><strong><code>russian_policy_dataset/russian_policy_works.json</code></strong>
+                <ul>
+                    <li>Complete metadata for all papers</li>
+                    <li>Includes authors, institutions, citations, topics, etc.</li>
+                </ul>
+            </li>
+            <li><strong><code>russian_policy_dataset/titles_and_abstracts.txt</code></strong>
+                <ul>
+                    <li>Human-readable text file</li>
+                    <li>Ready for LLM analysis in tomorrow's session</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Key Metrics to Observe</h3>
+        <ul>
+            <li><strong>Temporal Patterns</strong>: When was research most active?</li>
+            <li><strong>Geographic Distribution</strong>: Which countries/institutions dominate?</li>
+            <li><strong>Open Access Availability</strong>: What percentage are freely available?</li>
+            <li><strong>Topic Clustering</strong>: What related topics appear frequently?</li>
+        </ul>
+
+        <h2>Part 4: Hands-On Analysis Tasks</h2>
+
+        <div class="task-box">
+            <h4>Task 1: Filter by Year</h4>
+            <p>Modify the script to only fetch papers from 2022 onwards:</p>
+            <pre><code>params = {
+    "search": SEARCH_QUERY,
+    "filter": "publication_year:2022-2026",  # Add this line
+    "per_page": PER_PAGE,
+    ...
+}</code></pre>
+        </div>
+
+        <div class="task-box">
+            <h4>Task 2: Export for Excel</h4>
+            <p>Add CSV export capability:</p>
+            <pre><code>import csv
+
+def export_to_csv(works):
+    with open("papers.csv", "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Title", "Year", "Journal", "Citations", "DOI"])
+        for w in works:
+            writer.writerow([
+                w.get("title"),
+                w.get("publication_year"),
+                w.get("primary_location", {}).get("source", {}).get("display_name"),
+                w.get("cited_by_count"),
+                w.get("doi")
+            ])</code></pre>
+        </div>
+
+        <h2>Troubleshooting</h2>
+
+        <h3>Common Issues and Solutions</h3>
+        <ol>
+            <li><strong>"No module named 'requests'"</strong>
+                <pre><code>pip install requests</code></pre>
+            </li>
+            <li><strong>Rate limit errors</strong>
+                <ul>
+                    <li>Make sure you've added your email to MAILTO</li>
+                    <li>The script includes delays, but you can increase <code>time.sleep(0.1)</code> to <code>time.sleep(0.5)</code></li>
+                </ul>
+            </li>
+            <li><strong>No results found</strong>
+                <ul>
+                    <li>Check your internet connection</li>
+                    <li>Verify the API is working: <a href="https://api.openalex.org/works?search=test">https://api.openalex.org/works?search=test</a></li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Next Steps</h2>
+        <p>Tomorrow (Day 2), we'll use the extracted abstracts to:</p>
+        <ol>
+            <li>Build a custom taxonomy for your research domain</li>
+            <li>Use LLMs to classify papers into our taxonomy</li>
+            <li>Identify research gaps and opportunities</li>
+        </ol>
+
+        <h2>Additional Resources</h2>
+        <ul>
+            <li>OpenAlex Documentation: <a href="https://docs.openalex.org">https://docs.openalex.org</a></li>
+            <li>API Playground: <a href="https://openalex.org/works">https://openalex.org/works</a></li>
+            <li>Example Notebooks: <a href="https://github.com/ourresearch/openalex-documentation">GitHub Repository</a></li>
+            <li>The Lens (alternative): <a href="https://www.lens.org">https://www.lens.org</a></li>
+        </ul>
+
+        <div class="stats-result">
+            <h3>✅ Key Takeaway</h3>
+            <p><strong>Always use quotes for exact phrases in full-text search!</strong> The difference between <code>"Ottoman Bank"</code> (513 relevant papers) and <code>Ottoman Bank</code> (21,388 mostly irrelevant papers) is crucial for effective research.</p>
+        </div>
+    </div>
+
+<!-- Navigation -->
+<div style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(30, 41, 59, 0.95); padding: 10px 20px; border-radius: 50px; border: 1px solid #334155; backdrop-filter: blur(10px); z-index: 1000;">
+    <button onclick="window.location.href='index.html'" style="background: linear-gradient(135deg, #00ffff, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: 'Titillium Web', sans-serif;">🏠 Home</button>
+</div>
+
+</body>
+</html>

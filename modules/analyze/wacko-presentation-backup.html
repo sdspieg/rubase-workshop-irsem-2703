@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WACKO Presentation</title>
+    
+    <link rel="stylesheet" href="slides.css">
+
+    
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Title Overlay -->
+        <div class="title-overlay">
+            <h1>🎯 WACKO</h1>
+            <p>📊 Strategic Analysis & Insights</p>
+        </div>
+
+        <!-- Slides -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-number">1 / 5</div>
+            <div class="loading">Loading...</div>
+            <img src="wacko-slides/slide-1.png" alt="Slide 1" onload="this.parentElement.classList.remove('loading')">
+        </div>
+
+        <div class="slide" data-slide="2">
+            <div class="slide-number">2 / 5</div>
+            <div class="loading">Loading...</div>
+            <img src="wacko-slides/slide-2.png" alt="Slide 2" onload="this.parentElement.classList.remove('loading')">
+        </div>
+
+        <div class="slide" data-slide="3">
+            <div class="slide-number">3 / 5</div>
+            <div class="loading">Loading...</div>
+            <img src="wacko-slides/slide-3.png" alt="Slide 3" onload="this.parentElement.classList.remove('loading')">
+        </div>
+
+        <div class="slide" data-slide="4">
+            <div class="slide-number">4 / 5</div>
+            <div class="loading">Loading...</div>
+            <img src="wacko-slides/slide-4.png" alt="Slide 4" onload="this.parentElement.classList.remove('loading')">
+        </div>
+
+        <div class="slide" data-slide="5">
+            <div class="slide-number">5 / 5</div>
+            <div class="loading">Loading...</div>
+            <img src="wacko-slides/slide-5.png" alt="Slide 5" onload="this.parentElement.classList.remove('loading')">
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" onclick="window.location.href='../../index.html'">🏠 Home</button>
+            <button class="nav-btn" onclick="window.location.href='index.html'">📚 Resources</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <!-- Slide Indicator -->
+        <div class="slide-indicator" id="slideIndicator">
+            Slide 1 of 5
+        </div>
+    </div>
+
+    <script>
+        window.currentSlide = 1;
+        window.totalSlides = 5;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            // Wrap around
+            if (n > window.totalSlides) window.currentSlide = 1;
+            if (n < 1) window.currentSlide = window.totalSlides;
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Show current slide
+            slides[window.currentSlide - 1].classList.add('active');
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = window.currentSlide === 1;
+            document.getElementById('nextBtn').disabled = window.currentSlide === window.totalSlides;
+
+            // Update progress bar
+            const progressPercent = (window.currentSlide / window.totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progressPercent + '%';
+
+            // Update slide indicator
+            document.getElementById('slideIndicator').textContent = `Slide ${window.currentSlide} of ${window.totalSlides}`;
+        }
+
+        function changeSlide(direction) {
+            window.currentSlide += direction;
+            showSlide(window.currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (event.key === 'End') {
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1); // Swipe left = next slide
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1); // Swipe right = previous slide
+            }
+        }
+
+        // Initialize
+        showSlide(1);
+
+        // Preload all images
+        for (let i = 1; i <= totalSlides; i++) {
+            const img = new Image();
+            img.src = `wacko-slides/slide-${i}.png`;
+        }
+    </script>
+</body>
+</html>

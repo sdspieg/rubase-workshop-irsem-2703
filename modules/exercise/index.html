@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxonomy Building Exercise - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .floating-shape {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            padding: 60px 40px;
+            animation: fadeIn 0.5s ease-in;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            z-index: 10;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        .slide-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--bright-cyan);
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideUp 0.8s ease-out;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .slide-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--light-gray);
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideUp 1s ease-out;
+        }
+
+        /* Exercise specific styles */
+        .exercise-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .exercise-part {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(20, 40, 71, 0.5));
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid var(--bright-cyan);
+            animation: slideUp 1s ease-out backwards;
+        }
+
+        .exercise-part.ai {
+            border-color: var(--bright-purple);
+            animation-delay: 0.2s;
+        }
+
+        .part-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .part-number {
+            background: var(--bright-cyan);
+            color: var(--dark-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        .part-number.ai {
+            background: var(--bright-purple);
+        }
+
+        .part-title {
+            flex: 1;
+        }
+
+        .part-title h3 {
+            color: var(--bright-cyan);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .part-title.ai h3 {
+            color: var(--bright-purple);
+        }
+
+        .part-subtitle {
+            color: var(--light-gray);
+            font-size: 1rem;
+        }
+
+        .timer-display {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .timer-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--bright-yellow);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--bright-yellow);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            position: relative;
+            counter-increment: step-counter;
+            padding-left: 60px;
+            transition: all 0.3s;
+        }
+
+        .step-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .step-item::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            background: var(--bright-yellow);
+            color: var(--dark-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .step-item.ai {
+            border-left-color: var(--bright-purple);
+        }
+
+        .step-item.ai::before {
+            background: var(--bright-purple);
+        }
+
+        /* Template/Code sections */
+        .template-box {
+            background: #0a0d10;
+            border: 1px solid var(--bright-cyan);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--bright-green);
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--bright-cyan);
+            color: var(--dark-bg);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .copy-button:hover {
+            background: var(--bright-yellow);
+            transform: translateY(-2px);
+        }
+
+        .copy-button.copied {
+            background: var(--bright-green);
+        }
+
+        /* Prompt showcase */
+        .prompt-showcase {
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(0, 255, 255, 0.1));
+            border: 2px solid var(--bright-purple);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prompt-showcase::before {
+            content: '✨';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .prompt-title {
+            color: var(--bright-purple);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .prompt-content {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 25px;
+            font-family: 'Fira Code', monospace;
+            color: var(--bright-white);
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Comparison section */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(20, 40, 71, 0.5));
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid var(--bright-cyan);
+            animation: slideUp 1s ease-out backwards;
+        }
+
+        .comparison-card.ai {
+            border-color: var(--bright-purple);
+            animation-delay: 0.2s;
+        }
+
+        .comparison-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .manual-title {
+            color: var(--bright-cyan);
+        }
+
+        .ai-title {
+            color: var(--bright-purple);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--bright-yellow);
+        }
+
+        .stat-label {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Navigation controls */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));
+            color: var(--dark-bg);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Progress dots */
+        .progress-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .progress-dot.active {
+            background: var(--bright-cyan);
+            box-shadow: 0 0 20px var(--bright-cyan);
+            transform: scale(1.5);
+        }
+
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange));
+            color: var(--dark-bg);
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 0, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));
+        }
+
+        /* Tips section */
+        .tips-box {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(0, 255, 127, 0.2));
+            border: 2px solid var(--bright-green);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+
+        .tips-title {
+            color: var(--bright-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--light-gray);
+        }
+
+        .tips-list li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shape" style="top: 10%; left: 10%; width: 200px; height: 200px; border: 2px solid rgba(0, 255, 255, 0.2); border-radius: 50%;"></div>
+        <div class="floating-shape" style="top: 60%; right: 10%; width: 150px; height: 150px; border: 2px solid rgba(147, 112, 219, 0.2); border-radius: 30%;"></div>
+        <div class="floating-shape" style="bottom: 10%; left: 30%; width: 100px; height: 100px; border: 2px solid rgba(255, 255, 0, 0.2); transform: rotate(45deg);"></div>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Slide 1: Title & Overview -->
+        <div class="slide active">
+            <h1 class="slide-title">🛠️ Taxonomy Building Exercise</h1>
+            <p class="slide-subtitle">From Manual Exploration to AI-Powered Generation</p>
+
+            <div class="exercise-layout">
+                <div class="exercise-part">
+                    <div class="part-header">
+                        <div class="part-number">1</div>
+                        <div class="part-title">
+                            <h3>Manual Discovery</h3>
+                            <p class="part-subtitle">7.5 minutes of creative thinking</p>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; color: var(--light-gray);">
+                        <li style="padding: 10px 0;">✏️ Choose your domain</li>
+                        <li style="padding: 10px 0;">🎯 Identify 3 dimensions</li>
+                        <li style="padding: 10px 0;">🌳 Build hierarchy</li>
+                        <li style="padding: 10px 0;">✅ Test orthogonality</li>
+                    </ul>
+                </div>
+
+                <div class="exercise-part ai">
+                    <div class="part-header">
+                        <div class="part-number ai">2</div>
+                        <div class="part-title ai">
+                            <h3>AI Amplification</h3>
+                            <p class="part-subtitle">7.5 minutes to 864 classifications</p>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; color: var(--light-gray);">
+                        <li style="padding: 10px 0;">🤖 Use our power prompt</li>
+                        <li style="padding: 10px 0;">🚀 Generate 9 dimensions</li>
+                        <li style="padding: 10px 0;">📊 Export as TSV</li>
+                        <li style="padding: 10px 0;">🔍 Compare & learn</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--bright-yellow); font-size: 1.3rem;">
+                    "The manual attempt helps you understand what the AI is doing!"
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Part 1 Instructions -->
+        <div class="slide">
+            <h2 class="slide-title">Part 1: Manual Taxonomy Building</h2>
+            <p class="slide-subtitle">Let's start with human intuition</p>
+
+            <div class="timer-display">
+                <div class="timer-value" id="manual-timer">7:30</div>
+                <p style="color: var(--light-gray); margin-top: 10px;">Time for creative exploration</p>
+            </div>
+
+            <ol class="steps-list">
+                <li class="step-item">
+                    <strong style="color: var(--bright-cyan);">Choose Your Domain</strong><br>
+                    <span style="color: var(--light-gray);">Pick something you know well: your research topic, a hobby, professional field</span>
+                </li>
+                <li class="step-item">
+                    <strong style="color: var(--bright-cyan);">Identify 3 Orthogonal Dimensions</strong><br>
+                    <span style="color: var(--light-gray);">What are 3 independent ways to categorize things in this domain?</span>
+                </li>
+                <li class="step-item">
+                    <strong style="color: var(--bright-cyan);">Create Your Hierarchy</strong><br>
+                    <span style="color: var(--light-gray);">For each dimension: Add 2 L2 elements, then 2 taxa per L2</span>
+                </li>
+                <li class="step-item">
+                    <strong style="color: var(--bright-cyan);">Test Orthogonality</strong><br>
+                    <span style="color: var(--light-gray);">Can something be high on dimension A and low on dimension B?</span>
+                </li>
+            </ol>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="startManualTimer()">
+                    <span>⏱️</span>
+                    <span>Start Timer</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide 3: Manual Template -->
+        <div class="slide">
+            <h2 class="slide-title">Your Manual Template</h2>
+            <p class="slide-subtitle">Fill this in as you build</p>
+
+            <div class="template-box">
+                <button class="copy-button" onclick="copyTemplate(this, 'manual-template')">📋 Copy</button>
+                <pre id="manual-template">DIMENSION 1: _____________
+  L2a: _____________
+    - Taxon: _____________
+    - Taxon: _____________
+  L2b: _____________
+    - Taxon: _____________
+    - Taxon: _____________
+
+DIMENSION 2: _____________
+  L2a: _____________
+    - Taxon: _____________
+    - Taxon: _____________
+  L2b: _____________
+    - Taxon: _____________
+    - Taxon: _____________
+
+DIMENSION 3: _____________
+  L2a: _____________
+    - Taxon: _____________
+    - Taxon: _____________
+  L2b: _____________
+    - Taxon: _____________
+    - Taxon: _____________</pre>
+            </div>
+
+            <div class="tips-box">
+                <h3 class="tips-title">Quick Examples to Spark Ideas</h3>
+                <ul class="tips-list">
+                    <li><strong>Coffee:</strong> Temperature (hot/cold) × Strength (mild/strong) × Origin (region)</li>
+                    <li><strong>Research:</strong> Methodology × Time Period × Geographic Focus</li>
+                    <li><strong>Conflict:</strong> Intensity × Duration × Actor Type</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 4: Transition -->
+        <div class="slide">
+            <h2 class="slide-title">✅ Manual Phase Complete!</h2>
+            <p class="slide-subtitle">Now let's see what AI can do...</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3 class="manual-title">Your Manual Taxonomy</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Dimensions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">6</div>
+                            <div class="stat-label">L2 Elements</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Taxa</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">~5min</div>
+                            <div class="stat-label">Time Spent</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card ai">
+                    <h3 class="ai-title">AI-Generated Taxonomy</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">9</div>
+                            <div class="stat-label">Dimensions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">36</div>
+                            <div class="stat-label">L2 Elements</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">864</div>
+                            <div class="stat-label">Taxa</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">30sec</div>
+                            <div class="stat-label">Time Spent</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: var(--bright-green); font-size: 1.5rem;">
+                    🚀 Ready to amplify your taxonomy 72x?
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Part 2 Introduction -->
+        <div class="slide">
+            <h2 class="slide-title">Part 2: AI-Powered Generation</h2>
+            <p class="slide-subtitle">Let's expand your taxonomy to 864 classification points!</p>
+
+            <div class="timer-display">
+                <div class="timer-value" id="ai-timer">7:30</div>
+                <p style="color: var(--light-gray); margin-top: 10px;">Time to harness AI power</p>
+            </div>
+
+            <ol class="steps-list">
+                <li class="step-item ai">
+                    <strong style="color: var(--bright-purple);">Open Your AI Assistant</strong><br>
+                    <span style="color: var(--light-gray);">Claude, GPT-4, or Gemini - all work great!</span>
+                </li>
+                <li class="step-item ai">
+                    <strong style="color: var(--bright-purple);">Copy Our Power Prompt</strong><br>
+                    <span style="color: var(--light-gray);">Next slide has the magic formula</span>
+                </li>
+                <li class="step-item ai">
+                    <strong style="color: var(--bright-purple);">Customize with Your Domain</strong><br>
+                    <span style="color: var(--light-gray);">Include your 3 manual dimensions as starting points</span>
+                </li>
+                <li class="step-item ai">
+                    <strong style="color: var(--bright-purple);">Generate & Export</strong><br>
+                    <span style="color: var(--light-gray);">Get TSV output for easy processing</span>
+                </li>
+            </ol>
+
+            <div class="action-buttons">
+                <button class="action-btn secondary" onclick="startAITimer()">
+                    <span>⏱️</span>
+                    <span>Start AI Timer</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide 6: The Power Prompt -->
+        <div class="slide">
+            <h2 class="slide-title">🎯 The Power Prompt</h2>
+            <p class="slide-subtitle">This prompt generates comprehensive taxonomies in seconds</p>
+
+            <div class="prompt-showcase">
+                <h3 class="prompt-title">Copy This Exact Prompt</h3>
+                <div class="template-box" style="border-color: var(--bright-purple);">
+                    <button class="copy-button" onclick="copyTemplate(this, 'power-prompt')">📋 Copy Prompt</button>
+                    <pre id="power-prompt" class="prompt-content">You are a domain expert creating a multi-dimensional taxonomy.
+
+DOMAIN: [Your domain from Part 1]
+
+Create a comprehensive taxonomy with:
+- 5-9 orthogonal dimensions (HLTPs)
+- Each HLTP has exactly 4 L2 elements
+- Each L2 has exactly 3 L3 elements
+- Each L3 has exactly 8 specific taxa
+
+Output format: TSV (Tab-Separated Values) with columns:
+HLTP | 2nd Level TE | 3rd Level TE | Taxon
+
+Requirements:
+✓ Dimensional independence - each dimension must be orthogonal
+✓ Complete coverage - no gaps in the taxonomy
+✓ Observable criteria - taxa must be identifiable
+✓ No ambiguous terms - clear, specific language
+✓ Consistent abstraction levels within each level
+
+Start with these dimensions if relevant to the domain:
+1. [Dimension 1 from your manual taxonomy]
+2. [Dimension 2 from your manual taxonomy]
+3. [Dimension 3 from your manual taxonomy]
+
+Add additional orthogonal dimensions to reach 5-9 total.
+
+Generate the complete taxonomy now.</pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: How Our Script Works - Detailed Explanation -->
+        <div class="slide">
+            <h2 class="slide-title">🔬 The Science Behind Our Script</h2>
+            <p class="slide-subtitle">Understanding the power of structured taxonomy generation</p>
+
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h3 style="color: var(--bright-purple); margin-bottom: 25px; text-align: center;">Why This Script Works So Well</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px;">
+                    <!-- Orthogonality Enforcement -->
+                    <div style="background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(147, 112, 219, 0.2)); border: 2px solid var(--bright-purple); border-radius: 15px; padding: 20px;">
+                        <h4 style="color: var(--bright-cyan); margin-bottom: 15px;">🎯 Orthogonality Enforcement</h4>
+                        <p style="color: var(--light-gray); line-height: 1.6;">
+                            The script explicitly requires dimensional independence. Each HLTP (High-Level Taxonomic Principle) must represent a completely separate aspect of analysis. Like axes in 3D space, they never intersect.
+                        </p>
+                        <div style="margin-top: 15px; padding: 10px; background: rgba(0, 0, 0, 0.3); border-radius: 8px;">
+                            <code style="color: var(--bright-cyan); font-size: 0.9rem;">
+                                Example: "Temporal" ⊥ "Geographic" ⊥ "Thematic"
+                            </code>
+                        </div>
+                    </div>
+
+                    <!-- Mathematical Structure -->
+                    <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.2)); border: 2px solid var(--bright-cyan); border-radius: 15px; padding: 20px;">
+                        <h4 style="color: var(--bright-yellow); margin-bottom: 15px;">📐 Mathematical Precision</h4>
+                        <p style="color: var(--light-gray); line-height: 1.6;">
+                            The 4×3×8 structure isn't arbitrary. It balances comprehensiveness with cognitive manageability. This creates exactly 96 taxa per dimension, totaling 864 classification points across 9 dimensions.
+                        </p>
+                        <div style="margin-top: 15px; padding: 10px; background: rgba(0, 0, 0, 0.3); border-radius: 8px;">
+                            <code style="color: var(--bright-yellow); font-size: 0.9rem;">
+                                9 × 4 × 3 × 8 = 864 unique paths
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Three-Level Hierarchy -->
+                <div style="background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0.2)); border: 2px solid var(--bright-yellow); border-radius: 15px; padding: 25px; margin-bottom: 30px;">
+                    <h4 style="color: var(--bright-green); margin-bottom: 20px;">🌳 The Three-Level Hierarchy Explained</h4>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--bright-cyan); margin-bottom: 10px;">L2</div>
+                            <p style="color: var(--light-gray); font-size: 0.9rem;">
+                                <strong>Major Categories</strong><br>
+                                4 per dimension<br>
+                                Broad conceptual divisions<br>
+                                E.g., "State Actors"
+                            </p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--bright-purple); margin-bottom: 10px;">L3</div>
+                            <p style="color: var(--light-gray); font-size: 0.9rem;">
+                                <strong>Subcategories</strong><br>
+                                3 per L2 element<br>
+                                Refined distinctions<br>
+                                E.g., "Military Forces"
+                            </p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--bright-yellow); margin-bottom: 10px;">Taxa</div>
+                            <p style="color: var(--light-gray); font-size: 0.9rem;">
+                                <strong>Specific Elements</strong><br>
+                                8 per L3 element<br>
+                                Observable instances<br>
+                                E.g., "Cyber offensive capability"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TSV Output Format -->
+                <div style="background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(0, 255, 127, 0.2)); border: 2px solid var(--bright-green); border-radius: 15px; padding: 25px;">
+                    <h4 style="color: var(--bright-orange); margin-bottom: 15px;">📊 Why TSV Format?</h4>
+                    <ul style="list-style: none; color: var(--light-gray); line-height: 1.8;">
+                        <li style="padding: 8px 0;">✅ <strong>Universal compatibility</strong> - Works with Excel, Google Sheets, Python, R</li>
+                        <li style="padding: 8px 0;">✅ <strong>Preserves hierarchy</strong> - Each row maintains the complete taxonomic path</li>
+                        <li style="padding: 8px 0;">✅ <strong>Machine-readable</strong> - Perfect for automated classification</li>
+                        <li style="padding: 8px 0;">✅ <strong>Human-verifiable</strong> - Easy to review and quality-check</li>
+                    </ul>
+
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(0, 0, 0, 0.4); border-radius: 8px; overflow-x: auto;">
+                        <pre style="color: var(--bright-green); font-size: 0.85rem; margin: 0;">HLTP             | L2              | L3               | Taxon
+─────────────────┼─────────────────┼──────────────────┼──────────────────────────
+Geopolitical     | State Actors    | Military Forces  | Cyber offensive capability
+Geopolitical     | State Actors    | Military Forces  | Nuclear deterrence
+Methodological   | Quantitative    | Statistical      | Regression analysis
+...</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Processing the Output -->
+        <div class="slide">
+            <h2 class="slide-title">Processing Your AI Taxonomy</h2>
+            <p class="slide-subtitle">Turn the output into actionable data</p>
+
+            <div class="template-box">
+                <button class="copy-button" onclick="copyTemplate(this, 'python-script')">📋 Copy Script</button>
+                <pre id="python-script">import pandas as pd
+import io
+
+# Paste your TSV output here (between the triple quotes)
+taxonomy_tsv = """
+HLTP	2nd Level TE	3rd Level TE	Taxon
+[Paste AI output here]
+"""
+
+# Load into DataFrame
+df = pd.read_csv(io.StringIO(taxonomy_tsv), sep='\t')
+
+# Quick stats
+print(f"Total dimensions (HLTPs): {df['HLTP'].nunique()}")
+print(f"Total L2 elements: {df['2nd Level TE'].nunique()}")
+print(f"Total L3 elements: {df['3rd Level TE'].nunique()}")
+print(f"Total taxa: {len(df)}")
+
+# Show dimension breakdown
+print("\nDimensions:")
+for hltp in df['HLTP'].unique():
+    count = len(df[df['HLTP'] == hltp])
+    print(f"  {hltp}: {count} taxa")
+
+# Save to file
+df.to_csv('my_taxonomy.csv', index=False)
+print("\nTaxonomy saved to my_taxonomy.csv")</pre>
+            </div>
+
+            <div class="tips-box">
+                <h3 class="tips-title">Quick Processing Tips</h3>
+                <ul class="tips-list">
+                    <li>Save as .tsv or .csv for easy import into Excel/Google Sheets</li>
+                    <li>Use pivot tables to explore dimension relationships</li>
+                    <li>Create visualizations to show taxonomy structure</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 9: Comparison & Analysis -->
+        <div class="slide">
+            <h2 class="slide-title">Compare & Learn</h2>
+            <p class="slide-subtitle">What did AI add that you missed?</p>
+
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h3 style="color: var(--bright-cyan); margin-bottom: 30px; text-align: center;">
+                    Key Questions for Comparison
+                </h3>
+
+                <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                    <div class="step-item">
+                        <strong style="color: var(--bright-yellow);">Coverage Analysis</strong><br>
+                        <span style="color: var(--light-gray);">
+                            • Did AI identify dimensions you hadn't considered?<br>
+                            • Are there aspects of your domain you overlooked?<br>
+                            • Which dimensions surprise you the most?
+                        </span>
+                    </div>
+
+                    <div class="step-item">
+                        <strong style="color: var(--bright-yellow);">Orthogonality Check</strong><br>
+                        <span style="color: var(--light-gray);">
+                            • Are all AI dimensions truly independent?<br>
+                            • Did AI maintain better orthogonality than your manual version?<br>
+                            • Any dimensions that seem to overlap?
+                        </span>
+                    </div>
+
+                    <div class="step-item">
+                        <strong style="color: var(--bright-yellow);">Specificity Assessment</strong><br>
+                        <span style="color: var(--light-gray);">
+                            • Are the AI's taxa more specific or general than yours?<br>
+                            • Which provides better observable criteria?<br>
+                            • Could you easily classify real data with these taxa?
+                        </span>
+                    </div>
+
+                    <div class="step-item">
+                        <strong style="color: var(--bright-yellow);">Practical Application</strong><br>
+                        <span style="color: var(--light-gray);">
+                            • Which taxonomy would be easier to apply to real data?<br>
+                            • Which has better coverage of edge cases?<br>
+                            • How would you combine the best of both?
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Common Discoveries -->
+        <div class="slide">
+            <h2 class="slide-title">What People Usually Discover</h2>
+            <p class="slide-subtitle">You're not alone in these realizations!</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3 class="manual-title">Human Strengths</h3>
+                    <ul style="list-style: none; color: var(--light-gray);">
+                        <li style="padding: 10px 0;">✅ Domain expertise and nuance</li>
+                        <li style="padding: 10px 0;">✅ Understanding of edge cases</li>
+                        <li style="padding: 10px 0;">✅ Practical application focus</li>
+                        <li style="padding: 10px 0;">✅ Creative dimension naming</li>
+                        <li style="padding: 10px 0;">✅ Intuitive importance weighting</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card ai">
+                    <h3 class="ai-title">AI Strengths</h3>
+                    <ul style="list-style: none; color: var(--light-gray);">
+                        <li style="padding: 10px 0;">✅ Systematic completeness</li>
+                        <li style="padding: 10px 0;">✅ Consistent abstraction levels</li>
+                        <li style="padding: 10px 0;">✅ Exhaustive taxa generation</li>
+                        <li style="padding: 10px 0;">✅ Maintains orthogonality</li>
+                        <li style="padding: 10px 0;">✅ Scales without fatigue</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding: 25px; background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(0, 255, 127, 0.2)); border-radius: 15px; border: 2px solid var(--bright-green);">
+                <p style="font-size: 1.3rem; color: var(--bright-white);">
+                    <strong style="color: var(--bright-green);">The Sweet Spot:</strong><br>
+                    Use human insight to guide AI completeness
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Next Steps -->
+        <div class="slide">
+            <h2 class="slide-title">Your Taxonomy is Ready!</h2>
+            <p class="slide-subtitle">What happens next?</p>
+
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div class="exercise-part" style="margin-bottom: 30px;">
+                    <h3 style="color: var(--bright-cyan); margin-bottom: 20px; text-align: center;">
+                        🚀 Tomorrow: Apply Your Taxonomy
+                    </h3>
+                    <ol class="steps-list">
+                        <li class="step-item">
+                            <strong>Convert to Classification Prompts</strong><br>
+                            <span style="color: var(--light-gray);">Turn your taxonomy into LLM instructions</span>
+                        </li>
+                        <li class="step-item">
+                            <strong>Classify Real Documents</strong><br>
+                            <span style="color: var(--light-gray);">Apply to actual texts from your domain</span>
+                        </li>
+                        <li class="step-item">
+                            <strong>Generate Visualizations</strong><br>
+                            <span style="color: var(--light-gray);">Create sunburst charts and networks</span>
+                        </li>
+                        <li class="step-item">
+                            <strong>Export for Analysis</strong><br>
+                            <span style="color: var(--light-gray);">Integration with Zotero and statistical packages</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn" onclick="window.location.href='../mdtdf-guide/index.html'" style="background: linear-gradient(135deg, var(--bright-purple), var(--bright-cyan));">
+                        <span>🎯</span>
+                        <span>Full MDTDF Guide</span>
+                    </button>
+                    <button class="action-btn" onclick="window.location.href='../frame/index.html'">
+                        <span>📚</span>
+                        <span>Main Presentation</span>
+                    </button>
+                    <button class="action-btn secondary" onclick="window.location.href='../resources/index.html'">
+                        <span>📖</span>
+                        <span>All Resources</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Indicators -->
+    <div class="progress-container">
+        <div class="progress-dot active" onclick="goToSlide(0)"></div>
+        <div class="progress-dot" onclick="goToSlide(1)"></div>
+        <div class="progress-dot" onclick="goToSlide(2)"></div>
+        <div class="progress-dot" onclick="goToSlide(3)"></div>
+        <div class="progress-dot" onclick="goToSlide(4)"></div>
+        <div class="progress-dot" onclick="goToSlide(5)"></div>
+        <div class="progress-dot" onclick="goToSlide(6)"></div>
+        <div class="progress-dot" onclick="goToSlide(7)"></div>
+        <div class="progress-dot" onclick="goToSlide(8)"></div>
+        <div class="progress-dot" onclick="goToSlide(9)"></div>
+        <div class="progress-dot" onclick="goToSlide(10)"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="previousSlide()">← Back</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.progress-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            if (index >= totalSlides) index = 0;
+            if (index < 0) index = totalSlides - 1;
+            currentSlide = index;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'Escape') showSlide(0);
+        });
+
+        // Timer functionality
+        let manualTimerInterval, aiTimerInterval;
+        let manualTimeRemaining = 450; // 7.5 minutes
+        let aiTimeRemaining = 450; // 7.5 minutes
+
+        function startManualTimer() {
+            if (manualTimerInterval) clearInterval(manualTimerInterval);
+            manualTimeRemaining = 450;
+
+            manualTimerInterval = setInterval(() => {
+                manualTimeRemaining--;
+                updateTimerDisplay('manual-timer', manualTimeRemaining);
+
+                if (manualTimeRemaining <= 0) {
+                    clearInterval(manualTimerInterval);
+                    document.getElementById('manual-timer').textContent = "Time's Up!";
+                    alert('⏰ Manual phase complete! Move to Part 2 when ready.');
+                }
+            }, 1000);
+        }
+
+        function startAITimer() {
+            if (aiTimerInterval) clearInterval(aiTimerInterval);
+            aiTimeRemaining = 450;
+
+            aiTimerInterval = setInterval(() => {
+                aiTimeRemaining--;
+                updateTimerDisplay('ai-timer', aiTimeRemaining);
+
+                if (aiTimeRemaining <= 0) {
+                    clearInterval(aiTimerInterval);
+                    document.getElementById('ai-timer').textContent = "Time's Up!";
+                    alert('🎉 Exercise complete! Time to compare your taxonomies.');
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(elementId, timeRemaining) {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const display = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+            const timerElement = document.getElementById(elementId);
+            if (timerElement) {
+                timerElement.textContent = display;
+
+                if (timeRemaining <= 60) {
+                    timerElement.style.color = 'var(--bright-red)';
+                    timerElement.style.animation = 'pulse 1s infinite';
+                }
+            }
+        }
+
+        // Copy functionality
+        function copyTemplate(button, elementId) {
+            const text = document.getElementById(elementId).textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy. Please select and copy manually.');
+            });
+        }
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) previousSlide();
+        }
+
+        // Initialize
+        showSlide(0);
+    </script>
+
+<!-- Navigation -->
+<div style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(30, 41, 59, 0.95); padding: 10px 20px; border-radius: 50px; border: 1px solid #334155; backdrop-filter: blur(10px); z-index: 1000;">
+    <button onclick="window.location.href='../../index.html'" style="background: linear-gradient(135deg, #00ffff, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: 'Titillium Web', sans-serif;">🏠 Home</button>
+</div>
+
+</body>
+</html>

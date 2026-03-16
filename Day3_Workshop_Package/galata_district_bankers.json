@@ -1,0 +1,5839 @@
+{
+  "query": "\"Galata district\" AND bankers",
+  "timestamp": "2026-03-13T13:37:36.548308",
+  "total_results": 6,
+  "fetched_results": 6,
+  "results": [
+    {
+      "id": "https://openalex.org/W4400118126",
+      "doi": "https://doi.org/10.26650/iuturkiyat.1413733",
+      "title": "Ottoman Bank Müdürü Francis de Palézieux Falconnet’nin İstanbul Serüveni (1856-1861)",
+      "display_name": "Ottoman Bank Müdürü Francis de Palézieux Falconnet’nin İstanbul Serüveni (1856-1861)",
+      "relevance_score": 2.255437,
+      "publication_year": 2024,
+      "publication_date": "2024-06-28",
+      "ids": {
+        "openalex": "https://openalex.org/W4400118126",
+        "doi": "https://doi.org/10.26650/iuturkiyat.1413733"
+      },
+      "language": "tr",
+      "primary_location": {
+        "id": "doi:10.26650/iuturkiyat.1413733",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.26650/iuturkiyat.1413733",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4210233610",
+          "display_name": "Türkiyat Mecmuası / Journal of Turkology",
+          "issn_l": "2651-3188",
+          "issn": [
+            "2651-3188"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310318354",
+          "host_organization_name": "Istanbul University",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310318354"
+          ],
+          "host_organization_lineage_names": [
+            "Istanbul University"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc",
+        "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Türkiyat Mecmuası / Journal of Turkology",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "doaj"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "diamond",
+        "oa_url": "https://doi.org/10.26650/iuturkiyat.1413733",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5113269387",
+            "display_name": "Hasan Çakmak",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "Hasan Çakmak",
+          "raw_affiliation_strings": [],
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5113269387"
+      ],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 21.0996,
+      "has_fulltext": true,
+      "cited_by_count": 2,
+      "citation_normalized_percentile": {
+        "value": 0.98898499,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 95,
+        "max": 96
+      },
+      "biblio": {
+        "volume": "34",
+        "issue": "1",
+        "first_page": "113",
+        "last_page": "139"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T13848",
+        "display_name": "Ottoman and Turkish Studies",
+        "score": 0.9930999875068665,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1202",
+          "display_name": "History"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T13848",
+          "display_name": "Ottoman and Turkish Studies",
+          "score": 0.9930999875068665,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1202",
+            "display_name": "History"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13441",
+          "display_name": "Ottoman Empire History and Society",
+          "score": 0.9929999709129333,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3312",
+            "display_name": "Sociology and Political Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13210",
+          "display_name": "Historical Turkish Studies",
+          "score": 0.9761000275611877,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3320",
+            "display_name": "Political Science and International Relations"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.3501136302947998
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.3340274691581726
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.3501136302947998
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.3340274691581726
+        }
+      ],
+      "mesh": [],
+      "locations_count": 3,
+      "locations": [
+        {
+          "id": "doi:10.26650/iuturkiyat.1413733",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.26650/iuturkiyat.1413733",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4210233610",
+            "display_name": "Türkiyat Mecmuası / Journal of Turkology",
+            "issn_l": "2651-3188",
+            "issn": [
+              "2651-3188"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310318354",
+            "host_organization_name": "Istanbul University",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310318354"
+            ],
+            "host_organization_lineage_names": [
+              "Istanbul University"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by-nc",
+          "license_id": "https://openalex.org/licenses/cc-by-nc",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Türkiyat Mecmuası / Journal of Turkology",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:oai:dergipark.org.tr:article/1413733",
+          "is_oa": true,
+          "landing_page_url": "https://dergipark.org.tr/tr/pub/iuturkiyat/issue/86458/1413733",
+          "pdf_url": "https://dergipark.org.tr/tr/download/article-file/3635632",
+          "source": {
+            "id": "https://openalex.org/S4306401840",
+            "display_name": "DergiPark (Istanbul University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I67581229",
+            "host_organization_name": "Istanbul University",
+            "host_organization_lineage": [
+              "https://openalex.org/I67581229"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "info:eu-repo/semantics/article"
+        },
+        {
+          "id": "pmh:oai:doaj.org/article:8b4124ca8c5846bc8a43df5a686c4056",
+          "is_oa": true,
+          "landing_page_url": "https://doaj.org/article/8b4124ca8c5846bc8a43df5a686c4056",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S112646816",
+            "display_name": "SHILAP Revista de lepidopterología",
+            "issn_l": "0300-5267",
+            "issn": [
+              "0300-5267",
+              "2340-4078"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "journal"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Türkiyat Mecmuası, Vol 34, Iss 1, Pp 113-139 (2024)",
+          "raw_type": "article"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.26650/iuturkiyat.1413733",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.26650/iuturkiyat.1413733",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4210233610",
+          "display_name": "Türkiyat Mecmuası / Journal of Turkology",
+          "issn_l": "2651-3188",
+          "issn": [
+            "2651-3188"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310318354",
+          "host_organization_name": "Istanbul University",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310318354"
+          ],
+          "host_organization_lineage_names": [
+            "Istanbul University"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc",
+        "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Türkiyat Mecmuası / Journal of Turkology",
+        "raw_type": "journal-article"
+      },
+      "sustainable_development_goals": [
+        {
+          "display_name": "Decent work and economic growth",
+          "score": 0.6100000143051147,
+          "id": "https://metadata.un.org/sdg/8"
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W4387497383",
+        "https://openalex.org/W3183948672",
+        "https://openalex.org/W3173606202",
+        "https://openalex.org/W3110381201",
+        "https://openalex.org/W2948807893",
+        "https://openalex.org/W2778153218",
+        "https://openalex.org/W2758277628",
+        "https://openalex.org/W2748952813",
+        "https://openalex.org/W1531601525",
+        "https://openalex.org/W4391375266"
+      ],
+      "abstract_inverted_index": {
+        "On": [
+          0
+        ],
+        "dokuzuncu": [
+          1
+        ],
+        "yüzyıl": [
+          2
+        ],
+        "Osmanlı": [
+          3,
+          55,
+          82,
+          182
+        ],
+        "Devleti’nde": [
+          4
+        ],
+        "hem": [
+          5,
+          8
+        ],
+        "idari": [
+          6
+        ],
+        "teşkilatta": [
+          7
+        ],
+        "de": [
+          9,
+          24,
+          59,
+          114
+        ],
+        "özel": [
+          10
+        ],
+        "sektörde": [
+          11
+        ],
+        "finans": [
+          12,
+          86,
+          136,
+          143,
+          154
+        ],
+        "kurumlarının": [
+          13
+        ],
+        "batılılaştığı": [
+          14
+        ],
+        "ve": [
+          15,
+          32,
+          62,
+          65,
+          85,
+          118,
+          145,
+          170,
+          181
+        ],
+        "yenilerinin": [
+          16
+        ],
+        "ortaya": [
+          17,
+          152
+        ],
+        "çıktığı": [
+          18
+        ],
+        "bir": [
+          19,
+          69,
+          129,
+          135,
+          158,
+          161,
+          175
+        ],
+        "dönemdir.": [
+          20
+        ],
+        "Bankacılık": [
+          21
+        ],
+        "faaliyetleri": [
+          22,
+          184
+        ],
+        "ile": [
+          23,
+          177
+        ],
+        "imparatorluk": [
+          25
+        ],
+        "bu": [
+          26,
+          40,
+          103,
+          167
+        ],
+        "dönemde": [
+          27
+        ],
+        "tanışmıştır.": [
+          28
+        ],
+        "1849": [
+          29
+        ],
+        "yılında": [
+          30,
+          47
+        ],
+        "Alleon": [
+          31
+        ],
+        "Baltazzi": [
+          33
+        ],
+        "bankerlerin": [
+          34
+        ],
+        "öncülüğünde": [
+          35
+        ],
+        "Dersaadet": [
+          36
+        ],
+        "Bankası’nın": [
+          37
+        ],
+        "kurulması": [
+          38
+        ],
+        "sonucunda": [
+          39
+        ],
+        "alanda": [
+          41
+        ],
+        "ilk": [
+          42
+        ],
+        "ciddi": [
+          43
+        ],
+        "adım": [
+          44
+        ],
+        "atılmıştır.": [
+          45
+        ],
+        "1856": [
+          46
+        ],
+        "Islahat": [
+          48
+        ],
+        "Fermanı’nın": [
+          49
+        ],
+        "ilan": [
+          50
+        ],
+        "edilmesinden": [
+          51
+        ],
+        "sonra": [
+          52,
+          125
+        ],
+        "ise": [
+          53
+        ],
+        "bankacılıkta": [
+          54
+        ],
+        "topraklarında": [
+          56,
+          83
+        ],
+        "yabancı": [
+          57,
+          89,
+          171
+        ],
+        "girşimcilerin": [
+          58
+        ],
+        "imkân": [
+          60
+        ],
+        "aradıkları": [
+          61
+        ],
+        "muhtelif": [
+          63
+        ],
+        "kurum": [
+          64
+        ],
+        "kuruluşlar": [
+          66
+        ],
+        "meydana": [
+          67
+        ],
+        "getirdikleri": [
+          68
+        ],
+        "süreç": [
+          70
+        ],
+        "yaşanmıştır.": [
+          71
+        ],
+        "Mevcut": [
+          72
+        ],
+        "literatürde": [
+          73
+        ],
+        "yerli": [
+          74,
+          169
+        ],
+        "bankerler/": [
+          75
+        ],
+        "bankacılara": [
+          76
+        ],
+        "dair": [
+          77
+        ],
+        "detaylı": [
+          78
+        ],
+        "araştırmalar": [
+          79
+        ],
+        "bulunmasına": [
+          80
+        ],
+        "karşın": [
+          81
+        ],
+        "iş": [
+          84
+        ],
+        "dünyasına": [
+          87
+        ],
+        "katılan": [
+          88
+        ],
+        "bankacılar": [
+          90
+        ],
+        "hakkındaki": [
+          91
+        ],
+        "incelemelerin": [
+          92
+        ],
+        "temenni": [
+          93
+        ],
+        "edilen": [
+          94
+        ],
+        "boyutta": [
+          95
+        ],
+        "olduğunu": [
+          96
+        ],
+        "söylemek": [
+          97
+        ],
+        "son": [
+          98
+        ],
+        "derece": [
+          99
+        ],
+        "güçtür.": [
+          100
+        ],
+        "Bu": [
+          101,
+          163
+        ],
+        "bakımdan": [
+          102
+        ],
+        "makalede": [
+          104
+        ],
+        "söz": [
+          105
+        ],
+        "konusu": [
+          106
+        ],
+        "bankacılardan": [
+          107
+        ],
+        "biri": [
+          108
+        ],
+        "olan": [
+          109,
+          187
+        ],
+        "Ottoman": [
+          110
+        ],
+        "Bank": [
+          111
+        ],
+        "Müdürü": [
+          112
+        ],
+        "Francis": [
+          113
+        ],
+        "Palézieux": [
+          115
+        ],
+        "Falconnet’nin": [
+          116,
+          150,
+          179
+        ],
+        "yaşamı": [
+          117
+        ],
+        "İstanbul’daki": [
+          119
+        ],
+        "icraatına": [
+          120
+        ],
+        "yer": [
+          121
+        ],
+        "ayrılmıştır.": [
+          122
+        ],
+        "Kırım": [
+          123
+        ],
+        "Savaşı’ndan": [
+          124
+        ],
+        "payitahta": [
+          126
+        ],
+        "gelerek": [
+          127
+        ],
+        "sadece": [
+          128
+        ],
+        "bankacı": [
+          130
+        ],
+        "olarak": [
+          131,
+          138
+        ],
+        "değil,": [
+          132
+        ],
+        "aynı": [
+          133
+        ],
+        "zamanda": [
+          134
+        ],
+        "danışmanı": [
+          137
+        ],
+        "yaklaşık": [
+          139
+        ],
+        "beş": [
+          140
+        ],
+        "sene": [
+          141
+        ],
+        "imparatorluğun": [
+          142
+        ],
+        "sistemine": [
+          144
+        ],
+        "mali": [
+          146
+        ],
+        "idaresine": [
+          147
+        ],
+        "katkılar": [
+          148
+        ],
+        "sağlayan": [
+          149
+        ],
+        "hizmetlerinin": [
+          151
+        ],
+        "çıkarılması": [
+          153
+        ],
+        "tarihi": [
+          155
+        ],
+        "araştırmalarına": [
+          156
+        ],
+        "farklı": [
+          157
+        ],
+        "boyut": [
+          159
+        ],
+        "kazandıracak": [
+          160
+        ],
+        "çabadır.": [
+          162
+        ],
+        "amaçtan": [
+          164
+        ],
+        "yola": [
+          165
+        ],
+        "çıkan": [
+          166
+        ],
+        "inceleme,": [
+          168
+        ],
+        "dildeki": [
+          172
+        ],
+        "kaynakların": [
+          173
+        ],
+        "karşılaştırmalı": [
+          174
+        ],
+        "usul": [
+          176
+        ],
+        "değerlendirilerek": [
+          178
+        ],
+        "hayatı": [
+          180
+        ],
+        "dünyasındaki": [
+          183
+        ],
+        "hakkında": [
+          185
+        ],
+        "var": [
+          186
+        ],
+        "boşluğun": [
+          188
+        ],
+        "doldurulmasına": [
+          189
+        ],
+        "hasredilmiştir.": [
+          190
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 2
+        }
+      ],
+      "updated_date": "2026-03-13T16:22:10.518609",
+      "created_date": "2024-06-29T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W3175388841",
+      "doi": "https://doi.org/10.15320/iconarp.2021.148",
+      "title": "The Urban and Architectural Characteristics of Voyvoda Street from Past to Present",
+      "display_name": "The Urban and Architectural Characteristics of Voyvoda Street from Past to Present",
+      "relevance_score": 2.2338934,
+      "publication_year": 2021,
+      "publication_date": "2021-06-21",
+      "ids": {
+        "openalex": "https://openalex.org/W3175388841",
+        "doi": "https://doi.org/10.15320/iconarp.2021.148",
+        "mag": "3175388841"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.15320/iconarp.2021.148",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.15320/iconarp.2021.148",
+        "pdf_url": "https://iconarp.ktun.edu.tr/index.php/iconarp/article/download/297/274",
+        "source": {
+          "id": "https://openalex.org/S4210212512",
+          "display_name": "Iconarp International J of Architecture and Planning",
+          "issn_l": "2147-9380",
+          "issn": [
+            "2147-9380"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310318347",
+          "host_organization_name": "Selçuk University",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310318347"
+          ],
+          "host_organization_lineage_names": [
+            "Selçuk University"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Iconarp International J. of Architecture and Planning",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "doaj"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "diamond",
+        "oa_url": "https://iconarp.ktun.edu.tr/index.php/iconarp/article/download/297/274",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5006871045",
+            "display_name": "Serengül Seçmen",
+            "orcid": "https://orcid.org/0000-0002-7821-9948"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I48912391",
+              "display_name": "Istanbul Technical University",
+              "ror": "https://ror.org/059636586",
+              "country_code": "TR",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I48912391"
+              ]
+            }
+          ],
+          "countries": [
+            "TR"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Serengül Seçmen",
+          "raw_affiliation_strings": [
+            "İstanbul Technical University"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "İstanbul Technical University",
+              "institution_ids": [
+                "https://openalex.org/I48912391"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5000209561",
+            "display_name": "Elif Süyük Makaklı",
+            "orcid": "https://orcid.org/0000-0002-5045-927X"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I167234411",
+              "display_name": "Işık University",
+              "ror": "https://ror.org/02j8k6t75",
+              "country_code": "TR",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I167234411"
+              ]
+            }
+          ],
+          "countries": [
+            "TR"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Elif Süyük Makaklı",
+          "raw_affiliation_strings": [
+            "Işık UniversityArchitecture and Design Faculty"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Işık UniversityArchitecture and Design Faculty",
+              "institution_ids": [
+                "https://openalex.org/I167234411"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 2,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5006871045"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I48912391"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 2.5068,
+      "has_fulltext": true,
+      "cited_by_count": 3,
+      "citation_normalized_percentile": {
+        "value": 0.90554993,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 91,
+        "max": 95
+      },
+      "biblio": {
+        "volume": "9",
+        "issue": "1",
+        "first_page": "01",
+        "last_page": "24"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11846",
+        "display_name": "Cultural Heritage Management and Preservation",
+        "score": 0.9980999827384949,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1204",
+          "display_name": "Archeology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11846",
+          "display_name": "Cultural Heritage Management and Preservation",
+          "score": 0.9980999827384949,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1204",
+            "display_name": "Archeology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13343",
+          "display_name": "Turkish Urban and Social Issues",
+          "score": 0.9883000254631042,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3322",
+            "display_name": "Urban Studies"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T14004",
+          "display_name": "History and Cultural Heritage",
+          "score": 0.984499990940094,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3316",
+            "display_name": "Cultural Studies"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/character",
+          "display_name": "Character (mathematics)",
+          "score": 0.7404753565788269
+        },
+        {
+          "id": "https://openalex.org/keywords/pedestrian",
+          "display_name": "Pedestrian",
+          "score": 0.6345791220664978
+        },
+        {
+          "id": "https://openalex.org/keywords/politics",
+          "display_name": "Politics",
+          "score": 0.5611140727996826
+        },
+        {
+          "id": "https://openalex.org/keywords/identity",
+          "display_name": "Identity (music)",
+          "score": 0.5563583970069885
+        },
+        {
+          "id": "https://openalex.org/keywords/relation",
+          "display_name": "Relation (database)",
+          "score": 0.5341291427612305
+        },
+        {
+          "id": "https://openalex.org/keywords/urban-structure",
+          "display_name": "Urban structure",
+          "score": 0.48284584283828735
+        },
+        {
+          "id": "https://openalex.org/keywords/architecture",
+          "display_name": "Architecture",
+          "score": 0.4624946117401123
+        },
+        {
+          "id": "https://openalex.org/keywords/service",
+          "display_name": "Service (business)",
+          "score": 0.4251404404640198
+        },
+        {
+          "id": "https://openalex.org/keywords/economic-geography",
+          "display_name": "Economic geography",
+          "score": 0.42092639207839966
+        },
+        {
+          "id": "https://openalex.org/keywords/civil-engineering",
+          "display_name": "Civil engineering",
+          "score": 0.3755505681037903
+        },
+        {
+          "id": "https://openalex.org/keywords/urban-planning",
+          "display_name": "Urban planning",
+          "score": 0.3697710335254669
+        },
+        {
+          "id": "https://openalex.org/keywords/history",
+          "display_name": "History",
+          "score": 0.35791635513305664
+        },
+        {
+          "id": "https://openalex.org/keywords/architectural-engineering",
+          "display_name": "Architectural engineering",
+          "score": 0.3432965874671936
+        },
+        {
+          "id": "https://openalex.org/keywords/geography",
+          "display_name": "Geography",
+          "score": 0.3405243754386902
+        },
+        {
+          "id": "https://openalex.org/keywords/archaeology",
+          "display_name": "Archaeology",
+          "score": 0.3108455538749695
+        },
+        {
+          "id": "https://openalex.org/keywords/aesthetics",
+          "display_name": "Aesthetics",
+          "score": 0.26206135749816895
+        },
+        {
+          "id": "https://openalex.org/keywords/engineering",
+          "display_name": "Engineering",
+          "score": 0.21911144256591797
+        },
+        {
+          "id": "https://openalex.org/keywords/economy",
+          "display_name": "Economy",
+          "score": 0.19414573907852173
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.18423372507095337
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.15011358261108398
+        },
+        {
+          "id": "https://openalex.org/keywords/political-science",
+          "display_name": "Political science",
+          "score": 0.14706292748451233
+        },
+        {
+          "id": "https://openalex.org/keywords/law",
+          "display_name": "Law",
+          "score": 0.13254809379577637
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2780861071",
+          "wikidata": "https://www.wikidata.org/wiki/Q1062934",
+          "display_name": "Character (mathematics)",
+          "level": 2,
+          "score": 0.7404753565788269
+        },
+        {
+          "id": "https://openalex.org/C2777113093",
+          "wikidata": "https://www.wikidata.org/wiki/Q221488",
+          "display_name": "Pedestrian",
+          "level": 2,
+          "score": 0.6345791220664978
+        },
+        {
+          "id": "https://openalex.org/C94625758",
+          "wikidata": "https://www.wikidata.org/wiki/Q7163",
+          "display_name": "Politics",
+          "level": 2,
+          "score": 0.5611140727996826
+        },
+        {
+          "id": "https://openalex.org/C2778355321",
+          "wikidata": "https://www.wikidata.org/wiki/Q17079427",
+          "display_name": "Identity (music)",
+          "level": 2,
+          "score": 0.5563583970069885
+        },
+        {
+          "id": "https://openalex.org/C25343380",
+          "wikidata": "https://www.wikidata.org/wiki/Q277521",
+          "display_name": "Relation (database)",
+          "level": 2,
+          "score": 0.5341291427612305
+        },
+        {
+          "id": "https://openalex.org/C2777071753",
+          "wikidata": "https://www.wikidata.org/wiki/Q898132",
+          "display_name": "Urban structure",
+          "level": 3,
+          "score": 0.48284584283828735
+        },
+        {
+          "id": "https://openalex.org/C123657996",
+          "wikidata": "https://www.wikidata.org/wiki/Q12271",
+          "display_name": "Architecture",
+          "level": 2,
+          "score": 0.4624946117401123
+        },
+        {
+          "id": "https://openalex.org/C2780378061",
+          "wikidata": "https://www.wikidata.org/wiki/Q25351891",
+          "display_name": "Service (business)",
+          "level": 2,
+          "score": 0.4251404404640198
+        },
+        {
+          "id": "https://openalex.org/C26271046",
+          "wikidata": "https://www.wikidata.org/wiki/Q187097",
+          "display_name": "Economic geography",
+          "level": 1,
+          "score": 0.42092639207839966
+        },
+        {
+          "id": "https://openalex.org/C147176958",
+          "wikidata": "https://www.wikidata.org/wiki/Q77590",
+          "display_name": "Civil engineering",
+          "level": 1,
+          "score": 0.3755505681037903
+        },
+        {
+          "id": "https://openalex.org/C49545453",
+          "wikidata": "https://www.wikidata.org/wiki/Q69883",
+          "display_name": "Urban planning",
+          "level": 2,
+          "score": 0.3697710335254669
+        },
+        {
+          "id": "https://openalex.org/C95457728",
+          "wikidata": "https://www.wikidata.org/wiki/Q309",
+          "display_name": "History",
+          "level": 0,
+          "score": 0.35791635513305664
+        },
+        {
+          "id": "https://openalex.org/C170154142",
+          "wikidata": "https://www.wikidata.org/wiki/Q150737",
+          "display_name": "Architectural engineering",
+          "level": 1,
+          "score": 0.3432965874671936
+        },
+        {
+          "id": "https://openalex.org/C205649164",
+          "wikidata": "https://www.wikidata.org/wiki/Q1071",
+          "display_name": "Geography",
+          "level": 0,
+          "score": 0.3405243754386902
+        },
+        {
+          "id": "https://openalex.org/C166957645",
+          "wikidata": "https://www.wikidata.org/wiki/Q23498",
+          "display_name": "Archaeology",
+          "level": 1,
+          "score": 0.3108455538749695
+        },
+        {
+          "id": "https://openalex.org/C107038049",
+          "wikidata": "https://www.wikidata.org/wiki/Q35986",
+          "display_name": "Aesthetics",
+          "level": 1,
+          "score": 0.26206135749816895
+        },
+        {
+          "id": "https://openalex.org/C127413603",
+          "wikidata": "https://www.wikidata.org/wiki/Q11023",
+          "display_name": "Engineering",
+          "level": 0,
+          "score": 0.21911144256591797
+        },
+        {
+          "id": "https://openalex.org/C136264566",
+          "wikidata": "https://www.wikidata.org/wiki/Q159810",
+          "display_name": "Economy",
+          "level": 1,
+          "score": 0.19414573907852173
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.18423372507095337
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.15011358261108398
+        },
+        {
+          "id": "https://openalex.org/C17744445",
+          "wikidata": "https://www.wikidata.org/wiki/Q36442",
+          "display_name": "Political science",
+          "level": 0,
+          "score": 0.14706292748451233
+        },
+        {
+          "id": "https://openalex.org/C199539241",
+          "wikidata": "https://www.wikidata.org/wiki/Q7748",
+          "display_name": "Law",
+          "level": 1,
+          "score": 0.13254809379577637
+        },
+        {
+          "id": "https://openalex.org/C33923547",
+          "wikidata": "https://www.wikidata.org/wiki/Q395",
+          "display_name": "Mathematics",
+          "level": 0,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C77088390",
+          "wikidata": "https://www.wikidata.org/wiki/Q8513",
+          "display_name": "Database",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C2524010",
+          "wikidata": "https://www.wikidata.org/wiki/Q8087",
+          "display_name": "Geometry",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C162324750",
+          "wikidata": "https://www.wikidata.org/wiki/Q8134",
+          "display_name": "Economics",
+          "level": 0,
+          "score": 0.0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 5,
+      "locations": [
+        {
+          "id": "doi:10.15320/iconarp.2021.148",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.15320/iconarp.2021.148",
+          "pdf_url": "https://iconarp.ktun.edu.tr/index.php/iconarp/article/download/297/274",
+          "source": {
+            "id": "https://openalex.org/S4210212512",
+            "display_name": "Iconarp International J of Architecture and Planning",
+            "issn_l": "2147-9380",
+            "issn": [
+              "2147-9380"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310318347",
+            "host_organization_name": "Selçuk University",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310318347"
+            ],
+            "host_organization_lineage_names": [
+              "Selçuk University"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Iconarp International J. of Architecture and Planning",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmh:oai:acikerisim.isikun.edu.tr:11729/3215",
+          "is_oa": true,
+          "landing_page_url": "https://hdl.handle.net/11729/3215",
+          "pdf_url": "https://hdl.handle.net/11729/3215",
+          "source": null,
+          "license": "other-oa",
+          "license_id": "https://openalex.org/licenses/other-oa",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Article"
+        },
+        {
+          "id": "pmh:oai:iconarp.ktun.edu.tr:article/297",
+          "is_oa": true,
+          "landing_page_url": "https://iconarp.ktun.edu.tr/index.php/iconarp/article/view/297",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400109",
+            "display_name": "Iconarp International Journal of Architecture and Planning (Selcuk University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I4210117254",
+            "host_organization_name": "Konya Technical University",
+            "host_organization_lineage": [
+              "https://openalex.org/I4210117254"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "ICONARP International Journal of Architecture and Planning; Vol. 9 No. 1 (2021); 01-24",
+          "raw_type": "info:eu-repo/semantics/article"
+        },
+        {
+          "id": "pmh:oai:doaj.org/article:44a714bc4a304382bd5086750f3e013b",
+          "is_oa": true,
+          "landing_page_url": "https://doaj.org/article/44a714bc4a304382bd5086750f3e013b",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S112646816",
+            "display_name": "SHILAP Revista de lepidopterología",
+            "issn_l": "0300-5267",
+            "issn": [
+              "0300-5267",
+              "2340-4078"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "journal"
+          },
+          "license": "cc-by-sa",
+          "license_id": "https://openalex.org/licenses/cc-by-sa",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Iconarp International Journal of Architecture and Planning, Vol 9, Iss 1 (2021)",
+          "raw_type": "article"
+        },
+        {
+          "id": "pmh:oai:polen.itu.edu.tr:11527/63239",
+          "is_oa": false,
+          "landing_page_url": "https://hdl.handle.net/11527/63239",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400460",
+            "display_name": "Istanbul Technical University Academic Open Archive (Istanbul Technical University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I48912391",
+            "host_organization_name": "Istanbul Technical University",
+            "host_organization_lineage": [
+              "https://openalex.org/I48912391"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "Article"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.15320/iconarp.2021.148",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.15320/iconarp.2021.148",
+        "pdf_url": "https://iconarp.ktun.edu.tr/index.php/iconarp/article/download/297/274",
+        "source": {
+          "id": "https://openalex.org/S4210212512",
+          "display_name": "Iconarp International J of Architecture and Planning",
+          "issn_l": "2147-9380",
+          "issn": [
+            "2147-9380"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310318347",
+          "host_organization_name": "Selçuk University",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310318347"
+          ],
+          "host_organization_lineage_names": [
+            "Selçuk University"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Iconarp International J. of Architecture and Planning",
+        "raw_type": "journal-article"
+      },
+      "sustainable_development_goals": [
+        {
+          "display_name": "Sustainable cities and communities",
+          "score": 0.8299999833106995,
+          "id": "https://metadata.un.org/sdg/11"
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W3175388841.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W3175388841.grobid-xml"
+      },
+      "referenced_works_count": 33,
+      "referenced_works": [
+        "https://openalex.org/W8104028",
+        "https://openalex.org/W564600666",
+        "https://openalex.org/W571828012",
+        "https://openalex.org/W647084359",
+        "https://openalex.org/W649572636",
+        "https://openalex.org/W1488825289",
+        "https://openalex.org/W1513328608",
+        "https://openalex.org/W1529253181",
+        "https://openalex.org/W1543728837",
+        "https://openalex.org/W1575260319",
+        "https://openalex.org/W1576727924",
+        "https://openalex.org/W1603697903",
+        "https://openalex.org/W1967395330",
+        "https://openalex.org/W2015242007",
+        "https://openalex.org/W2036288274",
+        "https://openalex.org/W2042276094",
+        "https://openalex.org/W2044394516",
+        "https://openalex.org/W2054834957",
+        "https://openalex.org/W2066247211",
+        "https://openalex.org/W2084677024",
+        "https://openalex.org/W2095411048",
+        "https://openalex.org/W2286577341",
+        "https://openalex.org/W2315205805",
+        "https://openalex.org/W2316044244",
+        "https://openalex.org/W2333007615",
+        "https://openalex.org/W2511572495",
+        "https://openalex.org/W2563215970",
+        "https://openalex.org/W2744518081",
+        "https://openalex.org/W2766173691",
+        "https://openalex.org/W2922238592",
+        "https://openalex.org/W2936632566",
+        "https://openalex.org/W3175388841",
+        "https://openalex.org/W4254302197"
+      ],
+      "related_works": [
+        "https://openalex.org/W2392100589",
+        "https://openalex.org/W2512789322",
+        "https://openalex.org/W2101960027",
+        "https://openalex.org/W2197846993",
+        "https://openalex.org/W2392599029",
+        "https://openalex.org/W634462173",
+        "https://openalex.org/W2386513420",
+        "https://openalex.org/W3173254974",
+        "https://openalex.org/W4384826893",
+        "https://openalex.org/W2581903026"
+      ],
+      "abstract_inverted_index": {
+        "Purpose": [
+          0
+        ],
+        "Voyvoda": [
+          1,
+          64,
+          191,
+          327
+        ],
+        "Street": [
+          2,
+          65
+        ],
+        "in": [
+          3,
+          82,
+          186,
+          291
+        ],
+        "Galata": [
+          4,
+          313
+        ],
+        "district": [
+          5,
+          314
+        ],
+        "of": [
+          6,
+          15,
+          22,
+          26,
+          63,
+          77,
+          107,
+          125,
+          144,
+          178,
+          218,
+          224,
+          236,
+          261,
+          273,
+          286,
+          296,
+          312,
+          326,
+          343
+        ],
+        "Istanbul": [
+          7
+        ],
+        "originated": [
+          8
+        ],
+        "centuries": [
+          9
+        ],
+        "ago": [
+          10
+        ],
+        "at": [
+          11
+        ],
+        "the": [
+          12,
+          16,
+          23,
+          39,
+          49,
+          56,
+          60,
+          75,
+          98,
+          101,
+          105,
+          108,
+          119,
+          126,
+          142,
+          176,
+          216,
+          219,
+          225,
+          237,
+          244,
+          249,
+          258,
+          270,
+          274,
+          298,
+          323,
+          332,
+          337,
+          341,
+          344
+        ],
+        "inner": [
+          13
+        ],
+        "walls": [
+          14
+        ],
+        "medieval": [
+          17
+        ],
+        "city": [
+          18
+        ],
+        "and": [
+          19,
+          35,
+          66,
+          86,
+          100,
+          114,
+          152,
+          155,
+          164,
+          169,
+          173,
+          188,
+          229,
+          251,
+          284,
+          309,
+          331,
+          340,
+          350
+        ],
+        "was": [
+          20,
+          92
+        ],
+        "one": [
+          21,
+          223
+        ],
+        "most": [
+          24,
+          235
+        ],
+        "significant": [
+          25
+        ],
+        "its": [
+          27,
+          32,
+          67,
+          111,
+          201,
+          347
+        ],
+        "era,": [
+          28
+        ],
+        "which": [
+          29,
+          58,
+          72,
+          204
+        ],
+        "has": [
+          30,
+          128,
+          161
+        ],
+        "preserved": [
+          31
+        ],
+        "unique": [
+          33
+        ],
+        "character": [
+          34,
+          62,
+          106,
+          124,
+          194,
+          339
+        ],
+        "urban": [
+          36,
+          68,
+          182,
+          324
+        ],
+        "identity.": [
+          37,
+          69
+        ],
+        "In": [
+          38
+        ],
+        "nineteenth": [
+          40,
+          120,
+          275
+        ],
+        "century,": [
+          41
+        ],
+        "it": [
+          42
+        ],
+        "became": [
+          43
+        ],
+        "an": [
+          44,
+          196
+        ],
+        "important": [
+          45
+        ],
+        "financial": [
+          46
+        ],
+        "axis": [
+          47,
+          197
+        ],
+        "for": [
+          48,
+          246,
+          294
+        ],
+        "city.": [
+          50
+        ],
+        "This": [
+          51
+        ],
+        "study": [
+          52,
+          320
+        ],
+        "aims": [
+          53
+        ],
+        "to": [
+          54,
+          84,
+          132,
+          207
+        ],
+        "understand": [
+          55
+        ],
+        "factors": [
+          57
+        ],
+        "determined": [
+          59,
+          199
+        ],
+        "axial": [
+          61,
+          123,
+          338
+        ],
+        "The": [
+          70,
+          90,
+          122,
+          135,
+          159,
+          303,
+          329
+        ],
+        "street,": [
+          71
+        ],
+        "is": [
+          73,
+          80,
+          137,
+          198,
+          222,
+          277
+        ],
+        "under": [
+          74
+        ],
+        "influence": [
+          76,
+          177
+        ],
+        "new": [
+          78,
+          268
+        ],
+        "dynamics": [
+          79
+        ],
+        "examined": [
+          81
+        ],
+        "relation": [
+          83
+        ],
+        "spatial": [
+          85
+        ],
+        "functional": [
+          87,
+          116,
+          352
+        ],
+        "transformation.": [
+          88
+        ],
+        "Design/Methodology/Approach": [
+          89
+        ],
+        "analysis": [
+          91
+        ],
+        "developed": [
+          93
+        ],
+        "by": [
+          94,
+          110,
+          166,
+          200,
+          267,
+          346
+        ],
+        "two": [
+          95
+        ],
+        "essential": [
+          96,
+          226
+        ],
+        "components:": [
+          97
+        ],
+        "street": [
+          99,
+          109,
+          127,
+          160,
+          330,
+          345
+        ],
+        "buildings": [
+          102,
+          238,
+          263,
+          288,
+          334
+        ],
+        "that": [
+          103,
+          211,
+          335
+        ],
+        "define": [
+          104,
+          336
+        ],
+        "architectural": [
+          112,
+          180,
+          310,
+          348
+        ],
+        "components,": [
+          113,
+          349
+        ],
+        "their": [
+          115,
+          240,
+          351
+        ],
+        "transformation": [
+          117,
+          353
+        ],
+        "since": [
+          118
+        ],
+        "century.": [
+          121
+        ],
+        "been": [
+          129,
+          162,
+          265,
+          355
+        ],
+        "evaluated": [
+          130
+        ],
+        "due": [
+          131
+        ],
+        "selected": [
+          133
+        ],
+        "criteria.": [
+          134
+        ],
+        "data": [
+          136
+        ],
+        "based": [
+          138
+        ],
+        "on": [
+          139,
+          307,
+          322
+        ],
+        "literature": [
+          140
+        ],
+        "review,": [
+          141
+        ],
+        "survey": [
+          143
+        ],
+        "historical": [
+          145,
+          202,
+          259,
+          333
+        ],
+        "maps,": [
+          146
+        ],
+        "visual": [
+          147
+        ],
+        "materials": [
+          148,
+          283,
+          299
+        ],
+        "such": [
+          149
+        ],
+        "as": [
+          150,
+          195,
+          231,
+          315
+        ],
+        "photographs": [
+          151
+        ],
+        "gravure": [
+          153
+        ],
+        "prints,": [
+          154
+        ],
+        "on-site": [
+          156
+        ],
+        "observations.": [
+          157
+        ],
+        "Findings": [
+          158
+        ],
+        "shaped": [
+          163
+        ],
+        "transformed": [
+          165
+        ],
+        "social,": [
+          167
+        ],
+        "political,": [
+          168
+        ],
+        "economic": [
+          170
+        ],
+        "developments,": [
+          171
+        ],
+        "external": [
+          172
+        ],
+        "internal": [
+          174
+        ],
+        "migrations,": [
+          175
+        ],
+        "modernist": [
+          179
+        ],
+        "movements,": [
+          181
+        ],
+        "reforms,": [
+          183
+        ],
+        "Western": [
+          184
+        ],
+        "innovations": [
+          185
+        ],
+        "transportation,": [
+          187
+        ],
+        "technical": [
+          189
+        ],
+        "developments.": [
+          190
+        ],
+        "Street’s": [
+          192
+        ],
+        "strong": [
+          193
+        ],
+        "buildings,": [
+          203
+        ],
+        "are": [
+          205
+        ],
+        "attached": [
+          206
+        ],
+        "each": [
+          208
+        ],
+        "other": [
+          209
+        ],
+        "continuously": [
+          210
+        ],
+        "form": [
+          212
+        ],
+        "a": [
+          213,
+          232,
+          316
+        ],
+        "wall": [
+          214
+        ],
+        "defining": [
+          215
+        ],
+        "boundaries": [
+          217
+        ],
+        "street.": [
+          220
+        ],
+        "It": [
+          221
+        ],
+        "pedestrian": [
+          227
+        ],
+        "connections": [
+          228
+        ],
+        "functions": [
+          230
+        ],
+        "path.": [
+          233
+        ],
+        "Since": [
+          234
+        ],
+        "lost": [
+          239
+        ],
+        "original": [
+          241,
+          271
+        ],
+        "functions,": [
+          242
+        ],
+        "following": [
+          243
+        ],
+        "re-use": [
+          245
+        ],
+        "various": [
+          247
+        ],
+        "needs,": [
+          248
+        ],
+        "service": [
+          250
+        ],
+        "cultural": [
+          252
+        ],
+        "industries": [
+          253
+        ],
+        "have": [
+          254,
+          264,
+          354
+        ],
+        "become": [
+          255
+        ],
+        "dominant.": [
+          256,
+          279
+        ],
+        "Although": [
+          257
+        ],
+        "characters": [
+          260
+        ],
+        "some": [
+          262,
+          287,
+          295
+        ],
+        "changed": [
+          266
+        ],
+        "additions,": [
+          269
+        ],
+        "silhouette": [
+          272
+        ],
+        "century": [
+          276
+        ],
+        "still": [
+          278
+        ],
+        "Research": [
+          280
+        ],
+        "Limitations/Implications": [
+          281
+        ],
+        "Visual": [
+          282
+        ],
+        "resources": [
+          285
+        ],
+        "were": [
+          289,
+          300
+        ],
+        "available": [
+          290
+        ],
+        "detail,": [
+          292
+        ],
+        "while": [
+          293
+        ],
+        "them,": [
+          297
+        ],
+        "limited.": [
+          301
+        ],
+        "Originality/Value": [
+          302
+        ],
+        "previous": [
+          304
+        ],
+        "studies": [
+          305
+        ],
+        "concentrated": [
+          306
+        ],
+        "urban,": [
+          308
+        ],
+        "aspects": [
+          311
+        ],
+        "whole,": [
+          317
+        ],
+        "whereas": [
+          318
+        ],
+        "this": [
+          319
+        ],
+        "focused": [
+          321
+        ],
+        "identity": [
+          325
+        ],
+        "Street.": [
+          328
+        ],
+        "image": [
+          342
+        ],
+        "analyzed.": [
+          356
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 2
+        }
+      ],
+      "updated_date": "2026-03-11T14:59:36.786465",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4291922881",
+      "doi": "https://doi.org/10.5281/zenodo.1291840",
+      "title": "Current Debates In Business Studies",
+      "display_name": "Current Debates In Business Studies",
+      "relevance_score": 1.1805706,
+      "publication_year": 2018,
+      "publication_date": "2018-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W4291922881",
+        "doi": "https://doi.org/10.5281/zenodo.1291840"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "pmh:oai:econstor.eu:10419/180044",
+        "is_oa": true,
+        "landing_page_url": "http://hdl.handle.net/10419/180044",
+        "pdf_url": "http://hdl.handle.net/10419/180044",
+        "source": {
+          "id": "https://openalex.org/S4306401696",
+          "display_name": "Econstor (Econstor)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "doc-type:conferenceObject"
+      },
+      "type": "book",
+      "indexed_in": [
+        "datacite"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "http://hdl.handle.net/10419/180044",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5046575584",
+            "display_name": "F. Burcu Editor Candan",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "Editor Candan, F. Burcu",
+          "raw_affiliation_strings": [],
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5046575584"
+      ],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.6193,
+      "has_fulltext": true,
+      "cited_by_count": 6,
+      "citation_normalized_percentile": {
+        "value": 0.79643031,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 89,
+        "max": 96
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10344",
+        "display_name": "Management and Organizational Studies",
+        "score": 0.26159998774528503,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1407",
+          "display_name": "Organizational Behavior and Human Resource Management"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/14",
+          "display_name": "Business, Management and Accounting"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10344",
+          "display_name": "Management and Organizational Studies",
+          "score": 0.26159998774528503,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1407",
+            "display_name": "Organizational Behavior and Human Resource Management"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/14",
+            "display_name": "Business, Management and Accounting"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/current",
+          "display_name": "Current (fluid)",
+          "score": 0.7525761127471924
+        },
+        {
+          "id": "https://openalex.org/keywords/business",
+          "display_name": "Business",
+          "score": 0.35336828231811523
+        },
+        {
+          "id": "https://openalex.org/keywords/engineering",
+          "display_name": "Engineering",
+          "score": 0.19205087423324585
+        },
+        {
+          "id": "https://openalex.org/keywords/electrical-engineering",
+          "display_name": "Electrical engineering",
+          "score": 0.06357547640800476
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C148043351",
+          "wikidata": "https://www.wikidata.org/wiki/Q4456944",
+          "display_name": "Current (fluid)",
+          "level": 2,
+          "score": 0.7525761127471924
+        },
+        {
+          "id": "https://openalex.org/C144133560",
+          "wikidata": "https://www.wikidata.org/wiki/Q4830453",
+          "display_name": "Business",
+          "level": 0,
+          "score": 0.35336828231811523
+        },
+        {
+          "id": "https://openalex.org/C127413603",
+          "wikidata": "https://www.wikidata.org/wiki/Q11023",
+          "display_name": "Engineering",
+          "level": 0,
+          "score": 0.19205087423324585
+        },
+        {
+          "id": "https://openalex.org/C119599485",
+          "wikidata": "https://www.wikidata.org/wiki/Q43035",
+          "display_name": "Electrical engineering",
+          "level": 1,
+          "score": 0.06357547640800476
+        }
+      ],
+      "mesh": [],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "pmh:oai:econstor.eu:10419/180044",
+          "is_oa": true,
+          "landing_page_url": "http://hdl.handle.net/10419/180044",
+          "pdf_url": "http://hdl.handle.net/10419/180044",
+          "source": {
+            "id": "https://openalex.org/S4306401696",
+            "display_name": "Econstor (Econstor)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "doc-type:conferenceObject"
+        },
+        {
+          "id": "doi:10.5281/zenodo.1291840",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.5281/zenodo.1291840",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400562",
+            "display_name": "Zenodo (CERN European Organization for Nuclear Research)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": true,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I67311998",
+            "host_organization_name": "European Organization for Nuclear Research",
+            "host_organization_lineage": [
+              "https://openalex.org/I67311998"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": null,
+          "is_accepted": false,
+          "is_published": null,
+          "raw_source_name": null,
+          "raw_type": "book"
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:econstor.eu:10419/180044",
+        "is_oa": true,
+        "landing_page_url": "http://hdl.handle.net/10419/180044",
+        "pdf_url": "http://hdl.handle.net/10419/180044",
+        "source": {
+          "id": "https://openalex.org/S4306401696",
+          "display_name": "Econstor (Econstor)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "doc-type:conferenceObject"
+      },
+      "sustainable_development_goals": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W4291922881.pdf"
+      },
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W2374885582",
+        "https://openalex.org/W2613357398",
+        "https://openalex.org/W2299124854",
+        "https://openalex.org/W4248847336",
+        "https://openalex.org/W1797874372",
+        "https://openalex.org/W3113409869",
+        "https://openalex.org/W2588310091",
+        "https://openalex.org/W994389034",
+        "https://openalex.org/W2884593225",
+        "https://openalex.org/W4243828722"
+      ],
+      "abstract_inverted_index": {
+        "The": [
+          0
+        ],
+        "evolution": [
+          1,
+          12
+        ],
+        "of": [
+          2,
+          13,
+          33,
+          38,
+          54,
+          66,
+          84,
+          88,
+          97,
+          108,
+          133,
+          136
+        ],
+        "business": [
+          3
+        ],
+        "throughout": [
+          4
+        ],
+        "the": [
+          5,
+          11,
+          28,
+          52,
+          71,
+          82,
+          129
+        ],
+        "history": [
+          6
+        ],
+        "could": [
+          7
+        ],
+        "be": [
+          8
+        ],
+        "understood": [
+          9
+        ],
+        "by": [
+          10
+        ],
+        "its": [
+          14
+        ],
+        "two": [
+          15
+        ],
+        "main<br>": [
+          16
+        ],
+        "component;": [
+          17
+        ],
+        "industry": [
+          18,
+          48,
+          67,
+          80
+        ],
+        "and": [
+          19,
+          31,
+          35,
+          40,
+          57,
+          59,
+          86,
+          114,
+          122
+        ],
+        "commerce.": [
+          20
+        ],
+        "Business": [
+          21
+        ],
+        "in": [
+          22,
+          42
+        ],
+        "an": [
+          23,
+          43
+        ],
+        "activity": [
+          24
+        ],
+        "is": [
+          25,
+          51
+        ],
+        "concerned": [
+          26
+        ],
+        "with": [
+          27,
+          81,
+          106
+        ],
+        "production,<br>": [
+          29
+        ],
+        "exchange": [
+          30
+        ],
+        "distribution": [
+          32,
+          53
+        ],
+        "goods": [
+          34,
+          56
+        ],
+        "services.": [
+          36
+        ],
+        "Production": [
+          37
+        ],
+        "good": [
+          39
+        ],
+        "services": [
+          41,
+          58
+        ],
+        "economy": [
+          44
+        ],
+        "is<br>": [
+          45
+        ],
+        "called": [
+          46
+        ],
+        "as": [
+          47,
+          123,
+          128
+        ],
+        "while": [
+          49
+        ],
+        "commerce": [
+          50
+        ],
+        "these": [
+          55
+        ],
+        "all": [
+          60
+        ],
+        "activities": [
+          61
+        ],
+        "related": [
+          62
+        ],
+        "to": [
+          63,
+          78,
+          95,
+          102
+        ],
+        "it.<br>": [
+          64
+        ],
+        "Dynamics’": [
+          65
+        ],
+        "constantly": [
+          68
+        ],
+        "evolved": [
+          69
+        ],
+        "from": [
+          70,
+          99
+        ],
+        "first": [
+          72
+        ],
+        "industrial": [
+          73,
+          92
+        ],
+        "revolution": [
+          74
+        ],
+        "at": [
+          75
+        ],
+        "16th": [
+          76
+        ],
+        "century": [
+          77
+        ],
+        "modern<br>": [
+          79
+        ],
+        "advancement": [
+          83
+        ],
+        "technology": [
+          85
+        ],
+        "invention": [
+          87,
+          107
+        ],
+        "new": [
+          89
+        ],
+        "machines.": [
+          90
+        ],
+        "First": [
+          91
+        ],
+        "revolution<br>": [
+          93
+        ],
+        "refers": [
+          94
+        ],
+        "process": [
+          96
+        ],
+        "transition": [
+          98
+        ],
+        "hand": [
+          100
+        ],
+        "production": [
+          101,
+          105,
+          121
+        ],
+        "machine": [
+          103
+        ],
+        "based": [
+          104
+        ],
+        "machines<br>": [
+          109
+        ],
+        "such": [
+          110
+        ],
+        "as;": [
+          111
+        ],
+        "steam": [
+          112
+        ],
+        "engine": [
+          113
+        ],
+        "wave": [
+          115
+        ],
+        "machine.": [
+          116
+        ],
+        "It": [
+          117
+        ],
+        "enabled": [
+          118
+        ],
+        "large": [
+          119
+        ],
+        "scale": [
+          120
+        ],
+        "a": [
+          124
+        ],
+        "result,": [
+          125
+        ],
+        "replaced": [
+          126
+        ],
+        "industry<br>": [
+          127
+        ],
+        "main": [
+          130
+        ],
+        "economic": [
+          131
+        ],
+        "component": [
+          132
+        ],
+        "society": [
+          134
+        ],
+        "instead": [
+          135
+        ],
+        "agriculture.": [
+          137
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2024,
+          "cited_by_count": 2
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2025-11-06T06:51:31.235846",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4391308552",
+      "doi": null,
+      "title": "THE FOUNDATION OF TURKISH CAPITAL MARKETS: THE PIVOTAL ROLE OF GALATA BANKERS",
+      "display_name": "THE FOUNDATION OF TURKISH CAPITAL MARKETS: THE PIVOTAL ROLE OF GALATA BANKERS",
+      "relevance_score": 0.6649427,
+      "publication_year": 2023,
+      "publication_date": "2023-08-21",
+      "ids": {
+        "openalex": "https://openalex.org/W4391308552"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "pmh:oai:dergipark.org.tr:article/1347347",
+        "is_oa": true,
+        "landing_page_url": "https://dergipark.org.tr/tr/pub/muftad/issue/82938/1347347",
+        "pdf_url": "https://dergipark.org.tr/tr/pub/muftad/issue/82938/1347347",
+        "source": null,
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "\\n                                                                    Issue: 26\\n                                                                                                    87-104\\n                                                                \\n                            ",
+        "raw_type": null
+      },
+      "type": "article",
+      "indexed_in": [],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "gold",
+        "oa_url": "https://dergipark.org.tr/tr/pub/muftad/issue/82938/1347347",
+        "any_repository_has_fulltext": null
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5076556240",
+            "display_name": "Nevzat TETİK",
+            "orcid": "https://orcid.org/0000-0002-3152-8217"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I20126385",
+              "display_name": "Inonu University",
+              "ror": "https://ror.org/04asck240",
+              "country_code": "TR",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I20126385"
+              ]
+            }
+          ],
+          "countries": [
+            "TR"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "TETİK, Nevzat",
+          "raw_affiliation_strings": [
+            "İnönü Üniversitesi"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "İnönü Üniversitesi",
+              "institution_ids": [
+                "https://openalex.org/I20126385"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5076556240"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I20126385"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0.0,
+      "has_fulltext": true,
+      "cited_by_count": 0,
+      "citation_normalized_percentile": {
+        "value": 0.29849281,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T10127",
+        "display_name": "Banking stability, regulation, efficiency",
+        "score": 0.8654000163078308,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2003",
+          "display_name": "Finance"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/20",
+          "display_name": "Economics, Econometrics and Finance"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T10127",
+          "display_name": "Banking stability, regulation, efficiency",
+          "score": 0.8654000163078308,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2003",
+            "display_name": "Finance"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/20",
+            "display_name": "Economics, Econometrics and Finance"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11365",
+          "display_name": "Islamic Finance and Banking Studies",
+          "score": 0.8120999932289124,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1402",
+            "display_name": "Accounting"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/14",
+            "display_name": "Business, Management and Accounting"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13901",
+          "display_name": "State Capitalism and Financial Governance",
+          "score": 0.8083999752998352,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1408",
+            "display_name": "Strategy and Management"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/14",
+            "display_name": "Business, Management and Accounting"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/turkish",
+          "display_name": "Turkish",
+          "score": 0.8023777604103088
+        },
+        {
+          "id": "https://openalex.org/keywords/foundation",
+          "display_name": "Foundation (evidence)",
+          "score": 0.7405162453651428
+        },
+        {
+          "id": "https://openalex.org/keywords/capital-market",
+          "display_name": "Capital market",
+          "score": 0.4650019407272339
+        },
+        {
+          "id": "https://openalex.org/keywords/capital",
+          "display_name": "Capital (architecture)",
+          "score": 0.41895967721939087
+        },
+        {
+          "id": "https://openalex.org/keywords/business",
+          "display_name": "Business",
+          "score": 0.4097481966018677
+        },
+        {
+          "id": "https://openalex.org/keywords/economics",
+          "display_name": "Economics",
+          "score": 0.3979756832122803
+        },
+        {
+          "id": "https://openalex.org/keywords/financial-system",
+          "display_name": "Financial system",
+          "score": 0.33916813135147095
+        },
+        {
+          "id": "https://openalex.org/keywords/classical-economics",
+          "display_name": "Classical economics",
+          "score": 0.3240024447441101
+        },
+        {
+          "id": "https://openalex.org/keywords/political-science",
+          "display_name": "Political science",
+          "score": 0.276161789894104
+        },
+        {
+          "id": "https://openalex.org/keywords/finance",
+          "display_name": "Finance",
+          "score": 0.2693766951560974
+        },
+        {
+          "id": "https://openalex.org/keywords/history",
+          "display_name": "History",
+          "score": 0.13936442136764526
+        },
+        {
+          "id": "https://openalex.org/keywords/philosophy",
+          "display_name": "Philosophy",
+          "score": 0.1098787784576416
+        },
+        {
+          "id": "https://openalex.org/keywords/law",
+          "display_name": "Law",
+          "score": 0.09088152647018433
+        },
+        {
+          "id": "https://openalex.org/keywords/ancient-history",
+          "display_name": "Ancient history",
+          "score": 0.07925277948379517
+        },
+        {
+          "id": "https://openalex.org/keywords/linguistics",
+          "display_name": "Linguistics",
+          "score": 0.05644860863685608
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2781121862",
+          "wikidata": "https://www.wikidata.org/wiki/Q256",
+          "display_name": "Turkish",
+          "level": 2,
+          "score": 0.8023777604103088
+        },
+        {
+          "id": "https://openalex.org/C2780966255",
+          "wikidata": "https://www.wikidata.org/wiki/Q5474306",
+          "display_name": "Foundation (evidence)",
+          "level": 2,
+          "score": 0.7405162453651428
+        },
+        {
+          "id": "https://openalex.org/C143910263",
+          "wikidata": "https://www.wikidata.org/wiki/Q750458",
+          "display_name": "Capital market",
+          "level": 2,
+          "score": 0.4650019407272339
+        },
+        {
+          "id": "https://openalex.org/C83646750",
+          "wikidata": "https://www.wikidata.org/wiki/Q193893",
+          "display_name": "Capital (architecture)",
+          "level": 2,
+          "score": 0.41895967721939087
+        },
+        {
+          "id": "https://openalex.org/C144133560",
+          "wikidata": "https://www.wikidata.org/wiki/Q4830453",
+          "display_name": "Business",
+          "level": 0,
+          "score": 0.4097481966018677
+        },
+        {
+          "id": "https://openalex.org/C162324750",
+          "wikidata": "https://www.wikidata.org/wiki/Q8134",
+          "display_name": "Economics",
+          "level": 0,
+          "score": 0.3979756832122803
+        },
+        {
+          "id": "https://openalex.org/C73283319",
+          "wikidata": "https://www.wikidata.org/wiki/Q1416617",
+          "display_name": "Financial system",
+          "level": 1,
+          "score": 0.33916813135147095
+        },
+        {
+          "id": "https://openalex.org/C167562979",
+          "wikidata": "https://www.wikidata.org/wiki/Q271857",
+          "display_name": "Classical economics",
+          "level": 1,
+          "score": 0.3240024447441101
+        },
+        {
+          "id": "https://openalex.org/C17744445",
+          "wikidata": "https://www.wikidata.org/wiki/Q36442",
+          "display_name": "Political science",
+          "level": 0,
+          "score": 0.276161789894104
+        },
+        {
+          "id": "https://openalex.org/C10138342",
+          "wikidata": "https://www.wikidata.org/wiki/Q43015",
+          "display_name": "Finance",
+          "level": 1,
+          "score": 0.2693766951560974
+        },
+        {
+          "id": "https://openalex.org/C95457728",
+          "wikidata": "https://www.wikidata.org/wiki/Q309",
+          "display_name": "History",
+          "level": 0,
+          "score": 0.13936442136764526
+        },
+        {
+          "id": "https://openalex.org/C138885662",
+          "wikidata": "https://www.wikidata.org/wiki/Q5891",
+          "display_name": "Philosophy",
+          "level": 0,
+          "score": 0.1098787784576416
+        },
+        {
+          "id": "https://openalex.org/C199539241",
+          "wikidata": "https://www.wikidata.org/wiki/Q7748",
+          "display_name": "Law",
+          "level": 1,
+          "score": 0.09088152647018433
+        },
+        {
+          "id": "https://openalex.org/C195244886",
+          "wikidata": "https://www.wikidata.org/wiki/Q41493",
+          "display_name": "Ancient history",
+          "level": 1,
+          "score": 0.07925277948379517
+        },
+        {
+          "id": "https://openalex.org/C41895202",
+          "wikidata": "https://www.wikidata.org/wiki/Q8162",
+          "display_name": "Linguistics",
+          "level": 1,
+          "score": 0.05644860863685608
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "pmh:oai:dergipark.org.tr:article/1347347",
+          "is_oa": true,
+          "landing_page_url": "https://dergipark.org.tr/tr/pub/muftad/issue/82938/1347347",
+          "pdf_url": "https://dergipark.org.tr/tr/pub/muftad/issue/82938/1347347",
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "\\n                                                                    Issue: 26\\n                                                                                                    87-104\\n                                                                \\n                            ",
+          "raw_type": null
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:dergipark.org.tr:article/1347347",
+        "is_oa": true,
+        "landing_page_url": "https://dergipark.org.tr/tr/pub/muftad/issue/82938/1347347",
+        "pdf_url": "https://dergipark.org.tr/tr/pub/muftad/issue/82938/1347347",
+        "source": null,
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "\\n                                                                    Issue: 26\\n                                                                                                    87-104\\n                                                                \\n                            ",
+        "raw_type": null
+      },
+      "sustainable_development_goals": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W4391308552.pdf"
+      },
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W2954724877",
+        "https://openalex.org/W2611695415",
+        "https://openalex.org/W4379045381",
+        "https://openalex.org/W4288326818",
+        "https://openalex.org/W2780533724",
+        "https://openalex.org/W2037415720",
+        "https://openalex.org/W4206816324",
+        "https://openalex.org/W2560873079",
+        "https://openalex.org/W2371090525",
+        "https://openalex.org/W2054939001"
+      ],
+      "abstract_inverted_index": {
+        "The": [
+          0,
+          20,
+          37,
+          62,
+          223
+        ],
+        "foundation": [
+          1,
+          72
+        ],
+        "and": [
+          2,
+          95,
+          112,
+          133,
+          140,
+          149,
+          158,
+          193,
+          216,
+          226
+        ],
+        "development": [
+          3,
+          40,
+          54,
+          232
+        ],
+        "of": [
+          4,
+          19,
+          41,
+          55,
+          61,
+          73,
+          81,
+          98,
+          124,
+          185,
+          207,
+          219,
+          233
+        ],
+        "Turkish": [
+          5,
+          74,
+          234
+        ],
+        "Capital": [
+          6,
+          75,
+          235
+        ],
+        "Markets": [
+          7
+        ],
+        "is": [
+          8,
+          210
+        ],
+        "mainly": [
+          9,
+          28,
+          92
+        ],
+        "related": [
+          10
+        ],
+        "to": [
+          11,
+          47,
+          143,
+          162,
+          203,
+          211
+        ],
+        "Galata": [
+          12,
+          65,
+          173,
+          220
+        ],
+        "Bankers,": [
+          13,
+          174
+        ],
+        "especially": [
+          14,
+          178
+        ],
+        "in": [
+          15,
+          23,
+          36,
+          70,
+          103,
+          137,
+          191,
+          222,
+          230
+        ],
+        "the": [
+          16,
+          24,
+          33,
+          53,
+          58,
+          71,
+          79,
+          99,
+          122,
+          125,
+          128,
+          153,
+          165,
+          172,
+          175,
+          183,
+          213,
+          231
+        ],
+        "last": [
+          17,
+          59
+        ],
+        "period": [
+          18
+        ],
+        "Ottoman": [
+          21,
+          38,
+          63,
+          138,
+          224
+        ],
+        "Empire": [
+          22,
+          225
+        ],
+        "19th": [
+          25
+        ],
+        "century,": [
+          26
+        ],
+        "because": [
+          27
+        ],
+        "foreign": [
+          29
+        ],
+        "minorities": [
+          30,
+          89,
+          107
+        ],
+        "carried": [
+          31,
+          108
+        ],
+        "out": [
+          32,
+          109
+        ],
+        "commercial": [
+          34,
+          111,
+          159,
+          192
+        ],
+        "activities": [
+          35,
+          160,
+          218,
+          229
+        ],
+        "Empire.The": [
+          39
+        ],
+        "capital": [
+          42
+        ],
+        "markets": [
+          43
+        ],
+        "doesn’t": [
+          44
+        ],
+        "go": [
+          45
+        ],
+        "back": [
+          46
+        ],
+        "old": [
+          48
+        ],
+        "times": [
+          49
+        ],
+        "as": [
+          50,
+          52,
+          119
+        ],
+        "far": [
+          51
+        ],
+        "industry.": [
+          56
+        ],
+        "In": [
+          57,
+          77,
+          152
+        ],
+        "periods": [
+          60
+        ],
+        "Empire,": [
+          64
+        ],
+        "Bankers": [
+          66,
+          221
+        ],
+        "played": [
+          67
+        ],
+        "important": [
+          68
+        ],
+        "roles": [
+          69
+        ],
+        "Markets.": [
+          76,
+          236
+        ],
+        "consequence,": [
+          78
+        ],
+        "owners": [
+          80
+        ],
+        "financial": [
+          82,
+          113,
+          150,
+          217
+        ],
+        "savings": [
+          83
+        ],
+        "were": [
+          84,
+          91,
+          177
+        ],
+        "these": [
+          85,
+          88,
+          106
+        ],
+        "minorities.": [
+          86
+        ],
+        "Among": [
+          87
+        ],
+        "there": [
+          90
+        ],
+        "Armenians,": [
+          93
+        ],
+        "Greeks": [
+          94,
+          176
+        ],
+        "Jews.": [
+          96
+        ],
+        "Because": [
+          97
+        ],
+        "place": [
+          100
+        ],
+        "named": [
+          101
+        ],
+        "“Galata”": [
+          102
+        ],
+        "Istanbul,": [
+          104
+        ],
+        "where": [
+          105
+        ],
+        "their": [
+          110,
+          189,
+          197,
+          227
+        ],
+        "activities,": [
+          114
+        ],
+        "they": [
+          115,
+          141
+        ],
+        "built": [
+          116
+        ],
+        "a": [
+          117,
+          145
+        ],
+        "reputation": [
+          118
+        ],
+        "“Galata": [
+          120
+        ],
+        "Bankers”.At": [
+          121
+        ],
+        "beginning": [
+          123
+        ],
+        "16th": [
+          126
+        ],
+        "century": [
+          127,
+          155
+        ],
+        "Jews,": [
+          129
+        ],
+        "expatriated": [
+          130
+        ],
+        "from": [
+          131
+        ],
+        "Portugal": [
+          132
+        ],
+        "Spain,": [
+          134
+        ],
+        "settled": [
+          135
+        ],
+        "down": [
+          136
+        ],
+        "Territory": [
+          139
+        ],
+        "began": [
+          142,
+          161
+        ],
+        "have": [
+          144
+        ],
+        "say": [
+          146
+        ],
+        "on": [
+          147
+        ],
+        "trade": [
+          148
+        ],
+        "matters.": [
+          151
+        ],
+        "17th": [
+          154
+        ],
+        "economic,": [
+          156
+        ],
+        "industrial": [
+          157
+        ],
+        "fall": [
+          163
+        ],
+        "into": [
+          164
+        ],
+        "foreigners": [
+          166
+        ],
+        "hands.": [
+          167
+        ],
+        "At": [
+          168
+        ],
+        "that": [
+          169
+        ],
+        "time,": [
+          170
+        ],
+        "among": [
+          171
+        ],
+        "dominant.": [
+          179
+        ],
+        "Greek": [
+          180
+        ],
+        "minorities,": [
+          181
+        ],
+        "with": [
+          182,
+          196
+        ],
+        "support": [
+          184
+        ],
+        "European": [
+          186
+        ],
+        "States,": [
+          187
+        ],
+        "demonstrated": [
+          188
+        ],
+        "predominance": [
+          190
+        ],
+        "economic": [
+          194,
+          215
+        ],
+        "life": [
+          195
+        ],
+        "banker": [
+          198
+        ],
+        "institutions,": [
+          199
+        ],
+        "whose": [
+          200
+        ],
+        "numbers": [
+          201
+        ],
+        "reached": [
+          202
+        ],
+        "one": [
+          204
+        ],
+        "hundred.The": [
+          205
+        ],
+        "topic": [
+          206
+        ],
+        "this": [
+          208
+        ],
+        "research": [
+          209
+        ],
+        "discuss": [
+          212
+        ],
+        "commercial,": [
+          214
+        ],
+        "pioneering": [
+          228
+        ]
+      },
+      "counts_by_year": [],
+      "updated_date": "2026-03-10T16:38:18.471706",
+      "created_date": "2025-10-24T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2580942659",
+      "doi": null,
+      "title": "Communal Relations in İzmir/Smyrna, 1826-1864: As Seen Through The Prism of Greek-Turkish Relations",
+      "display_name": "Communal Relations in İzmir/Smyrna, 1826-1864: As Seen Through The Prism of Greek-Turkish Relations",
+      "relevance_score": 0.30268234,
+      "publication_year": 2012,
+      "publication_date": "2012-12-06",
+      "ids": {
+        "openalex": "https://openalex.org/W2580942659",
+        "mag": "2580942659"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "pmh:oai:utoronto.scholaris.ca:1807/33841",
+        "is_oa": true,
+        "landing_page_url": "http://hdl.handle.net/1807/33841",
+        "pdf_url": "https://utoronto.scholaris.ca/bitstreams/6aced291-af4a-4028-b6cf-ee539996477d/download",
+        "source": {
+          "id": "https://openalex.org/S7407055458",
+          "display_name": "TSpace",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "Thesis"
+      },
+      "type": "dissertation",
+      "indexed_in": [],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://utoronto.scholaris.ca/bitstreams/6aced291-af4a-4028-b6cf-ee539996477d/download",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5000571181",
+            "display_name": "Nermin Tansuğ",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "Nermin Tansuğ",
+          "raw_affiliation_strings": [],
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5000571181"
+      ],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": null,
+      "has_fulltext": true,
+      "cited_by_count": 0,
+      "citation_normalized_percentile": null,
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T13441",
+        "display_name": "Ottoman Empire History and Society",
+        "score": 0.9972000122070312,
+        "subfield": {
+          "id": "https://openalex.org/subfields/3312",
+          "display_name": "Sociology and Political Science"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/33",
+          "display_name": "Social Sciences"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T13441",
+          "display_name": "Ottoman Empire History and Society",
+          "score": 0.9972000122070312,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3312",
+            "display_name": "Sociology and Political Science"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13848",
+          "display_name": "Ottoman and Turkish Studies",
+          "score": 0.9972000122070312,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1202",
+            "display_name": "History"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T13210",
+          "display_name": "Historical Turkish Studies",
+          "score": 0.9901999831199646,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3320",
+            "display_name": "Political Science and International Relations"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/turkish",
+          "display_name": "Turkish",
+          "score": 0.8429861068725586
+        },
+        {
+          "id": "https://openalex.org/keywords/prism",
+          "display_name": "Prism",
+          "score": 0.75239098072052
+        },
+        {
+          "id": "https://openalex.org/keywords/ancient-history",
+          "display_name": "Ancient history",
+          "score": 0.511539101600647
+        },
+        {
+          "id": "https://openalex.org/keywords/geography",
+          "display_name": "Geography",
+          "score": 0.44815006852149963
+        },
+        {
+          "id": "https://openalex.org/keywords/history",
+          "display_name": "History",
+          "score": 0.34949570894241333
+        },
+        {
+          "id": "https://openalex.org/keywords/physics",
+          "display_name": "Physics",
+          "score": 0.1909627616405487
+        },
+        {
+          "id": "https://openalex.org/keywords/optics",
+          "display_name": "Optics",
+          "score": 0.14149358868598938
+        },
+        {
+          "id": "https://openalex.org/keywords/philosophy",
+          "display_name": "Philosophy",
+          "score": 0.13275861740112305
+        },
+        {
+          "id": "https://openalex.org/keywords/linguistics",
+          "display_name": "Linguistics",
+          "score": 0.0669240653514862
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2781121862",
+          "wikidata": "https://www.wikidata.org/wiki/Q256",
+          "display_name": "Turkish",
+          "level": 2,
+          "score": 0.8429861068725586
+        },
+        {
+          "id": "https://openalex.org/C67666897",
+          "wikidata": "https://www.wikidata.org/wiki/Q165896",
+          "display_name": "Prism",
+          "level": 2,
+          "score": 0.75239098072052
+        },
+        {
+          "id": "https://openalex.org/C195244886",
+          "wikidata": "https://www.wikidata.org/wiki/Q41493",
+          "display_name": "Ancient history",
+          "level": 1,
+          "score": 0.511539101600647
+        },
+        {
+          "id": "https://openalex.org/C205649164",
+          "wikidata": "https://www.wikidata.org/wiki/Q1071",
+          "display_name": "Geography",
+          "level": 0,
+          "score": 0.44815006852149963
+        },
+        {
+          "id": "https://openalex.org/C95457728",
+          "wikidata": "https://www.wikidata.org/wiki/Q309",
+          "display_name": "History",
+          "level": 0,
+          "score": 0.34949570894241333
+        },
+        {
+          "id": "https://openalex.org/C121332964",
+          "wikidata": "https://www.wikidata.org/wiki/Q413",
+          "display_name": "Physics",
+          "level": 0,
+          "score": 0.1909627616405487
+        },
+        {
+          "id": "https://openalex.org/C120665830",
+          "wikidata": "https://www.wikidata.org/wiki/Q14620",
+          "display_name": "Optics",
+          "level": 1,
+          "score": 0.14149358868598938
+        },
+        {
+          "id": "https://openalex.org/C138885662",
+          "wikidata": "https://www.wikidata.org/wiki/Q5891",
+          "display_name": "Philosophy",
+          "level": 0,
+          "score": 0.13275861740112305
+        },
+        {
+          "id": "https://openalex.org/C41895202",
+          "wikidata": "https://www.wikidata.org/wiki/Q8162",
+          "display_name": "Linguistics",
+          "level": 1,
+          "score": 0.0669240653514862
+        }
+      ],
+      "mesh": [],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "pmh:oai:utoronto.scholaris.ca:1807/33841",
+          "is_oa": true,
+          "landing_page_url": "http://hdl.handle.net/1807/33841",
+          "pdf_url": "https://utoronto.scholaris.ca/bitstreams/6aced291-af4a-4028-b6cf-ee539996477d/download",
+          "source": {
+            "id": "https://openalex.org/S7407055458",
+            "display_name": "TSpace",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": null,
+          "raw_type": "Thesis"
+        },
+        {
+          "id": "mag:2580942659",
+          "is_oa": false,
+          "landing_page_url": "https://tspace.library.utoronto.ca/handle/1807/33841",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": null,
+          "is_accepted": false,
+          "is_published": null,
+          "raw_source_name": null,
+          "raw_type": null
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:utoronto.scholaris.ca:1807/33841",
+        "is_oa": true,
+        "landing_page_url": "http://hdl.handle.net/1807/33841",
+        "pdf_url": "https://utoronto.scholaris.ca/bitstreams/6aced291-af4a-4028-b6cf-ee539996477d/download",
+        "source": {
+          "id": "https://openalex.org/S7407055458",
+          "display_name": "TSpace",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "Thesis"
+      },
+      "sustainable_development_goals": [
+        {
+          "display_name": "Reduced inequalities",
+          "score": 0.41999998688697815,
+          "id": "https://metadata.un.org/sdg/10"
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W2580942659.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W2580942659.grobid-xml"
+      },
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W2969805701",
+        "https://openalex.org/W59681998",
+        "https://openalex.org/W419811539",
+        "https://openalex.org/W2797143342",
+        "https://openalex.org/W3045915332",
+        "https://openalex.org/W1556820225",
+        "https://openalex.org/W2612335359",
+        "https://openalex.org/W2316566916",
+        "https://openalex.org/W2947697605",
+        "https://openalex.org/W2078009829",
+        "https://openalex.org/W2988159159",
+        "https://openalex.org/W2475847669",
+        "https://openalex.org/W2395751245",
+        "https://openalex.org/W2479587068",
+        "https://openalex.org/W2610064503",
+        "https://openalex.org/W2024681555",
+        "https://openalex.org/W2586193195"
+      ],
+      "abstract_inverted_index": {
+        "This": [
+          0,
+          194
+        ],
+        "dissertation": [
+          1,
+          109,
+          317
+        ],
+        "examines": [
+          2
+        ],
+        "the": [
+          3,
+          11,
+          19,
+          22,
+          27,
+          32,
+          35,
+          41,
+          53,
+          57,
+          65,
+          78,
+          81,
+          85,
+          97,
+          112,
+          128,
+          140,
+          146,
+          150,
+          165,
+          208,
+          212,
+          216,
+          224,
+          227,
+          233,
+          240,
+          262,
+          275,
+          278,
+          282,
+          289,
+          310,
+          321,
+          330,
+          333,
+          348
+        ],
+        "level": [
+          4
+        ],
+        "of": [
+          5,
+          16,
+          21,
+          29,
+          34,
+          56,
+          70,
+          80,
+          84,
+          96,
+          143,
+          204,
+          211,
+          226,
+          232,
+          239,
+          252,
+          265,
+          277,
+          293,
+          308,
+          323,
+          332,
+          347
+        ],
+        "social": [
+          6,
+          82,
+          141,
+          172,
+          200
+        ],
+        "and": [
+          7,
+          13,
+          18,
+          45,
+          67,
+          90,
+          122,
+          156,
+          183,
+          201,
+          219,
+          236,
+          267,
+          325
+        ],
+        "cultural": [
+          8,
+          202
+        ],
+        "interaction": [
+          9
+        ],
+        "between": [
+          10,
+          43
+        ],
+        "Greek": [
+          12,
+          94,
+          237,
+          271,
+          294
+        ],
+        "Turkish": [
+          14,
+          235,
+          257,
+          296
+        ],
+        "communities": [
+          15
+        ],
+        "İzmir": [
+          17,
+          30,
+          71,
+          118,
+          302
+        ],
+        "impact": [
+          20
+        ],
+        "centralizing": [
+          23,
+          129
+        ],
+        "Ottoman": [
+          24,
+          36,
+          58,
+          213,
+          221,
+          279,
+          283
+        ],
+        "reforms": [
+          25,
+          136
+        ],
+        "on": [
+          26,
+          40,
+          261
+        ],
+        "society": [
+          28
+        ],
+        "during": [
+          31
+        ],
+        "age": [
+          33
+        ],
+        "modernization.": [
+          37
+        ],
+        "It": [
+          38
+        ],
+        "focuses": [
+          39
+        ],
+        "years": [
+          42,
+          243
+        ],
+        "1826": [
+          44
+        ],
+        "1864": [
+          46
+        ],
+        "that": [
+          47,
+          72,
+          111,
+          164
+        ],
+        "marked": [
+          48,
+          329
+        ],
+        "a": [
+          49,
+          74,
+          199,
+          345
+        ],
+        "turning": [
+          50
+        ],
+        "point": [
+          51
+        ],
+        "in": [
+          52,
+          77,
+          107,
+          125,
+          174,
+          215,
+          250
+        ],
+        "administrative": [
+          54,
+          121
+        ],
+        "history": [
+          55,
+          203,
+          249
+        ],
+        "Empire.": [
+          59
+        ],
+        "Analyzing": [
+          60
+        ],
+        "this": [
+          61,
+          108,
+          316
+        ],
+        "subject": [
+          62
+        ],
+        "requires": [
+          63
+        ],
+        "understanding": [
+          64
+        ],
+        "social-cultural": [
+          66,
+          182
+        ],
+        "economic": [
+          68,
+          184
+        ],
+        "dynamics": [
+          69,
+          322
+        ],
+        "played": [
+          73
+        ],
+        "crucial": [
+          75
+        ],
+        "role": [
+          76
+        ],
+        "formation": [
+          79
+        ],
+        "fabric": [
+          83
+        ],
+        "city.": [
+          86
+        ],
+        "Ottoman-Turkish": [
+          87
+        ],
+        "archival": [
+          88
+        ],
+        "material": [
+          89
+        ],
+        "to": [
+          91,
+          116,
+          170,
+          190,
+          197,
+          313,
+          319,
+          340
+        ],
+        "some": [
+          92,
+          157
+        ],
+        "extent": [
+          93
+        ],
+        "newspapers": [
+          95
+        ],
+        "time": [
+          98
+        ],
+        "are": [
+          99
+        ],
+        "used": [
+          100,
+          291
+        ],
+        "as": [
+          101,
+          303,
+          344
+        ],
+        "primary": [
+          102
+        ],
+        "sources.": [
+          103
+        ],
+        "The": [
+          104,
+          160
+        ],
+        "sources": [
+          105
+        ],
+        "discussed": [
+          106
+        ],
+        "demonstrate": [
+          110
+        ],
+        "central": [
+          113
+        ],
+        "authority": [
+          114
+        ],
+        "attempted": [
+          115
+        ],
+        "re-integrate": [
+          117
+        ],
+        "into": [
+          119
+        ],
+        "its": [
+          120,
+          153,
+          191,
+          268
+        ],
+        "political": [
+          123
+        ],
+        "structure": [
+          124
+        ],
+        "accordance": [
+          126
+        ],
+        "with": [
+          127,
+          152
+        ],
+        "or": [
+          130,
+          297
+        ],
+        "repressive": [
+          131
+        ],
+        "Tanzimat": [
+          132,
+          135
+        ],
+        "reforms.": [
+          133
+        ],
+        "However,": [
+          134
+        ],
+        "did": [
+          137,
+          167
+        ],
+        "not": [
+          138,
+          168
+        ],
+        "disturb": [
+          139
+        ],
+        "cohesion": [
+          142
+        ],
+        "İzmir,": [
+          144,
+          175,
+          205
+        ],
+        "which": [
+          145,
+          186,
+          328
+        ],
+        "city": [
+          147,
+          311,
+          334
+        ],
+        "produced": [
+          148
+        ],
+        "over": [
+          149
+        ],
+        "centuries": [
+          151
+        ],
+        "local": [
+          154
+        ],
+        "character": [
+          155
+        ],
+        "peculiar": [
+          158
+        ],
+        "dynamics.": [
+          159
+        ],
+        "evidence": [
+          161
+        ],
+        "also": [
+          162
+        ],
+        "indicates": [
+          163
+        ],
+        "Empire": [
+          166
+        ],
+        "aim": [
+          169
+        ],
+        "mold": [
+          171
+        ],
+        "relations": [
+          173
+        ],
+        "instead": [
+          176,
+          307
+        ],
+        "benefited": [
+          177
+        ],
+        "from": [
+          178
+        ],
+        "city’s": [
+          179
+        ],
+        "already": [
+          180
+        ],
+        "existing": [
+          181
+        ],
+        "situation,": [
+          185
+        ],
+        "was": [
+          187,
+          338
+        ],
+        "well": [
+          188
+        ],
+        "suited": [
+          189
+        ],
+        "modernization": [
+          192
+        ],
+        "program.": [
+          193
+        ],
+        "study": [
+          195
+        ],
+        "attempts": [
+          196
+        ],
+        "write": [
+          198
+        ],
+        "by": [
+          206
+        ],
+        "considering": [
+          207
+        ],
+        "ethno-religious": [
+          209,
+          314
+        ],
+        "policies": [
+          210
+        ],
+        "state": [
+          214,
+          351
+        ],
+        "given": [
+          217
+        ],
+        "period": [
+          218
+        ],
+        "questioning": [
+          220
+        ],
+        "modernity": [
+          222
+        ],
+        "through": [
+          223
+        ],
+        "prism": [
+          225
+        ],
+        "Greek-Turkish": [
+          228
+        ],
+        "communal": [
+          229,
+          326
+        ],
+        "relations.": [
+          230
+        ],
+        "Much": [
+          231
+        ],
+        "conventional": [
+          234
+        ],
+        "historiography": [
+          238,
+          258,
+          272
+        ],
+        "post": [
+          241
+        ],
+        "WWI": [
+          242
+        ],
+        "has": [
+          244,
+          259,
+          273
+        ],
+        "analyzed": [
+          245
+        ],
+        "19th": [
+          246
+        ],
+        "century": [
+          247
+        ],
+        "İzmir&apos;s": [
+          248
+        ],
+        "terms": [
+          251
+        ],
+        "two": [
+          253
+        ],
+        "“conflicting": [
+          254
+        ],
+        "nations.”": [
+          255
+        ],
+        "While": [
+          256
+        ],
+        "focused": [
+          260
+        ],
+        "ethnic": [
+          263
+        ],
+        "homogeneity": [
+          264
+        ],
+        "Turks": [
+          266
+        ],
+        "history,": [
+          269
+        ],
+        "modern": [
+          270,
+          349
+        ],
+        "stressed": [
+          274
+        ],
+        "suppression": [
+          276
+        ],
+        "Greeks": [
+          280
+        ],
+        "under": [
+          281
+        ],
+        "rule.": [
+          284
+        ],
+        "Such": [
+          285
+        ],
+        "approaches": [
+          286
+        ],
+        "have": [
+          287
+        ],
+        "engendered": [
+          288
+        ],
+        "commonly": [
+          290
+        ],
+        "categories": [
+          292
+        ],
+        "versus": [
+          295,
+          299
+        ],
+        "Muslim": [
+          298
+        ],
+        "non-Muslim.": [
+          300
+        ],
+        "Approaching": [
+          301
+        ],
+        "an": [
+          304,
+          341
+        ],
+        "organic": [
+          305
+        ],
+        "whole,": [
+          306
+        ],
+        "dividing": [
+          309
+        ],
+        "according": [
+          312
+        ],
+        "criterion,": [
+          315
+        ],
+        "tries": [
+          318
+        ],
+        "uncover": [
+          320
+        ],
+        "coexistence": [
+          324
+        ],
+        "relations,": [
+          327
+        ],
+        "life": [
+          331
+        ],
+        "for": [
+          335
+        ],
+        "centuries,": [
+          336
+        ],
+        "but": [
+          337
+        ],
+        "brought": [
+          339
+        ],
+        "abrupt": [
+          342
+        ],
+        "end": [
+          343
+        ],
+        "result": [
+          346
+        ],
+        "nation": [
+          350
+        ],
+        "formations.": [
+          352
+        ]
+      },
+      "counts_by_year": [],
+      "updated_date": "2026-03-11T14:59:36.786465",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W1595108227",
+      "doi": null,
+      "title": "What defines a good work of art within the contemporary art word? theories, practices and institutions",
+      "display_name": "What defines a good work of art within the contemporary art word? theories, practices and institutions",
+      "relevance_score": 0.18478242,
+      "publication_year": 2010,
+      "publication_date": "2010-06-01",
+      "ids": {
+        "openalex": "https://openalex.org/W1595108227",
+        "mag": "1595108227"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "pmh:oai:uir.unisa.ac.za:10500/4047",
+        "is_oa": true,
+        "landing_page_url": "http://hdl.handle.net/10500/4047",
+        "pdf_url": "http://hdl.handle.net/10500/4047",
+        "source": {
+          "id": "https://openalex.org/S4306400472",
+          "display_name": "Unisa Institutional Repository (University of South Africa)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I165390105",
+          "host_organization_name": "University of South Africa",
+          "host_organization_lineage": [
+            "https://openalex.org/I165390105"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "Dissertation"
+      },
+      "type": "dissertation",
+      "indexed_in": [],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "http://hdl.handle.net/10500/4047",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5032944415",
+            "display_name": "Delia Vekony-Harper",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "Delia Vekony-Harper",
+          "raw_affiliation_strings": [],
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5032944415"
+      ],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": null,
+      "has_fulltext": true,
+      "cited_by_count": 0,
+      "citation_normalized_percentile": null,
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12444",
+        "display_name": "Art, Politics, and Modernism",
+        "score": 0.9574999809265137,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1213",
+          "display_name": "Visual Arts and Performing Arts"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12444",
+          "display_name": "Art, Politics, and Modernism",
+          "score": 0.9574999809265137,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1213",
+            "display_name": "Visual Arts and Performing Arts"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11410",
+          "display_name": "Cultural Industries and Urban Development",
+          "score": 0.9301999807357788,
+          "subfield": {
+            "id": "https://openalex.org/subfields/3322",
+            "display_name": "Urban Studies"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/33",
+            "display_name": "Social Sciences"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/work",
+          "display_name": "Work (physics)",
+          "score": 0.5845935940742493
+        },
+        {
+          "id": "https://openalex.org/keywords/word",
+          "display_name": "Word (group theory)",
+          "score": 0.5264102816581726
+        },
+        {
+          "id": "https://openalex.org/keywords/contemporary-art",
+          "display_name": "Contemporary art",
+          "score": 0.4676717519760132
+        },
+        {
+          "id": "https://openalex.org/keywords/linguistics",
+          "display_name": "Linguistics",
+          "score": 0.3959636986255646
+        },
+        {
+          "id": "https://openalex.org/keywords/visual-arts",
+          "display_name": "Visual arts",
+          "score": 0.36840081214904785
+        },
+        {
+          "id": "https://openalex.org/keywords/sociology",
+          "display_name": "Sociology",
+          "score": 0.36114490032196045
+        },
+        {
+          "id": "https://openalex.org/keywords/aesthetics",
+          "display_name": "Aesthetics",
+          "score": 0.3497810363769531
+        },
+        {
+          "id": "https://openalex.org/keywords/epistemology",
+          "display_name": "Epistemology",
+          "score": 0.3253832161426544
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.302280455827713
+        },
+        {
+          "id": "https://openalex.org/keywords/engineering",
+          "display_name": "Engineering",
+          "score": 0.21968355774879456
+        },
+        {
+          "id": "https://openalex.org/keywords/art-history",
+          "display_name": "Art history",
+          "score": 0.2075495421886444
+        },
+        {
+          "id": "https://openalex.org/keywords/performance-art",
+          "display_name": "Performance art",
+          "score": 0.17957353591918945
+        },
+        {
+          "id": "https://openalex.org/keywords/philosophy",
+          "display_name": "Philosophy",
+          "score": 0.1550629734992981
+        },
+        {
+          "id": "https://openalex.org/keywords/mechanical-engineering",
+          "display_name": "Mechanical engineering",
+          "score": 0.10892829298973083
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C18762648",
+          "wikidata": "https://www.wikidata.org/wiki/Q42213",
+          "display_name": "Work (physics)",
+          "level": 2,
+          "score": 0.5845935940742493
+        },
+        {
+          "id": "https://openalex.org/C90805587",
+          "wikidata": "https://www.wikidata.org/wiki/Q10944557",
+          "display_name": "Word (group theory)",
+          "level": 2,
+          "score": 0.5264102816581726
+        },
+        {
+          "id": "https://openalex.org/C85363599",
+          "wikidata": "https://www.wikidata.org/wiki/Q186030",
+          "display_name": "Contemporary art",
+          "level": 3,
+          "score": 0.4676717519760132
+        },
+        {
+          "id": "https://openalex.org/C41895202",
+          "wikidata": "https://www.wikidata.org/wiki/Q8162",
+          "display_name": "Linguistics",
+          "level": 1,
+          "score": 0.3959636986255646
+        },
+        {
+          "id": "https://openalex.org/C153349607",
+          "wikidata": "https://www.wikidata.org/wiki/Q36649",
+          "display_name": "Visual arts",
+          "level": 1,
+          "score": 0.36840081214904785
+        },
+        {
+          "id": "https://openalex.org/C144024400",
+          "wikidata": "https://www.wikidata.org/wiki/Q21201",
+          "display_name": "Sociology",
+          "level": 0,
+          "score": 0.36114490032196045
+        },
+        {
+          "id": "https://openalex.org/C107038049",
+          "wikidata": "https://www.wikidata.org/wiki/Q35986",
+          "display_name": "Aesthetics",
+          "level": 1,
+          "score": 0.3497810363769531
+        },
+        {
+          "id": "https://openalex.org/C111472728",
+          "wikidata": "https://www.wikidata.org/wiki/Q9471",
+          "display_name": "Epistemology",
+          "level": 1,
+          "score": 0.3253832161426544
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.302280455827713
+        },
+        {
+          "id": "https://openalex.org/C127413603",
+          "wikidata": "https://www.wikidata.org/wiki/Q11023",
+          "display_name": "Engineering",
+          "level": 0,
+          "score": 0.21968355774879456
+        },
+        {
+          "id": "https://openalex.org/C52119013",
+          "wikidata": "https://www.wikidata.org/wiki/Q50637",
+          "display_name": "Art history",
+          "level": 1,
+          "score": 0.2075495421886444
+        },
+        {
+          "id": "https://openalex.org/C554144382",
+          "wikidata": "https://www.wikidata.org/wiki/Q213156",
+          "display_name": "Performance art",
+          "level": 2,
+          "score": 0.17957353591918945
+        },
+        {
+          "id": "https://openalex.org/C138885662",
+          "wikidata": "https://www.wikidata.org/wiki/Q5891",
+          "display_name": "Philosophy",
+          "level": 0,
+          "score": 0.1550629734992981
+        },
+        {
+          "id": "https://openalex.org/C78519656",
+          "wikidata": "https://www.wikidata.org/wiki/Q101333",
+          "display_name": "Mechanical engineering",
+          "level": 1,
+          "score": 0.10892829298973083
+        }
+      ],
+      "mesh": [],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "pmh:oai:uir.unisa.ac.za:10500/4047",
+          "is_oa": true,
+          "landing_page_url": "http://hdl.handle.net/10500/4047",
+          "pdf_url": "http://hdl.handle.net/10500/4047",
+          "source": {
+            "id": "https://openalex.org/S4306400472",
+            "display_name": "Unisa Institutional Repository (University of South Africa)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I165390105",
+            "host_organization_name": "University of South Africa",
+            "host_organization_lineage": [
+              "https://openalex.org/I165390105"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Dissertation"
+        },
+        {
+          "id": "mag:1595108227",
+          "is_oa": false,
+          "landing_page_url": "https://uir.unisa.ac.za/handle/10500/4047",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": null,
+          "is_accepted": false,
+          "is_published": null,
+          "raw_source_name": null,
+          "raw_type": null
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:uir.unisa.ac.za:10500/4047",
+        "is_oa": true,
+        "landing_page_url": "http://hdl.handle.net/10500/4047",
+        "pdf_url": "http://hdl.handle.net/10500/4047",
+        "source": {
+          "id": "https://openalex.org/S4306400472",
+          "display_name": "Unisa Institutional Repository (University of South Africa)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I165390105",
+          "host_organization_name": "University of South Africa",
+          "host_organization_lineage": [
+            "https://openalex.org/I165390105"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "Dissertation"
+      },
+      "sustainable_development_goals": [],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W1595108227.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W1595108227.grobid-xml"
+      },
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W2155185829",
+        "https://openalex.org/W2380395012",
+        "https://openalex.org/W1774769622",
+        "https://openalex.org/W2355325400",
+        "https://openalex.org/W2946529064",
+        "https://openalex.org/W2896646187",
+        "https://openalex.org/W412647868",
+        "https://openalex.org/W3124621063",
+        "https://openalex.org/W3118722062",
+        "https://openalex.org/W2972107298",
+        "https://openalex.org/W1542292546",
+        "https://openalex.org/W2088082101",
+        "https://openalex.org/W2381859618",
+        "https://openalex.org/W1513881080",
+        "https://openalex.org/W1905684594",
+        "https://openalex.org/W2763098246",
+        "https://openalex.org/W1587409508",
+        "https://openalex.org/W2361714309",
+        "https://openalex.org/W2380021966",
+        "https://openalex.org/W5927400"
+      ],
+      "abstract_inverted_index": {
+        "The": [
+          0,
+          16
+        ],
+        "dissertation": [
+          1,
+          120
+        ],
+        "explores": [
+          2
+        ],
+        "how": [
+          3
+        ],
+        "quality-judgments": [
+          4
+        ],
+        "on": [
+          5,
+          42,
+          105,
+          158
+        ],
+        "works": [
+          6
+        ],
+        "of": [
+          7,
+          22,
+          35,
+          38,
+          53,
+          70,
+          73,
+          116,
+          145,
+          150,
+          153
+        ],
+        "art": [
+          8,
+          14,
+          24,
+          40,
+          46,
+          91,
+          136
+        ],
+        "are": [
+          9,
+          160
+        ],
+        "created": [
+          10
+        ],
+        "within": [
+          11,
+          61
+        ],
+        "the": [
+          12,
+          20,
+          28,
+          33,
+          36,
+          39,
+          45,
+          51,
+          64,
+          68,
+          71,
+          113,
+          119,
+          146,
+          151
+        ],
+        "contemporary": [
+          13
+        ],
+        "world.": [
+          15
+        ],
+        "research": [
+          17
+        ],
+        "starts": [
+          18
+        ],
+        "with": [
+          19,
+          32,
+          83
+        ],
+        "examination": [
+          21
+        ],
+        "modernist": [
+          23
+        ],
+        "theories": [
+          25
+        ],
+        "supported": [
+          26
+        ],
+        "by": [
+          27,
+          162
+        ],
+        "museum,": [
+          29
+        ],
+        "and": [
+          30,
+          57,
+          97,
+          132,
+          163
+        ],
+        "continues": [
+          31
+        ],
+        "exploration": [
+          34
+        ],
+        "impact": [
+          37
+        ],
+        "market": [
+          41,
+          47
+        ],
+        "quality-judgments.": [
+          43
+        ],
+        "Although": [
+          44
+        ],
+        "had": [
+          48
+        ],
+        "already": [
+          49
+        ],
+        "distorted": [
+          50
+        ],
+        "idea": [
+          52
+        ],
+        "quality,": [
+          54,
+          106
+        ],
+        "further": [
+          55
+        ],
+        "contradictions": [
+          56
+        ],
+        "difficulties": [
+          58
+        ],
+        "have": [
+          59,
+          78
+        ],
+        "risen": [
+          60
+        ],
+        "judgment-making": [
+          62
+        ],
+        "after": [
+          63
+        ],
+        "1960s": [
+          65
+        ],
+        "due": [
+          66
+        ],
+        "to": [
+          67,
+          81,
+          112,
+          165
+        ],
+        "dematerialisation": [
+          69
+        ],
+        "work": [
+          72,
+          115
+        ],
+        "art.": [
+          74,
+          117
+        ],
+        "Art": [
+          75
+        ],
+        "criticism": [
+          76,
+          92
+        ],
+        "should": [
+          77
+        ],
+        "been": [
+          79
+        ],
+        "able": [
+          80
+        ],
+        "deal": [
+          82
+        ],
+        "this": [
+          84
+        ],
+        "complexity,": [
+          85
+        ],
+        "but": [
+          86
+        ],
+        "it": [
+          87,
+          107,
+          121
+        ],
+        "is": [
+          88,
+          93,
+          101,
+          122,
+          128,
+          141
+        ],
+        "demonstrated": [
+          89,
+          123
+        ],
+        "that": [
+          90,
+          124,
+          140
+        ],
+        "a": [
+          94,
+          102,
+          129
+        ],
+        "subjective": [
+          95
+        ],
+        "field": [
+          96
+        ],
+        "even": [
+          98
+        ],
+        "if": [
+          99
+        ],
+        "there": [
+          100
+        ],
+        "universal": [
+          103
+        ],
+        "theory": [
+          104
+        ],
+        "often": [
+          108
+        ],
+        "fails": [
+          109
+        ],
+        "when": [
+          110
+        ],
+        "applied": [
+          111
+        ],
+        "particular": [
+          114
+        ],
+        "Throughout": [
+          118
+        ],
+        "although": [
+          125
+        ],
+        "‘good": [
+          126
+        ],
+        "art’": [
+          127
+        ],
+        "subjective,": [
+          130
+        ],
+        "power-": [
+          131
+        ],
+        "discourse-dependent": [
+          133
+        ],
+        "concept,": [
+          134
+        ],
+        "all": [
+          135
+        ],
+        "professionals": [
+          137
+        ],
+        "seek": [
+          138
+        ],
+        "something": [
+          139
+        ],
+        "an": [
+          142
+        ],
+        "inherent": [
+          143,
+          155
+        ],
+        "quality": [
+          144,
+          159
+        ],
+        "artwork.": [
+          147
+        ],
+        "However,": [
+          148
+        ],
+        "regardless": [
+          149
+        ],
+        "existence": [
+          152
+        ],
+        "such": [
+          154
+        ],
+        "value,": [
+          156
+        ],
+        "judgments": [
+          157
+        ],
+        "constructed": [
+          161
+        ],
+        "subjected": [
+          164
+        ],
+        "power-struggle.": [
+          166
+        ]
+      },
+      "counts_by_year": [],
+      "updated_date": "2026-02-09T09:26:11.010843",
+      "created_date": "2025-10-10T00:00:00"
+    }
+  ]
+}

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: FRAME - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, rgba(20, 40, 71, 0.9) 0%, rgba(10, 25, 47, 0.9) 100%);
+            padding: 20px 40px;
+            border-bottom: 2px solid var(--bright-cyan);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .day-badge {
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            color: var(--dark-bg);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            left: 40px;
+            top: 20px;
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--bright-cyan);
+            border: 1px solid var(--bright-cyan);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn:hover {
+            background: var(--bright-cyan);
+            color: var(--dark-bg);
+            transform: translateX(-5px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(20, 40, 71, 0.5));
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .schedule-title {
+            font-size: 1.8rem;
+            color: var(--bright-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .time-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--bright-yellow);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .time-block:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .time-label {
+            color: var(--bright-yellow);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .time-content {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(20, 40, 71, 0.5));
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .resource-card:hover {
+            border-color: var(--bright-cyan);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bright-cyan);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-description {
+            color: var(--light-gray);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-action {
+            margin-top: 20px;
+            color: var(--bright-yellow);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Special styling for break */
+        .break-block {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 165, 0, 0.2));
+            border-left-color: var(--bright-orange);
+        }
+
+        /* Workshop highlight */
+        .workshop-highlight {
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(0, 255, 255, 0.1));
+            border: 2px solid var(--bright-cyan);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .workshop-time {
+            font-size: 2rem;
+            color: var(--bright-yellow);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .workshop-title {
+            font-size: 2.5rem;
+            color: var(--bright-cyan);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .workshop-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .workshop-btn {
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));
+            color: var(--dark-bg);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .workshop-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../../index.html" class="back-btn">
+            <span>←</span>
+            <span>Back to Hub</span>
+        </a>
+        <div class="header-content">
+            <div>
+                <h1>Day 2: FRAME</h1>
+                <div class="subtitle">Building Rigorous Analytical Pipelines</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Today's Schedule -->
+        <div class="schedule-section">
+            <h2 class="schedule-title">
+                <span>📅</span>
+                <span>Today's Schedule - Thursday, March 12, 2026</span>
+            </h2>
+
+            <div class="time-block">
+                <div class="time-label">5:30 PM - 6:00 PM</div>
+                <div class="time-content">
+                    <strong>Reflections From Yesterday</strong><br>
+                    Lens.org discussion, WSL troubleshooting, Q&A from Day 1
+                </div>
+            </div>
+
+            <div class="time-block">
+                <div class="time-label">6:00 PM - 6:45 PM</div>
+                <div class="time-content">
+                    <strong>Deep Research Methodologies</strong><br>
+                    What is deep research? Best practices, common pitfalls, and pro tips
+                </div>
+            </div>
+
+            <div class="time-block break-block">
+                <div class="time-label">6:45 PM - 7:15 PM</div>
+                <div class="time-content">
+                    <strong>🍽️ DINNER BREAK</strong><br>
+                    Grab food, network, and prepare for the taxonomy workshop
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Workshop Highlight -->
+        <div class="workshop-highlight">
+            <div class="workshop-time">7:15 PM - 8:30 PM</div>
+            <div class="workshop-title">Multi-Dimensional Taxonomies Workshop</div>
+            <div style="color: var(--light-gray); font-size: 1.2rem; margin-bottom: 20px;">
+                Learn to build powerful classification systems for analyzing complex texts
+            </div>
+            <div class="workshop-buttons">
+                <a href="../frame/index.html" class="workshop-btn">
+                    <span>🎯</span>
+                    <span>Launch Presentation</span>
+                </a>
+                <a href="../mdviewer/index.html?file=Taxonomy_Exercise_Instructions.md&return=../day2/index.html" class="workshop-btn" style="background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange));">
+                    <span>📝</span>
+                    <span>Exercise Guide</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Resource Cards -->
+        <div class="cards-grid">
+            <a href="../mdviewer/index.html?file=Day2_Schedule.md&return=../day2/index.html" class="resource-card">
+                <div class="card-icon">📋</div>
+                <div class="card-title">Full Schedule</div>
+                <div class="card-description">
+                    Detailed agenda with all session topics, learning objectives, and timing
+                </div>
+                <div class="card-action">
+                    View Complete Schedule →
+                </div>
+            </a>
+
+            <a href="../resources/index.html" class="resource-card">
+                <div class="card-icon">📚</div>
+                <div class="card-title">Resources & Guides</div>
+                <div class="card-description">
+                    Access all workshop materials, documentation, and reference guides
+                </div>
+                <div class="card-action">
+                    Browse Resources →
+                </div>
+            </a>
+
+            <a href="https://rumilspace.app" target="_blank" class="resource-card">
+                <div class="card-icon">🌐</div>
+                <div class="card-title">RuBase Dashboard</div>
+                <div class="card-description">
+                    Explore the live system with 2,619 classified documents
+                </div>
+                <div class="card-action">
+                    Open Dashboard ↗
+                </div>
+            </a>
+        </div>
+
+        <!-- Workshop Agenda Preview -->
+        <div class="schedule-section" style="margin-top: 40px;">
+            <h2 class="schedule-title">
+                <span>🎯</span>
+                <span>Workshop Components</span>
+            </h2>
+
+            <div class="time-block">
+                <div class="time-label">Part 1: Live Demo (15 min)</div>
+                <div class="time-content">Russia-Ukraine War case study with 9 dimensions</div>
+            </div>
+
+            <div class="time-block">
+                <div class="time-label">Part 2: Understanding Taxonomies (15 min)</div>
+                <div class="time-content">Core concepts, taxonomies vs ontologies, multi-dimensional analysis</div>
+            </div>
+
+            <div class="time-block">
+                <div class="time-label">Part 3: Manual Exercise (15 min)</div>
+                <div class="time-content">Build your first taxonomy using your research topic</div>
+            </div>
+
+            <div class="time-block">
+                <div class="time-label">Part 4: AI-Powered Generation (15 min)</div>
+                <div class="time-content">Use our script to generate 864-point taxonomies</div>
+            </div>
+
+            <div class="time-block">
+                <div class="time-label">Part 5: Analysis & Discussion (15 min)</div>
+                <div class="time-content">Compare approaches, identify patterns, Q&A</div>
+            </div>
+        </div>
+    </div>
+
+<!-- Navigation -->
+<div style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(30, 41, 59, 0.95); padding: 10px 20px; border-radius: 50px; border: 1px solid #334155; backdrop-filter: blur(10px); z-index: 1000;">
+    <button onclick="window.location.href='../../index.html'" style="background: linear-gradient(135deg, #00ffff, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: 'Titillium Web', sans-serif;">🏠 Home</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Dimensional Taxonomy Development Framework - HCSS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg), #0f2340);
+            color: var(--bright-white);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(147, 112, 219, 0.1));
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--bright-purple);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--bright-purple);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(147, 112, 219, 0.5);
+        }
+
+        .author-info {
+            color: var(--bright-cyan);
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .date-info {
+            color: var(--bright-yellow);
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: rgba(20, 40, 71, 0.95);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--bright-cyan);
+            position: sticky;
+            top: 160px;
+            z-index: 99;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));
+            color: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .nav-btn.home {
+            background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange));
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 60px;
+            background: rgba(20, 40, 71, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(147, 112, 219, 0.3);
+        }
+
+        .section h2 {
+            color: var(--bright-cyan);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid var(--bright-cyan);
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: var(--bright-purple);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 30px 0 20px;
+            padding-left: 20px;
+            border-left: 4px solid var(--bright-purple);
+        }
+
+        .section h4 {
+            color: var(--bright-yellow);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 15px;
+        }
+
+        .section p {
+            color: var(--light-gray);
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 40px;
+            color: var(--light-gray);
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+
+        li strong {
+            color: var(--bright-white);
+        }
+
+        /* Framework Structure Box */
+        .framework-box {
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(147, 112, 219, 0.05));
+            border: 2px solid var(--bright-purple);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .framework-box h4 {
+            color: var(--bright-purple);
+            margin-bottom: 20px;
+        }
+
+        .framework-box ol {
+            list-style-type: none;
+            counter-reset: item;
+            padding-left: 0;
+        }
+
+        .framework-box li {
+            counter-increment: item;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .framework-box li:before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--bright-purple);
+            color: var(--dark-bg);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Methodology Phases */
+        .phase-box {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(0, 255, 127, 0.05));
+            border: 2px solid var(--bright-green);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .phase-box h4 {
+            color: var(--bright-green);
+            margin-bottom: 20px;
+        }
+
+        /* Example Box */
+        .example-box {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 165, 0, 0.05));
+            border: 2px solid var(--bright-orange);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .example-box h4 {
+            color: var(--bright-orange);
+            margin-bottom: 15px;
+        }
+
+        /* CSV Format Box */
+        .csv-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--bright-cyan);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .csv-box h3 {
+            color: var(--bright-cyan);
+            border-left: 4px solid var(--bright-cyan);
+            margin-bottom: 25px;
+        }
+
+        .csv-box pre {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            overflow-x: auto;
+            color: var(--bright-green);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 99, 71, 0.05));
+            border: 2px solid var(--bright-red);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .warning-box h4 {
+            color: var(--bright-red);
+            margin-bottom: 15px;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05));
+            border: 2px solid var(--bright-cyan);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .info-box h4 {
+            color: var(--bright-cyan);
+            margin-bottom: 15px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid rgba(147, 112, 219, 0.3);
+        }
+
+        th {
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.2), rgba(147, 112, 219, 0.1));
+            color: var(--bright-purple);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        td {
+            background: rgba(20, 40, 71, 0.2);
+            color: var(--light-gray);
+        }
+
+        /* Code */
+        code {
+            background: rgba(147, 112, 219, 0.2);
+            color: var(--bright-purple);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));
+            color: var(--dark-bg);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .nav-bar {
+                top: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Multi-Dimensional Taxonomy Development Framework</h1>
+        <div class="author-info">Stephan De Spiegeleire, HCSS Principal Scientist</div>
+        <div class="date-info">June 4, 2025 (Enhanced Edition)</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <a href="../../index.html" class="nav-btn home">🏠 Home</a>
+        <a href="#overview" class="nav-btn">Overview</a>
+        <a href="#principles" class="nav-btn">Principles</a>
+        <a href="#structure" class="nav-btn">Structure</a>
+        <a href="#methodology" class="nav-btn">Methodology</a>
+        <a href="#applications" class="nav-btn">Applications</a>
+        <a href="#csv-format" class="nav-btn">CSV Format</a>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Full Copyable Text Section -->
+        <div class="section" style="background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 165, 0, 0.1)); border: 3px solid var(--bright-yellow);">
+            <h2 style="color: var(--bright-yellow); border-bottom-color: var(--bright-yellow);">📋 Complete Framework Text (Copy for AI)</h2>
+            <div style="position: relative;">
+                <button onclick="copyFullText()" style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange)); color: var(--dark-bg); border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 1rem; transition: all 0.3s;">
+                    📋 Copy Full Text
+                </button>
+                <div style="background: rgba(0, 0, 0, 0.7); border: 2px solid var(--bright-yellow); border-radius: 10px; padding: 30px; margin-top: 60px; max-height: 500px; overflow-y: auto;">
+                    <pre id="full-framework-text" style="color: var(--bright-green); font-family: 'Fira Code', monospace; font-size: 0.9rem; white-space: pre-wrap; line-height: 1.6;">MULTI-DIMENSIONAL TAXONOMY DEVELOPMENT FRAMEWORK
+Authors: Stephan De Spiegeleire, HCSS Principal Scientist
+Date: Jun 4, 2025 (Enhanced Edition)
+
+Concept Overview
+A multi-dimensional taxonomy is a framework for analyzing complex domains through multiple independent analytical perspectives, each representing a fundamental way of understanding or looking at a subject matter. Unlike traditional hierarchical taxonomies which organize concepts along a single dimension, multi-dimensional taxonomies recognize that complex phenomena exist in high-dimensional conceptual spaces where multiple factors operate simultaneously and independently.
+
+Core Principles
+Dimensional Independence: Each dimension (High-Level Taxonomic Principle or HLTP) represents a truly independent analytical perspective that can vary without necessarily affecting others.
+Universal Applicability: Each dimension should be applicable to all instances within the domain being analyzed.
+Comprehensive Coverage: The combined dimensions should capture all essential aspects of the phenomenon.
+Analytical Power: The framework should reveal insights that would be missed by simpler categorization schemes.
+Practical Utility: The taxonomy should bridge theory and practice, supporting both analysis and operational planning.
+
+Framework Structure
+The multi-dimensional taxonomy is organized on four levels:
+High-Level Taxonomic Principles (HLTPs): Fundamental, independent dimensions or "lenses" for analyzing the domain (e.g., Temporal Dimension, Geographical Scope, Power Application)
+Second-Level Elements: Major divisions within each HLTP
+Third-Level Elements: Specific operational areas within each second-level element
+Taxa: Concrete instances or activities that can be classified along all dimensions
+
+HLTP Development Guidelines
+When developing HLTPs, ensure that each dimension:
+
+Essential Characteristics
+Represents a truly fundamental aspect of the domain
+Can be applied to any instance within the domain
+Is conceptually distinct from all other dimensions
+Reveals essential rather than superficial features
+Enables meaningful differentiation between instances
+
+Testing for Independence
+An HLTP is independent if:
+Classification along one dimension does not determine classification along others
+You can find examples where an instance's position on one dimension changes while its position on other dimensions remains constant
+The dimension captures a unique aspect not covered by other dimensions
+
+Validation Criteria
+Evaluate potential HLTPs against these criteria:
+Independence: Does this dimension vary independently of others?
+Universality: Can all domain instances be classified along this dimension?
+Fundamentality: Does this dimension capture an essential rather than superficial aspect?
+Distinctiveness: Does this dimension provide a unique analytical perspective?
+Utility: Does this dimension reveal important insights or support practical applications?
+
+Development Methodology
+Follow these steps to build a multi-dimensional taxonomy:
+
+Phase 1: Initial Dimension Identification
+Domain Definition: Clearly define the boundaries of what you're analyzing
+Brainstorming: Generate potential dimensions from multiple perspectives
+Literature Review: Identify existing frameworks and dimensions from relevant literature
+Expert Consultation: Gather input from domain specialists
+First Principles Analysis: Consider what fundamental aspects define the domain
+
+Phase 2: Dimension Refinement
+Independence Testing: Systematically test each dimension for independence
+Classification Exercise: Attempt to classify diverse examples along each dimension
+Gap Analysis: Identify aspects not captured by current dimensions
+Redundancy Elimination: Merge or remove dimensions that overlap conceptually
+Dimension Definition: Clearly articulate what each dimension represents
+
+Phase 3: Second-Level Development
+Division Identification: For each HLTP, identify its major components
+Mutual Exclusivity Check: Ensure categories within an HLTP don't overlap
+Completeness Verification: Ensure categories cover all possibilities within that dimension
+Definition Clarification: Provide clear definitions for each second-level element
+Boundary Testing: Test edge cases to verify category boundaries
+
+Phase 4: Testing and Validation
+Real-World Testing: Apply the taxonomy to diverse real-world examples
+Edge Case Analysis: Test the taxonomy against unusual or complex cases
+Expert Validation: Have domain experts review and critique the taxonomy
+Practical Application Test: Use the taxonomy for its intended purpose and evaluate results
+Refinement Iteration: Adjust dimensions and categories based on testing
+
+Practical Applications
+A well-constructed multi-dimensional taxonomy enables:
+Epistemic MRIs: When combined with exhaustive corpora and the use of LLMs for first relevance filtering and then classification of semantic text chunks, taxonomies allow for systemic literature reviews
+Gap Identification: Locate blind spots in current approaches
+Comprehensive Assessment: Evaluate activities across all dimensions
+Balance Analysis: Identify over- and under-emphasized areas
+Comparative Analysis: Compare different approaches systematically
+Pattern Recognition: Identify recurring patterns across dimensions
+
+Implementation Guidance
+When implementing a multi-dimensional taxonomy:
+
+Starting Points
+Begin with 5-7 clearly independent dimensions
+Focus on dimensions with immediate practical relevance
+Test the framework with familiar examples
+Gather feedback from potential users
+Refine based on initial applications
+
+Common Pitfalls to Avoid
+Creating dimensions that are actually different aspects of the same thing
+Developing overly complex frameworks that are difficult to use
+Prioritizing theoretical elegance over practical utility
+Treating the taxonomy as fixed rather than evolving
+Focusing exclusively on familiar or comfortable dimensions
+
+Best Practices
+Document dimension definitions thoroughly
+Provide clear examples for each dimension and category
+Create visualization tools to aid understanding
+Develop training materials for users
+Establish a process for ongoing refinement
+
+Example of Dimensional Analysis
+To illustrate how multi-dimensional analysis works, consider a community policing patrol analyzed through multiple HLTPs:
+Temporal Dimension: Pre-incident (preventive activity)
+Geographical Scope: Local (neighborhood-level activity)
+Power Application: Soft power (influence through presence and relationships)
+Stakeholder Interaction: Community engagement (direct public interaction)
+Process Flow: Throughput process (ongoing activity rather than input or output)
+Knowledge Dimension: Tacit knowledge (relies on experiential understanding)
+Operational Level: Tactical (implements strategic direction at field level)
+
+This multi-dimensional analysis reveals aspects that would be missed by simpler categorizations, showing how the same activity serves multiple functions simultaneously through different analytical lenses.
+
+Guidance for Taxonomy Expansion
+As your understanding deepens:
+Extend Dimensions: Add new dimensions as they become apparent
+Deepen Categories: Develop more nuanced sub-categories
+Create Cross-Dimensional Maps: Identify how dimensions interact
+Develop Measurement Tools: Create ways to assess position along dimensions
+Build Application Guides: Create guidance for using the taxonomy in specific contexts
+
+Remember that a taxonomy is a tool for understanding, not an end in itself. The ultimate test of a multi-dimensional taxonomy is whether it enhances understanding and supports better decision-making in its domain of application.
+
+CSV Output Format
+Your final output should be structured as a tab-separated value (TSV) file with the following format:
+
+1. Column Structure:
+Exactly 4 columns with headers: HLTP, 2nd Level TE, 3rd Level TE, and Taxon
+All column values should be separated by tab characters
+
+2. Content Organization:
+HLTP: The high-level taxonomic principle (primary dimension)
+2nd Level TE: Major category within the HLTP
+3rd Level TE: Specific operational area within the 2nd level
+Taxon: Concrete instance or specific activity
+
+3. Formatting Requirements:
+No quotation marks around values
+No additional columns or metadata
+Consistent capitalization for each HLTP and its elements
+Each row represents one complete classification path
+Group all items by HLTP, then by 2nd Level, then by 3rd Level
+
+4. Example Structure:
+HLTP	2nd Level TE	3rd Level TE	Taxon
+Functional Domain	Law Enforcement	Criminal Apprehension	Suspect pursuit and capture
+Functional Domain	Law Enforcement	Criminal Apprehension	Warrant execution
+Functional Domain	Law Enforcement	Evidence Management	Crime scene processing
+
+5. Comprehensiveness:
+Each HLTP should have multiple 2nd Level elements
+Each 2nd Level element should have multiple 3rd Level elements
+Each 3rd Level element should have multiple taxa
+Aim for 8-15 concrete taxa for each 3rd Level element
+Ensure completeness of the taxonomy tree
+
+INSTRUCTIONS FOR USE
+When using this framework to develop a multi-dimensional taxonomy:
+Define Your Domain: Clearly specify what you are creating a taxonomy for
+Follow the Methodology: Work through all four phases systematically
+Validate Independence: Ensure each HLTP is truly independent
+Test Thoroughly: Apply the taxonomy to real-world examples
+Output in TSV Format: Follow the exact structure specified above
+Be Comprehensive: Ensure complete coverage at all levels
+Maintain Consistency: Use consistent terminology and capitalization throughout
+
+Please produce a complete taxonomy following this exact structure, with no deviations in format.</pre>
+                </div>
+            </div>
+            <p style="color: var(--bright-yellow); margin-top: 20px; text-align: center; font-size: 1.1rem;">
+                ⬆️ Copy this complete text and paste it into your AI assistant (Claude, GPT-4, Gemini) along with your domain specification
+            </p>
+        </div>
+
+        <!-- Concept Overview -->
+        <div class="section" id="overview">
+            <h2>Concept Overview</h2>
+            <p>
+                A multi-dimensional taxonomy is a framework for analyzing complex domains through multiple independent analytical perspectives,
+                each representing a fundamental way of understanding or looking at a subject matter. Unlike traditional hierarchical taxonomies
+                which organize concepts along a single dimension, multi-dimensional taxonomies recognize that complex phenomena exist in
+                high-dimensional conceptual spaces where multiple factors operate simultaneously and independently.
+            </p>
+        </div>
+
+        <!-- Core Principles -->
+        <div class="section" id="principles">
+            <h2>Core Principles</h2>
+            <div class="framework-box">
+                <h4>Five Foundational Principles</h4>
+                <ol>
+                    <li><strong>Dimensional Independence:</strong> Each dimension (High-Level Taxonomic Principle or HLTP) represents a truly independent analytical perspective that can vary without necessarily affecting others.</li>
+                    <li><strong>Universal Applicability:</strong> Each dimension should be applicable to all instances within the domain being analyzed.</li>
+                    <li><strong>Comprehensive Coverage:</strong> The combined dimensions should capture all essential aspects of the phenomenon.</li>
+                    <li><strong>Analytical Power:</strong> The framework should reveal insights that would be missed by simpler categorization schemes.</li>
+                    <li><strong>Practical Utility:</strong> The taxonomy should bridge theory and practice, supporting both analysis and operational planning.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Framework Structure -->
+        <div class="section" id="structure">
+            <h2>Framework Structure</h2>
+            <p>The multi-dimensional taxonomy is organized on four levels:</p>
+
+            <table>
+                <tr>
+                    <th>Level</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><strong>High-Level Taxonomic Principles (HLTPs)</strong></td>
+                    <td>Fundamental, independent dimensions or "lenses" for analyzing the domain (e.g., Temporal Dimension, Geographical Scope, Power Application)</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>Second-Level Elements</strong></td>
+                    <td>Major divisions within each HLTP</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Third-Level Elements</strong></td>
+                    <td>Specific operational areas within each second-level element</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Taxa</strong></td>
+                    <td>Concrete instances or activities that can be classified along all dimensions</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- HLTP Development Guidelines -->
+        <div class="section">
+            <h2>HLTP Development Guidelines</h2>
+
+            <h3>Essential Characteristics</h3>
+            <p>When developing HLTPs, ensure that each dimension:</p>
+            <ul>
+                <li>Represents a truly fundamental aspect of the domain</li>
+                <li>Can be applied to any instance within the domain</li>
+                <li>Is conceptually distinct from all other dimensions</li>
+                <li>Reveals essential rather than superficial features</li>
+                <li>Enables meaningful differentiation between instances</li>
+            </ul>
+
+            <h3>Testing for Independence</h3>
+            <div class="info-box">
+                <h4>An HLTP is independent if:</h4>
+                <ul>
+                    <li>Classification along one dimension does not determine classification along others</li>
+                    <li>You can find examples where an instance's position on one dimension changes while its position on other dimensions remains constant</li>
+                    <li>The dimension captures a unique aspect not covered by other dimensions</li>
+                </ul>
+            </div>
+
+            <h3>Validation Criteria</h3>
+            <p>Evaluate potential HLTPs against these criteria:</p>
+            <ul>
+                <li><strong>Independence:</strong> Does this dimension vary independently of others?</li>
+                <li><strong>Universality:</strong> Can all domain instances be classified along this dimension?</li>
+                <li><strong>Fundamentality:</strong> Does this dimension capture an essential rather than superficial aspect?</li>
+                <li><strong>Distinctiveness:</strong> Does this dimension provide a unique analytical perspective?</li>
+                <li><strong>Utility:</strong> Does this dimension reveal important insights or support practical applications?</li>
+            </ul>
+        </div>
+
+        <!-- Development Methodology -->
+        <div class="section" id="methodology">
+            <h2>Development Methodology</h2>
+            <p>Follow these steps to build a multi-dimensional taxonomy:</p>
+
+            <div class="phase-box">
+                <h4>Phase 1: Initial Dimension Identification</h4>
+                <ul>
+                    <li><strong>Domain Definition:</strong> Clearly define the boundaries of what you're analyzing</li>
+                    <li><strong>Brainstorming:</strong> Generate potential dimensions from multiple perspectives</li>
+                    <li><strong>Literature Review:</strong> Identify existing frameworks and dimensions from relevant literature</li>
+                    <li><strong>Expert Consultation:</strong> Gather input from domain specialists</li>
+                    <li><strong>First Principles Analysis:</strong> Consider what fundamental aspects define the domain</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <h4>Phase 2: Dimension Refinement</h4>
+                <ul>
+                    <li><strong>Independence Testing:</strong> Systematically test each dimension for independence</li>
+                    <li><strong>Classification Exercise:</strong> Attempt to classify diverse examples along each dimension</li>
+                    <li><strong>Gap Analysis:</strong> Identify aspects not captured by current dimensions</li>
+                    <li><strong>Redundancy Elimination:</strong> Merge or remove dimensions that overlap conceptually</li>
+                    <li><strong>Dimension Definition:</strong> Clearly articulate what each dimension represents</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <h4>Phase 3: Second-Level Development</h4>
+                <ul>
+                    <li><strong>Division Identification:</strong> For each HLTP, identify its major components</li>
+                    <li><strong>Mutual Exclusivity Check:</strong> Ensure categories within an HLTP don't overlap</li>
+                    <li><strong>Completeness Verification:</strong> Ensure categories cover all possibilities within that dimension</li>
+                    <li><strong>Definition Clarification:</strong> Provide clear definitions for each second-level element</li>
+                    <li><strong>Boundary Testing:</strong> Test edge cases to verify category boundaries</li>
+                </ul>
+            </div>
+
+            <div class="phase-box">
+                <h4>Phase 4: Testing and Validation</h4>
+                <ul>
+                    <li><strong>Real-World Testing:</strong> Apply the taxonomy to diverse real-world examples</li>
+                    <li><strong>Edge Case Analysis:</strong> Test the taxonomy against unusual or complex cases</li>
+                    <li><strong>Expert Validation:</strong> Have domain experts review and critique the taxonomy</li>
+                    <li><strong>Practical Application Test:</strong> Use the taxonomy for its intended purpose and evaluate results</li>
+                    <li><strong>Refinement Iteration:</strong> Adjust dimensions and categories based on testing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Practical Applications -->
+        <div class="section" id="applications">
+            <h2>Practical Applications</h2>
+            <p>A well-constructed multi-dimensional taxonomy enables:</p>
+            <ul>
+                <li><strong>Epistemic MRIs:</strong> When combined with exhaustive corpora and the use of LLMs for first relevance filtering and then classification of semantic text chunks, taxonomies allow for systemic literature reviews</li>
+                <li><strong>Gap Identification:</strong> Locate blind spots in current approaches</li>
+                <li><strong>Comprehensive Assessment:</strong> Evaluate activities across all dimensions</li>
+                <li><strong>Balance Analysis:</strong> Identify over- and under-emphasized areas</li>
+                <li><strong>Comparative Analysis:</strong> Compare different approaches systematically</li>
+                <li><strong>Pattern Recognition:</strong> Identify recurring patterns across dimensions</li>
+            </ul>
+        </div>
+
+        <!-- Implementation Guidance -->
+        <div class="section">
+            <h2>Implementation Guidance</h2>
+
+            <h3>Starting Points</h3>
+            <ul>
+                <li>Begin with 5-7 clearly independent dimensions</li>
+                <li>Focus on dimensions with immediate practical relevance</li>
+                <li>Test the framework with familiar examples</li>
+                <li>Gather feedback from potential users</li>
+                <li>Refine based on initial applications</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Common Pitfalls to Avoid</h4>
+                <ul>
+                    <li>Creating dimensions that are actually different aspects of the same thing</li>
+                    <li>Developing overly complex frameworks that are difficult to use</li>
+                    <li>Prioritizing theoretical elegance over practical utility</li>
+                    <li>Treating the taxonomy as fixed rather than evolving</li>
+                    <li>Focusing exclusively on familiar or comfortable dimensions</li>
+                </ul>
+            </div>
+
+            <h3>Best Practices</h3>
+            <ul>
+                <li>Document dimension definitions thoroughly</li>
+                <li>Provide clear examples for each dimension and category</li>
+                <li>Create visualization tools to aid understanding</li>
+                <li>Develop training materials for users</li>
+                <li>Establish a process for ongoing refinement</li>
+            </ul>
+        </div>
+
+        <!-- Example of Dimensional Analysis -->
+        <div class="section">
+            <h2>Example of Dimensional Analysis</h2>
+            <p>To illustrate how multi-dimensional analysis works, consider a community policing patrol analyzed through multiple HLTPs:</p>
+
+            <div class="example-box">
+                <h4>Community Policing Patrol Analysis</h4>
+                <ul>
+                    <li><strong>Temporal Dimension:</strong> Pre-incident (preventive activity)</li>
+                    <li><strong>Geographical Scope:</strong> Local (neighborhood-level activity)</li>
+                    <li><strong>Power Application:</strong> Soft power (influence through presence and relationships)</li>
+                    <li><strong>Stakeholder Interaction:</strong> Community engagement (direct public interaction)</li>
+                    <li><strong>Process Flow:</strong> Throughput process (ongoing activity rather than input or output)</li>
+                    <li><strong>Knowledge Dimension:</strong> Tacit knowledge (relies on experiential understanding)</li>
+                    <li><strong>Operational Level:</strong> Tactical (implements strategic direction at field level)</li>
+                </ul>
+                <p style="margin-top: 20px;">
+                    This multi-dimensional analysis reveals aspects that would be missed by simpler categorizations,
+                    showing how the same activity serves multiple functions simultaneously through different analytical lenses.
+                </p>
+            </div>
+        </div>
+
+        <!-- Guidance for Taxonomy Expansion -->
+        <div class="section">
+            <h2>Guidance for Taxonomy Expansion</h2>
+            <p>As your understanding deepens:</p>
+            <ul>
+                <li><strong>Extend Dimensions:</strong> Add new dimensions as they become apparent</li>
+                <li><strong>Deepen Categories:</strong> Develop more nuanced sub-categories</li>
+                <li><strong>Create Cross-Dimensional Maps:</strong> Identify how dimensions interact</li>
+                <li><strong>Develop Measurement Tools:</strong> Create ways to assess position along dimensions</li>
+                <li><strong>Build Application Guides:</strong> Create guidance for using the taxonomy in specific contexts</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Remember</h4>
+                <p>
+                    A taxonomy is a tool for understanding, not an end in itself. The ultimate test of a multi-dimensional
+                    taxonomy is whether it enhances understanding and supports better decision-making in its domain of application.
+                </p>
+            </div>
+        </div>
+
+        <!-- CSV Output Format -->
+        <div class="section" id="csv-format">
+            <h2>CSV Output Format</h2>
+            <p>Your final output should be structured as a tab-separated value (TSV) file with the following format:</p>
+
+            <div class="csv-box">
+                <h3>1. Column Structure</h3>
+                <ul>
+                    <li>Exactly 4 columns with headers: HLTP, 2nd Level TE, 3rd Level TE, and Taxon</li>
+                    <li>All column values should be separated by tab characters</li>
+                </ul>
+
+                <h3>2. Content Organization</h3>
+                <ul>
+                    <li><strong>HLTP:</strong> The high-level taxonomic principle (primary dimension)</li>
+                    <li><strong>2nd Level TE:</strong> Major category within the HLTP</li>
+                    <li><strong>3rd Level TE:</strong> Specific operational area within the 2nd level</li>
+                    <li><strong>Taxon:</strong> Concrete instance or specific activity</li>
+                </ul>
+
+                <h3>3. Formatting Requirements</h3>
+                <ul>
+                    <li>No quotation marks around values</li>
+                    <li>No additional columns or metadata</li>
+                    <li>Consistent capitalization for each HLTP and its elements</li>
+                    <li>Each row represents one complete classification path</li>
+                    <li>Group all items by HLTP, then by 2nd Level, then by 3rd Level</li>
+                </ul>
+
+                <h3>4. Example Structure</h3>
+                <pre>HLTP	2nd Level TE	3rd Level TE	Taxon
+Functional Domain	Law Enforcement	Criminal Apprehension	Suspect pursuit and capture
+Functional Domain	Law Enforcement	Criminal Apprehension	Warrant execution
+Functional Domain	Law Enforcement	Evidence Management	Crime scene processing</pre>
+
+                <h3>5. Comprehensiveness</h3>
+                <ul>
+                    <li>Each HLTP should have multiple 2nd Level elements</li>
+                    <li>Each 2nd Level element should have multiple 3rd Level elements</li>
+                    <li>Each 3rd Level element should have multiple taxa</li>
+                    <li>Aim for 8-15 concrete taxa for each 3rd Level element</li>
+                    <li>Ensure completeness of the taxonomy tree</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Instructions for Use -->
+        <div class="section">
+            <h2>Instructions for Use</h2>
+            <p>When using this framework to develop a multi-dimensional taxonomy:</p>
+
+            <div class="framework-box">
+                <h4>Step-by-Step Process</h4>
+                <ol>
+                    <li><strong>Define Your Domain:</strong> Clearly specify what you are creating a taxonomy for</li>
+                    <li><strong>Follow the Methodology:</strong> Work through all four phases systematically</li>
+                    <li><strong>Validate Independence:</strong> Ensure each HLTP is truly independent</li>
+                    <li><strong>Test Thoroughly:</strong> Apply the taxonomy to real-world examples</li>
+                    <li><strong>Output in TSV Format:</strong> Follow the exact structure specified above</li>
+                    <li><strong>Be Comprehensive:</strong> Ensure complete coverage at all levels</li>
+                    <li><strong>Maintain Consistency:</strong> Use consistent terminology and capitalization throughout</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <h4>Important Note</h4>
+                <p>
+                    Please produce a complete taxonomy following this exact structure, with no deviations in format.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Copy full framework text
+        function copyFullText() {
+            const text = document.getElementById('full-framework-text').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = '✅ Copied!';
+                button.style.background = 'linear-gradient(135deg, var(--bright-green), var(--bright-cyan))';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = 'linear-gradient(135deg, var(--bright-yellow), var(--bright-orange))';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy. Please select and copy manually.');
+                console.error('Copy failed:', err);
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', () => {
+            const button = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                button.style.display = 'flex';
+            } else {
+                button.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

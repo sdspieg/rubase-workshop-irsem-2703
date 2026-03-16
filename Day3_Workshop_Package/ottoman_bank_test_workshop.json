@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "source": "Tier 2 high confidence",
+    "total_chunks": 10,
+    "description": "Test sample for workshop demonstration"
+  },
+  "chunks": [
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_0",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 0,
+      "total_chunks": 15,
+      "chunk_text": "One of the marginalized topics in the historiography of the Ottoman Empire in general, and that of the Armenian Genocide in particular, is the fate of ‘Armenian capital’ during World War I. Ottoman historians have often been inclined to highlight the great achievements that Armenians made in the field of economy in the Ottoman Empire as sarrafs, bankers, merchants and industrialists.",
+      "chunk_length": 386
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_1",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 1,
+      "total_chunks": 15,
+      "chunk_text": "as sarrafs, bankers, merchants and industrialists. However, when a scholar starts examining or questioning the fate of ‘Armenian capital’ in the Empire, he/she is immediately suspected of having a political or nationalistic agenda. Scholars therefore usually try to avoid dealing with this ‘sensitive’ issue lest they anger the ‘lion in the cage’ or are marginalized by their colleagues for ‘venturing into minefields.’ Hence, scholars always try to choose non-sensitive issues that deal with the soc",
+      "chunk_length": 500
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_2",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 2,
+      "total_chunks": 15,
+      "chunk_text": "choose non-sensitive issues that deal with the social and economic dimension of Ottoman history. Yet questions remain as to why discussing the issue of prostitution in 18th-century Istanbul, for example, or epidemics in the 19th-century Ottoman Empire, should be considered legitimate subjects for inquiry, while questioning the fate of ‘Armenian capital’ is labeled troublesome and sensitive.",
+      "chunk_length": 393
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_3",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 3,
+      "total_chunks": 15,
+      "chunk_text": "ian capital’ is labeled troublesome and sensitive. The history of the Armenian contribution to the field of economy in the Empire and the subsequent destruction of ‘Armenian capital’ during World War I must be discussed as a regular and legitimate subject pertaining to both the history of the Ottoman Empire and that of modern Turkey.\\nThe use of the term ‘Armenian economy’ can be rather misleading.",
+      "chunk_length": 401
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_4",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 4,
+      "total_chunks": 15,
+      "chunk_text": "term ‘Armenian economy’ can be rather misleading. I have placed the phrase in quotes to signify that the ‘Armenian economy’ was an integral part of the Ottoman economy, directly influenced and nurtured by the economic, political and social transformations experienced in the Empire during the 19th century. Thus, I employ the term ‘Armenian economy’ to represent all those Armenians who were in some capacity involved in the economic activities of the Empire as merchants, industrialists, factory ow",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_5",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 5,
+      "total_chunks": 15,
+      "chunk_text": "he Empire as merchants, industrialists, factory owners, middlemen, bankers, etc. This economy was specifically destroyed and confiscated during World War I because of its administration by Armenians.\\nResearch on the fate of ‘Armenian capital’ in the Ottoman Empire remains in its infancy for several reasons. We know for a fact that hundreds of Armenian merchants and commercial houses existed alongside factories in the Ottoman Empire during the late 1800s (Der Matossian 2007).One would speculate",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_8",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 8,
+      "total_chunks": 15,
+      "chunk_text": "rikor Chatalian was involved in and on the other, his impressive administrative abilities in bookkeeping and archival recording. A detailed examination of these documents sheds a vital light on the economic and the social history of Sivrihisar prior to the destruction of the ‘Armenian economy’ in the Empire.\\nThe private archives of these merchants, commercial houses, commercial firms and factories, if available, would demonstrate the complexity and enormity of ‘Armenian capital’ in the Ottoman",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_9",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 9,
+      "total_chunks": 15,
+      "chunk_text": "and enormity of ‘Armenian capital’ in the Ottoman Empire. However, these archives have not yet been examined or were destroyed along with ‘Armenian capital’ during the Armenian Genocide of World War I. Thus, the paucity of archival material on Armenian businesses creates a serious challenge to historians who aim to reconstruct the history of the ‘Armenian economy’ during the 19th century.",
+      "chunk_length": 391
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_12",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 12,
+      "total_chunks": 15,
+      "chunk_text": "formation on topography, Ottoman history, Armenians in Ottoman administration, and cultural and ethnographic dimensions (Alboyadjian 1952; Hovakimian 1967; Yeghyayan 1970). Another main source for reconstructing the history of the ‘Armenian economy’ is the Ottoman Archives, which hold a plethora of information on the economic history of the Empire. An important source in these archives lies in the documentation of the liquidation of the Armenian properties in the Empire during World War I, when",
+      "chunk_length": 499
+    },
+    {
+      "chunk_id": "https://openalex.org/W1926897321_chunk_13",
+      "paper_id": "https://openalex.org/W1926897321",
+      "paper_title": "The Taboo within the Taboo: The Fate of ‘Armenian Capital’ at the End of the Ottoman Empire",
+      "chunk_index": 13,
+      "total_chunks": 15,
+      "chunk_text": "properties in the Empire during World War I, when a systematic process of confiscation began that ended with the appropriation of ‘Armenian capital’ during the Republican period. This confiscation process, which was initiated by the Abandoned Property Commission (Emvâl-i Metruke Komisyonu) and the Liquidation Commission (Tasfiye Komisyonu), was highly bureaucratized and involved keeping detailed registers of the items, properties, and capital that were confiscated from the Armenian deportees, wi",
+      "chunk_length": 500
+    }
+  ]
+}

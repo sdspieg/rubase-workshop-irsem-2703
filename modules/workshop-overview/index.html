@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Overview - RuBase Methods - Fletcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        /* Partner Logos Header */
+        .partner-logos {
+            position: fixed;
+            top: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .partner-logos a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .partner-logos a:hover {
+            opacity: 1;
+        }
+
+        .partner-logos img {
+            height: 60px;
+        }
+
+        .container {
+            padding-top: 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--bright-cyan);
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.05));
+            border: 3px solid var(--bright-cyan);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .module-card.frame {
+            border-color: var(--bright-purple);
+            background: linear-gradient(135deg, var(--dark-accent), rgba(147,112,219,0.05));
+        }
+
+        .module-card.frame:hover {
+            box-shadow: 0 20px 40px rgba(147, 112, 219, 0.3);
+        }
+
+        .module-card.analyze {
+            border-color: var(--bright-green);
+            background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,127,0.05));
+        }
+
+        .module-card.analyze:hover {
+            box-shadow: 0 20px 40px rgba(0, 255, 127, 0.3);
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .module-day {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--bright-cyan);
+        }
+
+        .module-card.frame .module-day {
+            color: var(--bright-purple);
+        }
+
+        .module-card.analyze .module-day {
+            color: var(--bright-green);
+        }
+
+        .module-date {
+            color: var(--bright-yellow);
+            font-size: 1.1rem;
+        }
+
+        .module-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--bright-cyan);
+            margin-bottom: 10px;
+        }
+
+        .module-card.frame .module-title {
+            color: var(--bright-purple);
+        }
+
+        .module-card.analyze .module-title {
+            color: var(--bright-green);
+        }
+
+        .module-subtitle {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .module-topics {
+            list-style: none;
+            padding: 0;
+        }
+
+        .module-topics li {
+            color: var(--light-gray);
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .module-topics li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--bright-cyan);
+            font-size: 1.2rem;
+        }
+
+        .module-card.frame .module-topics li:before {
+            color: var(--bright-purple);
+        }
+
+        .module-card.analyze .module-topics li:before {
+            color: var(--bright-green);
+        }
+
+        .home-button {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 101;
+            background: rgba(20, 40, 71, 0.9);
+            border: 2px solid var(--bright-cyan);
+            color: var(--bright-cyan);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .home-button:hover {
+            background: rgba(0, 255, 255, 0.15);
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .click-hint {
+            text-align: center;
+            color: var(--bright-yellow);
+            font-size: 1.2rem;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        @media (max-width: 1024px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partner Logos Header -->
+    <div class="partner-logos">
+        <a href="https://hcss.nl" target="_blank" title="The Hague Centre for Strategic Studies">
+            <img src="../openalex/hcss_logo.svg" alt="HCSS Logo">
+        </a>
+        <a href="https://hcss.nl/rubase/" target="_blank" title="RuBase">
+            <img src="../openalex/rubase_logo.svg" alt="RuBase Logo">
+        </a>
+    </div>
+
+    <button class="home-button" onclick="window.location.href='../../index.html'">
+        🏠 Home
+    </button>
+
+    <div class="container">
+        <h1 class="page-title">RuBase Methods Workshop - Fletcher</h1>
+        <p class="page-subtitle">3-Day Journey in AI-Augmented Research Methods</p>
+
+        <div class="modules-grid">
+            <!-- Day 1: DISCOVER -->
+            <a href="../mdviewer/index.html?file=Day1_Schedule.md&return=../workshop-overview/index.html" class="module-card">
+                <div class="module-header">
+                    <div class="module-day">1</div>
+                    <div class="module-date">Wednesday</div>
+                </div>
+                <div class="module-title">DISCOVER</div>
+                <div class="module-subtitle">Finding What You've Been Missing</div>
+                <ul class="module-topics">
+                    <li>Introduction to RuBase methodology</li>
+                    <li>Understanding bibliometric analysis</li>
+                    <li>Mastering OpenAlex for literature discovery</li>
+                    <li>Building comprehensive research corpora</li>
+                    <li>Finding hidden literature in full-text</li>
+                    <li>Export workflows to Zotero</li>
+                </ul>
+            </a>
+
+            <!-- Day 2: FRAME -->
+            <a href="../mdviewer/index.html?file=Day2_Schedule.md&return=../workshop-overview/index.html" class="module-card frame">
+                <div class="module-header">
+                    <div class="module-day">2</div>
+                    <div class="module-date">Thursday</div>
+                </div>
+                <div class="module-title">FRAME</div>
+                <div class="module-subtitle">Building Rigorous Analytical Pipelines</div>
+                <ul class="module-topics">
+                    <li>Taxonomy theory and best practices</li>
+                    <li>Designing effective classification systems</li>
+                    <li>Building hierarchical categories</li>
+                    <li>Creating coding schemes</li>
+                    <li>Hands-on taxonomy workshop</li>
+                    <li>Quality control and validation</li>
+                </ul>
+            </a>
+
+            <!-- Day 3: ANALYZE -->
+            <a href="../mdviewer/index.html?file=Day3_Schedule.md&return=../workshop-overview/index.html" class="module-card analyze">
+                <div class="module-header">
+                    <div class="module-day">3</div>
+                    <div class="module-date">Friday</div>
+                </div>
+                <div class="module-title">ANALYZE</div>
+                <div class="module-subtitle">From Frameworks to Findings</div>
+                <ul class="module-topics">
+                    <li>LLM-powered text classification</li>
+                    <li>Prompt engineering for research</li>
+                    <li>Automated corpus annotation</li>
+                    <li>Data visualization techniques</li>
+                    <li>Statistical analysis workflows</li>
+                    <li>Creating research outputs</li>
+                </ul>
+            </a>
+        </div>
+
+        <div class="click-hint">
+            👆 Click on any module to see the detailed schedule and materials
+        </div>
+    </div>
+</body>
+</html>

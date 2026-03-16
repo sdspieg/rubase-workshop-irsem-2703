@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Archives - RuBase Methods</title>
+    <style>
+        :root {
+            --dark-bg: #0a0e27;
+            --secondary-bg: #151b3d;
+            --accent-cyan: #00ffff;
+            --accent-purple: #9400d3;
+            --accent-green: #00ff00;
+            --accent-yellow: #ffd700;
+            --accent-orange: #ffa500;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: #2a3f5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .version-selector {
+            display: inline-flex;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(21, 27, 61, 0.95);
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+        }
+
+        .version-btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: 2px solid var(--accent-cyan);
+            background: transparent;
+            color: var(--accent-cyan);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .version-btn.active {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--dark-bg);
+            transform: scale(1.05);
+        }
+
+        .version-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        .archives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .archive-card {
+            background: rgba(21, 27, 61, 0.95);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .archive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+        }
+
+        .archive-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .archive-card.featured {
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 30px rgba(0, 255, 127, 0.2);
+        }
+
+        .archive-card.featured::before {
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
+        }
+
+        .archive-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+
+        .archive-title {
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+        }
+
+        .archive-badge {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
+            color: var(--dark-bg);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .archive-meta {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .archive-meta span {
+            margin-right: 20px;
+        }
+
+        .archive-description {
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .archive-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: var(--secondary-bg);
+            border-radius: 10px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .archive-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--dark-bg);
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+        }
+
+        .info-banner {
+            background: rgba(0, 255, 127, 0.1);
+            border: 2px solid var(--accent-green);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .info-banner h3 {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-banner p {
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .upcoming-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .upcoming-title {
+            font-size: 2rem;
+            color: var(--accent-yellow);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .upcoming-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .upcoming-item {
+            background: rgba(21, 27, 61, 0.5);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .upcoming-item h4 {
+            color: var(--accent-yellow);
+            margin-bottom: 10px;
+        }
+
+        .upcoming-item p {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .archives-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archive-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .version-selector {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .version-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ RuBase/StratBase Workshop Archives</h1>
+            <p>Access materials from all RuBase and StratBase Methods workshops</p>
+
+            <div class="version-selector">
+                <a href="index.html" class="version-btn active">
+                    ⭐ Latest Version
+                </a>
+                <a href="#archives" class="version-btn">
+                    📚 Past Workshops
+                </a>
+                <a href="#upcoming" class="version-btn">
+                    🔮 Upcoming
+                </a>
+            </div>
+        </div>
+
+        <div class="info-banner">
+            <h3>🚀 RuBase vs. StratBase: Two Brands, One Platform</h3>
+            <p>
+                <strong>RuBase</strong> workshops focus on Russia, Eurasia, and regional studies with area-specific examples and case studies.<br>
+                <strong>StratBase</strong> workshops emphasize broader strategic analysis, policy research, and global applications.<br><br>
+                Both use the same cutting-edge AI methodologies - the difference is in framing and examples to best serve different research communities.
+            </p>
+        </div>
+
+        <div id="archives" class="archives-grid">
+            <!-- Latest Version Card -->
+            <div class="archive-card featured" onclick="window.location.href='index.html'">
+                <div class="archive-header">
+                    <div>
+                        <div class="archive-title">Latest Workshop Materials</div>
+                        <div class="archive-meta">
+                            <span>📅 Updated: March 2026</span>
+                        </div>
+                    </div>
+                    <div class="archive-badge">CURRENT</div>
+                </div>
+
+                <div class="archive-description">
+                    The most recent version with all improvements, updated LLM benchmarks (GPT-5.4, Claude 4.6, Gemini 3.1),
+                    enhanced navigation, and lessons learned from all previous workshops.
+                </div>
+
+                <div class="archive-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Days</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">15+</div>
+                        <div class="stat-label">Modules</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">Latest</div>
+                        <div class="stat-label">Content</div>
+                    </div>
+                </div>
+
+                <div class="archive-actions">
+                    <a href="index.html" class="action-btn primary">
+                        Open Latest Workshop
+                    </a>
+                    <a href="download-materials.html" class="action-btn secondary">
+                        Download All
+                    </a>
+                </div>
+            </div>
+
+            <!-- Fletcher Workshop Archive -->
+            <div class="archive-card" onclick="window.location.href='https://sdspieg.github.io/rubase-workshop-fletcher-2603/'">
+                <div class="archive-header">
+                    <div>
+                        <div class="archive-title">Fletcher School Workshop</div>
+                        <div class="archive-meta">
+                            <span>🏷️ RuBase</span>
+                            <span>📅 March 11-13, 2026</span>
+                            <span>👥 25 Attendees</span>
+                        </div>
+                    </div>
+                    <div class="archive-badge" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));">
+                        RUBASE
+                    </div>
+                </div>
+
+                <div class="archive-description">
+                    The inaugural RuBase workshop at The Fletcher School of Law and Diplomacy, Tufts University.
+                    Focused on AI-augmented research methods for international relations scholars.
+                </div>
+
+                <div class="archive-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Days</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Presenters</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">Fletcher</div>
+                        <div class="stat-label">Location</div>
+                    </div>
+                </div>
+
+                <div class="archive-actions">
+                    <a href="https://sdspieg.github.io/rubase-workshop-fletcher-2603/" class="action-btn primary">
+                        View Archive
+                    </a>
+                    <a href="https://sdspieg.github.io/rubase-workshop-fletcher-2603/download-materials.html" class="action-btn secondary">
+                        Materials
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="upcoming" class="upcoming-section">
+            <h2 class="upcoming-title">🔮 Upcoming Workshops</h2>
+
+            <div class="upcoming-list">
+                <div class="upcoming-item">
+                    <h4>🇫🇷 IRSEM Paris - March 27, 2026 <span style="color: var(--accent-green);">[StratBase]</span></h4>
+                    <p>One-day workshop at the Institute for Strategic Research. Focus on strategic analysis and defense applications of AI-augmented research.</p>
+                </div>
+
+
+                <div class="upcoming-item">
+                    <h4>🇰🇿 Astana, Kazakhstan - September 2026 <span style="color: var(--accent-cyan);">[RuBase]</span></h4>
+                    <p>Central Asian studies focus, regional security analysis, and post-Soviet space research methodologies.</p>
+                </div>
+
+                <div class="upcoming-item">
+                    <h4>🇦🇿 Baku, Azerbaijan - September 2026 <span style="color: var(--accent-cyan);">[RuBase]</span></h4>
+                    <p>Caspian region analysis, energy studies, and South Caucasus research applications.</p>
+                </div>
+
+                <div class="upcoming-item">
+                    <h4>🇫🇮 Helsinki, Finland - October 2026 <span style="color: var(--accent-cyan);">[RuBase]</span></h4>
+                    <p>Nordic-Russian relations, Arctic studies, and Baltic regional security analysis.</p>
+                </div>
+            </div>
+
+            <div class="info-banner" style="margin-top: 40px;">
+                <h3>📧 Host a Workshop at Your Institution</h3>
+                <p>
+                    Interested in bringing the RuBase Methods Workshop to your university or organization?<br>
+                    Contact us to discuss customized training for your researchers and analysts.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+<!-- Navigation -->
+<div style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(30, 41, 59, 0.95); padding: 10px 20px; border-radius: 50px; border: 1px solid #334155; backdrop-filter: blur(10px); z-index: 1000;">
+    <button onclick="window.location.href='index.html'" style="background: linear-gradient(135deg, #00ffff, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: 'Titillium Web', sans-serif;">🏠 Home</button>
+</div>
+
+</body>
+</html>

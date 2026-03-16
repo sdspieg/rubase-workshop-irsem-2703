@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Workshop Materials - RuBase</title>
+    <style>
+        :root {
+            --dark-bg: #0a0e27;
+            --secondary-bg: #151b3d;
+            --accent-cyan: #00ffff;
+            --accent-purple: #9400d3;
+            --accent-green: #00ff00;
+            --accent-yellow: #ffd700;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: #2a3f5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .download-section {
+            background: rgba(21, 27, 61, 0.95);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .material-card {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .material-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .material-card h3 {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .material-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .material-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--dark-bg);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .download-all-btn {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
+            font-size: 1.3rem;
+            padding: 20px 40px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+            max-width: 400px;
+        }
+
+        .progress-bar {
+            display: none;
+            width: 100%;
+            height: 30px;
+            background: var(--secondary-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            border-radius: 15px;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-bg);
+            font-weight: bold;
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 20px;
+            color: var(--accent-green);
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin: 20px 0;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .home-link:hover {
+            color: var(--accent-green);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="home-link">← Back to Workshop</a>
+
+        <div class="header">
+            <h1>📦 Workshop Materials</h1>
+            <p>Download all resources and materials from the RuBase Methods Workshop</p>
+        </div>
+
+        <!-- Day 1 Materials -->
+        <div class="download-section">
+            <h2 class="section-title">📚 Day 1: DISCOVER</h2>
+            <div class="materials-grid">
+                <div class="material-card" onclick="downloadFile('modules/welcome/welcome-setup.html', 'Day1_Welcome_Setup.html')">
+                    <h3>Welcome & Setup</h3>
+                    <p>Initial setup guide and workshop introduction</p>
+                    <div class="material-meta">
+                        <span>HTML • 30 min</span>
+                        <span>📄</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('modules/openalex/openalex-explorer.html', 'Day1_OpenAlex_Explorer.html')">
+                    <h3>OpenAlex Explorer</h3>
+                    <p>Interactive bibliometric discovery tool</p>
+                    <div class="material-meta">
+                        <span>HTML • 45 min</span>
+                        <span>🔍</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('Day1_Schedule.md', 'Day1_Schedule.md')">
+                    <h3>Day 1 Schedule</h3>
+                    <p>Complete agenda and timeline</p>
+                    <div class="material-meta">
+                        <span>Markdown</span>
+                        <span>📅</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 Materials -->
+        <div class="download-section">
+            <h2 class="section-title">🎯 Day 2: FRAME</h2>
+            <div class="materials-grid">
+                <div class="material-card" onclick="downloadFile('modules/cartography/knowledge-cartography.html', 'Day2_Knowledge_Cartography.html')">
+                    <h3>Knowledge Cartography</h3>
+                    <p>Mapping research landscapes presentation</p>
+                    <div class="material-meta">
+                        <span>Slides • 30 min</span>
+                        <span>🗺️</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('modules/frame/building-taxonomies.html', 'Day2_Building_Taxonomies.html')">
+                    <h3>Building Taxonomies</h3>
+                    <p>Creating classification systems</p>
+                    <div class="material-meta">
+                        <span>Interactive • 45 min</span>
+                        <span>🎯</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('modules/exercise/hands-on-exercise.html', 'Day2_Exercise.html')">
+                    <h3>Hands-On Exercise</h3>
+                    <p>Practice with real research data</p>
+                    <div class="material-meta">
+                        <span>Workshop • 60 min</span>
+                        <span>📝</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('Day2_Schedule.md', 'Day2_Schedule.md')">
+                    <h3>Day 2 Schedule</h3>
+                    <p>Complete agenda and timeline</p>
+                    <div class="material-meta">
+                        <span>Markdown</span>
+                        <span>📅</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 Materials -->
+        <div class="download-section">
+            <h2 class="section-title">🚀 Day 3: ANALYZE</h2>
+            <div class="materials-grid">
+                <div class="material-card" onclick="downloadFile('modules/analyze/ottoman-bank-case-study.html', 'Day3_Ottoman_Bank.html')">
+                    <h3>Ottoman Bank Case Study</h3>
+                    <p>Real-world research analysis walkthrough</p>
+                    <div class="material-meta">
+                        <span>Slides • 40 min</span>
+                        <span>🏛️</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('modules/analyze/cli-llms-guide.html', 'Day3_CLI_LLMs.html')">
+                    <h3>CLI LLMs Guide</h3>
+                    <p>Command-line AI tools for research</p>
+                    <div class="material-meta">
+                        <span>Slides • 50 min</span>
+                        <span>💻</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('modules/analyze/deep-research-guide.html', 'Day3_Deep_Research.html')">
+                    <h3>Deep Research Guide</h3>
+                    <p>Advanced analysis techniques</p>
+                    <div class="material-meta">
+                        <span>Slides • 35 min</span>
+                        <span>🔍</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('modules/analyze/wacko-presentation.html', 'Day3_WACKO.html')">
+                    <h3>WACKO Presentation</h3>
+                    <p>Framework for systematic analysis</p>
+                    <div class="material-meta">
+                        <span>Slides • 25 min</span>
+                        <span>🎯</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('modules/analyze/llm-selection-guide.html', 'Day3_LLM_Selection.html')">
+                    <h3>LLM Selection Guide</h3>
+                    <p>Choosing the right AI model (March 2026)</p>
+                    <div class="material-meta">
+                        <span>Slides • 30 min</span>
+                        <span>🤖</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('Day3_Schedule.md', 'Day3_Schedule.md')">
+                    <h3>Day 3 Schedule</h3>
+                    <p>Complete agenda and timeline</p>
+                    <div class="material-meta">
+                        <span>Markdown</span>
+                        <span>📅</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="download-section">
+            <h2 class="section-title">📖 Additional Resources</h2>
+            <div class="materials-grid">
+                <div class="material-card" onclick="downloadFile('CLI_LLM_Setup_Guide.md', 'CLI_LLM_Setup_Guide.md')">
+                    <h3>CLI Setup Guide</h3>
+                    <p>Complete setup instructions for CLI tools</p>
+                    <div class="material-meta">
+                        <span>Markdown</span>
+                        <span>🛠️</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="downloadFile('Taxonomy_Exercise_Instructions.md', 'Taxonomy_Exercise_Instructions.md')">
+                    <h3>Taxonomy Exercise</h3>
+                    <p>Step-by-step exercise instructions</p>
+                    <div class="material-meta">
+                        <span>Markdown</span>
+                        <span>📋</span>
+                    </div>
+                </div>
+
+                <div class="material-card" onclick="window.open('Day3_Workshop_Package/', '_blank')">
+                    <h3>Workshop Package</h3>
+                    <p>Complete set of scripts and tools</p>
+                    <div class="material-meta">
+                        <span>Directory</span>
+                        <span>📦</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download All Button -->
+        <button class="download-btn download-all-btn" onclick="downloadAll()">
+            <span>⬇️</span>
+            <span>Download All Materials</span>
+        </button>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill">0%</div>
+        </div>
+
+        <!-- Status Message -->
+        <div class="status-message" id="statusMessage"></div>
+    </div>
+
+    <script>
+        // List of all downloadable files
+        const allFiles = [
+            // Day 1
+            { url: 'modules/welcome/welcome-setup.html', name: 'Day1_Welcome_Setup.html' },
+            { url: 'modules/openalex/openalex-explorer.html', name: 'Day1_OpenAlex_Explorer.html' },
+            { url: 'Day1_Schedule.md', name: 'Day1_Schedule.md' },
+
+            // Day 2
+            { url: 'modules/cartography/knowledge-cartography.html', name: 'Day2_Knowledge_Cartography.html' },
+            { url: 'modules/frame/building-taxonomies.html', name: 'Day2_Building_Taxonomies.html' },
+            { url: 'modules/exercise/hands-on-exercise.html', name: 'Day2_Exercise.html' },
+            { url: 'Day2_Schedule.md', name: 'Day2_Schedule.md' },
+
+            // Day 3
+            { url: 'modules/analyze/ottoman-bank-case-study.html', name: 'Day3_Ottoman_Bank.html' },
+            { url: 'modules/analyze/cli-llms-guide.html', name: 'Day3_CLI_LLMs.html' },
+            { url: 'modules/analyze/deep-research-guide.html', name: 'Day3_Deep_Research.html' },
+            { url: 'modules/analyze/wacko-presentation.html', name: 'Day3_WACKO.html' },
+            { url: 'modules/analyze/llm-selection-guide.html', name: 'Day3_LLM_Selection.html' },
+            { url: 'Day3_Schedule.md', name: 'Day3_Schedule.md' },
+
+            // Additional Resources
+            { url: 'CLI_LLM_Setup_Guide.md', name: 'CLI_LLM_Setup_Guide.md' },
+            { url: 'Taxonomy_Exercise_Instructions.md', name: 'Taxonomy_Exercise_Instructions.md' }
+        ];
+
+        function downloadFile(url, filename) {
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename || url.split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            // Show success message
+            showStatus(`Downloading ${filename}...`, 2000);
+        }
+
+        async function downloadAll() {
+            const progressBar = document.getElementById('progressBar');
+            const progressFill = document.getElementById('progressFill');
+            const statusMessage = document.getElementById('statusMessage');
+
+            progressBar.style.display = 'block';
+
+            for (let i = 0; i < allFiles.length; i++) {
+                const file = allFiles[i];
+                const progress = Math.round(((i + 1) / allFiles.length) * 100);
+
+                progressFill.style.width = progress + '%';
+                progressFill.textContent = progress + '%';
+
+                downloadFile(file.url, file.name);
+
+                // Add delay between downloads to prevent browser blocking
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+
+            progressBar.style.display = 'none';
+            showStatus('✅ All materials downloaded successfully!', 5000);
+        }
+
+        function showStatus(message, duration) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = message;
+            statusMessage.style.display = 'block';
+
+            if (duration) {
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, duration);
+            }
+        }
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'd') {
+                e.preventDefault();
+                downloadAll();
+            }
+            if (e.key === 'Escape') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+
+<!-- Navigation -->
+<div style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(30, 41, 59, 0.95); padding: 10px 20px; border-radius: 50px; border: 1px solid #334155; backdrop-filter: blur(10px); z-index: 1000;">
+    <button onclick="window.location.href='index.html'" style="background: linear-gradient(135deg, #00ffff, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: 'Titillium Web', sans-serif;">🏠 Home</button>
+</div>
+
+</body>
+</html>

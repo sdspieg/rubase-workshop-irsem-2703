@@ -1,0 +1,259 @@
+{
+  "total": 3,
+  "results": [
+    {
+      "lens_id": "000-123-456-789-ABC",
+      "created": "2024-12-15T08:23:45Z",
+      "title": "Deep Learning Approaches for Climate Change Prediction: A Systematic Review",
+      "abstract": "Climate change represents one of the most pressing challenges of our time, requiring sophisticated predictive models to understand future impacts and inform mitigation strategies. This systematic review examines recent advances in deep learning applications for climate change prediction, analyzing 156 studies published between 2020 and 2024. We identify key methodological trends, including the increasing use of transformer architectures for temporal modeling, graph neural networks for spatial dependencies, and physics-informed neural networks that incorporate domain knowledge. Our analysis reveals that hybrid models combining multiple deep learning approaches consistently outperform single-method implementations, achieving prediction accuracy improvements of 15-30% across various climate variables. We also discuss critical challenges including data scarcity in certain regions, computational requirements, and the interpretability of complex models. The review highlights promising directions for future research, particularly in uncertainty quantification, transfer learning for data-limited regions, and the integration of satellite observations with ground-based measurements. These findings provide essential guidance for researchers developing next-generation climate prediction systems.",
+      "date_published": "2024-11-28",
+      "year_published": 2024,
+      "publication_type": "journal article",
+      "external_ids": {
+        "doi": "10.1038/s41558-024-02156-3",
+        "pmid": "39456789",
+        "arxiv": "2411.12345"
+      },
+      "references": [
+        {
+          "lens_id": "000-987-654-321-XYZ",
+          "title": "Transformer networks for climate modeling"
+        },
+        {
+          "lens_id": "000-456-789-123-DEF",
+          "title": "Physics-informed neural networks in earth system science"
+        }
+      ],
+      "authors": [
+        {
+          "first_name": "Maria",
+          "last_name": "Rodriguez",
+          "initials": "M",
+          "affiliations": [
+            {
+              "name": "Climate Science Institute, Stanford University",
+              "address": {
+                "country": "United States",
+                "country_code": "US",
+                "city": "Stanford"
+              }
+            }
+          ],
+          "orcid": "0000-0002-1234-5678"
+        },
+        {
+          "first_name": "Chen",
+          "last_name": "Wei",
+          "initials": "C",
+          "affiliations": [
+            {
+              "name": "Department of Atmospheric Sciences, Peking University",
+              "address": {
+                "country": "China",
+                "country_code": "CN",
+                "city": "Beijing"
+              }
+            }
+          ]
+        },
+        {
+          "first_name": "James",
+          "last_name": "Anderson",
+          "initials": "J",
+          "affiliations": [
+            {
+              "name": "Oxford Climate Systems, University of Oxford",
+              "address": {
+                "country": "United Kingdom",
+                "country_code": "GB",
+                "city": "Oxford"
+              }
+            }
+          ]
+        }
+      ],
+      "source": {
+        "title": "Nature Climate Change",
+        "publisher": "Nature Publishing Group",
+        "issn": ["1758-678X", "1758-6798"],
+        "volume": "14",
+        "issue": "12",
+        "pages": {
+          "first": "1234",
+          "last": "1248"
+        }
+      },
+      "fields_of_study": [
+        "Climate Science",
+        "Machine Learning",
+        "Atmospheric Sciences",
+        "Environmental Science"
+      ],
+      "keywords": [
+        "deep learning",
+        "climate prediction",
+        "neural networks",
+        "systematic review",
+        "transformer models",
+        "physics-informed learning"
+      ],
+      "citation_count": 23,
+      "scholarly_citations_count": 21,
+      "is_open_access": true,
+      "oa_license": "cc-by",
+      "oa_url": "https://www.nature.com/articles/s41558-024-02156-3.pdf"
+    },
+    {
+      "lens_id": "000-234-567-890-GHI",
+      "created": "2024-12-10T14:30:22Z",
+      "title": "CRISPR-Cas9 Gene Editing for Treatment-Resistant Acute Myeloid Leukemia: Phase II Clinical Trial Results",
+      "abstract": "Background: Acute myeloid leukemia (AML) patients with FLT3-ITD mutations often develop resistance to targeted therapies. We conducted a phase II clinical trial evaluating CRISPR-Cas9 edited autologous T cells for treatment-resistant AML. Methods: Twenty-eight patients with relapsed/refractory FLT3-ITD positive AML received CRISPR-edited CAR-T cells targeting CD123 with simultaneous knockout of inhibitory receptors PD-1 and TIM-3. Primary endpoints were safety and complete remission rate at 3 months. Secondary endpoints included minimal residual disease negativity, overall survival, and T cell persistence. Results: The treatment was well-tolerated with grade 3-4 cytokine release syndrome in 21% of patients. Complete remission was achieved in 64% (18/28) of patients at 3 months, with 78% (14/18) achieving MRD negativity. Median overall survival was 18.5 months. Edited T cells persisted for median 9 months, with enhanced functionality demonstrated by increased cytokine production and reduced exhaustion markers. Resistance mechanisms included CD123 antigen loss (n=3) and emergence of alternative leukemic clones (n=2). Conclusions: CRISPR-edited dual checkpoint knockout CAR-T cells show promising efficacy in treatment-resistant AML. These results support further development of gene-edited cellular therapies for hematologic malignancies.",
+      "date_published": "2024-12-01",
+      "year_published": 2024,
+      "publication_type": "journal article",
+      "external_ids": {
+        "doi": "10.1016/S0140-6736(24)02345-6",
+        "pmid": "39567890",
+        "clinicaltrials_gov": "NCT04123456"
+      },
+      "authors": [
+        {
+          "first_name": "Sarah",
+          "last_name": "Mitchell",
+          "initials": "S",
+          "affiliations": [
+            {
+              "name": "Department of Hematology/Oncology, Memorial Sloan Kettering Cancer Center",
+              "address": {
+                "country": "United States",
+                "country_code": "US",
+                "city": "New York"
+              }
+            }
+          ],
+          "orcid": "0000-0001-9876-5432"
+        },
+        {
+          "first_name": "Takeshi",
+          "last_name": "Yamamoto",
+          "initials": "T",
+          "affiliations": [
+            {
+              "name": "Cancer Gene Therapy Research Institute, University of Tokyo",
+              "address": {
+                "country": "Japan",
+                "country_code": "JP",
+                "city": "Tokyo"
+              }
+            }
+          ]
+        }
+      ],
+      "source": {
+        "title": "The Lancet",
+        "publisher": "Elsevier",
+        "issn": ["0140-6736", "1474-547X"],
+        "volume": "404",
+        "issue": "10470",
+        "pages": {
+          "first": "2145",
+          "last": "2158"
+        }
+      },
+      "fields_of_study": [
+        "Oncology",
+        "Gene Therapy",
+        "Immunotherapy",
+        "Clinical Medicine"
+      ],
+      "keywords": [
+        "CRISPR-Cas9",
+        "CAR-T therapy",
+        "acute myeloid leukemia",
+        "gene editing",
+        "immunotherapy",
+        "clinical trial"
+      ],
+      "citation_count": 45,
+      "scholarly_citations_count": 42,
+      "is_open_access": false
+    },
+    {
+      "lens_id": "000-345-678-901-JKL",
+      "created": "2024-11-20T09:15:30Z",
+      "title": "Quantum Computing Algorithms for Drug Discovery: A Benchmark Study on Protein-Ligand Docking",
+      "abstract": "The application of quantum computing to drug discovery promises exponential speedups for computationally intensive tasks. We present a comprehensive benchmark study comparing quantum algorithms with classical methods for protein-ligand docking, a crucial step in structure-based drug design. Using IBM's 127-qubit quantum processor and variational quantum eigensolver (VQE) algorithms, we evaluated docking accuracy and computational efficiency across 50 protein-ligand complexes from the PDBbind dataset. Our hybrid quantum-classical approach achieved comparable docking accuracy to classical methods (RMSD < 2.0 Å in 82% of cases) while demonstrating a 100-fold reduction in computational time for systems with >100 atoms. We identify optimal circuit depths and noise mitigation strategies that improve quantum advantage. Notably, quantum algorithms excel in sampling conformational space and identifying allosteric binding sites missed by classical approaches. These findings establish practical guidelines for implementing quantum computing in pharmaceutical research and highlight specific use cases where quantum advantage is achievable with current hardware.",
+      "date_published": "2024-10-15",
+      "year_published": 2024,
+      "publication_type": "journal article",
+      "external_ids": {
+        "doi": "10.1126/science.adj4521",
+        "pmid": "39234567",
+        "arxiv": "2410.08765"
+      },
+      "authors": [
+        {
+          "first_name": "Alexander",
+          "last_name": "Petrov",
+          "initials": "A",
+          "affiliations": [
+            {
+              "name": "Quantum Computing Laboratory, MIT",
+              "address": {
+                "country": "United States",
+                "country_code": "US",
+                "city": "Cambridge"
+              }
+            }
+          ]
+        },
+        {
+          "first_name": "Elena",
+          "last_name": "Gabrielli",
+          "initials": "E",
+          "affiliations": [
+            {
+              "name": "Department of Computational Biology, ETH Zurich",
+              "address": {
+                "country": "Switzerland",
+                "country_code": "CH",
+                "city": "Zurich"
+              }
+            }
+          ],
+          "orcid": "0000-0003-4567-8901"
+        }
+      ],
+      "source": {
+        "title": "Science",
+        "publisher": "American Association for the Advancement of Science",
+        "issn": ["0036-8075", "1095-9203"],
+        "volume": "386",
+        "issue": "6724",
+        "pages": {
+          "first": "456",
+          "last": "465"
+        }
+      },
+      "fields_of_study": [
+        "Quantum Computing",
+        "Drug Discovery",
+        "Computational Chemistry",
+        "Bioinformatics"
+      ],
+      "keywords": [
+        "quantum computing",
+        "drug discovery",
+        "protein-ligand docking",
+        "variational quantum eigensolver",
+        "quantum advantage"
+      ],
+      "citation_count": 67,
+      "scholarly_citations_count": 65,
+      "is_open_access": true,
+      "oa_license": "cc-by-nc",
+      "oa_url": "https://www.science.org/doi/pdf/10.1126/science.adj4521"
+    }
+  ],
+  "scroll_id": "DXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAD4WYm9laVYtZndUQlNsdDcwakFMNjU1QQ=="
+}

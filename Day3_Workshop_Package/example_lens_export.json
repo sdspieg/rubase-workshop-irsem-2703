@@ -1,0 +1,80 @@
+{
+  "total": 3,
+  "data": [
+    {
+      "lens_id": "000-579-199-547-892",
+      "title": "Cyber Resilience in Critical Infrastructure: A Systematic Review of Recent Advances",
+      "abstract": "Critical infrastructure systems increasingly rely on cyber-physical components that create new vulnerabilities. This systematic review examines recent advances in cyber resilience strategies for critical infrastructure protection, analyzing 127 papers published between 2019-2024. We identify three main approaches: preventive measures focusing on security by design, detective capabilities using AI-driven anomaly detection, and adaptive recovery mechanisms. Our findings suggest that hybrid approaches combining multiple strategies show the most promise. The review reveals significant gaps in cross-sector information sharing and standardized resilience metrics. We propose a unified framework for assessing cyber resilience that considers both technical and organizational factors.",
+      "year_published": 2024,
+      "authors": [
+        {
+          "first_name": "Sarah",
+          "last_name": "Chen",
+          "affiliations": ["MIT"]
+        },
+        {
+          "first_name": "Michael",
+          "last_name": "Roberts",
+          "affiliations": ["Stanford University"]
+        }
+      ],
+      "source": {
+        "title": "Journal of Cybersecurity",
+        "type": "Journal Article"
+      },
+      "fields_of_study": ["Computer Science", "Engineering"],
+      "references_count": 89,
+      "citations_count": 12
+    },
+    {
+      "lens_id": "000-834-722-109-445",
+      "title": "Machine Learning Applications in International Conflict Prediction: Opportunities and Ethical Challenges",
+      "abstract": "The application of machine learning to predict international conflicts has gained significant attention in recent years. This paper evaluates current ML models used for conflict prediction, analyzing their performance across different geographical regions and conflict types. Using a dataset of 1,247 conflict events from 2010-2023, we compare traditional statistical approaches with modern deep learning architectures. Our results show that ensemble methods combining multiple data sources achieve 73% accuracy in predicting conflict onset within a 6-month window. However, we identify serious ethical concerns regarding bias in training data, particularly the underrepresentation of conflicts in the Global South. The paper discusses the dual-use nature of these technologies and proposes guidelines for responsible development and deployment of conflict prediction systems.",
+      "year_published": 2024,
+      "authors": [
+        {
+          "first_name": "Elena",
+          "last_name": "Kowalski",
+          "affiliations": ["Fletcher School", "Tufts University"]
+        }
+      ],
+      "source": {
+        "title": "International Security",
+        "type": "Journal Article"
+      },
+      "fields_of_study": ["Political Science", "Computer Science", "International Relations"],
+      "references_count": 156,
+      "citations_count": 28
+    },
+    {
+      "lens_id": "000-921-456-778-234",
+      "title": "The Role of Non-State Actors in Hybrid Warfare: Evidence from Recent Conflicts",
+      "abstract": "This study examines the evolving role of non-state actors in contemporary hybrid warfare through analysis of five recent conflicts. We develop a typology of non-state actor involvement across multiple domains including cyber operations, information warfare, and conventional military support. Our empirical analysis draws on open-source intelligence, interviews with 47 security experts, and quantitative data on conflict dynamics. Findings indicate that non-state actors increasingly serve as force multipliers for state sponsors while maintaining plausible deniability. We identify four primary models of state/non-state collaboration in hybrid warfare contexts. The research contributes to understanding the changing nature of conflict in the 21st century and has implications for international law and security policy.",
+      "year_published": 2023,
+      "authors": [
+        {
+          "first_name": "James",
+          "last_name": "Anderson",
+          "affiliations": ["RAND Corporation"]
+        },
+        {
+          "first_name": "Maria",
+          "last_name": "Garcia",
+          "affiliations": ["Carnegie Endowment"]
+        }
+      ],
+      "source": {
+        "title": "Contemporary Security Policy",
+        "type": "Journal Article"
+      },
+      "fields_of_study": ["International Relations", "Security Studies", "Political Science"],
+      "references_count": 203,
+      "citations_count": 45
+    }
+  ],
+  "meta": {
+    "query": "cyber security OR international conflict OR hybrid warfare",
+    "export_date": "2026-03-13T10:30:00Z",
+    "api_version": "v2"
+  }
+}

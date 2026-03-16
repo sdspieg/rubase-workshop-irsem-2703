@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Building Taxonomies - RuBase Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a192f;
+            color: #f8fafc;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap');
+
+        :root {
+            --dark-bg: #0a192f;
+            --bright-cyan: #00ffff;
+            --bright-white: #ffffff;
+            --light-gray: #c8c8c8;
+            --bright-yellow: #ffff00;
+            --bright-green: #00ff7f;
+            --bright-red: #ff6347;
+            --bright-orange: #ffa500;
+            --bright-purple: #9370db;
+            --dark-accent: #142847;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .floating-shape {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.1;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            padding: 60px 40px;
+            animation: fadeIn 0.5s ease-in;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            z-index: 10;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        .slide-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--bright-cyan);
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideUp 0.8s ease-out;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .slide-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--light-gray);
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideUp 1s ease-out;
+        }
+
+        /* Interactive Sunburst Visualization */
+        .sunburst-container {
+            width: 80%;
+            max-width: 800px;
+            height: 600px;
+            position: relative;
+            margin: 20px auto;
+            animation: slideUp 1.2s ease-out;
+        }
+
+        .sunburst-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Animated taxonomy tree */
+        .taxonomy-tree {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            animation: slideUp 1s ease-out;
+        }
+
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .tree-node {
+            background: linear-gradient(135deg, var(--dark-accent), #1a3a5a);
+            padding: 15px 25px;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 2px solid var(--bright-cyan);
+            position: relative;
+            transition: all 0.3s;
+            cursor: pointer;
+            animation: slideUp 1s ease-out backwards;
+        }
+
+        .tree-node:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+            border-color: var(--bright-yellow);
+        }
+
+        .tree-node.root {
+            background: linear-gradient(135deg, #2a4a6a, #3a5a7a);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .tree-node.level2 {
+            background: linear-gradient(135deg, #1a3a4a, #2a4a5a);
+            animation-delay: 0.2s;
+        }
+
+        .tree-node.level3 {
+            background: linear-gradient(135deg, #0a2a3a, #1a3a4a);
+            animation-delay: 0.4s;
+        }
+
+        .tree-node.taxa {
+            background: linear-gradient(135deg, #0a1a2a, #1a2a3a);
+            font-size: 0.9rem;
+            animation-delay: 0.6s;
+        }
+
+        /* Connection lines */
+        .tree-connector {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(180deg, var(--bright-cyan), transparent);
+            transform-origin: top;
+            z-index: -1;
+            animation: growLine 1s ease-out forwards;
+        }
+
+        @keyframes growLine {
+            from { height: 0; }
+            to { height: 60px; }
+        }
+
+        /* Interactive comparison cards */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, var(--dark-accent), #1a3a5a);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid var(--bright-cyan);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s ease-out backwards;
+            transition: all 0.3s;
+        }
+
+        .comparison-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+        }
+
+        .comparison-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .comparison-card h3 {
+            color: var(--bright-cyan);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            opacity: 0;
+            animation: fadeInLeft 0.5s ease-out forwards;
+        }
+
+        .comparison-card li:nth-child(1) { animation-delay: 0.1s; }
+        .comparison-card li:nth-child(2) { animation-delay: 0.2s; }
+        .comparison-card li:nth-child(3) { animation-delay: 0.3s; }
+        .comparison-card li:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .comparison-card li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--bright-yellow);
+            animation: pulse 2s infinite;
+        }
+
+        /* Interactive dimension explorer */
+        .dimension-explorer {
+            width: 100%;
+            max-width: 1400px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .dimension-card {
+            background: linear-gradient(135deg, #1a2a4a, #2a3a5a);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid transparent;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .dimension-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .dimension-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .dimension-card.active {
+            border-color: var(--bright-cyan);
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .dimension-title {
+            color: var(--bright-cyan);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .dimension-description {
+            color: var(--light-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .dimension-examples {
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 255, 255, 0.3);
+            font-size: 0.9rem;
+            color: var(--bright-yellow);
+        }
+
+        /* Live coding demo area */
+        .code-demo {
+            background: #0a0d10;
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid var(--bright-cyan);
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-dot.red { background: var(--bright-red); }
+        .code-dot.yellow { background: var(--bright-yellow); }
+        .code-dot.green { background: var(--bright-green); }
+
+        .code-title {
+            margin-left: 20px;
+            color: var(--light-gray);
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-content {
+            font-family: 'Courier New', monospace;
+            color: var(--bright-green);
+            line-height: 1.8;
+            white-space: pre-wrap;
+            animation: typewriter 3s steps(40, end);
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Progress indicators */
+        .progress-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .progress-dot.active {
+            background: var(--bright-cyan);
+            box-shadow: 0 0 20px var(--bright-cyan);
+            transform: scale(1.5);
+        }
+
+        /* Navigation controls */
+        .nav-controls {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));
+            color: var(--dark-bg);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Metrics display */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, var(--dark-accent), #1a3a5a);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            animation: slideUp 1s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card:nth-child(1) { animation-delay: 0.1s; }
+        .metric-card:nth-child(2) { animation-delay: 0.2s; }
+        .metric-card:nth-child(3) { animation-delay: 0.3s; }
+        .metric-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--bright-cyan);
+            margin-bottom: 10px;
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .metric-label {
+            color: var(--light-gray);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Interactive exercise section */
+        .exercise-container {
+            background: linear-gradient(135deg, #1a2a3a, #2a3a4a);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 40px auto;
+            border: 2px solid var(--bright-yellow);
+            position: relative;
+        }
+
+        .exercise-timer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--bright-yellow);
+            font-weight: 700;
+        }
+
+        .exercise-title {
+            color: var(--bright-yellow);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .exercise-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .exercise-step {
+            padding: 20px;
+            margin: 15px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-left: 4px solid var(--bright-yellow);
+            position: relative;
+            counter-increment: step-counter;
+            padding-left: 60px;
+        }
+
+        .exercise-step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--bright-yellow);
+            color: var(--dark-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Animated arrows */
+        .arrow-connector {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bright-cyan), transparent);
+            margin: 20px auto;
+            position: relative;
+            animation: arrowFlow 2s infinite;
+        }
+
+        @keyframes arrowFlow {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: var(--dark-bg);
+            color: var(--bright-cyan);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--bright-cyan);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dimension-explorer {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shape" style="top: 10%; left: 10%; width: 200px; height: 200px; border: 2px solid rgba(0, 255, 255, 0.2); border-radius: 50%;"></div>
+        <div class="floating-shape" style="top: 60%; right: 10%; width: 150px; height: 150px; border: 2px solid rgba(147, 112, 219, 0.2); border-radius: 30%;"></div>
+        <div class="floating-shape" style="bottom: 10%; left: 30%; width: 100px; height: 100px; border: 2px solid rgba(255, 255, 0, 0.2); transform: rotate(45deg);"></div>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1 class="slide-title">Building Taxonomies</h1>
+            <p class="slide-subtitle">From Question Marks to Structure: The Art of Multi-Dimensional Analysis</p>
+
+            <div class="metrics-grid" style="margin-top: 60px;">
+                <div class="metric-card">
+                    <div class="metric-value">9</div>
+                    <div class="metric-label">Dimensions</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">36</div>
+                    <div class="metric-label">L2 Elements</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">108</div>
+                    <div class="metric-label">L3 Elements</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">864</div>
+                    <div class="metric-label">Taxa</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--light-gray); font-size: 1.2rem;">Day 2 • RuBase Workshop • Fletcher School</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide">
+            <h2 class="slide-title">The Classification Crisis</h2>
+
+            <div class="comparison-container">
+                <div class="comparison-card">
+                    <h3>Traditional Approach</h3>
+                    <ul>
+                        <li>Single dimension thinking</li>
+                        <li>"Is Russia aggressive or cautious?"</li>
+                        <li>Binary categorization</li>
+                        <li>89% information loss</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h3>Multi-Dimensional Approach</h3>
+                    <ul>
+                        <li>9 orthogonal dimensions</li>
+                        <li>"How does Russia operate across all vectors?"</li>
+                        <li>Rich analytical framework</li>
+                        <li>Full information capture</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="arrow-connector"></div>
+
+            <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 99, 71, 0.2)); border-radius: 15px; border: 2px solid var(--bright-red);">
+                <p style="font-size: 1.5rem; color: var(--bright-white);">
+                    "Collapsing complexity into simplicity is the enemy of understanding"
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Live Sunburst Demo -->
+        <div class="slide">
+            <h2 class="slide-title">See It In Action</h2>
+            <p class="slide-subtitle">2,619 Documents • 9 Dimensions • Real-Time Analysis</p>
+
+            <div class="sunburst-container">
+                <!-- Simplified SVG sunburst -->
+                <svg class="sunburst-svg" viewBox="0 0 800 600">
+                    <g transform="translate(400,300)">
+                        <!-- Center -->
+                        <circle r="50" fill="#1a3a5a" stroke="#00ffff" stroke-width="2" opacity="0.8"/>
+                        <text text-anchor="middle" fill="#00ffff" font-size="14" font-weight="bold">RU-UA War</text>
+
+                        <!-- First ring segments -->
+                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50 L 43.3,-25 A 50,50 0 0,0 0,-50 Z"
+                              fill="#2a4a6a" stroke="#00ffff" stroke-width="1" opacity="0.7"
+                              onmouseover="this.style.fill='#3a5a7a'" onmouseout="this.style.fill='#2a4a6a'"/>
+                        <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50 L 43.3,25 A 50,50 0 0,0 43.3,-25 Z"
+                              fill="#3a5a7a" stroke="#00ffff" stroke-width="1" opacity="0.7"
+                              onmouseover="this.style.fill='#4a6a8a'" onmouseout="this.style.fill='#3a5a7a'"/>
+                        <path d="M 86.6,50 A 100,100 0 0,1 0,100 L 0,50 A 50,50 0 0,0 43.3,25 Z"
+                              fill="#4a6a8a" stroke="#00ffff" stroke-width="1" opacity="0.7"
+                              onmouseover="this.style.fill='#5a7a9a'" onmouseout="this.style.fill='#4a6a8a'"/>
+                        <path d="M 0,100 A 100,100 0 0,1 -86.6,50 L -43.3,25 A 50,50 0 0,0 0,50 Z"
+                              fill="#5a7a9a" stroke="#00ffff" stroke-width="1" opacity="0.7"
+                              onmouseover="this.style.fill='#6a8aaa'" onmouseout="this.style.fill='#5a7a9a'"/>
+
+                        <!-- Second ring -->
+                        <circle r="150" fill="none" stroke="#00ffff" stroke-width="0.5" opacity="0.3"/>
+                        <path d="M 0,-150 A 150,150 0 0,1 75,-130 L 50,-86.6 A 100,100 0 0,0 0,-100 Z"
+                              fill="#ff6347" stroke="#00ffff" stroke-width="1" opacity="0.6"
+                              onmouseover="this.style.fill='#ff7357'" onmouseout="this.style.fill='#ff6347'"/>
+                        <path d="M 75,-130 A 150,150 0 0,1 130,-75 L 86.6,-50 A 100,100 0 0,0 50,-86.6 Z"
+                              fill="#ffa500" stroke="#00ffff" stroke-width="1" opacity="0.6"
+                              onmouseover="this.style.fill='#ffb510'" onmouseout="this.style.fill='#ffa500'"/>
+
+                        <!-- Third ring -->
+                        <circle r="200" fill="none" stroke="#00ffff" stroke-width="0.5" opacity="0.2"/>
+                        <path d="M 0,-200 A 200,200 0 0,1 100,-173 L 75,-130 A 150,150 0 0,0 0,-150 Z"
+                              fill="#00ff7f" stroke="#00ffff" stroke-width="1" opacity="0.5"
+                              onmouseover="this.style.fill='#10ff8f'" onmouseout="this.style.fill='#00ff7f'"/>
+                        <path d="M 100,-173 A 200,200 0 0,1 173,-100 L 130,-75 A 150,150 0 0,0 75,-130 Z"
+                              fill="#9370db" stroke="#00ffff" stroke-width="1" opacity="0.5"
+                              onmouseover="this.style.fill='#a380eb'" onmouseout="this.style.fill='#9370db'"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="nav-btn" onclick="window.open('http://rumilspace.app', '_blank')">
+                    🔗 Explore Live Dashboard
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide 4: What is a Taxonomy -->
+        <div class="slide">
+            <h2 class="slide-title">What is a Taxonomy?</h2>
+            <p class="slide-subtitle">Hierarchical Classification Systems</p>
+
+            <div style="display: flex; align-items: center; justify-content: space-around; margin: 40px auto; max-width: 1400px;">
+                <!-- Biological Taxonomy Example -->
+                <div style="flex: 1; padding: 20px;">
+                    <h3 style="color: var(--bright-cyan); margin-bottom: 20px; text-align: center;">Biological Classification</h3>
+                    <div class="taxonomy-tree" style="margin: 0;">
+                        <div class="tree-level">
+                            <div class="tree-node root" style="background: linear-gradient(135deg, #2a5a4a, #3a6a5a);">
+                                Kingdom: Animalia
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node level2" style="background: linear-gradient(135deg, #3a6a5a, #4a7a6a);">
+                                Phylum: Chordata
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node level2" style="background: linear-gradient(135deg, #4a7a6a, #5a8a7a);">
+                                Class: Mammalia
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node level3" style="background: linear-gradient(135deg, #5a8a7a, #6a9a8a);">
+                                Order: Carnivora
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node taxa" style="background: linear-gradient(135deg, #6a9a8a, #7aaa9a);">
+                                Species: Tiger 🐅
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Library Classification Example -->
+                <div style="flex: 1; padding: 20px;">
+                    <h3 style="color: var(--bright-purple); margin-bottom: 20px; text-align: center;">Library Classification</h3>
+                    <div class="taxonomy-tree" style="margin: 0;">
+                        <div class="tree-level">
+                            <div class="tree-node root" style="background: linear-gradient(135deg, #4a3a6a, #5a4a7a);">
+                                000 - Computer Science 💻
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node level2" style="background: linear-gradient(135deg, #5a4a7a, #6a5a8a);">
+                                005 - Programming
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node level3" style="background: linear-gradient(135deg, #6a5a8a, #7a6a9a);">
+                                005.1 - Software Development
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node taxa" style="background: linear-gradient(135deg, #7a6a9a, #8a7aaa);">
+                                005.13 - Python Programming 🐍
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Military Hierarchy Example -->
+                <div style="flex: 1; padding: 20px;">
+                    <h3 style="color: var(--bright-yellow); margin-bottom: 20px; text-align: center;">Military Organization</h3>
+                    <div class="taxonomy-tree" style="margin: 0;">
+                        <div class="tree-level">
+                            <div class="tree-node root" style="background: linear-gradient(135deg, #6a5a3a, #7a6a4a);">
+                                Armed Forces 🎖️
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node level2" style="background: linear-gradient(135deg, #7a6a4a, #8a7a5a);">
+                                Army
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node level3" style="background: linear-gradient(135deg, #8a7a5a, #9a8a6a);">
+                                Division
+                            </div>
+                        </div>
+                        <div class="tree-connector" style="left: 50%; height: 40px;"></div>
+                        <div class="tree-level">
+                            <div class="tree-node taxa" style="background: linear-gradient(135deg, #9a8a6a, #aa9a7a);">
+                                Battalion
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05)); border-radius: 15px; margin-top: 30px;">
+                <p style="font-size: 1.3rem; color: var(--bright-white);">
+                    <strong style="color: var(--bright-cyan);">Key Feature:</strong> Each item belongs to <span style="color: var(--bright-yellow);">exactly one parent</span><br>
+                    <span style="font-size: 1.1rem; color: var(--light-gray);">Strict hierarchical "IS-A" relationships</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 5: What is an Ontology -->
+        <div class="slide">
+            <h2 class="slide-title">What is an Ontology?</h2>
+            <p class="slide-subtitle">Network of Relationships</p>
+
+            <div style="position: relative; width: 100%; max-width: 1200px; height: 500px; margin: 40px auto;">
+                <!-- SVG Network Visualization -->
+                <svg width="100%" height="100%" viewBox="0 0 1200 500">
+                    <!-- Connection lines -->
+                    <line x1="600" y1="250" x2="300" y2="150" stroke="#00ffff" stroke-width="2" opacity="0.5"/>
+                    <line x1="600" y1="250" x2="900" y2="150" stroke="#00ffff" stroke-width="2" opacity="0.5"/>
+                    <line x1="600" y1="250" x2="300" y2="350" stroke="#ff6347" stroke-width="2" opacity="0.5"/>
+                    <line x1="600" y1="250" x2="900" y2="350" stroke="#ff6347" stroke-width="2" opacity="0.5"/>
+                    <line x1="300" y1="150" x2="150" y2="100" stroke="#ffd700" stroke-width="2" opacity="0.5"/>
+                    <line x1="300" y1="150" x2="150" y2="200" stroke="#ffd700" stroke-width="2" opacity="0.5"/>
+                    <line x1="900" y1="150" x2="1050" y2="100" stroke="#00ff7f" stroke-width="2" opacity="0.5"/>
+                    <line x1="900" y1="150" x2="1050" y2="200" stroke="#00ff7f" stroke-width="2" opacity="0.5"/>
+                    <line x1="300" y1="350" x2="150" y2="300" stroke="#9370db" stroke-width="2" opacity="0.5"/>
+                    <line x1="300" y1="350" x2="150" y2="400" stroke="#9370db" stroke-width="2" opacity="0.5"/>
+                    <line x1="900" y1="350" x2="1050" y2="300" stroke="#ffa500" stroke-width="2" opacity="0.5"/>
+                    <line x1="900" y1="350" x2="1050" y2="400" stroke="#ffa500" stroke-width="2" opacity="0.5"/>
+                    <!-- Cross connections -->
+                    <line x1="300" y1="150" x2="900" y2="350" stroke="#00ffff" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+                    <line x1="900" y1="150" x2="300" y2="350" stroke="#ff6347" stroke-width="1" opacity="0.3" stroke-dasharray="5,5"/>
+
+                    <!-- Central node -->
+                    <circle cx="600" cy="250" r="60" fill="#1a3a5a" stroke="#00ffff" stroke-width="3"/>
+                    <text x="600" y="250" text-anchor="middle" fill="#00ffff" font-size="18" font-weight="bold">Tiger</text>
+
+                    <!-- Related nodes -->
+                    <circle cx="300" cy="150" r="50" fill="#2a4a6a" stroke="#ffd700" stroke-width="2"/>
+                    <text x="300" y="150" text-anchor="middle" fill="#ffd700" font-size="16">Habitat</text>
+
+                    <circle cx="900" cy="150" r="50" fill="#2a4a6a" stroke="#00ff7f" stroke-width="2"/>
+                    <text x="900" y="150" text-anchor="middle" fill="#00ff7f" font-size="16">Prey</text>
+
+                    <circle cx="300" cy="350" r="50" fill="#2a4a6a" stroke="#9370db" stroke-width="2"/>
+                    <text x="300" y="350" text-anchor="middle" fill="#9370db" font-size="16">Behavior</text>
+
+                    <circle cx="900" cy="350" r="50" fill="#2a4a6a" stroke="#ffa500" stroke-width="2"/>
+                    <text x="900" y="350" text-anchor="middle" fill="#ffa500" font-size="16">Conservation</text>
+
+                    <!-- Leaf nodes -->
+                    <circle cx="150" cy="100" r="35" fill="#3a5a7a" stroke="#ffd700" stroke-width="1"/>
+                    <text x="150" y="105" text-anchor="middle" fill="white" font-size="14">Jungle</text>
+
+                    <circle cx="150" cy="200" r="35" fill="#3a5a7a" stroke="#ffd700" stroke-width="1"/>
+                    <text x="150" y="205" text-anchor="middle" fill="white" font-size="14">Grassland</text>
+
+                    <circle cx="1050" cy="100" r="35" fill="#3a5a7a" stroke="#00ff7f" stroke-width="1"/>
+                    <text x="1050" y="105" text-anchor="middle" fill="white" font-size="14">Deer</text>
+
+                    <circle cx="1050" cy="200" r="35" fill="#3a5a7a" stroke="#00ff7f" stroke-width="1"/>
+                    <text x="1050" y="205" text-anchor="middle" fill="white" font-size="14">Boar</text>
+
+                    <circle cx="150" cy="300" r="35" fill="#3a5a7a" stroke="#9370db" stroke-width="1"/>
+                    <text x="150" y="305" text-anchor="middle" fill="white" font-size="14">Solitary</text>
+
+                    <circle cx="150" cy="400" r="35" fill="#3a5a7a" stroke="#9370db" stroke-width="1"/>
+                    <text x="150" y="405" text-anchor="middle" fill="white" font-size="14">Nocturnal</text>
+
+                    <circle cx="1050" cy="300" r="35" fill="#3a5a7a" stroke="#ffa500" stroke-width="1"/>
+                    <text x="1050" y="305" text-anchor="middle" fill="white" font-size="14">Endangered</text>
+
+                    <circle cx="1050" cy="400" r="35" fill="#3a5a7a" stroke="#ffa500" stroke-width="1"/>
+                    <text x="1050" y="405" text-anchor="middle" fill="white" font-size="14">Protected</text>
+
+                    <!-- Relationship labels -->
+                    <text x="450" y="190" fill="#00ffff" font-size="12" font-style="italic">lives in</text>
+                    <text x="750" y="190" fill="#00ff7f" font-size="12" font-style="italic">hunts</text>
+                    <text x="450" y="310" fill="#9370db" font-size="12" font-style="italic">exhibits</text>
+                    <text x="750" y="310" fill="#ffa500" font-size="12" font-style="italic">status</text>
+                </svg>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 30px auto;">
+                <div style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #ffd700;">
+                    <strong style="color: #ffd700;">LIVES IN →</strong>
+                    <p style="font-size: 0.9rem; color: var(--light-gray); margin-top: 5px;">Spatial relationships</p>
+                </div>
+                <div style="background: rgba(0, 255, 127, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #00ff7f;">
+                    <strong style="color: #00ff7f;">PREYS ON →</strong>
+                    <p style="font-size: 0.9rem; color: var(--light-gray); margin-top: 5px;">Feeding relationships</p>
+                </div>
+                <div style="background: rgba(147, 112, 219, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #9370db;">
+                    <strong style="color: #9370db;">EXHIBITS →</strong>
+                    <p style="font-size: 0.9rem; color: var(--light-gray); margin-top: 5px;">Behavioral traits</p>
+                </div>
+                <div style="background: rgba(255, 165, 0, 0.1); padding: 15px; border-radius: 10px; border-left: 3px solid #ffa500;">
+                    <strong style="color: #ffa500;">HAS STATUS →</strong>
+                    <p style="font-size: 0.9rem; color: var(--light-gray); margin-top: 5px;">Conservation state</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(147, 112, 219, 0.05)); border-radius: 15px;">
+                <p style="font-size: 1.3rem; color: var(--bright-white);">
+                    <strong style="color: var(--bright-purple);">Key Feature:</strong> Multiple <span style="color: var(--bright-cyan);">relationship types</span> between concepts<br>
+                    <span style="font-size: 1.1rem; color: var(--light-gray);">Rich semantic network with rules and properties</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Taxonomies vs Ontologies (comparison) -->
+        <div class="slide">
+            <h2 class="slide-title">Taxonomies vs Ontologies</h2>
+
+            <div class="taxonomy-tree">
+                <div class="tree-level">
+                    <div class="tree-node root">Knowledge Organization</div>
+                </div>
+                <div class="tree-connector" style="left: 50%; height: 60px;"></div>
+                <div class="tree-level">
+                    <div class="tree-node level2" style="margin-right: 100px;">
+                        📚 Taxonomy
+                        <div style="font-size: 0.8rem; margin-top: 10px;">Hierarchical • Is-A • Tree</div>
+                    </div>
+                    <div class="tree-node level2" style="margin-left: 100px;">
+                        🕸️ Ontology
+                        <div style="font-size: 0.8rem; margin-top: 10px;">Network • Multiple Relations • Graph</div>
+                    </div>
+                </div>
+                <div class="tree-level">
+                    <div class="tree-node level3" style="margin-right: 150px;">Tiger → Mammal</div>
+                    <div class="tree-node level3">Library Classification</div>
+                    <div class="tree-node level3" style="margin-left: 150px;">Tiger preys on Deer</div>
+                </div>
+            </div>
+
+            <div class="arrow-connector"></div>
+
+            <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.2)); border-radius: 15px;">
+                <p style="font-size: 1.3rem; color: var(--bright-white);">
+                    We need taxonomies for <span style="color: var(--bright-cyan);">classification</span>,<br>
+                    but multi-dimensional ones for <span style="color: var(--bright-yellow);">understanding</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Multi-Dimensional Revolution -->
+        <div class="slide">
+            <h2 class="slide-title">The Multi-Dimensional Revolution</h2>
+
+            <div class="dimension-explorer">
+                <div class="dimension-card" onclick="this.classList.toggle('active')">
+                    <div class="dimension-title">Risk Orientation</div>
+                    <div class="dimension-description">Appetite for uncertainty and potential loss</div>
+                    <div class="dimension-examples">Conservative ↔ Aggressive</div>
+                </div>
+                <div class="dimension-card" onclick="this.classList.toggle('active')">
+                    <div class="dimension-title">Strategic Logic</div>
+                    <div class="dimension-description">Reasoning patterns and decision frameworks</div>
+                    <div class="dimension-examples">Reflexive Control ↔ Brute Force</div>
+                </div>
+                <div class="dimension-card" onclick="this.classList.toggle('active')">
+                    <div class="dimension-title">Time Horizon</div>
+                    <div class="dimension-description">Planning and execution timeframes</div>
+                    <div class="dimension-examples">Tactical ↔ Generational</div>
+                </div>
+                <div class="dimension-card" onclick="this.classList.toggle('active')">
+                    <div class="dimension-title">Epistemic Posture</div>
+                    <div class="dimension-description">Relationship with knowledge and certainty</div>
+                    <div class="dimension-examples">Dogmatic ↔ Adaptive</div>
+                </div>
+                <div class="dimension-card" onclick="this.classList.toggle('active')">
+                    <div class="dimension-title">Operational Mode</div>
+                    <div class="dimension-description">Patterns of action and engagement</div>
+                    <div class="dimension-examples">Attrition ↔ Maneuver</div>
+                </div>
+                <div class="dimension-card" onclick="this.classList.toggle('active')">
+                    <div class="dimension-title">Resource Logic</div>
+                    <div class="dimension-description">Asset deployment and conservation</div>
+                    <div class="dimension-examples">Concentrated ↔ Distributed</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--light-gray); margin-top: 30px; font-size: 1.2rem;">
+                Click each dimension to explore • Each operates independently
+            </p>
+        </div>
+
+        <!-- Slide 6: The Framework -->
+        <div class="slide">
+            <h2 class="slide-title">The MDTDF Framework</h2>
+            <p class="slide-subtitle">Multi-Dimensional Taxonomy Development Framework</p>
+
+            <div class="taxonomy-tree">
+                <div class="tree-level">
+                    <div class="tree-node root">HLTP (Dimension)</div>
+                </div>
+                <div class="tree-connector" style="left: 50%;"></div>
+                <div class="tree-level">
+                    <div class="tree-node level2">L2 Element</div>
+                    <div class="tree-node level2">L2 Element</div>
+                    <div class="tree-node level2">L2 Element</div>
+                    <div class="tree-node level2">L2 Element</div>
+                </div>
+                <div class="tree-level">
+                    <div class="tree-node level3">L3 Element</div>
+                    <div class="tree-node level3">L3 Element</div>
+                    <div class="tree-node level3">L3 Element</div>
+                </div>
+                <div class="tree-level">
+                    <div class="tree-node taxa">Taxon 1</div>
+                    <div class="tree-node taxa">Taxon 2</div>
+                    <div class="tree-node taxa">Taxon 3</div>
+                    <div class="tree-node taxa">Taxon 4</div>
+                    <div class="tree-node taxa">Taxon 5</div>
+                    <div class="tree-node taxa">Taxon 6</div>
+                    <div class="tree-node taxa">Taxon 7</div>
+                    <div class="tree-node taxa">Taxon 8</div>
+                </div>
+            </div>
+
+            <div class="metrics-grid" style="margin-top: 40px;">
+                <div class="metric-card">
+                    <div class="metric-value">5-9</div>
+                    <div class="metric-label">HLTPs</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">4</div>
+                    <div class="metric-label">L2s per HLTP</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">L3s per L2</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">8</div>
+                    <div class="metric-label">Taxa per L3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Building Process -->
+        <div class="slide">
+            <h2 class="slide-title">Six Steps to Your Taxonomy</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto;">
+                <div class="comparison-card">
+                    <h3>1. Define Domain</h3>
+                    <p style="color: var(--light-gray);">What phenomenon are you analyzing?</p>
+                    <p style="color: var(--bright-yellow); margin-top: 10px;">Example: "Russian strategic behavior in Ukraine"</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>2. Identify Dimensions</h3>
+                    <p style="color: var(--light-gray);">What are the independent ways to view it?</p>
+                    <p style="color: var(--bright-yellow); margin-top: 10px;">Test: Can they vary independently?</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>3. Develop Hierarchies</h3>
+                    <p style="color: var(--light-gray);">Break each dimension into L2 → L3 → Taxa</p>
+                    <p style="color: var(--bright-yellow); margin-top: 10px;">Maintain consistent abstraction levels</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>4. Test Orthogonality</h3>
+                    <p style="color: var(--light-gray);">Can something be high on A and low on B?</p>
+                    <p style="color: var(--bright-yellow); margin-top: 10px;">If not, merge or redefine</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>5. Validate Coverage</h3>
+                    <p style="color: var(--light-gray);">Does every instance fit somewhere?</p>
+                    <p style="color: var(--bright-yellow); margin-top: 10px;">Add "Mixed" or "Other" if needed</p>
+                </div>
+                <div class="comparison-card">
+                    <h3>6. Operationalize</h3>
+                    <p style="color: var(--light-gray);">How will you classify real data?</p>
+                    <p style="color: var(--bright-yellow); margin-top: 10px;">Create classification guidelines</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: LLM Prompting -->
+        <div class="slide">
+            <h2 class="slide-title">Prompting LLMs for Taxonomy Generation</h2>
+
+            <div class="code-demo">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot red"></div>
+                        <div class="code-dot yellow"></div>
+                        <div class="code-dot green"></div>
+                    </div>
+                    <div class="code-title">taxonomy_prompt.txt</div>
+                </div>
+                <div class="code-content">You are a domain expert creating a multi-dimensional taxonomy.
+
+DOMAIN: [Your research topic]
+
+Create a taxonomy with:
+- 5-9 orthogonal dimensions (HLTPs)
+- Each HLTP has 4 L2 elements
+- Each L2 has 3 L3 elements
+- Each L3 has 8 specific taxa
+
+Output format: TSV with columns
+HLTP | 2nd Level TE | 3rd Level TE | Taxon
+
+Ensure:
+✓ Dimensional independence
+✓ Complete coverage
+✓ Observable criteria
+✓ No ambiguous terms
+✓ Consistent abstraction levels</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="nav-btn" onclick="copyPrompt()">📋 Copy Prompt</button>
+            </div>
+        </div>
+
+        <!-- Slide 9: Common Pitfalls -->
+        <div class="slide">
+            <h2 class="slide-title">Avoid These Traps</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto;">
+                <div style="background: linear-gradient(135deg, rgba(255, 99, 71, 0.1), rgba(255, 99, 71, 0.2)); padding: 30px; border-radius: 15px; border: 2px solid var(--bright-red);">
+                    <h3 style="color: var(--bright-red); margin-bottom: 20px;">❌ Don't Do This</h3>
+                    <ul style="list-style: none; color: var(--light-gray);">
+                        <li style="margin: 15px 0;">• Overlapping dimensions</li>
+                        <li style="margin: 15px 0;">• "Aggressive" in multiple places</li>
+                        <li style="margin: 15px 0;">• Mixing abstraction levels</li>
+                        <li style="margin: 15px 0;">• Ambiguous terms</li>
+                        <li style="margin: 15px 0;">• False orthogonality</li>
+                    </ul>
+                </div>
+                <div style="background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(0, 255, 127, 0.2)); padding: 30px; border-radius: 15px; border: 2px solid var(--bright-green);">
+                    <h3 style="color: var(--bright-green); margin-bottom: 20px;">✅ Do This Instead</h3>
+                    <ul style="list-style: none; color: var(--light-gray);">
+                        <li style="margin: 15px 0;">• True independence</li>
+                        <li style="margin: 15px 0;">• Unique vocabulary per dimension</li>
+                        <li style="margin: 15px 0;">• Consistent levels</li>
+                        <li style="margin: 15px 0;">• Observable criteria</li>
+                        <li style="margin: 15px 0;">• Test with edge cases</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="arrow-connector"></div>
+
+            <div style="text-align: center; padding: 20px;">
+                <p style="font-size: 1.3rem; color: var(--bright-cyan);">
+                    Remember: If you can't vary one dimension while holding others constant,<br>
+                    they're not truly orthogonal
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Workshop Exercise -->
+        <div class="slide">
+            <h2 class="slide-title">Your Turn: 15-Minute Sprint</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1400px; margin: 0 auto;">
+                <!-- Part 1: Manual Approach -->
+                <div class="exercise-container" style="margin: 0;">
+                    <div class="exercise-timer" id="timer1" style="top: 10px; right: 10px; font-size: 1.5rem;">7:30</div>
+                    <h3 class="exercise-title" style="font-size: 1.5rem;">📝 Part 1: Manual Build</h3>
+                    <p style="color: var(--light-gray); text-align: center; margin-bottom: 20px;">First, try it yourself!</p>
+
+                    <ol class="exercise-steps" style="font-size: 0.95rem;">
+                        <li class="exercise-step" style="padding: 15px;">
+                            Pick a domain you know well
+                        </li>
+                        <li class="exercise-step" style="padding: 15px;">
+                            Identify 3 orthogonal dimensions
+                        </li>
+                        <li class="exercise-step" style="padding: 15px;">
+                            Create 2 L2s per dimension
+                        </li>
+                        <li class="exercise-step" style="padding: 15px;">
+                            Add 2 taxa per L2
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Part 2: AI-Assisted -->
+                <div class="exercise-container" style="margin: 0; border-color: var(--bright-cyan);">
+                    <div class="exercise-timer" id="timer2" style="top: 10px; right: 10px; font-size: 1.5rem; color: var(--bright-cyan);">7:30</div>
+                    <h3 class="exercise-title" style="color: var(--bright-cyan); font-size: 1.5rem;">🤖 Part 2: AI-Powered</h3>
+                    <p style="color: var(--light-gray); text-align: center; margin-bottom: 20px;">Then, let AI expand it!</p>
+
+                    <ol class="exercise-steps" style="font-size: 0.95rem;">
+                        <li class="exercise-step" style="padding: 15px; border-left-color: var(--bright-cyan);">
+                            Open Claude or GPT-4
+                        </li>
+                        <li class="exercise-step" style="padding: 15px; border-left-color: var(--bright-cyan);">
+                            Use our taxonomy prompt
+                        </li>
+                        <li class="exercise-step" style="padding: 15px; border-left-color: var(--bright-cyan);">
+                            Generate full 864-point taxonomy
+                        </li>
+                        <li class="exercise-step" style="padding: 15px; border-left-color: var(--bright-cyan);">
+                            Compare with your manual version
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="nav-btn" onclick="startDualTimer()" style="background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange));">
+                    ⏱️ Start Both Timers
+                </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px; padding: 20px; background: rgba(0,255,255,0.1); border-radius: 10px;">
+                <p style="color: var(--bright-white); font-size: 1.1rem;">
+                    💡 <strong>Pro Tip:</strong> The manual attempt helps you understand what the AI is doing!
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Real Example Deep Dive -->
+        <div class="slide">
+            <h2 class="slide-title">Case Study: Strategic Disposition</h2>
+            <p class="slide-subtitle">9 Dimensions • 2,619 Documents • Live Analysis</p>
+
+            <div style="overflow-x: auto; margin: 40px 0;">
+                <table style="width: 100%; max-width: 1400px; margin: 0 auto; background: rgba(0,0,0,0.5); border-radius: 15px; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple));">
+                            <th style="padding: 20px; color: var(--dark-bg); font-size: 1.1rem;">Dimension</th>
+                            <th style="padding: 20px; color: var(--dark-bg); font-size: 1.1rem;">What It Captures</th>
+                            <th style="padding: 20px; color: var(--dark-bg); font-size: 1.1rem;">Example Taxa</th>
+                            <th style="padding: 20px; color: var(--dark-bg); font-size: 1.1rem;">Documents</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(0,255,255,0.3);">
+                            <td style="padding: 15px; color: var(--bright-cyan); font-weight: 700;">Risk Orientation</td>
+                            <td style="padding: 15px; color: var(--light-gray);">Appetite for uncertainty</td>
+                            <td style="padding: 15px; color: var(--bright-yellow);">Nuclear threats, Limited strikes</td>
+                            <td style="padding: 15px; color: var(--bright-green);">412</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0,255,255,0.3);">
+                            <td style="padding: 15px; color: var(--bright-cyan); font-weight: 700;">Strategic Logic</td>
+                            <td style="padding: 15px; color: var(--light-gray);">Reasoning patterns</td>
+                            <td style="padding: 15px; color: var(--bright-yellow);">Reflexive control, Escalation</td>
+                            <td style="padding: 15px; color: var(--bright-green);">387</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0,255,255,0.3);">
+                            <td style="padding: 15px; color: var(--bright-cyan); font-weight: 700;">Time Horizon</td>
+                            <td style="padding: 15px; color: var(--light-gray);">Planning timeframes</td>
+                            <td style="padding: 15px; color: var(--bright-yellow);">72-hour ops, Generational</td>
+                            <td style="padding: 15px; color: var(--bright-green);">298</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(0,255,255,0.3);">
+                            <td style="padding: 15px; color: var(--bright-cyan); font-weight: 700;">Geographic Scope</td>
+                            <td style="padding: 15px; color: var(--light-gray);">Spatial ambitions</td>
+                            <td style="padding: 15px; color: var(--bright-yellow);">Donbas, Black Sea, Global</td>
+                            <td style="padding: 15px; color: var(--bright-green);">456</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 15px; color: var(--bright-cyan); font-weight: 700;">Operational Mode</td>
+                            <td style="padding: 15px; color: var(--light-gray);">Action patterns</td>
+                            <td style="padding: 15px; color: var(--bright-yellow);">Attrition, Maneuver, Hybrid</td>
+                            <td style="padding: 15px; color: var(--bright-green);">523</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="text-align: center; color: var(--light-gray); font-size: 1.2rem;">
+                + 4 more dimensions = Complete analytical coverage
+            </p>
+        </div>
+
+        <!-- Slide 12: Your Homework -->
+        <div class="slide">
+            <h2 class="slide-title">Before Tomorrow</h2>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="exercise-container" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(147, 112, 219, 0.1));">
+                    <h3 class="exercise-title" style="color: var(--bright-cyan);">📝 Your Assignment</h3>
+
+                    <ol class="exercise-steps">
+                        <li class="exercise-step">
+                            Draft a taxonomy for YOUR research topic (minimum 3 dimensions)
+                        </li>
+                        <li class="exercise-step">
+                            Generate sample classifications using Claude/GPT-4
+                        </li>
+                        <li class="exercise-step">
+                            Identify challenges or ambiguities you encountered
+                        </li>
+                        <li class="exercise-step">
+                            Prepare one question about taxonomy design
+                        </li>
+                    </ol>
+                </div>
+
+                <div style="margin-top: 40px; text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(0, 255, 127, 0.2)); border-radius: 15px; border: 2px solid var(--bright-green);">
+                    <h3 style="color: var(--bright-green); margin-bottom: 15px;">🚀 Tomorrow: Day 3</h3>
+                    <p style="font-size: 1.3rem; color: var(--bright-white);">
+                        Classification & Visualization<br>
+                        <span style="font-size: 1.1rem; color: var(--light-gray);">We'll use YOUR taxonomies with real data!</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Indicators -->
+    <div class="progress-container">
+        <div class="progress-dot active" onclick="goToSlide(0)"></div>
+        <div class="progress-dot" onclick="goToSlide(1)"></div>
+        <div class="progress-dot" onclick="goToSlide(2)"></div>
+        <div class="progress-dot" onclick="goToSlide(3)"></div>
+        <div class="progress-dot" onclick="goToSlide(4)"></div>
+        <div class="progress-dot" onclick="goToSlide(5)"></div>
+        <div class="progress-dot" onclick="goToSlide(6)"></div>
+        <div class="progress-dot" onclick="goToSlide(7)"></div>
+        <div class="progress-dot" onclick="goToSlide(8)"></div>
+        <div class="progress-dot" onclick="goToSlide(9)"></div>
+        <div class="progress-dot" onclick="goToSlide(10)"></div>
+        <div class="progress-dot" onclick="goToSlide(11)"></div>
+        <div class="progress-dot" onclick="goToSlide(12)"></div>
+        <div class="progress-dot" onclick="goToSlide(13)"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="previousSlide()">← Back</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.progress-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Show current slide
+            if (index >= totalSlides) index = 0;
+            if (index < 0) index = totalSlides - 1;
+            currentSlide = index;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'Escape') showSlide(0);
+        });
+
+        // Timer functionality
+        let timerInterval1, timerInterval2;
+        let timeRemaining1 = 450; // 7.5 minutes in seconds
+        let timeRemaining2 = 450; // 7.5 minutes in seconds
+
+        function startTimer() {
+            // Legacy function for backward compatibility
+            startDualTimer();
+        }
+
+        function startDualTimer() {
+            // Clear any existing timers
+            if (timerInterval1) clearInterval(timerInterval1);
+            if (timerInterval2) clearInterval(timerInterval2);
+
+            // Reset times
+            timeRemaining1 = 450;
+            timeRemaining2 = 450;
+
+            // Timer 1 - Manual approach
+            timerInterval1 = setInterval(() => {
+                timeRemaining1--;
+                const minutes = Math.floor(timeRemaining1 / 60);
+                const seconds = timeRemaining1 % 60;
+                const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                const timerElement = document.getElementById('timer1');
+                if (timerElement) {
+                    timerElement.textContent = display;
+
+                    if (timeRemaining1 <= 60) {
+                        timerElement.style.color = 'var(--bright-red)';
+                        timerElement.style.animation = 'pulse 1s infinite';
+                    }
+
+                    if (timeRemaining1 <= 0) {
+                        clearInterval(timerInterval1);
+                        timerElement.textContent = "Time's Up!";
+                        // Alert transition to Part 2
+                        if (timeRemaining2 > 0) {
+                            alert('⏰ Part 1 Complete! Now move to Part 2: AI-Powered Taxonomy Generation');
+                        }
+                    }
+                }
+            }, 1000);
+
+            // Timer 2 - AI approach (starts after delay)
+            setTimeout(() => {
+                timerInterval2 = setInterval(() => {
+                    timeRemaining2--;
+                    const minutes = Math.floor(timeRemaining2 / 60);
+                    const seconds = timeRemaining2 % 60;
+                    const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                    const timerElement = document.getElementById('timer2');
+                    if (timerElement) {
+                        timerElement.textContent = display;
+
+                        if (timeRemaining2 <= 60) {
+                            timerElement.style.color = 'var(--bright-red)';
+                            timerElement.style.animation = 'pulse 1s infinite';
+                        }
+
+                        if (timeRemaining2 <= 0) {
+                            clearInterval(timerInterval2);
+                            timerElement.textContent = "Time's Up!";
+                            alert('🎉 Exercise Complete! Compare your manual and AI-generated taxonomies.');
+                        }
+                    }
+                }, 1000);
+            }, 450000); // Start second timer after 7.5 minutes
+        }
+
+        // Copy prompt function
+        function copyPrompt() {
+            const promptText = `You are a domain expert creating a multi-dimensional taxonomy.
+
+DOMAIN: [Your research topic]
+
+Create a taxonomy with:
+- 5-9 orthogonal dimensions (HLTPs)
+- Each HLTP has 4 L2 elements
+- Each L2 has 3 L3 elements
+- Each L3 has 8 specific taxa
+
+Output format: TSV with columns
+HLTP | 2nd Level TE | 3rd Level TE | Taxon
+
+Ensure:
+✓ Dimensional independence
+✓ Complete coverage
+✓ Observable criteria
+✓ No ambiguous terms
+✓ Consistent abstraction levels`;
+
+            navigator.clipboard.writeText(promptText).then(() => {
+                alert('Prompt copied to clipboard!');
+            });
+        }
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) previousSlide();
+        }
+
+        // Auto-advance for demo (optional - remove for actual presentation)
+        // setInterval(nextSlide, 30000); // Advance every 30 seconds
+
+        // Initialize
+        showSlide(0);
+    </script>
+
+<!-- Navigation -->
+<div style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(30, 41, 59, 0.95); padding: 10px 20px; border-radius: 50px; border: 1px solid #334155; backdrop-filter: blur(10px); z-index: 1000;">
+    <button onclick="window.location.href='../../index.html'" style="background: linear-gradient(135deg, #00ffff, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: 'Titillium Web', sans-serif;">🏠 Home</button>
+</div>
+
+</body>
+</html>

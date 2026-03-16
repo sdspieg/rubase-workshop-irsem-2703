@@ -1,0 +1,1331 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RuBase Methods Workshop - Fletcher</title>
+    <style>
+        :root {
+            --primary-bg: #0a0e27;
+            --secondary-bg: #151b3d;
+            --accent-cyan: #00ffff;
+            --accent-purple: #9400d3;
+            --accent-green: #00ff00;
+            --accent-yellow: #ffd700;
+            --accent-red: #ff6b6b;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: #2a3f5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--accent-cyan);
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav button {
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .header-nav button:hover {
+            background: var(--accent-cyan);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Day Progress Bar */
+        .day-progress {
+            background: var(--secondary-bg);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .day-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .day-item.active {
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .day-item.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .day-item.current {
+            border-color: var(--bright-cyan);
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .day-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .day-item.day1 .day-number { color: var(--accent-cyan); }
+        .day-item.day2 .day-number { color: var(--accent-purple); }
+        .day-item.day3 .day-number { color: var(--accent-green); }
+
+        .day-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .day-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .day-progress-bar {
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .day-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: rgba(21, 27, 61, 0.95);
+            border-right: 1px solid var(--border-color);
+            padding: 20px;
+            overflow-y: auto;
+            transition: transform 0.3s;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-280px);
+            margin-left: -280px;
+        }
+
+        .module-list {
+            list-style: none;
+        }
+
+        .module-item {
+            margin-bottom: 15px;
+        }
+
+        .module-header {
+            background: var(--secondary-bg);
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .module-header:hover {
+            border-color: var(--accent-cyan);
+            transform: translateX(5px);
+        }
+
+        .module-header.active {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        .module-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+
+        .module-sections {
+            margin-left: 20px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .module-item.expanded .module-sections {
+            display: block;
+        }
+
+        .section-item {
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-left: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .section-item:hover {
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        .section-item.active {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(0, 255, 255, 0.1);
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        /* Welcome Screen */
+        .welcome-screen {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .welcome-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+        }
+
+        .quick-start-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quick-start-card {
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .quick-start-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .quick-start-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .quick-start-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .quick-start-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Content Frame */
+        .content-frame {
+            background: rgba(10, 14, 39, 0.95);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+            min-height: 600px;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-item {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-item:hover {
+            color: var(--accent-cyan);
+        }
+
+        .breadcrumb-separator {
+            color: var(--border-color);
+        }
+
+        /* Iframe for content */
+        #contentFrame {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 10px;
+            background: var(--primary-bg);
+        }
+
+        /* Mobile Toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            color: var(--primary-bg);
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+        }
+
+        /* Sidebar overlay for mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+            backdrop-filter: blur(5px);
+        }
+
+        .sidebar-overlay.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-toggle {
+                display: block;
+                animation: pulse 2s infinite;
+            }
+
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+            }
+
+            .sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                z-index: 999;
+                height: 100vh;
+                width: 85%;
+                max-width: 320px;
+                box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+                transition: left 0.3s ease;
+                background: rgba(21, 27, 61, 0.98);
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .main-container {
+                flex-direction: column;
+            }
+
+            .content-area {
+                margin-left: 0;
+                width: 100%;
+                padding: 15px;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .header-title {
+                font-size: 1.2rem;
+            }
+
+            .header-nav button {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+
+            .day-progress {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .day-item {
+                padding: 10px;
+            }
+
+            .day-number {
+                font-size: 1.5rem;
+            }
+
+            .day-title {
+                font-size: 1rem;
+            }
+
+            .quick-start-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .welcome-title {
+                font-size: 2rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1rem;
+            }
+
+            /* Hide partner logos on mobile */
+            div[style*="position: fixed"] {
+                display: none !important;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .loader-spinner {
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--accent-cyan);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Archive Banner -->
+    <div style="background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange)); color: var(--primary-bg); padding: 10px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 1002;">
+        ⚠️ This is an archived workshop from March 2026 - Fletcher School
+        <a href="https://sdspieg.github.io/rubase-workshop/" style="color: var(--primary-bg); margin-left: 20px; text-decoration: underline;">
+            → View Latest Version
+        </a>
+    </div>
+
+    <!-- Partner Logos (Fixed Position) -->
+    <div style="position: fixed; top: 55px; left: 20px; z-index: 1001;">
+        <a href="https://hcss.nl" target="_blank">
+            <img src="modules/openalex/hcss_logo.svg" alt="HCSS Logo" style="height: 40px;">
+        </a>
+    </div>
+    <div style="position: fixed; top: 55px; right: 20px; z-index: 1001;">
+        <a href="https://hcss.nl/rubase/" target="_blank">
+            <img src="modules/openalex/rubase_logo.svg" alt="RuBase Logo" style="height: 40px;">
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="header" style="padding-left: 120px; padding-right: 120px;">
+        <div class="header-title">🎓 RuBase Methods Workshop - Fletcher</div>
+        <nav class="header-nav">
+            <button onclick="showHome()">🏠 Home</button>
+            <button onclick="window.location.href='modules/resources/index.html'">📚 Resources</button>
+            <button onclick="window.location.href='download-materials.html'" style="background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow)); color: var(--primary-bg);">⬇️ Download All</button>
+            <button onclick="window.location.href='modules/techhelp/index.html'">❓ Help</button>
+        </nav>
+    </header>
+
+    <!-- Day Selection -->
+    <div class="day-progress">
+        <div class="day-item day1 active" onclick="loadDay(1)">
+            <div class="day-number">1</div>
+            <div class="day-title">DISCOVER</div>
+            <div class="day-subtitle">Finding What You've Been Missing</div>
+        </div>
+        <div class="day-item day2 active" onclick="loadDay(2)">
+            <div class="day-number">2</div>
+            <div class="day-title">FRAME</div>
+            <div class="day-subtitle">Building Rigorous Analytical Pipelines</div>
+        </div>
+        <div class="day-item day3 active" onclick="loadDay(3)">
+            <div class="day-number">3</div>
+            <div class="day-title">ANALYZE</div>
+            <div class="day-subtitle">From Frameworks to Findings</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <h3 style="color: var(--accent-cyan); margin-bottom: 20px;">DAY 1: DISCOVER</h3>
+            <ul class="module-list">
+                <li class="module-item">
+                    <div class="module-header" onclick="window.location.href='modules/welcome/welcome-setup.html'" style="cursor: pointer;">
+                        <span class="module-title">Welcome &amp; Setup</span>
+                    </div>
+                </li>
+                <li class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <span class="module-title">RuBase: What, Why, How</span>
+                    </div>
+                    <div class="module-sections">
+                        <div class="section-item" onclick="loadSection('rubase', 'what')">What is RuBase?</div>
+                        <div class="section-item" onclick="loadSection('rubase', 'why')">Why This Matters</div>
+                        <div class="section-item" onclick="loadSection('rubase', 'how')">How It Works</div>
+                    </div>
+                </li>
+                <li class="module-item expanded">
+                    <div class="module-header active" onclick="toggleModule(this)">
+                        <span class="module-title">Bibliometrics</span>
+                    </div>
+                    <div class="module-sections">
+                        <div class="section-item" onclick="loadSection('biblio', 'fundamentals')">Fundamentals</div>
+                        <div class="section-item" onclick="loadSection('biblio', 'lens')">The Lens Platform</div>
+                        <div class="section-item active" onclick="loadSection('biblio', 'openalex')">OpenAlex Explorer</div>
+                    </div>
+                </li>
+                <li class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <span class="module-title">Corpus Building</span>
+                    </div>
+                    <div class="module-sections">
+                        <div class="section-item" onclick="loadSection('corpus', 'search')">Search Strategy</div>
+                        <div class="section-item" onclick="loadSection('corpus', 'api')">API Mastery</div>
+                        <div class="section-item" onclick="loadSection('corpus', 'data')">Data Management</div>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area" id="contentArea">
+            <!-- Welcome Screen (default) -->
+            <div class="welcome-screen" id="welcomeScreen">
+                <h1 class="welcome-title">Welcome to RuBase Methods Workshop - Fletcher</h1>
+                <p class="welcome-subtitle">AI-Augmented Research at The Fletcher School</p>
+
+                <div class="quick-start-grid">
+                    <div class="quick-start-card" onclick="window.location.href='modules/workshop-overview/index.html'">
+                        <div class="quick-start-icon">📅</div>
+                        <div class="quick-start-title">Workshop Schedule</div>
+                        <div class="quick-start-desc">Complete 3-day agenda and session times</div>
+                    </div>
+                    <div class="quick-start-card" onclick="window.location.href='modules/resources/index.html'">
+                        <div class="quick-start-icon">📚</div>
+                        <div class="quick-start-title">Resources</div>
+                        <div class="quick-start-desc">Documentation, guides, and materials</div>
+                    </div>
+                    <div class="quick-start-card" onclick="window.location.href='modules/techhelp/index.html'">
+                        <div class="quick-start-icon">🛠️</div>
+                        <div class="quick-start-title">Tech Help</div>
+                        <div class="quick-start-desc">Common issues and quick fixes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Content Frame (hidden by default) -->
+            <div class="content-frame" id="contentFrame" style="display: none;">
+                <div class="content-header">
+                    <div class="breadcrumb" id="breadcrumb">
+                        <span class="breadcrumb-item" onclick="showHome()">Home</span>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-item">Day 1: DISCOVER</span>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-item">Bibliometrics</span>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-item">OpenAlex Explorer</span>
+                    </div>
+                    <div>
+                        <button onclick="previousSection()" style="margin-right: 10px;">← Previous</button>
+                        <button onclick="nextSection()">Next →</button>
+                    </div>
+                </div>
+                <iframe id="contentIframe" src=""></iframe>
+            </div>
+        </main>
+    </div>
+
+    <!-- Sidebar Toggle (Mobile) -->
+    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+    <script>
+        // Workshop data structure
+        const WORKSHOP = {
+            currentDay: 1,
+            currentModule: null,
+            currentSection: null,
+
+            days: {
+                1: {
+                    title: 'DISCOVER',
+                    modules: ['welcome', 'rubase', 'biblio', 'corpus']
+                },
+                2: {
+                    title: 'FRAME',
+                    modules: ['reflections', 'deep-research', 'taxonomies', 'exercise']
+                },
+                3: {
+                    title: 'ANALYZE',
+                    modules: ['classification', 'visualization', 'outputs']
+                }
+            },
+
+            modules: {
+                // Day 1 Modules
+                'welcome': {
+                    title: 'Welcome & Setup',
+                    presenter: 'Adam',
+                    sections: {
+                        'overview': './modules/welcome/welcome-setup.html',
+                        'schedule': './modules/welcome/welcome-setup.html',
+                        'resources': './modules/welcome/welcome-setup.html'
+                    }
+                },
+                'rubase': {
+                    title: 'RuBase: What, Why, How',
+                    presenter: 'Stephan',
+                    sections: {
+                        'what': 'slides/rubase-what.html',
+                        'why': 'slides/rubase-why.html',
+                        'how': 'slides/rubase-how.html'
+                    }
+                },
+                'biblio': {
+                    title: 'Bibliometrics',
+                    presenter: 'Adam',
+                    sections: {
+                        'fundamentals': 'slides/biblio-fundamentals.html',
+                        'lens': 'slides/biblio-lens.html',
+                        'openalex': './modules/openalex/openalex-explorer.html'
+                    }
+                },
+                'corpus': {
+                    title: 'Corpus Building',
+                    presenter: 'Stephan',
+                    sections: {
+                        'search': 'slides/corpus-search.html',
+                        'api': 'slides/corpus-api.html',
+                        'data': 'slides/corpus-data.html'
+                    }
+                },
+                // Day 2 Modules
+                'reflections': {
+                    title: 'Reflections From Yesterday',
+                    time: '5:30 PM - 6:00 PM',
+                    url: './modules/mdviewer/index.html?file=Day2_Schedule.md'
+                },
+                'deep-research': {
+                    title: 'Deep Research Methodologies',
+                    time: '6:00 PM - 6:45 PM',
+                    url: './modules/mdviewer/index.html?file=Day2_Schedule.md'
+                },
+                'taxonomies': {
+                    title: 'Multi-Dimensional Taxonomies',
+                    time: '7:15 PM - 8:30 PM',
+                    url: './modules/frame/building-taxonomies.html'
+                },
+                'exercise': {
+                    title: 'Hands-On Exercise',
+                    url: './modules/mdviewer/index.html?file=Taxonomy_Exercise_Instructions.md'
+                },
+                // Day 3 Modules
+                'classification': {
+                    title: 'AI Classification',
+                    locked: true
+                },
+                'visualization': {
+                    title: 'Interactive Visualizations',
+                    locked: true
+                },
+                'outputs': {
+                    title: 'Export & Integration',
+                    locked: true
+                }
+            }
+        };
+
+        // Initialize - Show the hub interface
+        document.addEventListener('DOMContentLoaded', () => {
+            // Don't redirect, show the main hub interface
+            // Users can navigate from here
+        });
+
+        // Navigation functions
+        function toggleModule(header) {
+            const moduleItem = header.closest('.module-item');
+            moduleItem.classList.toggle('expanded');
+
+            // Update active states
+            document.querySelectorAll('.module-header').forEach(h => h.classList.remove('active'));
+            if (moduleItem.classList.contains('expanded')) {
+                header.classList.add('active');
+            }
+        }
+
+        function loadSection(moduleId, sectionId) {
+            const module = WORKSHOP.modules[moduleId];
+            if (!module) return;
+
+            const sectionPath = module.sections[sectionId];
+            if (!sectionPath) return;
+
+            // Special handling for OpenAlex and Welcome - open in same window (full screen)
+            if ((moduleId === 'biblio' && sectionId === 'openalex') || moduleId === 'welcome') {
+                // Open in same window (full screen)
+                // Construct the full path properly
+                const basePath = window.location.pathname.replace('/index.html', '').replace(/\/$/, '');
+                const fullPath = basePath + '/' + sectionPath.replace('./', '');
+                window.location.href = fullPath;
+                return;
+            }
+
+            // Update current state
+            WORKSHOP.currentModule = moduleId;
+            WORKSHOP.currentSection = sectionId;
+
+            // Hide welcome screen
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('contentFrame').style.display = 'block';
+
+            // Load content
+            const iframe = document.getElementById('contentIframe');
+            iframe.src = sectionPath;
+
+            // Update breadcrumb
+            updateBreadcrumb(moduleId, sectionId);
+
+            // Update sidebar active states
+            updateSidebarStates(moduleId, sectionId);
+
+            // Save progress
+            saveProgress();
+        }
+
+        function updateBreadcrumb(moduleId, sectionId) {
+            const module = WORKSHOP.modules[moduleId];
+            const breadcrumb = document.getElementById('breadcrumb');
+
+            breadcrumb.innerHTML = `
+                <span class="breadcrumb-item" onclick="showHome()">Home</span>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">Day ${WORKSHOP.currentDay}: ${WORKSHOP.days[WORKSHOP.currentDay].title}</span>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">${module.title}</span>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item">${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}</span>
+            `;
+        }
+
+        function updateSidebarStates(moduleId, sectionId) {
+            // Clear all active states
+            document.querySelectorAll('.section-item').forEach(item => item.classList.remove('active'));
+
+            // Find and activate current section
+            document.querySelectorAll('.module-item').forEach(item => {
+                const header = item.querySelector('.module-header');
+                const titleElement = header.querySelector('.module-title');
+
+                // Match by module title
+                if (WORKSHOP.modules[moduleId] && titleElement.textContent === WORKSHOP.modules[moduleId].title) {
+                    item.classList.add('expanded');
+                    header.classList.add('active');
+
+                    // Find the section
+                    const sections = item.querySelectorAll('.section-item');
+                    sections.forEach((section, index) => {
+                        const sectionKeys = Object.keys(WORKSHOP.modules[moduleId].sections);
+                        if (sectionKeys[index] === sectionId) {
+                            section.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        function showHome() {
+            document.getElementById('welcomeScreen').style.display = 'block';
+            document.getElementById('contentFrame').style.display = 'none';
+            WORKSHOP.currentModule = null;
+            WORKSHOP.currentSection = null;
+        }
+
+        function loadDay(dayNumber) {
+            // Update current day
+            WORKSHOP.currentDay = dayNumber;
+
+            // Update day cards to show active
+            document.querySelectorAll('.day-item').forEach(item => {
+                item.classList.remove('current');
+            });
+            document.querySelector(`.day${dayNumber}`).classList.add('current');
+
+            // Update sidebar with new day's modules
+            updateSidebar(dayNumber);
+
+            // Show content area with day-specific content
+            const contentArea = document.getElementById('contentArea');
+
+            // Hide the main welcome screen if it exists
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            if (welcomeScreen) {
+                welcomeScreen.style.display = 'none';
+            }
+
+            if (dayNumber === 1) {
+                // Show Day 1 content
+                contentArea.innerHTML = `
+                    <div class="welcome-screen">
+                        <h1 class="welcome-title">Day 1: DISCOVER</h1>
+                        <p class="welcome-subtitle">Finding What You've Been Missing - Introduction to RuBase Research Methods</p>
+
+                        <div class="quick-start-grid">
+                            <div class="quick-start-card" onclick="window.location.href='modules/welcome/welcome-setup.html'">
+                                <div class="quick-start-icon">👋</div>
+                                <div class="quick-start-title">Welcome & Setup</div>
+                                <div class="quick-start-desc">Get started with the workshop environment</div>
+                            </div>
+                            <div class="quick-start-card" onclick="window.location.href='modules/openalex/openalex-explorer.html'">
+                                <div class="quick-start-icon">🔍</div>
+                                <div class="quick-start-title">OpenAlex Explorer</div>
+                                <div class="quick-start-desc">Interactive bibliometric discovery tool</div>
+                            </div>
+                            <div class="quick-start-card" onclick="window.location.href='modules/resources/index.html'">
+                                <div class="quick-start-icon">📚</div>
+                                <div class="quick-start-title">Resources & Guides</div>
+                                <div class="quick-start-desc">Documentation and reference materials</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (dayNumber === 2) {
+                // Show Day 2 content
+                contentArea.innerHTML = `
+                    <div class="welcome-screen">
+                        <h1 class="welcome-title">Day 2: FRAME</h1>
+                        <p class="welcome-subtitle">Building Rigorous Analytical Pipelines - Data Collection & Taxonomy Development</p>
+
+                        <div class="quick-start-grid">
+                            <div class="quick-start-card" onclick="window.location.href='modules/cartography/knowledge-cartography.html'">
+                                <div class="quick-start-icon">🗺️</div>
+                                <div class="quick-start-title">Knowledge Cartography</div>
+                                <div class="quick-start-desc">Map your research landscape</div>
+                            </div>
+                            <div class="quick-start-card" onclick="window.location.href='modules/frame/building-taxonomies.html'">
+                                <div class="quick-start-icon">🎯</div>
+                                <div class="quick-start-title">Building Taxonomies</div>
+                                <div class="quick-start-desc">Create structured classification systems</div>
+                            </div>
+                            <div class="quick-start-card" onclick="window.location.href='modules/exercise/hands-on-exercise.html'">
+                                <div class="quick-start-icon">📝</div>
+                                <div class="quick-start-title">Hands-On Exercise</div>
+                                <div class="quick-start-desc">Practice with real research data</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (dayNumber === 3) {
+                // Show Day 3 content in the main content area (similar to landing page style)
+                contentArea.innerHTML = `
+                    <div class="welcome-screen">
+                        <h1 class="welcome-title">Day 3: ANALYZE</h1>
+                        <p class="welcome-subtitle">From Frameworks to Findings - Advanced Analysis with CLI Tools & LLMs</p>
+
+                        <div class="quick-start-grid">
+                            <div class="quick-start-card" onclick="window.location.href='modules/analyze/ottoman-bank-case-study.html'">
+                                <div class="quick-start-icon">🏛️</div>
+                                <div class="quick-start-title">Ottoman Bank Case Study</div>
+                                <div class="quick-start-desc">Real-world research analysis walkthrough</div>
+                            </div>
+                            <div class="quick-start-card" onclick="window.location.href='modules/analyze/cli-llms-guide.html'">
+                                <div class="quick-start-icon">💻</div>
+                                <div class="quick-start-title">CLI LLMs Guide</div>
+                                <div class="quick-start-desc">Master command-line AI tools for research</div>
+                            </div>
+                            <div class="quick-start-card" onclick="window.location.href='modules/analyze/deep-research-guide.html'">
+                                <div class="quick-start-icon">🔍</div>
+                                <div class="quick-start-title">Deep Research Guide</div>
+                                <div class="quick-start-desc">Advanced techniques for comprehensive analysis</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 50px; padding: 30px; background: var(--secondary-bg); border-radius: 15px; border: 1px solid var(--border-color);">
+                            <h3 style="color: var(--accent-green); margin-bottom: 15px;">✅ Module 3: Complete & Ready!</h3>
+                            <p style="color: var(--text-secondary); line-height: 1.8;">
+                                All presentations and materials are now available for Day 3. Click on any presentation
+                                in the sidebar or the cards above to begin your journey into advanced research analysis
+                                using cutting-edge CLI tools and LLM techniques.
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function updateSidebar(dayNumber) {
+            const sidebar = document.getElementById('sidebar');
+            const dayData = WORKSHOP.days[dayNumber];
+
+            // Build new sidebar content
+            let sidebarHTML = `<h3 style="color: var(--accent-cyan); margin-bottom: 20px;">DAY ${dayNumber}: ${dayData.title}</h3>`;
+            sidebarHTML += '<ul class="module-list">';
+
+            if (dayNumber === 1) {
+                // Day 1 has the original structure
+                sidebarHTML += `
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/welcome/welcome-setup.html'" style="cursor: pointer;">
+                            <span class="module-title">Welcome & Setup</span>
+                            <span style="color: #00ff7f; font-size: 0.8rem; margin-left: 10px;">30 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/mdviewer/index.html?file=RuBase_Workshop_Fletcher_Program.md'" style="cursor: pointer;">
+                            <span class="module-title">📅 Workshop Overview</span>
+                            <span style="color: #00ff7f; font-size: 0.8rem; margin-left: 10px;">15 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/openalex/openalex-explorer.html'" style="cursor: pointer;">
+                            <span class="module-title">🔍 OpenAlex Discovery</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Interactive</span>
+                            <span style="color: #00ff7f; font-size: 0.8rem; margin-left: 10px;">45 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/resources/index.html'" style="cursor: pointer;">
+                            <span class="module-title">📚 Resources & Guides</span>
+                        </div>
+                    </li>
+                `;
+            } else if (dayNumber === 2) {
+                // Day 2 schedule items (without times)
+                sidebarHTML += `
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/mdviewer/index.html?file=Day2_Schedule.md'" style="cursor: pointer;">
+                            <span class="module-title">💭 Reflections From Yesterday</span>
+                            <span style="color: #ffa500; font-size: 0.8rem; margin-left: 10px;">30 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/mdviewer/index.html?file=Day2_Schedule.md'" style="cursor: pointer;">
+                            <span class="module-title">🔬 Deep Research Methods</span>
+                            <span style="color: #ffa500; font-size: 0.8rem; margin-left: 10px;">45 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.open('https://rumilspace.app', '_blank')" style="cursor: pointer;">
+                            <span class="module-title">🎖️ Demo: Russia-Ukraine Analysis</span>
+                            <span style="font-size: 0.8rem;">↗</span>
+                            <span style="color: #ffa500; font-size: 0.8rem; margin-left: 10px;">20 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header">
+                            <span class="module-title" style="color: var(--bright-yellow);">🍽️ Dinner Break</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/cartography/knowledge-cartography.html'" style="cursor: pointer;">
+                            <span class="module-title">🗺️ Knowledge Cartography</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-purple), var(--bright-yellow)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Slides</span>
+                            <span style="color: #ffa500; font-size: 0.8rem; margin-left: 10px;">30 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/frame/building-taxonomies.html'" style="cursor: pointer;">
+                            <span class="module-title">🎯 Building Taxonomies</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-cyan), var(--bright-purple)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Interactive</span>
+                            <span style="color: #ffa500; font-size: 0.8rem; margin-left: 10px;">45 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/exercise/hands-on-exercise.html'" style="cursor: pointer;">
+                            <span class="module-title">📝 Hands-On Exercise</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Workshop</span>
+                            <span style="color: #ffa500; font-size: 0.8rem; margin-left: 10px;">60 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/mdviewer/index.html?file=Day2_Schedule.md'" style="cursor: pointer;">
+                            <span class="module-title">✅ Quality Control & Validation</span>
+                        </div>
+                    </li>
+                `;
+                // Add quick links
+                sidebarHTML += `
+                    <li class="module-item" style="margin-top: 20px; border-top: 1px solid rgba(0,255,255,0.2); padding-top: 20px;">
+                        <div class="module-header" onclick="window.location.href='modules/resources/index.html'" style="cursor: pointer;">
+                            <span class="module-title">📚 Resources</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.open('https://rumilspace.app', '_blank')" style="cursor: pointer;">
+                            <span class="module-title">🌐 RuBase Dashboard</span>
+                            <span style="font-size: 0.8rem;">↗</span>
+                        </div>
+                    </li>
+                `;
+            } else if (dayNumber === 3) {
+                // Day 3 schedule items
+                sidebarHTML += `
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/mdviewer/index.html?file=Day3_Schedule.md'" style="cursor: pointer;">
+                            <span class="module-title">👋 Day 3 Welcome</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/analyze/ottoman-bank-case-study.html'" style="cursor: pointer;">
+                            <span class="module-title">🏛️ Ottoman Bank Case Study</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-green), var(--bright-cyan)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Slides</span>
+                            <span style="color: #00ffff; font-size: 0.8rem; margin-left: 10px;">40 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/analyze/cli-llms-guide.html'" style="cursor: pointer;">
+                            <span class="module-title">💻 CLI LLMs Guide</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-purple), var(--bright-cyan)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Slides</span>
+                            <span style="color: #00ffff; font-size: 0.8rem; margin-left: 10px;">50 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/analyze/deep-research-guide.html'" style="cursor: pointer;">
+                            <span class="module-title">🔍 Deep Research Guide</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-yellow), var(--bright-green)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Slides</span>
+                            <span style="color: #00ffff; font-size: 0.8rem; margin-left: 10px;">35 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/analyze/wacko-presentation.html'" style="cursor: pointer;">
+                            <span class="module-title">🎯 WACKO Presentation</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-orange), var(--bright-red)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Slides</span>
+                            <span style="color: #00ffff; font-size: 0.8rem; margin-left: 10px;">25 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/analyze/llm-selection-guide.html'" style="cursor: pointer;">
+                            <span class="module-title">🤖 LLM Selection Guide</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-cyan), var(--bright-yellow)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Slides</span>
+                            <span style="color: #00ffff; font-size: 0.8rem; margin-left: 10px;">30 min</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/mdviewer/index.html?file=Day3_Schedule.md'" style="cursor: pointer;">
+                            <span class="module-title">📊 Data Visualization</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='Day3_Workshop_Package/'" style="cursor: pointer;">
+                            <span class="module-title">📦 Workshop Package</span>
+                            <span style="background: linear-gradient(135deg, var(--bright-green), var(--bright-yellow)); padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: var(--dark-bg);">Download</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/mdviewer/index.html?file=CLI_LLM_Setup_Guide.md'" style="cursor: pointer;">
+                            <span class="module-title">🛠️ CLI Setup Guide</span>
+                        </div>
+                    </li>
+                `;
+                // Add quick links for Day 3
+                sidebarHTML += `
+                    <li class="module-item" style="margin-top: 20px; border-top: 1px solid rgba(0,255,255,0.2); padding-top: 20px;">
+                        <div class="module-header" onclick="window.location.href='modules/resources/index.html'" style="cursor: pointer;">
+                            <span class="module-title">📚 All Resources</span>
+                        </div>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-header" onclick="window.location.href='modules/techhelp/index.html'" style="cursor: pointer;">
+                            <span class="module-title">❓ Technical Help</span>
+                        </div>
+                    </li>
+                `;
+            }
+
+            sidebarHTML += '</ul>';
+            sidebar.innerHTML = sidebarHTML;
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const toggle = document.getElementById('sidebarToggle');
+
+            // For mobile, use open class instead of collapsed
+            if (window.innerWidth <= 768) {
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('active');
+
+                // Update toggle button
+                if (sidebar.classList.contains('open')) {
+                    toggle.innerHTML = '✕';
+                    toggle.style.background = 'linear-gradient(135deg, var(--accent-red), var(--accent-orange))';
+                } else {
+                    toggle.innerHTML = '☰';
+                    toggle.style.background = 'linear-gradient(135deg, var(--accent-cyan), var(--accent-green))';
+                }
+            } else {
+                // Desktop behavior
+                sidebar.classList.toggle('collapsed');
+            }
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const toggle = document.getElementById('sidebarToggle');
+
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            toggle.innerHTML = '☰';
+            toggle.style.background = 'linear-gradient(135deg, var(--accent-cyan), var(--accent-green))';
+        }
+
+        function saveProgress() {
+            // Progress tracking removed
+        }
+
+        function loadProgress() {
+            // Progress tracking removed
+        }
+
+        function updateProgress() {
+            // Progress tracking removed
+        }
+
+        function checkLocks() {
+            // Check date and unlock days accordingly
+            const now = new Date();
+            const day2Date = new Date('2026-03-12');
+            const day3Date = new Date('2026-03-13');
+
+            if (now >= day2Date) {
+                document.querySelector('.day2').classList.remove('locked');
+            }
+            if (now >= day3Date) {
+                document.querySelector('.day3').classList.remove('locked');
+            }
+        }
+
+        function previousSection() {
+            // Navigate to previous section
+            console.log('Previous section');
+        }
+
+        function nextSection() {
+            // Navigate to next section
+            console.log('Next section');
+        }
+
+
+        function showResources() {
+            loadSection('resources', 'guides');
+        }
+
+        function showHelp() {
+            loadSection('help', 'troubleshooting');
+        }
+
+        // Load saved progress on startup
+        window.addEventListener('load', loadProgress);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // Skip if user is typing in an input field
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            switch(e.key) {
+                case '1':
+                    // Press 1 to go to Day 1
+                    if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+                        loadDay(1);
+                    }
+                    break;
+                case '2':
+                    // Press 2 to go to Day 2
+                    if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+                        loadDay(2);
+                    }
+                    break;
+                case '3':
+                    // Press 3 to go to Day 3
+                    if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+                        loadDay(3);
+                    }
+                    break;
+                case 'Escape':
+                    // ESC to return to home
+                    showHome();
+                    break;
+                case 'ArrowLeft':
+                    // Left arrow to go to previous day
+                    if (WORKSHOP.currentDay > 1) {
+                        loadDay(WORKSHOP.currentDay - 1);
+                    }
+                    break;
+                case 'ArrowRight':
+                    // Right arrow to go to next day
+                    if (WORKSHOP.currentDay < 3) {
+                        loadDay(WORKSHOP.currentDay + 1);
+                    }
+                    break;
+                case 'h':
+                case 'H':
+                    // Press H for home
+                    if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+                        showHome();
+                    }
+                    break;
+                case '?':
+                    // Press ? to show keyboard shortcuts
+                    if (!e.ctrlKey && !e.altKey && !e.metaKey) {
+                        showKeyboardShortcuts();
+                    }
+                    break;
+            }
+        });
+
+        // Show keyboard shortcuts help
+        function showKeyboardShortcuts() {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: var(--secondary-bg);
+                border: 2px solid var(--accent-cyan);
+                border-radius: 15px;
+                padding: 30px;
+                z-index: 10000;
+                max-width: 500px;
+                box-shadow: 0 20px 60px rgba(0,255,255,0.3);
+            `;
+
+            modal.innerHTML = `
+                <h3 style="color: var(--accent-cyan); margin-bottom: 20px;">⌨️ Keyboard Shortcuts</h3>
+                <div style="color: var(--text-primary); line-height: 2;">
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">1</kbd> - Go to Day 1</div>
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">2</kbd> - Go to Day 2</div>
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">3</kbd> - Go to Day 3</div>
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">←</kbd> - Previous day</div>
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">→</kbd> - Next day</div>
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">H</kbd> - Go home</div>
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">ESC</kbd> - Return to home</div>
+                    <div><kbd style="background: var(--primary-bg); padding: 3px 8px; border-radius: 4px; border: 1px solid var(--border-color);">?</kbd> - Show this help</div>
+                </div>
+                <button onclick="this.parentElement.remove()" style="margin-top: 20px; background: var(--accent-cyan); color: var(--primary-bg); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 600;">Close</button>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Close on ESC or click outside
+            const closeModal = (e) => {
+                if (e.key === 'Escape' || (e.type === 'click' && !modal.contains(e.target))) {
+                    modal.remove();
+                    document.removeEventListener('keydown', closeModal);
+                    document.removeEventListener('click', closeModal);
+                }
+            };
+            document.addEventListener('keydown', closeModal);
+            setTimeout(() => document.addEventListener('click', closeModal), 100);
+        }
+    </script>
+
+
+</body></html>
