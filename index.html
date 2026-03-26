@@ -1245,7 +1245,8 @@
             };
             const sidebarTarget = document.getElementById(sidebarMap[blockId]);
             if (sidebarTarget) {
-                sidebarTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const sidebar = document.getElementById('sidebar');
+                sidebar.scrollTop = sidebarTarget.offsetTop - sidebar.offsetTop - 10;
             }
 
             // Close mobile sidebar
