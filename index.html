@@ -751,9 +751,12 @@
             <!-- Block 1: Opening -->
             <div class="sidebar-section">
                 <div class="sidebar-section-title">09:00-09:30 | Opening</div>
-                <div class="sidebar-item" onclick="showBlock('opening')">
-                    <span class="sidebar-item-title">Overview</span>
-                    <span class="badge-time">15 min</span>
+                <div class="sidebar-item" onclick="window.location.href='modules/analyze/rubase-overview.html'">
+                    <span class="sidebar-item-title">Overview Slides</span>
+                    <div class="sidebar-item-meta">
+                        <span class="sidebar-badge badge-slides">Slides</span>
+                        <span class="badge-time">15 min</span>
+                    </div>
                 </div>
                 <div class="sidebar-item" onclick="showBlock('opening')">
                     <span class="sidebar-item-title">Participant Intros</span>
@@ -764,14 +767,14 @@
             <!-- Block 2: Guided Examples -->
             <div class="sidebar-section">
                 <div class="sidebar-section-title">09:30-10:45 | Guided Examples</div>
-                <div class="sidebar-item" onclick="showBlock('redlines')">
+                <div class="sidebar-item" onclick="window.location.href='modules/analyze/redlines-presentation.html'">
                     <span class="sidebar-item-title">Red Lines Analysis</span>
                     <div class="sidebar-item-meta">
-                        <span class="sidebar-badge badge-demo">Demo</span>
+                        <span class="sidebar-badge badge-slides">Slides</span>
                         <span class="badge-time">25 min</span>
                     </div>
                 </div>
-                <div class="sidebar-item" onclick="showBlock('wacko')">
+                <div class="sidebar-item" onclick="window.open('modules/analyze/wacko-notebooklm-slides.pdf', '_blank')">
                     <span class="sidebar-item-title">WACKO Framework</span>
                     <div class="sidebar-item-meta">
                         <span class="sidebar-badge badge-slides">Slides</span>
@@ -896,7 +899,7 @@
                 </div>
 
                 <div class="content-cards">
-                    <div class="content-card">
+                    <div class="content-card" onclick="window.location.href='modules/analyze/rubase-overview.html'" style="cursor: pointer;">
                         <h3>09:00-09:15 | Overview</h3>
                         <div class="card-duration">15 minutes</div>
                         <p><strong>Why this matters</strong>, not how everything works.</p>
@@ -905,6 +908,7 @@
                             <li><strong>RuBase:</strong> corpora + taxonomy + AI + data fusion</li>
                             <li>One compelling output to set the stage</li>
                         </ul>
+                        <p style="margin-top: 10px; color: var(--accent-cyan);">Click to open slides &rarr;</p>
                     </div>
 
                     <div class="content-card">
@@ -1029,16 +1033,16 @@
                 </div>
 
                 <div class="content-cards">
-                    <div class="content-card" onclick="window.location.href='modules/analyze/wacko-presentation.html'">
-                        <h3>WACKO Presentation Slides</h3>
-                        <div class="card-duration">Full slide deck</div>
+                    <div class="content-card" onclick="window.open('modules/analyze/wacko-notebooklm-slides.pdf', '_blank')">
+                        <h3>WACKO Presentation (NotebookLM)</h3>
+                        <div class="card-duration">Kremlin Ideological Telemetry — Full slide deck</div>
                         <p>Decoding Russian strategic narratives through cognitive mapping.</p>
                         <ul>
                             <li>Philosophical roots of Russian strategic thinking</li>
                             <li>From cracked marble philosophers to digital analysis</li>
                             <li>Modern discourse patterns mapped to ontological framework</li>
                         </ul>
-                        <p style="margin-top: 10px; color: var(--accent-cyan);">Click to open slides &rarr;</p>
+                        <p style="margin-top: 10px; color: var(--accent-cyan);">Click to open PDF slides &rarr;</p>
                     </div>
 
                     <div class="content-card">

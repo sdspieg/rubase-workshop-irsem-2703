@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RuBase/StratBase: AI-Augmented Defense Research</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../presentation-styles.css">
+    <style>
+        /* Presentation container */
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Slide image styling */
+        .slide img {
+            max-width: 90%;
+            max-height: 55vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .slide img.large-img {
+            max-height: 65vh;
+        }
+
+        /* Content slide layouts */
+        .slide-content {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .slide-content h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .slide-content ul {
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide-content ul li {
+            padding: var(--spacing-sm) 0;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+        }
+
+        .slide-content ul li::before {
+            content: '\25B8';
+            color: var(--text-bright);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Title slide */
+        .title-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .title-content h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            line-height: 1.2;
+        }
+
+        .title-content .subtitle {
+            font-size: clamp(1rem, 2.2vw, 1.4rem);
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 800px;
+        }
+
+        .title-content .authors {
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .title-content .venue {
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            color: var(--accent-yellow);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* DIKW Pyramid */
+        .dikw-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin: var(--spacing-lg) auto;
+            max-width: 800px;
+        }
+
+        .dikw-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-sm) var(--spacing-xl);
+            border-radius: var(--radius-md);
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .dikw-level:hover {
+            transform: scale(1.02);
+        }
+
+        .dikw-level .level-name {
+            font-weight: 900;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            min-width: 140px;
+            text-align: right;
+        }
+
+        .dikw-level .level-arrow {
+            color: rgba(255,255,255,0.4);
+            font-size: 1.2rem;
+        }
+
+        .dikw-level .level-desc {
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            color: var(--text-secondary);
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .dikw-level:nth-child(1) {
+            background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,107,53,0.3));
+            border: 1px solid rgba(255,215,0,0.5);
+        }
+        .dikw-level:nth-child(1) .level-name { color: #ffd700; }
+
+        .dikw-level:nth-child(2) {
+            background: linear-gradient(135deg, rgba(255,107,53,0.25), rgba(183,148,244,0.25));
+            border: 1px solid rgba(255,107,53,0.4);
+        }
+        .dikw-level:nth-child(2) .level-name { color: #ff6b35; }
+
+        .dikw-level:nth-child(3) {
+            background: linear-gradient(135deg, rgba(183,148,244,0.2), rgba(0,255,255,0.2));
+            border: 1px solid rgba(183,148,244,0.4);
+        }
+        .dikw-level:nth-child(3) .level-name { color: #b794f4; }
+
+        .dikw-level:nth-child(4) {
+            background: linear-gradient(135deg, rgba(0,255,127,0.15), rgba(0,255,255,0.15));
+            border: 1px solid rgba(0,255,127,0.3);
+        }
+        .dikw-level:nth-child(4) .level-name { color: #00ff7f; }
+
+        .dikw-level:nth-child(5) {
+            background: linear-gradient(135deg, rgba(0,153,255,0.15), rgba(100,255,218,0.1));
+            border: 1px solid rgba(0,153,255,0.3);
+        }
+        .dikw-level:nth-child(5) .level-name { color: #0099ff; }
+
+        .dikw-arrow {
+            color: rgba(255,255,255,0.3);
+            font-size: 1.5rem;
+            margin: -2px 0;
+        }
+
+        /* Portfolio grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            width: 100%;
+            max-width: 1100px;
+            margin: var(--spacing-md) auto 0;
+        }
+
+        .portfolio-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-card .card-num {
+            color: var(--text-bright);
+            font-weight: 900;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .portfolio-card .card-title {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+            margin-bottom: 4px;
+        }
+
+        .portfolio-card .card-desc {
+            color: var(--text-secondary);
+            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+            line-height: 1.4;
+        }
+
+        /* Pipeline flow */
+        .pipeline-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) auto;
+            max-width: 1000px;
+        }
+
+        .pipeline-step {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+            color: var(--text-primary);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .pipeline-arrow {
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin: var(--spacing-lg) auto;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-box .stat-num {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--text-bright);
+        }
+
+        .stat-box .stat-label {
+            font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+            color: var(--text-secondary);
+        }
+
+        /* Slide background variants */
+        .slide.bg-2 { background: var(--slide-bg-2); }
+        .slide.bg-3 { background: var(--slide-bg-3); }
+        .slide.bg-4 { background: var(--slide-bg-4); }
+        .slide.bg-dark { background: var(--gradient-dark); }
+        .slide.bg-vibrant { background: var(--gradient-vibrant); }
+
+        /* CTA link */
+        a.cta-link {
+            display: inline-block;
+            background: var(--gradient-2);
+            color: var(--primary-bg);
+            padding: var(--spacing-sm) var(--spacing-xl);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            margin-top: var(--spacing-md);
+            transition: all 0.3s ease;
+        }
+
+        a.cta-link:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            width: 100%;
+            max-width: 1100px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .dikw-level {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+                text-align: center;
+            }
+            .dikw-level .level-name,
+            .dikw-level .level-desc {
+                text-align: center;
+                min-width: unset;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-number">1 / 12</div>
+            <div class="title-content">
+                <h1>RuBase / StratBase</h1>
+                <h2 class="gradient-text" style="margin-bottom: 0.5rem;">AI-Augmented Defense Research</h2>
+                <p class="subtitle">Decoding Russian Military Power Through Computational Intelligence</p>
+                <p class="authors">Stephan De Spiegeleire (HCSS) &amp; Adam Stulberg (Georgia Tech)</p>
+                <p class="venue">IRSEM Paris &nbsp;|&nbsp; March 28, 2026</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide bg-2" data-slide="2">
+            <div class="slide-number">2 / 12</div>
+            <div class="slide-content">
+                <h2>From Traditional Analysis to AI-Augmented Intelligence</h2>
+                <ul>
+                    <li>Reading 100 papers &ne; systematic analysis when <strong>100,000+</strong> exist</li>
+                    <li>Major multilingual challenges &mdash; Russian, Chinese, and other non-Latin sources</li>
+                    <li>IR and strategic studies lagging <strong>10+ years</strong> behind computational methods</li>
+                    <li>Academic analysis remains disconnected from decision-makers</li>
+                </ul>
+                <p class="mt-3" style="text-align:center; font-size:clamp(0.9rem,1.5vw,1.1rem);">
+                    <em>We need a bridge between the scholarly corpus and the policy world.</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: DIKW Pyramid -->
+        <div class="slide bg-3" data-slide="3">
+            <div class="slide-number">3 / 12</div>
+            <div class="slide-content">
+                <h2>Data to Decisions</h2>
+                <div class="dikw-pyramid">
+                    <div class="dikw-level">
+                        <span class="level-name">DECISIONS</span>
+                        <span class="level-desc">Change &amp; movement &mdash; acting on insight</span>
+                    </div>
+                    <div class="dikw-arrow">&uarr;</div>
+                    <div class="dikw-level">
+                        <span class="level-name">INSIGHT</span>
+                        <span class="level-desc">Applied &amp; actionable understanding</span>
+                    </div>
+                    <div class="dikw-arrow">&uarr;</div>
+                    <div class="dikw-level">
+                        <span class="level-name">KNOWLEDGE</span>
+                        <span class="level-desc">Contextual &amp; synthesized meaning</span>
+                    </div>
+                    <div class="dikw-arrow">&uarr;</div>
+                    <div class="dikw-level">
+                        <span class="level-name">INFORMATION</span>
+                        <span class="level-desc">Useful &amp; organized data</span>
+                    </div>
+                    <div class="dikw-arrow">&uarr;</div>
+                    <div class="dikw-level">
+                        <span class="level-name">DATA</span>
+                        <span class="level-desc">Raw signals &amp; observations</span>
+                    </div>
+                </div>
+                <p style="text-align:center; font-size:clamp(0.85rem,1.3vw,1rem); color:var(--text-secondary); margin-top: var(--spacing-sm);">
+                    RuBase rebuilds this pyramid <strong>from the ground up</strong> for defense research.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 4: What is RuBase -->
+        <div class="slide" data-slide="4">
+            <div class="slide-number">4 / 12</div>
+            <div class="slide-content">
+                <h2>RuBase &mdash; What's in a Name</h2>
+                <div class="two-col">
+                    <div>
+                        <ul>
+                            <li><strong>Ru</strong> = A knowledge base on <strong>Russia</strong></li>
+                            <li><strong>Base</strong> = Rebuilding the DIKW pyramid <strong>foundation</strong></li>
+                            <li>A new platform for <strong>collaborative, cumulative</strong> knowledge-building</li>
+                            <li>From isolated papers to a <strong>living analytical infrastructure</strong></li>
+                        </ul>
+                    </div>
+                    <div style="text-align:center;">
+                        <img src="overview-slides/slide-4-img-1.png" alt="RuBase concept" style="max-height:45vh;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: The Approach -->
+        <div class="slide bg-2" data-slide="5">
+            <div class="slide-number">5 / 12</div>
+            <div class="slide-content">
+                <h2>Spiral Development: Corpora + Taxonomy + AI + Data Fusion</h2>
+                <img src="overview-slides/slide-10-img-1.png" alt="RuBase Pipeline" class="large-img">
+            </div>
+        </div>
+
+        <!-- Slide 6: The Corpus -->
+        <div class="slide bg-3" data-slide="6">
+            <div class="slide-number">6 / 12</div>
+            <div class="slide-content">
+                <h2>Our RuBase Corpus</h2>
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="stat-num">197,000+</div>
+                        <div class="stat-label">Documents Processed</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">3</div>
+                        <div class="stat-label">Languages</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">7</div>
+                        <div class="stat-label">Major Source Families</div>
+                    </div>
+                </div>
+                <ul style="max-width:800px;">
+                    <li><strong>Russian official:</strong> State Duma, Federation Council, official Telegram channels</li>
+                    <li><strong>Russian scholarly:</strong> RFSDP, Integrum aggregator, military journals</li>
+                    <li><strong>English-language:</strong> Western academic &amp; policy literature</li>
+                    <li><strong>Chinese-language:</strong> CNKI scholarly database on Russian military affairs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: Taxonomy & Sunburst -->
+        <div class="slide" data-slide="7">
+            <div class="slide-number">7 / 12</div>
+            <div class="slide-content">
+                <h2>Multi-Dimensional Taxonomy</h2>
+                <p style="text-align:center; margin-bottom: var(--spacing-sm);">3 layers of taxonomic elements &mdash; from broad strategic domains to granular indicators</p>
+                <img src="overview-slides/slide-13-img-1.png" alt="Sunburst taxonomy chart" class="large-img">
+            </div>
+        </div>
+
+        <!-- Slide 8: Visual Analytics -->
+        <div class="slide bg-2" data-slide="8">
+            <div class="slide-number">8 / 12</div>
+            <div class="slide-content">
+                <h2>Visual Analytics: Slice, Dice, Compare</h2>
+                <img src="overview-slides/slide-22-img-1.png" alt="Visual analytics dashboard" class="large-img">
+            </div>
+        </div>
+
+        <!-- Slide 9: Pipeline Outputs -->
+        <div class="slide bg-3" data-slide="9">
+            <div class="slide-number">9 / 12</div>
+            <div class="slide-content">
+                <h2>From Data to Decision-Maker: The Whole Shebang</h2>
+                <div class="pipeline-flow">
+                    <span class="pipeline-step">Corpus</span>
+                    <span class="pipeline-arrow">&rarr;</span>
+                    <span class="pipeline-step">Middleware Reports</span>
+                    <span class="pipeline-arrow">&rarr;</span>
+                    <span class="pipeline-step">25-Page Brief</span>
+                    <span class="pipeline-arrow">&rarr;</span>
+                    <span class="pipeline-step">ExSum</span>
+                    <span class="pipeline-arrow">&rarr;</span>
+                    <span class="pipeline-step">Podcast</span>
+                    <span class="pipeline-arrow">&rarr;</span>
+                    <span class="pipeline-step">Vodcast</span>
+                    <span class="pipeline-arrow">&rarr;</span>
+                    <span class="pipeline-step">Slides</span>
+                </div>
+                <ul>
+                    <li><strong>Full middleware reports:</strong> 500&ndash;1,600 pages of structured AI analysis</li>
+                    <li><strong>Standardized sunburst visualizations</strong> across all projects</li>
+                    <li><strong>Multi-format delivery:</strong> tailored to each audience &mdash; from analyst to minister</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 10: Key Findings -->
+        <div class="slide" data-slide="10">
+            <div class="slide-number">10 / 12</div>
+            <div class="slide-content">
+                <h2>Russian Self-Perceived Strengths &amp; Weaknesses</h2>
+                <img src="overview-slides/slide-18-img-1.png" alt="Russian SWOT analysis" class="large-img">
+            </div>
+        </div>
+
+        <!-- Slide 11: Portfolio -->
+        <div class="slide bg-2" data-slide="11">
+            <div class="slide-number">11 / 12</div>
+            <div class="slide-content">
+                <h2>7 Completed Projects</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <div class="card-num">01</div>
+                        <div class="card-title">Red Lines</div>
+                        <div class="card-desc">Putin's escalation rhetoric &amp; nuclear signaling</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-num">02</div>
+                        <div class="card-title">Transparent Battlefield</div>
+                        <div class="card-desc">Data fusion &amp; ISR in Russian military thought</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-num">03</div>
+                        <div class="card-title">Grey Horizon</div>
+                        <div class="card-desc">Non-linear warfare &amp; hybrid operations</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-num">04</div>
+                        <div class="card-title">Glass Wall</div>
+                        <div class="card-desc">Russian perceptions of Western deterrence</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-num">05</div>
+                        <div class="card-title">WACKO</div>
+                        <div class="card-desc">Philosophical roots of Russian strategic culture</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-num">06</div>
+                        <div class="card-title">Russian Military Space</div>
+                        <div class="card-desc">Space doctrine, capabilities &amp; counter-space</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="card-num">07</div>
+                        <div class="card-title">Strengths &amp; Weaknesses</div>
+                        <div class="card-desc">Military regeneration &amp; force sustainability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: European Sovereignty -->
+        <div class="slide bg-dark" data-slide="12">
+            <div class="slide-number">12 / 12</div>
+            <div class="slide-content">
+                <h2>European Analytical Sovereignty</h2>
+                <ul>
+                    <li><strong>HCSS</strong> (The Hague) + <strong>IRSEM</strong> (Paris) = Europe's leading computational Russia analysis</li>
+                    <li>Building <strong>indigenous European capacity</strong> for AI-augmented strategic intelligence</li>
+                    <li>Time to <strong>lead, not follow</strong> &mdash; the tools and data are here</li>
+                </ul>
+                <div style="margin-top: var(--spacing-xl); text-align:center;">
+                    <a href="http://138.201.62.161:9081/" target="_blank" class="cta-link">Explore RuBase Deliverables</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <button class="nav-btn" onclick="window.location.href='../../index.html'">Home</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">&larr; Prev</button>
+            <span id="slide-indicator">1 / 12</span>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next &rarr;</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Global variables
+        window.currentSlide = 1;
+        window.totalSlides = 12;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            window.currentSlide = n;
+            if (window.currentSlide > window.totalSlides) window.currentSlide = 1;
+            if (window.currentSlide < 1) window.currentSlide = window.totalSlides;
+
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            if (slides[window.currentSlide - 1]) {
+                slides[window.currentSlide - 1].classList.add('active');
+            }
+
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            if (prevBtn) prevBtn.disabled = window.currentSlide === 1;
+            if (nextBtn) nextBtn.disabled = window.currentSlide === window.totalSlides;
+
+            const indicator = document.getElementById('slide-indicator');
+            if (indicator) {
+                indicator.textContent = `${window.currentSlide} / ${window.totalSlides}`;
+            }
+        }
+
+        function changeSlide(direction) {
+            showSlide(window.currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                showSlide(1);
+            } else if (event.key === 'End') {
+                showSlide(window.totalSlides);
+            }
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(1);
+        });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                showSlide(1);
+            });
+        } else {
+            showSlide(1);
+        }
+    </script>
+</body>
+</html>

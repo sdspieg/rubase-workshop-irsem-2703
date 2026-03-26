@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putin's Red Lines - AI-Driven Strategic Analysis</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../presentation-styles.css">
+    <style>
+        /* Red Lines presentation overrides */
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            text-align: center;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(100,255,218,0.3) transparent;
+        }
+
+        .slide::-webkit-scrollbar { width: 6px; }
+        .slide::-webkit-scrollbar-thumb { background: rgba(100,255,218,0.3); border-radius: 3px; }
+
+        /* Alternate slide backgrounds */
+        .slide:nth-child(even) { background: var(--slide-bg-2); }
+        .slide:nth-child(3n) { background: var(--slide-bg-3); }
+        .slide:nth-child(4n+1) { background: var(--slide-bg-4); }
+
+        .slide-content {
+            max-width: 1100px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .slide-content.centered {
+            text-align: center;
+        }
+
+        /* Title slide */
+        .title-main {
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff4444, #ff8888, #ffaaaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .authors {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .venue {
+            font-size: 1rem;
+            color: var(--accent-cyan);
+            font-weight: 400;
+        }
+
+        /* Category cards */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            width: 100%;
+        }
+
+        .cat-card {
+            background: rgba(30, 41, 59, 0.85);
+            border-left: 5px solid;
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        .cat-card:hover { transform: translateY(-3px); }
+
+        .cat-card.rrls { border-color: #ff4444; }
+        .cat-card.lrls { border-color: #ffd700; }
+        .cat-card.nts { border-color: #ff6b35; }
+
+        .cat-label {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.3rem;
+        }
+        .cat-card.rrls .cat-label { color: #ff4444; }
+        .cat-card.lrls .cat-label { color: #ffd700; }
+        .cat-card.nts .cat-label { color: #ff6b35; }
+
+        .cat-name {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .cat-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Bullet lists */
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.8rem 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+        }
+
+        .bullet-list li.highlight::before {
+            background: #ff4444;
+            box-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
+        }
+
+        .bullet-list li strong {
+            color: var(--text-primary);
+        }
+
+        .bullet-list li em {
+            color: var(--accent-yellow);
+            font-style: italic;
+        }
+
+        /* BLUF box */
+        .bluf-box {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.15), rgba(255, 107, 53, 0.1));
+            border: 2px solid rgba(255, 68, 68, 0.4);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1rem 0;
+        }
+
+        .bluf-label {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: #ff4444;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Stats row */
+        .stats-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .stat-box {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Pipeline steps */
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .pipe-step {
+            background: rgba(30, 41, 59, 0.85);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            border-top: 4px solid;
+            position: relative;
+        }
+
+        .pipe-step:nth-child(1) { border-color: var(--accent-cyan); }
+        .pipe-step:nth-child(2) { border-color: var(--accent-green); }
+        .pipe-step:nth-child(3) { border-color: var(--accent-yellow); }
+        .pipe-step:nth-child(4) { border-color: var(--accent-orange); }
+
+        .pipe-num {
+            font-size: 2rem;
+            font-weight: 900;
+            opacity: 0.3;
+            position: absolute;
+            top: 0.5rem;
+            right: 0.8rem;
+        }
+
+        .pipe-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .pipe-detail {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Implication cards */
+        .impl-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .impl-card {
+            background: rgba(30, 41, 59, 0.85);
+            border-radius: 10px;
+            padding: 1.3rem;
+            border-left: 4px solid var(--accent-cyan);
+        }
+
+        .impl-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .impl-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Slide image */
+        .slide-img {
+            max-width: 85%;
+            max-height: 55vh;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin: 0.8rem auto;
+            display: block;
+        }
+
+        .slide-img.large {
+            max-height: 62vh;
+            max-width: 90%;
+        }
+
+        /* Resource links */
+        .resource-links {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .resource-links li {
+            margin-bottom: 1rem;
+        }
+
+        .resource-links a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-links a:hover {
+            color: var(--text-bright);
+            text-decoration: underline;
+        }
+
+        .resource-desc {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-top: 0.2rem;
+            padding-left: 1.5rem;
+        }
+
+        /* Two column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .category-grid { grid-template-columns: 1fr; }
+            .pipeline { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Section divider label */
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Highlight accent */
+        .red { color: #ff4444; }
+        .gold { color: #ffd700; }
+        .cyan { color: var(--accent-cyan); }
+
+        /* Navigation - match WACKO structure */
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+            background: rgba(30, 41, 59, 0.95);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: 50px;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1001;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff4444, #ffd700, var(--accent-cyan));
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .slide-indicator {
+            position: fixed;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        /* App link button */
+        .app-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff4444, #ff6b35);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 0.8rem;
+        }
+
+        .app-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.4);
+        }
+
+        /* Title overlay */
+        .title-overlay {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Title Overlay -->
+        <div class="title-overlay">
+            <h1>Putin's Red Lines</h1>
+            <p>AI-Driven Strategic Analysis</p>
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-number">1 / 16</div>
+            <div class="slide-content centered">
+                <div class="section-label">IRSEM Paris | March 28, 2026</div>
+                <h1 class="title-main">Applying AI to Decipher<br>Putin's Red Lines</h1>
+                <p class="subtitle">Does He Mean What We Think We Heard?</p>
+                <div style="margin-top: 2rem;">
+                    <p class="authors">Adam Stulberg &amp; Stephan De Spiegeleire</p>
+                    <p class="venue">Institut de Recherche Strat&eacute;gique de l'&Eacute;cole Militaire</p>
+                </div>
+                <div class="stats-row" style="margin-top: 2rem;">
+                    <div class="stat-box">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Statements Analyzed</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">1.13M</div>
+                        <div class="stat-label">Events Processed</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">27</div>
+                        <div class="stat-label">Data Sources</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Visual Hook -->
+        <div class="slide" data-slide="2">
+            <div class="slide-number">2 / 16</div>
+            <div class="slide-content centered">
+                <h2>The Red Lines Question</h2>
+                <img src="redlines-slides/slide-2-img-1.png" alt="Russian Red Lines cartoon - tangled red lines with РОДИНА" class="slide-img large">
+                <p style="font-size: 0.95rem; margin-top: 0.5rem;"><em>"Where exactly are the red lines?"</em></p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Three Categories -->
+        <div class="slide" data-slide="3">
+            <div class="slide-number">3 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Analytical Framework</div>
+                <h2>Three Categories of Escalation Rhetoric</h2>
+                <div class="category-grid" style="margin-top: 1.5rem;">
+                    <div class="cat-card rrls">
+                        <div class="cat-label">RRLS</div>
+                        <div class="cat-name">Real Red Line Statements</div>
+                        <div class="cat-desc">Explicit threats tied to specific actions with defined consequences. The most operationally significant category.</div>
+                    </div>
+                    <div class="cat-card lrls">
+                        <div class="cat-label">LRLS</div>
+                        <div class="cat-name">Literal Red Line Statements</div>
+                        <div class="cat-desc">Statements that explicitly use the phrase "red line" &mdash; rhetorical framing that may or may not carry real weight.</div>
+                    </div>
+                    <div class="cat-card nts">
+                        <div class="cat-label">NTS</div>
+                        <div class="cat-name">Nuclear Threat Statements</div>
+                        <div class="cat-desc">Nuclear escalation rhetoric &mdash; from veiled references to explicit nuclear use scenarios. The highest-stakes signaling.</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem; font-size: 1rem;">These three categories form the basis of our AI-driven classification pipeline</p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Enigmas -->
+        <div class="slide" data-slide="4">
+            <div class="slide-number">4 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">The Puzzle</div>
+                <h2>Enigmas of Putin's Nuclear Saber-Rattling</h2>
+                <ul class="bullet-list" style="margin-top: 1.5rem;">
+                    <li>Russia's war of aggression fought <strong>under the shadow of nuclear escalation</strong> from Day One</li>
+                    <li>Persistent rhetoric threatening nuclear use against Ukraine or escalation to NATO conflict</li>
+                    <li class="highlight">Conventional wisdom: Russian red lines = <em>the reason NATO hasn't intervened directly</em></li>
+                    <li class="highlight"><strong>YET:</strong> NATO successively upgraded lethal military assistance &mdash; crossing multiple stated red lines</li>
+                    <li>HIMARS, Storm Shadow, ATACMS, F-16s, Leopard 2s &mdash; each supposedly a "red line"</li>
+                    <li><strong>Widening gap</strong> between escalation rhetoric and actual follow-through</li>
+                </ul>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <p style="font-size: 1.1rem; color: var(--accent-yellow);"><strong>If the red lines keep moving, were they ever real?</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Key Questions -->
+        <div class="slide" data-slide="5">
+            <div class="slide-number">5 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Research Questions</div>
+                <h2>What We Need to Know</h2>
+                <div class="category-grid" style="margin-top: 1.5rem;">
+                    <div class="cat-card" style="border-color: var(--accent-cyan);">
+                        <div class="cat-label cyan">Definition</div>
+                        <div class="cat-desc" style="font-size: 1.05rem;">How are Real Red Line Statements defined and communicated across official channels?</div>
+                    </div>
+                    <div class="cat-card" style="border-color: var(--accent-purple);">
+                        <div class="cat-label" style="color: var(--accent-purple);">Consistency</div>
+                        <div class="cat-desc" style="font-size: 1.05rem;">Are they consistent, credible, or <em>strategically ambiguous by design</em>?</div>
+                    </div>
+                    <div class="cat-card" style="border-color: var(--accent-green);">
+                        <div class="cat-label" style="color: var(--accent-green);">Behavior</div>
+                        <div class="cat-desc" style="font-size: 1.05rem;">What is the relationship between rhetoric and <strong>actual military behavior</strong>?</div>
+                    </div>
+                    <div class="cat-card" style="border-color: var(--accent-yellow);">
+                        <div class="cat-label gold">Scale</div>
+                        <div class="cat-desc" style="font-size: 1.05rem;">Can we detect patterns <strong>using AI at scale</strong> that human analysts miss?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: The Approach -->
+        <div class="slide" data-slide="6">
+            <div class="slide-number">6 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Methodology</div>
+                <h2>AI-Driven Strategic Analysis</h2>
+                <div class="two-col" style="margin-top: 1.5rem;">
+                    <div>
+                        <h4>From Human-Scale to AI-Scale</h4>
+                        <ul class="bullet-list">
+                            <li>Traditional analysis: dozens of statements, manually coded</li>
+                            <li>Our approach: <strong>50,000+ official Russian statements</strong> processed by NLP pipeline</li>
+                            <li>Multi-stage classification: detect, categorize, assess credibility</li>
+                            <li>Cross-reference with <strong>1.13M geopolitical events</strong></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>The Technical Stack</h4>
+                        <div class="stats-row" style="flex-direction: column; align-items: stretch;">
+                            <div class="stat-box" style="text-align: left;">
+                                <div style="color: var(--accent-cyan); font-weight: 700;">NLP Classification</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem;">Transformer-based models for statement detection &amp; categorization</div>
+                            </div>
+                            <div class="stat-box" style="text-align: left;">
+                                <div style="color: var(--accent-green); font-weight: 700;">Graph Neural Networks</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem;">Temporal event graphs linking rhetoric to actions</div>
+                            </div>
+                            <div class="stat-box" style="text-align: left;">
+                                <div style="color: var(--accent-yellow); font-weight: 700;">Causal Analysis</div>
+                                <div style="color: var(--text-secondary); font-size: 0.9rem;">Does rhetoric predict behavior? Or vice versa?</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: BLUF -->
+        <div class="slide" data-slide="7">
+            <div class="slide-number">7 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Executive Summary</div>
+                <h2>Bottom Line Up Front</h2>
+                <div class="bluf-box" style="margin-top: 1.5rem;">
+                    <div class="bluf-label">Key Findings</div>
+                    <ul class="bullet-list">
+                        <li>Putin's red lines are <strong class="red">strategically ambiguous by design</strong> &mdash; not failures of communication</li>
+                        <li>Escalation rhetoric functions as a <strong>"safety valve"</strong> &mdash; not a trigger for actual escalation</li>
+                        <li>Persistent <strong>mismatch</strong> between declared thresholds and actual military behavior</li>
+                        <li>Red lines serve <strong>domestic and alliance signaling</strong> far more than operational deterrence</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 1.1rem; color: var(--text-primary);">
+                    <strong>Implication:</strong> Western policy should calibrate to <span class="cyan">actions</span>, not <span class="red">rhetoric</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Russia's Way of Warfare -->
+        <div class="slide" data-slide="8">
+            <div class="slide-number">8 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Strategic Context</div>
+                <h2>Russia's Way of Warfare</h2>
+                <div class="two-col" style="margin-top: 1.5rem;">
+                    <div>
+                        <h4>Strategic Culture & Escalation</h4>
+                        <ul class="bullet-list">
+                            <li><strong>Escalation dominance</strong> as foundational doctrine</li>
+                            <li>Nuclear weapons as <em>political</em> instruments, not just military ones</li>
+                            <li>"Escalate to de-escalate" &mdash; the debated concept</li>
+                            <li>Information warfare integrated with kinetic operations</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Coding Framework</h4>
+                        <ul class="bullet-list">
+                            <li>Official presidential statements &amp; speeches</li>
+                            <li>MFA briefings &amp; press conferences</li>
+                            <li>Defense ministry communications</li>
+                            <li>State media amplification patterns</li>
+                            <li>Each coded for: <strong>audience, intent, specificity, credibility</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Classification System -->
+        <div class="slide" data-slide="9">
+            <div class="slide-number">9 / 16</div>
+            <div class="slide-content centered">
+                <div class="section-label">Classification</div>
+                <h2>Coding Red Line Statements</h2>
+                <img src="redlines-slides/slide-15-img-1.png" alt="Classification system and coding table" class="slide-img">
+                <div class="stats-row" style="margin-top: 1rem;">
+                    <div class="stat-box">
+                        <div class="stat-label">Audience</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Durability</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Geopolitical Area</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Immediacy</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Escalation Level</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Three Russian Logics -->
+        <div class="slide" data-slide="10">
+            <div class="slide-number">10 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Theoretical Framework</div>
+                <h2>Three Logics / Three Predictions</h2>
+                <p style="margin-bottom: 1rem;">Each Russian strategic logic generates different predictions about red line behavior:</p>
+                <div class="category-grid">
+                    <div class="cat-card" style="border-color: #ff4444;">
+                        <div class="cat-label red">Logic 1: Coercive</div>
+                        <div class="cat-name">Red lines as deterrent signals</div>
+                        <div class="cat-desc">Predicts: RRLS should be <strong>consistent and credible</strong>. Crossing them triggers escalation. If true, NATO should have faced consequences.</div>
+                    </div>
+                    <div class="cat-card" style="border-color: #ffd700;">
+                        <div class="cat-label gold">Logic 2: Domestic</div>
+                        <div class="cat-name">Red lines as internal legitimation</div>
+                        <div class="cat-desc">Predicts: RRLS frequency correlates with <strong>domestic pressure</strong>, not external events. Rhetoric aimed at home audience.</div>
+                    </div>
+                    <div class="cat-card" style="border-color: var(--accent-cyan);">
+                        <div class="cat-label cyan">Logic 3: Strategic Ambiguity</div>
+                        <div class="cat-name">Red lines as flexible instruments</div>
+                        <div class="cat-desc">Predicts: RRLS are <strong>deliberately vague</strong>. Ambiguity is the strategy. This is what the data supports.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Red Lines App -->
+        <div class="slide" data-slide="11">
+            <div class="slide-number">11 / 16</div>
+            <div class="slide-content centered">
+                <div class="section-label">Interactive Tool</div>
+                <h2>The Red Lines Dashboard</h2>
+                <img src="redlines-slides/slide-10-img-1.png" alt="Red Lines interactive sunburst visualization" class="slide-img">
+                <p style="margin-top: 1rem;">Explore the full dataset: filter by category, time period, speaker, and escalation level</p>
+                <a href="https://sdspieg.github.io/redlines-dashboard/" target="_blank" class="app-btn">Launch Red Lines Dashboard &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Slide 12: GNN Pipeline -->
+        <div class="slide" data-slide="12">
+            <div class="slide-number">12 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Predictive Analysis</div>
+                <h2>GNN Pipeline: Strategic Context</h2>
+                <div class="pipeline" style="margin-top: 1.5rem;">
+                    <div class="pipe-step">
+                        <div class="pipe-num">01</div>
+                        <div class="pipe-title" style="color: var(--accent-cyan);">Data Collection &amp; Graph Building</div>
+                        <div class="pipe-detail"><strong>27 sources</strong><br>1,130,000 events<br>Feb 2022 &ndash; Mar 2026<br>Structured as temporal knowledge graph</div>
+                    </div>
+                    <div class="pipe-step">
+                        <div class="pipe-num">02</div>
+                        <div class="pipe-title" style="color: var(--accent-green);">Pattern Learning</div>
+                        <div class="pipe-detail"><strong>Graph Neural Networks</strong><br>Learn relational patterns between rhetoric and military events<br>Temporal attention mechanisms</div>
+                    </div>
+                    <div class="pipe-step">
+                        <div class="pipe-num">03</div>
+                        <div class="pipe-title" style="color: var(--accent-yellow);">Validation</div>
+                        <div class="pipe-detail"><strong>How well does it work?</strong><br>Backtesting against known escalation events<br>Cross-validated against analyst assessments</div>
+                    </div>
+                    <div class="pipe-step">
+                        <div class="pipe-num">04</div>
+                        <div class="pipe-title" style="color: var(--accent-orange);">Key Discoveries</div>
+                        <div class="pipe-detail"><strong>What we found</strong><br>Rhetoric-action decoupling<br>Domestic signaling patterns<br>Ambiguity as strategy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Strategic Ambiguity Paradox -->
+        <div class="slide" data-slide="13">
+            <div class="slide-number">13 / 16</div>
+            <div class="slide-content centered">
+                <div class="section-label">Core Finding</div>
+                <h2>The Strategic Ambiguity Paradox</h2>
+                <img src="redlines-slides/slide-30-img-1.png" alt="Strategic Ambiguity Paradox visualization" class="slide-img large">
+                <div class="stats-row" style="margin-top: 0.8rem;">
+                    <div class="stat-box">
+                        <div class="stat-number">Feb 2022</div>
+                        <div class="stat-label">Start of analysis</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">Mar 2026</div>
+                        <div class="stat-label">Latest data</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">1.13M</div>
+                        <div class="stat-label">Events analyzed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Key Findings -->
+        <div class="slide" data-slide="14">
+            <div class="slide-number">14 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">Results</div>
+                <h2>Key Findings</h2>
+                <div class="bluf-box" style="margin-top: 1rem; border-color: rgba(100, 255, 218, 0.4); background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 153, 255, 0.05));">
+                    <ul class="bullet-list">
+                        <li>Putin's red lines are <strong class="red">deliberately ambiguous</strong> &mdash; ambiguity is the feature, not a bug</li>
+                        <li>Red line rhetoric is <strong>inversely correlated</strong> with actual escalation risk &mdash; more talk = less action</li>
+                        <li>Strategic ambiguity functions as a <strong class="gold">"safety valve"</strong> &mdash; verbal escalation substitutes for kinetic escalation</li>
+                        <li>Western arms deliveries crossed <strong>multiple stated red lines</strong> without triggering the promised consequences</li>
+                        <li>Red lines are tools of <strong>information warfare</strong>, not military doctrine</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 1rem; color: var(--text-secondary);">
+                    The pattern is clear: <strong>the louder the rhetoric, the less likely the follow-through</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 15: Implications -->
+        <div class="slide" data-slide="15">
+            <div class="slide-number">15 / 16</div>
+            <div class="slide-content">
+                <div class="section-label">So What?</div>
+                <h2>Implications</h2>
+                <div class="impl-grid" style="margin-top: 1.5rem;">
+                    <div class="impl-card">
+                        <h4 style="color: var(--accent-cyan);">For NATO</h4>
+                        <p>Calibrate responses to <strong>actions, not rhetoric</strong>. Red line statements should inform, not paralyze, Western decision-making.</p>
+                    </div>
+                    <div class="impl-card" style="border-color: var(--accent-yellow);">
+                        <h4 style="color: var(--accent-yellow);">For Escalation Management</h4>
+                        <p>Red lines <strong>&ne; actual escalation triggers</strong>. The real escalation signals are behavioral, not verbal.</p>
+                    </div>
+                    <div class="impl-card" style="border-color: var(--accent-green);">
+                        <h4 style="color: var(--accent-green);">For Analysis</h4>
+                        <p>Need systematic, <strong>AI-augmented approach</strong> to decode signaling at scale. Human analysis alone cannot process this volume.</p>
+                    </div>
+                    <div class="impl-card" style="border-color: var(--accent-orange);">
+                        <h4 style="color: var(--accent-orange);">For RuBase</h4>
+                        <p>This is exactly what RuBase enables: <strong>AI-driven analysis at scale</strong> across the full spectrum of Russian official discourse.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Conclusion / Resources -->
+        <div class="slide" data-slide="16">
+            <div class="slide-number">16 / 16</div>
+            <div class="slide-content centered">
+                <h2>Explore the Data Yourself</h2>
+                <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 1.5rem;">All tools are open-access and interactive</p>
+                <ul class="resource-links">
+                    <li>
+                        <a href="https://sdspieg.github.io/redlines-dashboard/" target="_blank">Red Lines Dashboard</a>
+                        <span class="resource-desc">Interactive exploration of classified red line statements &mdash; filter by type, speaker, time</span>
+                    </li>
+                    <li>
+                        <a href="https://sdspieg.github.io/russian_redlines-causal-dashboard/" target="_blank">Causal Analysis Dashboard</a>
+                        <span class="resource-desc">Does rhetoric predict behavior? Explore the causal relationships in the data</span>
+                    </li>
+                    <li>
+                        <a href="https://sdspieg.github.io/war-datasets-dashboard/" target="_blank">Ukraine War Datasets</a>
+                        <span class="resource-desc">1.13M events from 27 sources &mdash; the underlying data powering the analysis</span>
+                    </li>
+                </ul>
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(100,255,218,0.2);">
+                    <p class="authors">Adam Stulberg &amp; Stephan De Spiegeleire</p>
+                    <p class="venue">IRSEM Paris | March 28, 2026</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.5rem;">Questions &amp; Discussion</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" onclick="window.location.href='../../index.html'">Home</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">&larr; Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next &rarr;</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <!-- Slide Indicator -->
+        <div class="slide-indicator" id="slideIndicator">
+            Slide 1 of 16
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        window.currentSlide = 1;
+        window.totalSlides = 16;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            // Update current slide with bounds checking
+            window.currentSlide = n;
+            if (window.currentSlide > window.totalSlides) window.currentSlide = 1;
+            if (window.currentSlide < 1) window.currentSlide = window.totalSlides;
+
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Show current slide
+            if (slides[window.currentSlide - 1]) {
+                slides[window.currentSlide - 1].classList.add('active');
+            }
+
+            // Update navigation buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            if (prevBtn) prevBtn.disabled = window.currentSlide === 1;
+            if (nextBtn) nextBtn.disabled = window.currentSlide === window.totalSlides;
+
+            // Update progress bar
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                const progressPercent = (window.currentSlide / window.totalSlides) * 100;
+                progressBar.style.width = progressPercent + '%';
+            }
+
+            // Update slide indicator
+            const slideIndicator = document.getElementById('slideIndicator');
+            if (slideIndicator) {
+                slideIndicator.textContent = `Slide ${window.currentSlide} of ${window.totalSlides}`;
+            }
+        }
+
+        function changeSlide(direction) {
+            showSlide(window.currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (event.key === 'Home') {
+                showSlide(1);
+            } else if (event.key === 'End') {
+                showSlide(window.totalSlides);
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(1);
+        });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                showSlide(1);
+            });
+        } else {
+            showSlide(1);
+        }
+    </script>
+</body>
+</html>
