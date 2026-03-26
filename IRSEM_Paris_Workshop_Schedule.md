@@ -1,215 +1,89 @@
-# IRSEM Paris Workshop Schedule
+# RuBase Session - IRSEM Paris
 ## AI-Augmented Defense Research: Decoding Russian Military Power
-### March 27, 2026 | École Militaire, Paris
+### March 28, 2026 | 09:00-12:00 | IRSEM, Paris
 
 ---
 
-## 📅 Full 4-Hour Schedule
+## 09:00-09:30 | Opening (30 min)
 
-### 9:00-9:15 | **Ouverture / Opening** (15 min)
-- Welcome from IRSEM leadership (5 min)
-- Introductions: HCSS/StratBase team (5 min)
-- Workshop objectives & what you'll learn today (5 min)
+### 09:00-09:15 | Overview (15 min)
+- **The problem:** fragmentation, scale, blind spots in Russian military analysis
+- **RuBase:** corpora + taxonomy + AI + data fusion
+- One compelling output (don't overdo it yet)
+- Focus: *"why this matters"*, not *"how everything works"*
 
----
-
-### 9:15-10:15 | **Session 1: Computational Intelligence on Russian Military** (60 min)
-*"What We've Learned: 3 Years of AI-Augmented Analysis"*
-
-#### 9:15-9:30 | **WACKO Framework Demonstration** (15 min)
-- Live demo: Decoding Russian strategic narratives
-- Cognitive mapping of adversarial thinking patterns
-- From cracked marble philosophers to digital insights
-- Example: Putin's nuclear rhetoric evolution 2022-2026
-
-#### 9:30-9:45 | **Russian Regeneration Capabilities** (15 min)
-- Quantitative modeling of force reconstitution
-- Personnel, equipment, morale metrics
-- NATO comparison benchmarks
-- Real-time capability assessments
-
-#### 9:45-10:00 | **Red Lines Analysis** (15 min)
-- NLP analysis of 50,000+ Russian official statements
-- Escalation threshold detection methodology
-- Pattern recognition in strategic signaling
-- Predictive modeling of crisis behaviors
-
-#### 10:00-10:15 | **The Data Ecosystem** (15 min)
-- EVP windows and optimal collection timing
-- Integrum integration for Russian sources
-- CNKI for China-Russia military cooperation
-- Duma/FC/Telegram pipeline architecture
-- RFSDP corpus construction
+### 09:15-09:30 | Participant Introductions (15 min)
+- Name + affiliation
+- *"What do you struggle with most in your research/work?"*
+- Answers will be reused during demos for instant relevance
 
 ---
 
-### ☕ **10:15-10:30 | Pause Café** (15 min)
+## 09:30-10:45 | Guided Examples (75 min)
+
+*Progressive narrative, not three separate talks.*
+
+### 1. Red Lines Analysis (25 min) - The Hook
+- Concrete, intuitive entry point
+- Statements -> classification -> behavioral linkage
+- 50,000+ Russian official statements processed
+- Escalation threshold detection
+- Policy relevance
+
+### 2. WACKO Framework (25 min) - The Depth
+- From observable signals to deeper ontology
+- Philosophical roots -> modern discourse
+- Cognitive mapping of adversarial thinking
+- *"This is what you miss without structured analysis"*
+- Deepens intellectual credibility
+
+### 3. Transparent Battlefield (25 min) - The Scale
+- Data fusion: text + events + temporal patterns
+- Where analysis becomes predictive / operational
+- Multi-source integration
+- *"This is where it scales"*
 
 ---
 
-### 10:30-11:30 | **Session 2: Methods Transfer** (60 min)
-*"How It's Done: Tools & Workflows"*
-
-#### 10:30-10:50 | **OpenAlex for Defense Research** (20 min)
-- Building domain-specific military corpora
-- **Live Demo**: "Wagner Group" literature mapping
-- French defense sources integration
-- Multi-language corpus construction
-- API optimization for large-scale collection
-
-#### 10:50-11:10 | **LLM Pipeline for Strategic Analysis** (20 min)
-- Claude Opus 4.6 vs GPT-5.4 for Russian text
-- Prompt engineering for military/technical texts
-- Security considerations for sensitive data
-- Multi-model verification (LLM Jury approach)
-- Handling Cyrillic, technical terms, military acronyms
-
-#### 11:10-11:30 | **From Data to Decision-Maker** (20 min)
-- The "Whole Shebang" output system:
-  - Standardized sunburst applications
-  - Full middleware reports
-  - 25-pager → 5-page ExSum automation
-  - Podcast generation pipeline
-  - Vodcast production
-  - NotebookLM slidedeck creation
-- Visualization best practices for military leadership
+## 10:45-11:00 | Break (15 min)
 
 ---
 
-### 11:30-12:30 | **Session 3: Hands-On Practice** (60 min)
-*"Your Turn: Guided Analysis with Our Data"*
+## 11:00-11:45 | Hands-On Exploration (45 min)
 
-#### 11:30-11:45 | **Setup & Data Access** (15 min)
-- Access credentials for workshop environment
-- Pre-loaded Russian military corpus overview:
-  - 10,000 documents from RFSDP analysis
-  - Subset of regeneration capabilities data
-  - Sample Duma/FC statements
-- Tool authentication (OpenAlex, Claude/GPT)
-- Quick Python environment check
+### Structure:
+- 5 min: quick instructions on navigating sunburst apps
+- 30-35 min: free exploration (circulate and prompt)
 
-#### 11:45-12:15 | **Guided Exercise: Mini-WACKO Analysis** (30 min)
-- Teams of 2-3 participants
-- Each team gets different aspect:
-  - Team A: Russian nuclear doctrine evolution
-  - Team B: Military logistics statements
-  - Team C: China-Russia military cooperation
-  - Team D: Wagner/PMC narratives
-- Apply WACKO methodology steps
-- Generate preliminary insights
-- Create mini-sunburst visualization
+### Sunburst Apps Available:
+- **WACKO** - Russian strategic philosophers -> modern discourse
+- **Transparent Battlefield** - From fog of war to fever of exposure
+- **Strengths & Weaknesses** - Russian military regeneration
+- **Grey Horizon** - Russia's non-linear zone evolution
+- **Glass Wall** - Russian perceptions of Western deterrence
+- **Russian Military Space** - From posturing to practice
 
-#### 12:15-12:30 | **Results Presentation** (15 min)
-- Each team presents 2-minute findings
-- Compare approaches and insights
-- Discuss methodology variations
-- Validate against our full analysis
+### Mini-Tasks:
+1. *"Find one surprising pattern"*
+2. *"Trace one concept across levels"*
+3. *"Compare two categories"*
 
 ---
 
-### 12:30-13:00 | **Session 4: Strategic Applications & Next Steps** (30 min)
-*"Adapting to Your Mission"*
+## 11:45-12:00 | Debrief & Wrap-Up (15 min)
 
-#### 12:30-12:45 | **Adaptation to French Priorities** (15 min)
-- **Sahel Operations**: Applying Russian info-ops analysis
-- **European Deterrence**: Red lines methodology transfer
-- **China Analysis**: Using WACKO for PLA doctrine
-- **Mediterranean**: Russian naval presence tracking
-- Integration with French intelligence workflows
+### Discussion:
+- *"What did you find surprising?"*
+- *"What would you use this for?"*
 
-#### 12:45-12:55 | **Resources & Collaboration** (10 min)
-- Access to StratBase/RuBase tools suite
-- Workshop materials repository (GitHub)
-- Follow-up training opportunities
-- Potential joint research projects
-- CORUSCANT project integration possibilities
-
-#### 12:55-13:00 | **Q&A & Closing** (5 min)
-- Final questions
-- Contact information exchange
-- Next workshop announcement
+### Closing the Loop:
+- Tie back to participant intro bottlenecks
+- Show how RuBase addresses them
+- Full access to all materials and tools
+- **[RuBase Deliverables Overview](http://138.201.62.161:9081/)**
 
 ---
 
-## 📊 Key Deliverables for Participants:
-
-1. **Access to Tools**:
-   - OpenAlex API keys (1-month trial)
-   - Sample Python scripts
-   - WACKO framework template
-
-2. **Data Samples**:
-   - Curated Russian military corpus (1GB)
-   - Example sunburst visualizations
-   - Prompt library for military analysis
-
-3. **Documentation**:
-   - Full methodology guides
-   - Best practices handbook
-   - Security protocols for sensitive research
-
-4. **Follow-Up**:
-   - 30-day email support
-   - Monthly virtual office hours
-   - Access to workshop Slack channel
-
----
-
-## 🎯 Learning Objectives:
-
-By the end of this workshop, participants will be able to:
-
-1. **Understand** the complete RuBase/StratBase analytical pipeline
-2. **Apply** WACKO methodology to strategic narratives
-3. **Build** domain-specific corpora using OpenAlex
-4. **Analyze** Russian-language sources with LLMs
-5. **Generate** multiple output formats for different audiences
-6. **Integrate** these methods into their existing workflows
-
----
-
-## 👥 Target Audience:
-
-- IRSEM researchers working on Russia/Eurasia
-- French military intelligence analysts
-- Strategic studies researchers
-- Defense policy advisors
-- Regional specialists (Russia, China, Sahel)
-
----
-
-## 🛠️ Technical Requirements:
-
-**Participants should bring**:
-- Laptop with Python 3.9+ installed
-- GitHub account
-- Google account (for Colab backup)
-
-**We will provide**:
-- API keys
-- Cloud compute credits
-- All code and data
-- Printed reference materials
-
----
-
-## 📍 Venue:
-
-**École Militaire**
-1 Place Joffre
-75007 Paris
-Metro: École Militaire (Line 8)
-
----
-
-## 📧 Contact:
-
-**Workshop Coordination**:
-[Contact details]
-
-**Technical Support**:
-[Support email]
-
----
-
-*This workshop is part of the StratBase initiative to democratize AI-augmented strategic analysis*
+## Key Links:
+- **RuBase Deliverables Overview:** http://138.201.62.161:9081/
+- **Fletcher School Workshop Archive:** https://sdspieg.github.io/rubase-workshop-fletcher-2603/
