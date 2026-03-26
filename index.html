@@ -167,9 +167,13 @@
             width: 220px;
             background: rgba(21, 27, 61, 0.95);
             border-right: 1px solid var(--border-color);
-            padding: 20px;
+            padding: 12px;
             overflow-y: auto;
             transition: transform 0.3s;
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            align-self: flex-start;
         }
 
         .sidebar h3 {
@@ -1244,9 +1248,9 @@
                 'debrief': 'sidebar-debrief'
             };
             const sidebarTarget = document.getElementById(sidebarMap[blockId]);
-            if (sidebarTarget) {
-                const sidebar = document.getElementById('sidebar');
-                sidebar.scrollTop = sidebarTarget.offsetTop - sidebar.offsetTop - 10;
+            const sidebar = document.getElementById('sidebar');
+            if (sidebarTarget && sidebar) {
+                sidebar.scrollTop = sidebarTarget.offsetTop - sidebar.offsetTop;
             }
 
             // Close mobile sidebar
