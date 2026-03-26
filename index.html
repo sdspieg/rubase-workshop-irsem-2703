@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- IRSEM Paris Workshop - 3-Hour Session | March 28, 2026 -->
+<!-- IRSEM Paris Workshop - 3-Hour Session | March 27, 2026 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -161,7 +161,7 @@
 
         /* Sidebar */
         .sidebar {
-            width: 300px;
+            width: 220px;
             background: rgba(21, 27, 61, 0.95);
             border-right: 1px solid var(--border-color);
             padding: 20px;
@@ -171,23 +171,23 @@
 
         .sidebar h3 {
             color: var(--accent-cyan);
-            margin-bottom: 15px;
-            font-size: 1rem;
+            margin-bottom: 8px;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .sidebar-section {
-            margin-bottom: 25px;
+            margin-bottom: 12px;
         }
 
         .sidebar-section-title {
             color: var(--accent-yellow);
-            font-size: 0.8rem;
+            font-size: 0.55rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
         }
 
@@ -195,9 +195,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 12px;
-            margin: 4px 0;
-            border-radius: 8px;
+            padding: 5px 8px;
+            margin: 2px 0;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
             border: 1px solid transparent;
@@ -215,7 +215,7 @@
         }
 
         .sidebar-item-title {
-            font-size: 0.9rem;
+            font-size: 0.6rem;
             font-weight: 600;
         }
 
@@ -226,7 +226,7 @@
         }
 
         .sidebar-badge {
-            font-size: 0.65rem;
+            font-size: 0.5rem;
             padding: 2px 8px;
             border-radius: 12px;
             font-weight: 600;
@@ -270,14 +270,14 @@
         }
 
         .welcome-title {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
             color: var(--accent-cyan);
             font-weight: 900;
         }
 
         .welcome-subtitle {
-            font-size: 1.3rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
             margin-bottom: 10px;
         }
@@ -337,21 +337,21 @@
         }
 
         .card-time {
-            font-size: 0.8rem;
+            font-size: 0.55rem;
             color: var(--accent-cyan);
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 0.75rem;
             font-weight: 700;
             margin-bottom: 8px;
         }
 
         .card-desc {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.6rem;
             line-height: 1.5;
         }
 
@@ -398,7 +398,7 @@
         }
 
         .block-header h2 {
-            font-size: 2rem;
+            font-size: 1.1rem;
             color: var(--accent-cyan);
             margin-bottom: 8px;
         }
@@ -438,28 +438,28 @@
 
         .content-card h3 {
             color: var(--accent-cyan);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+            margin-bottom: 4px;
+            font-size: 0.7rem;
         }
 
         .content-card .card-duration {
             color: var(--accent-cyan);
-            font-size: 0.85rem;
-            margin-bottom: 10px;
+            font-size: 0.55rem;
+            margin-bottom: 5px;
         }
 
         .content-card p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.6rem;
+            line-height: 1.4;
         }
 
         .content-card ul {
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 8px;
-            padding-left: 20px;
-            line-height: 1.8;
+            font-size: 0.6rem;
+            margin-top: 4px;
+            padding-left: 15px;
+            line-height: 1.5;
         }
 
         /* Narrative flow indicator */
@@ -747,7 +747,7 @@
 
             <!-- Block 1: Opening -->
             <div class="sidebar-section">
-                <div class="sidebar-section-title">09:00-09:30 | Opening</div>
+                <div class="sidebar-section-title" id="sidebar-opening">09:00-09:30 | Opening</div>
                 <div class="sidebar-item" onclick="window.location.href='modules/analyze/rubase-overview.html'">
                     <span class="sidebar-item-title">Overview Slides</span>
                     <div class="sidebar-item-meta">
@@ -763,8 +763,8 @@
 
             <!-- Block 2: Guided Examples -->
             <div class="sidebar-section">
-                <div class="sidebar-section-title">09:30-10:45 | Guided Examples</div>
-                <div class="sidebar-item" onclick="window.location.href='modules/analyze/redlines-presentation.html'">
+                <div class="sidebar-section-title" id="sidebar-examples">09:30-10:45 | Guided Examples</div>
+                <div class="sidebar-item" onclick="window.location.href='modules/analyze/redlines-ppt-presentation.html'">
                     <span class="sidebar-item-title">Red Lines Analysis</span>
                     <div class="sidebar-item-meta">
                         <span class="sidebar-badge badge-slides">Slides</span>
@@ -794,7 +794,7 @@
 
             <!-- Block 3: Hands-On -->
             <div class="sidebar-section">
-                <div class="sidebar-section-title">11:00-11:45 | Hands-On</div>
+                <div class="sidebar-section-title" id="sidebar-handson">11:00-11:45 | Hands-On</div>
                 <div class="sidebar-item" onclick="showBlock('handson')">
                     <span class="sidebar-item-title">Sunburst Exploration</span>
                     <div class="sidebar-item-meta">
@@ -810,7 +810,7 @@
 
             <!-- Block 4: Debrief -->
             <div class="sidebar-section">
-                <div class="sidebar-section-title">11:45-12:00 | Wrap-Up</div>
+                <div class="sidebar-section-title" id="sidebar-debrief">11:45-12:00 | Wrap-Up</div>
                 <div class="sidebar-item" onclick="showBlock('debrief')">
                     <span class="sidebar-item-title">Debrief & Next Steps</span>
                     <span class="badge-time">15 min</span>
@@ -841,7 +841,7 @@
                 <div class="welcome-screen">
                     <h1 class="welcome-title">RuBase/StratBase</h1>
                     <p class="welcome-subtitle">AI-Augmented Defense Research: Decoding Russian Military Power</p>
-                    <p class="welcome-meta">March 28, 2026 | 09:00-12:00 | IRSEM, Paris</p>
+                    <p class="welcome-meta">March 27, 2026 | 09:00-12:00 | IRSEM, Paris</p>
 
                     <div class="session-grid">
                         <div class="session-card card-opening" onclick="showBlock('opening')">
@@ -1242,6 +1242,18 @@
 
             // Update sidebar active state
             document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
+
+            // Scroll sidebar to matching section
+            const sidebarMap = {
+                'opening': 'sidebar-opening',
+                'redlines': 'sidebar-examples', 'wacko': 'sidebar-examples', 'battlefield': 'sidebar-examples', 'examples': 'sidebar-examples',
+                'handson': 'sidebar-handson',
+                'debrief': 'sidebar-debrief'
+            };
+            const sidebarTarget = document.getElementById(sidebarMap[blockId]);
+            if (sidebarTarget) {
+                sidebarTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
             // Close mobile sidebar
             closeSidebar();

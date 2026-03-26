@@ -1,6 +1,6 @@
 # RuBase Session - IRSEM Paris
 ## AI-Augmented Defense Research: Decoding Russian Military Power
-### March 28, 2026 | 09:00-12:00 | IRSEM, Paris
+### March 27, 2026 | 09:00-12:00 | IRSEM, Paris
 
 ---
 
