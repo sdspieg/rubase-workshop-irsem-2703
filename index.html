@@ -741,16 +741,16 @@
             <!-- Block 1: Opening -->
             <div class="sidebar-section">
                 <div class="sidebar-section-title" id="sidebar-opening">09:00-09:30 | Opening</div>
+                <div class="sidebar-item" onclick="showBlock('opening')">
+                    <span class="sidebar-item-title">Participant Intros</span>
+                    <span class="badge-time">15 min</span>
+                </div>
                 <div class="sidebar-item" onclick="window.location.href='modules/analyze/rubase-overview.html'">
                     <span class="sidebar-item-title">Overview Slides</span>
                     <div class="sidebar-item-meta">
                         <span class="sidebar-badge badge-slides">Slides</span>
                         <span class="badge-time">15 min</span>
                     </div>
-                </div>
-                <div class="sidebar-item" onclick="showBlock('opening')">
-                    <span class="sidebar-item-title">Participant Intros</span>
-                    <span class="badge-time">15 min</span>
                 </div>
             </div>
 
@@ -889,20 +889,8 @@
                 </div>
 
                 <div class="content-cards">
-                    <div class="content-card" onclick="window.location.href='modules/analyze/rubase-overview.html'" style="cursor: pointer;">
-                        <h3>09:00-09:15 | Overview</h3>
-                        <div class="card-duration">15 minutes</div>
-                        <p><strong>Why this matters</strong>, not how everything works.</p>
-                        <ul>
-                            <li><strong>The problem:</strong> fragmentation, scale, blind spots in Russian military analysis</li>
-                            <li><strong>RuBase:</strong> corpora + taxonomy + AI + data fusion</li>
-                            <li>One compelling output to set the stage</li>
-                        </ul>
-                        <p style="margin-top: 10px; color: var(--accent-cyan);">Click to open slides &rarr;</p>
-                    </div>
-
                     <div class="content-card">
-                        <h3>09:15-09:30 | Participant Introductions</h3>
+                        <h3>09:00-09:15 | Participant Introductions</h3>
                         <div class="card-duration">15 minutes</div>
                         <p>Structured introductions - we'll reference your answers during the demos.</p>
                         <ul>
@@ -912,6 +900,18 @@
                         <p style="margin-top: 12px; color: var(--accent-yellow); font-size: 0.85rem;">
                             Your answers will be used during the demos to show instant relevance.
                         </p>
+                    </div>
+
+                    <div class="content-card" onclick="window.location.href='modules/analyze/rubase-overview.html'" style="cursor: pointer;">
+                        <h3>09:15-09:30 | Overview</h3>
+                        <div class="card-duration">15 minutes</div>
+                        <p><strong>Why this matters</strong>, not how everything works.</p>
+                        <ul>
+                            <li><strong>The problem:</strong> fragmentation, scale, blind spots in Russian military analysis</li>
+                            <li><strong>RuBase:</strong> corpora + taxonomy + AI + data fusion</li>
+                            <li>One compelling output to set the stage</li>
+                        </ul>
+                        <p style="margin-top: 10px; color: var(--accent-cyan);">Click to open slides &rarr;</p>
                     </div>
                 </div>
             </div>
