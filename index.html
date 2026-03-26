@@ -551,23 +551,8 @@
             font-size: 0.85rem;
         }
 
-        /* Partner Logos */
-        .partner-logo {
-            position: fixed;
-            top: 15px;
-            z-index: 1001;
-        }
-
-        .partner-logo.left { left: 20px; }
-        .partner-logo.right { right: 20px; }
-
-        .partner-logo img {
-            height: 40px;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .partner-logo img:hover { opacity: 1; }
+        /* Partner Logos - integrated into header, not floating */
+        .partner-logo { display: none; }
 
         /* Back to home button */
         .back-home {
@@ -692,18 +677,26 @@
     </a>
 
     <!-- Header -->
-    <header class="header" style="padding-left: 100px; padding-right: 100px; flex-wrap: wrap;">
-        <nav class="header-nav">
-            <button onclick="showHome()">Home</button>
-            <a href="modules/resources/index.html">Resources</a>
-            <a href="http://138.201.62.161:9081/" target="_blank" class="deliverables-btn">RuBase Deliverables Overview</a>
-            <select id="workshopSelector" onchange="navigateToWorkshop(this.value)" style="background: var(--secondary-bg); color: var(--accent-yellow); border: 1px solid var(--accent-yellow); padding: 4px 10px; border-radius: 5px; font-size: 0.75rem; font-family: inherit;">
-                <option value="latest">Latest Version</option>
-                <option value="current" selected>IRSEM Paris 2026</option>
-                <option value="fletcher-2603">Fletcher School - March 2026</option>
-            </select>
-        </nav>
-        <div class="header-title" style="width: 100%; text-align: center; font-size: 1.5rem; margin-top: 2px;">RuBase/StratBase Methods Workshop</div>
+    <header class="header" style="display: grid; grid-template-columns: auto 1fr auto; padding: 6px 1.5rem;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+            <a href="https://hcss.nl" target="_blank"><img src="modules/openalex/hcss_logo.svg" alt="HCSS" style="height:32px; filter:brightness(0) invert(1);"></a>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <nav class="header-nav" style="margin-bottom:2px;">
+                <button onclick="showHome()">Home</button>
+                <a href="modules/resources/index.html">Resources</a>
+                <a href="http://138.201.62.161:9081/" target="_blank" class="deliverables-btn">RuBase Deliverables Overview</a>
+                <select id="workshopSelector" onchange="navigateToWorkshop(this.value)" style="background: var(--secondary-bg); color: var(--accent-yellow); border: 1px solid var(--accent-yellow); padding: 4px 10px; border-radius: 5px; font-size: 0.65rem; font-family: inherit;">
+                    <option value="latest">Latest Version</option>
+                    <option value="current" selected>IRSEM Paris 2026</option>
+                    <option value="fletcher-2603">Fletcher School - March 2026</option>
+                </select>
+            </nav>
+            <div class="header-title" style="font-size: 0.85rem;">RuBase/StratBase Methods Workshop</div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:flex-end; gap:1rem;">
+            <a href="https://hcss.nl/rubase/" target="_blank"><img src="modules/openalex/rubase_logo.svg" alt="RuBase" style="height:32px; filter:brightness(0) invert(1);"></a>
+        </div>
     </header>
 
     <!-- Timeline Progress Bar -->
