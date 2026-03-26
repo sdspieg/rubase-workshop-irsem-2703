@@ -170,10 +170,6 @@
             padding: 12px;
             overflow-y: auto;
             transition: transform 0.3s;
-            position: sticky;
-            top: 80px;
-            height: calc(100vh - 80px);
-            align-self: flex-start;
         }
 
         .sidebar h3 {
@@ -1248,9 +1244,11 @@
                 'debrief': 'sidebar-debrief'
             };
             const sidebarTarget = document.getElementById(sidebarMap[blockId]);
-            const sidebar = document.getElementById('sidebar');
-            if (sidebarTarget && sidebar) {
-                sidebar.scrollTop = sidebarTarget.offsetTop - sidebar.offsetTop;
+            if (sidebarTarget) {
+                // Scroll only the sidebar, not the page
+                const sidebar = document.getElementById('sidebar');
+                const targetTop = sidebarTarget.getBoundingClientRect().top - sidebar.getBoundingClientRect().top + sidebar.scrollTop;
+                sidebar.scrollTo({ top: targetTop, behavior: 'smooth' });
             }
 
             // Close mobile sidebar
