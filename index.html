@@ -78,7 +78,7 @@
         }
 
         .header-nav .deliverables-btn {
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            background: var(--accent-yellow);
             color: var(--primary-bg);
             border: none;
             font-weight: 700;
@@ -86,7 +86,7 @@
 
         .header-nav .deliverables-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
         }
 
         /* Timeline Progress */
@@ -695,18 +695,18 @@
     </a>
 
     <!-- Header -->
-    <header class="header" style="padding-left: 100px; padding-right: 100px;">
-        <div class="header-title">RuBase Session - IRSEM Paris</div>
+    <header class="header" style="padding-left: 100px; padding-right: 100px; flex-wrap: wrap;">
         <nav class="header-nav">
             <button onclick="showHome()">Home</button>
             <a href="modules/resources/index.html">Resources</a>
-            <a href="http://138.201.62.161:9081/" target="_blank" class="deliverables-btn">RuBase Deliverables Overview</a>
-            <select id="workshopSelector" onchange="navigateToWorkshop(this.value)" style="background: var(--secondary-bg); color: var(--accent-yellow); border: 1px solid var(--accent-yellow); padding: 8px 10px; border-radius: 5px; font-size: 0.85rem; font-family: inherit;">
+            <a href="http://138.201.62.161:9081/" target="_blank" class="deliverables-btn">RuBase Deliverables<br>Overview</a>
+            <select id="workshopSelector" onchange="navigateToWorkshop(this.value)" style="background: var(--secondary-bg); color: var(--accent-yellow); border: 1px solid var(--accent-yellow); padding: 4px 10px; border-radius: 5px; font-size: 0.75rem; font-family: inherit;">
                 <option value="latest">Latest Version</option>
                 <option value="current" selected>IRSEM Paris 2026</option>
                 <option value="fletcher-2603">Fletcher School - March 2026</option>
             </select>
         </nav>
+        <div class="header-title" style="width: 100%; text-align: center; font-size: 0.75rem; margin-top: 2px; opacity: 0.7;">RuBase/StratBase Methods Workshop</div>
     </header>
 
     <!-- Timeline Progress Bar -->
