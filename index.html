@@ -702,6 +702,7 @@
             <a href="modules/resources/index.html">Resources</a>
             <a href="http://138.201.62.161:9081/" target="_blank" class="deliverables-btn">RuBase Deliverables Overview</a>
             <select id="workshopSelector" onchange="navigateToWorkshop(this.value)" style="background: var(--secondary-bg); color: var(--accent-yellow); border: 1px solid var(--accent-yellow); padding: 8px 10px; border-radius: 5px; font-size: 0.85rem; font-family: inherit;">
+                <option value="latest">Latest Version</option>
                 <option value="current" selected>IRSEM Paris 2026</option>
                 <option value="fletcher-2603">Fletcher School - March 2026</option>
             </select>
@@ -1204,7 +1205,9 @@
     <script>
         // Navigation
         function navigateToWorkshop(value) {
-            if (value === 'fletcher-2603') {
+            if (value === 'latest') {
+                window.location.href = 'https://sdspieg.github.io/rubase-workshop/';
+            } else if (value === 'fletcher-2603') {
                 window.location.href = 'https://sdspieg.github.io/rubase-workshop-fletcher-2603/';
             }
         }
