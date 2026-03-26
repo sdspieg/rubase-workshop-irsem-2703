@@ -96,6 +96,9 @@
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
+            position: sticky;
+            top: 50px;
+            z-index: 999;
             gap: 0;
             overflow-x: auto;
         }
@@ -693,7 +696,7 @@
                     <option value="fletcher-2603">Fletcher School - March 2026</option>
                 </select>
             </nav>
-            <div class="header-title" style="font-size: 0.85rem;">RuBase/StratBase Methods Workshop</div>
+            <div class="header-title" style="font-size: 1.4rem;">RuBase</div>
         </div>
         <div style="display:flex; align-items:center; justify-content:flex-end; gap:1rem;">
             <a href="https://www.carnegie.org" target="_blank"><img src="modules/openalex/ccny_logo.svg" alt="Carnegie Corporation of New York" style="height:28px; filter:brightness(0) invert(1);"></a>
@@ -706,31 +709,26 @@
         <div class="timeline-block active" onclick="scrollToBlock('opening')">
             <div class="timeline-time">09:00-09:30</div>
             <div class="timeline-label">Opening</div>
-            <div class="timeline-duration">30 min</div>
         </div>
         <div class="timeline-connector"></div>
         <div class="timeline-block" onclick="scrollToBlock('examples')">
             <div class="timeline-time">09:30-10:45</div>
             <div class="timeline-label">Guided Examples</div>
-            <div class="timeline-duration">75 min</div>
         </div>
         <div class="timeline-connector"></div>
         <div class="timeline-block break-block">
             <div class="timeline-time">10:45</div>
             <div class="timeline-label">Break</div>
-            <div class="timeline-duration">15 min</div>
         </div>
         <div class="timeline-connector"></div>
         <div class="timeline-block" onclick="scrollToBlock('handson')">
             <div class="timeline-time">11:00-11:45</div>
             <div class="timeline-label">Hands-On</div>
-            <div class="timeline-duration">45 min</div>
         </div>
         <div class="timeline-connector"></div>
         <div class="timeline-block" onclick="scrollToBlock('debrief')">
             <div class="timeline-time">11:45-12:00</div>
             <div class="timeline-label">Debrief</div>
-            <div class="timeline-duration">15 min</div>
         </div>
     </div>
 
@@ -834,7 +832,7 @@
             <!-- HOME / Welcome Screen -->
             <div class="block-content active" id="homeScreen">
                 <div class="welcome-screen">
-                    <h1 class="welcome-title">RuBase/StratBase</h1>
+                    <h1 class="welcome-title" style="font-size:0.9rem; font-weight:600;">RuBase Methods Workshop</h1>
                     <p class="welcome-subtitle">AI-Augmented Defense Research: Decoding Russian Military Power</p>
                     <p class="welcome-meta">March 27, 2026 | 09:00-12:00 | IRSEM, Paris</p>
 
