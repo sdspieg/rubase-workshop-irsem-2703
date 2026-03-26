@@ -29,10 +29,11 @@
         .slide::-webkit-scrollbar { width: 6px; }
         .slide::-webkit-scrollbar-thumb { background: rgba(100,255,218,0.3); border-radius: 3px; }
 
-        /* Alternate slide backgrounds */
-        .slide:nth-child(even) { background: var(--slide-bg-2); }
-        .slide:nth-child(3n) { background: var(--slide-bg-3); }
-        .slide:nth-child(4n+1) { background: var(--slide-bg-4); }
+        /* All slides: solid dark blue background */
+        .slide { background: #0a192f !important; }
+        .slide:nth-child(even) { background: #0a192f !important; }
+        .slide:nth-child(3n) { background: #0a192f !important; }
+        .slide:nth-child(4n+1) { background: #0a192f !important; }
 
         .slide-content {
             max-width: 1100px;
@@ -362,30 +363,37 @@
         .gold { color: #ffd700; }
         .cyan { color: var(--accent-cyan); }
 
-        /* Navigation - match WACKO structure */
+        /* Navigation - thin full-width bar at bottom */
         .navigation {
             position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
             display: flex;
-            gap: var(--spacing-md);
+            gap: 12px;
             align-items: center;
-            background: rgba(30, 41, 59, 0.95);
-            padding: var(--spacing-md) var(--spacing-xl);
-            border-radius: 50px;
-            border: 1px solid rgba(100, 255, 218, 0.3);
+            justify-content: center;
+            background: rgba(10, 14, 39, 0.95);
+            padding: 6px 20px;
+            border-radius: 0;
+            border: none;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: var(--shadow-lg);
+        }
+
+        .navigation .nav-btn {
+            padding: 4px 14px;
+            font-size: 0.75rem;
         }
 
         .progress-bar {
             position: fixed;
-            bottom: 0;
+            bottom: 36px;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: rgba(255,255,255,0.1);
             z-index: 1001;
         }
@@ -398,14 +406,16 @@
         }
 
         .slide-indicator {
-            position: fixed;
-            bottom: 85px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-weight: 600;
-            z-index: 1000;
+            position: static;
+            color: #64ffda;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: none;
+        }
+
+        /* Ensure slide content doesn't hide behind nav */
+        .slide {
+            padding-bottom: 50px !important;
         }
 
         /* App link button */
@@ -838,21 +848,17 @@
             </div>
         </div>
 
-        <!-- Navigation -->
-        <div class="navigation">
-            <button class="nav-btn" onclick="window.location.href='../../index.html'">Home</button>
-            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">&larr; Previous</button>
-            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next &rarr;</button>
-        </div>
-
         <!-- Progress Bar -->
         <div class="progress-bar">
             <div class="progress-fill" id="progressBar"></div>
         </div>
 
-        <!-- Slide Indicator -->
-        <div class="slide-indicator" id="slideIndicator">
-            Slide 1 of 16
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" onclick="window.location.href='../../index.html'">Home</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">&larr; Prev</button>
+            <span class="slide-indicator" id="slideIndicator">1 / 16</span>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next &rarr;</button>
         </div>
     </div>
 
@@ -895,7 +901,7 @@
             // Update slide indicator
             const slideIndicator = document.getElementById('slideIndicator');
             if (slideIndicator) {
-                slideIndicator.textContent = `Slide ${window.currentSlide} of ${window.totalSlides}`;
+                slideIndicator.textContent = `${window.currentSlide} / ${window.totalSlides}`;
             }
         }
 

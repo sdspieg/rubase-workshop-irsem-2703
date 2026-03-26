@@ -19,6 +19,11 @@
             overflow: hidden;
         }
 
+        /* All slides: solid dark blue background */
+        .slide {
+            background: #0a192f !important;
+        }
+
         /* Slide image styling */
         .slide img {
             max-width: 90%;
@@ -277,12 +282,44 @@
             color: var(--text-secondary);
         }
 
-        /* Slide background variants */
-        .slide.bg-2 { background: var(--slide-bg-2); }
-        .slide.bg-3 { background: var(--slide-bg-3); }
-        .slide.bg-4 { background: var(--slide-bg-4); }
-        .slide.bg-dark { background: var(--gradient-dark); }
-        .slide.bg-vibrant { background: var(--gradient-vibrant); }
+        /* Slide background variants - all solid dark blue */
+        .slide.bg-2 { background: #0a192f; }
+        .slide.bg-3 { background: #0a192f; }
+        .slide.bg-4 { background: #0a192f; }
+        .slide.bg-dark { background: #0a192f; }
+        .slide.bg-vibrant { background: #0a192f; }
+
+        /* Nav bar override: thin full-width strip at bottom */
+        .nav-container {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transform: none;
+            width: 100%;
+            border-radius: 0;
+            padding: 6px 20px;
+            gap: 12px;
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+            border: none;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 4px 14px;
+            font-size: 0.75rem;
+        }
+
+        #slide-indicator {
+            font-size: 0.8rem;
+            margin: 0 8px;
+        }
+
+        /* Ensure slide content doesn't hide behind nav */
+        .slide {
+            padding-bottom: 50px !important;
+        }
 
         /* CTA link */
         a.cta-link {
@@ -439,7 +476,7 @@
                 <h2>Our RuBase Corpus</h2>
                 <div class="stats-row">
                     <div class="stat-box">
-                        <div class="stat-num">197,000+</div>
+                        <div class="stat-num">2.2 million</div>
                         <div class="stat-label">Documents Processed</div>
                     </div>
                     <div class="stat-box">
