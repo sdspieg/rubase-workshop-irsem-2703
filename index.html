@@ -25,7 +25,7 @@
 
         body {
             font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            background: #0a0e27;
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
@@ -233,22 +233,22 @@
         }
 
         .badge-time {
-            color: var(--accent-green);
+            color: var(--accent-cyan);
             font-size: 0.75rem;
         }
 
         .badge-interactive {
-            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+            background: var(--accent-yellow);
             color: var(--primary-bg);
         }
 
         .badge-slides {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            background: var(--accent-purple);
             color: var(--primary-bg);
         }
 
         .badge-demo {
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            background: var(--accent-cyan);
             color: var(--primary-bg);
         }
 
@@ -272,10 +272,7 @@
         .welcome-title {
             font-size: 2.8rem;
             margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-cyan);
             font-weight: 900;
         }
 
@@ -322,11 +319,11 @@
             height: 3px;
         }
 
-        .session-card.card-opening::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)); }
-        .session-card.card-examples::before { background: linear-gradient(90deg, var(--accent-red), var(--accent-orange)); }
-        .session-card.card-handson::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow)); }
-        .session-card.card-debrief::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan)); }
-        .session-card.card-deliverables::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan)); }
+        .session-card.card-opening::before { background: var(--accent-cyan); }
+        .session-card.card-examples::before { background: var(--accent-red); }
+        .session-card.card-handson::before { background: var(--accent-yellow); }
+        .session-card.card-debrief::before { background: var(--accent-purple); }
+        .session-card.card-deliverables::before { background: var(--accent-yellow); }
 
         .session-card:hover {
             transform: translateY(-5px);
@@ -383,7 +380,7 @@
 
         .bullet-red { background: var(--accent-red); }
         .bullet-purple { background: var(--accent-purple); }
-        .bullet-green { background: var(--accent-green); }
+        .bullet-green { background: var(--accent-cyan); }
 
         /* Block content sections */
         .block-content {
@@ -446,7 +443,7 @@
         }
 
         .content-card .card-duration {
-            color: var(--accent-green);
+            color: var(--accent-cyan);
             font-size: 0.85rem;
             margin-bottom: 10px;
         }
@@ -503,7 +500,7 @@
 
         .step-hook .step-name { color: var(--accent-red); }
         .step-depth .step-name { color: var(--accent-purple); }
-        .step-scale .step-name { color: var(--accent-green); }
+        .step-scale .step-name { color: var(--accent-cyan); }
 
         /* Hands-on task list */
         .task-list {
@@ -530,7 +527,7 @@
         }
 
         .sunburst-card {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(148, 0, 211, 0.1));
+            background: rgba(0, 255, 255, 0.08);
             border: 1px solid var(--accent-cyan);
             border-radius: 12px;
             padding: 20px;
@@ -601,7 +598,7 @@
             bottom: 20px;
             left: 20px;
             z-index: 1001;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            background: var(--accent-cyan);
             color: var(--primary-bg);
             border: none;
             border-radius: 50%;
@@ -842,7 +839,7 @@
             <!-- HOME / Welcome Screen -->
             <div class="block-content active" id="homeScreen">
                 <div class="welcome-screen">
-                    <h1 class="welcome-title">RuBase Session</h1>
+                    <h1 class="welcome-title">RuBase/StratBase</h1>
                     <p class="welcome-subtitle">AI-Augmented Defense Research: Decoding Russian Military Power</p>
                     <p class="welcome-meta">March 28, 2026 | 09:00-12:00 | IRSEM, Paris</p>
 
@@ -1088,7 +1085,7 @@
                             <li>Real-time capability assessments</li>
                             <li>NATO comparison benchmarks</li>
                         </ul>
-                        <p style="margin-top: 10px; font-style: italic; color: var(--accent-green);">
+                        <p style="margin-top: 10px; font-style: italic; color: var(--accent-cyan);">
                             "This is where it scales."
                         </p>
                     </div>
@@ -1149,7 +1146,7 @@
 
                 <div style="margin-top: 20px; text-align: center;">
                     <div class="sunburst-card" style="display: inline-block; max-width: 400px;" onclick="window.open('http://138.201.62.161:9081/', '_blank')">
-                        <h4 style="color: var(--accent-green);">Full RuBase Deliverables Overview</h4>
+                        <h4 style="color: var(--accent-cyan);">Full RuBase Deliverables Overview</h4>
                         <p>All projects, reports, podcasts, vodcasts, and apps in one place</p>
                     </div>
                 </div>
@@ -1192,7 +1189,7 @@
                         </ul>
                         <div style="margin-top: 15px; padding: 12px; background: rgba(0, 255, 255, 0.1); border-radius: 8px; border: 1px solid var(--accent-cyan);">
                             <a href="http://138.201.62.161:9081/" target="_blank" style="color: var(--accent-cyan); font-weight: 700; text-decoration: none; font-size: 1rem;">
-                                &rarr; Overview of RuBase Deliverables (Google Drive)
+                                &rarr; Overview of RuBase Deliverables
                             </a>
                         </div>
                     </div>
