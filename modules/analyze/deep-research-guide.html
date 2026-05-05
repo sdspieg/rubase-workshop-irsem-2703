@@ -7,8 +7,59 @@
     <title>Deep Research Across Major LLMs - Complete Guide</title>
     
     <link rel="stylesheet" href="slides.css"><link rel="stylesheet" href="../../presentation-styles.css">
+    <style>
+        /* HCSS_FULLSCREEN_CHIP — fixed bottom-right pill, dashboard palette */
+        .hcss-fs-chip {
+            position: fixed;
+            bottom: 14px;
+            right: 14px;
+            z-index: 99999;
+            background: rgba(26,55,97,.92);
+            color: #dbad50;
+            border: 1.5px solid #dbad50;
+            border-radius: 18px;
+            padding: .4rem .85rem;
+            font-size: .8rem;
+            font-weight: 700;
+            font-family: system-ui, -apple-system, "Segoe UI", Helvetica, sans-serif;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: background .14s, color .14s;
+            text-decoration: none;
+            white-space: nowrap;
+            line-height: 1;
+        }
+        .hcss-fs-chip:hover { background: #dbad50; color: #1a3761; }
+        .hcss-fs-chip:active { transform: translateY(1px); }
+        .hcss-fs-chip:fullscreen, html:fullscreen .hcss-fs-chip,
+        :fullscreen .hcss-fs-chip { display: inline-flex; }
+        /* Hide any pre-existing fullscreen button so we don't end up with two */
+        .fullscreen-btn { display: none !important; }
+        @media (max-width: 600px) {
+            .hcss-fs-chip { padding: .3rem .55rem; font-size: .72rem; bottom: 10px; right: 10px; }
+        }
+    </style>
+    <!-- HCSS_FULLSCREEN_CHIP_2026_05_05 -->
+    
+<script>
+(function(){
+  if (window._hcssFsChipBound) return;
+  window._hcssFsChipBound = true;
+  window.toggleHcssFullscreen = function(){
+    if (!document.fullscreenElement) {
+      (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen).call(document.documentElement);
+    } else {
+      (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    }
+  };
+})();
+</script>
+
+
 </head>
 <body>
+    <button class="hcss-fs-chip" onclick="toggleHcssFullscreen()" title="Toggle fullscreen (F or Esc)">⛶ Fullscreen</button>
     <!-- Slide 1: Title -->
     <div class="slide title-slide active">
         <h1>🔬 Deep Research Across Major LLMs</h1>
