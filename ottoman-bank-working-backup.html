@@ -550,6 +550,10 @@
         @media (max-width: 600px) {
             .hcss-fs-chip { padding: .3rem .55rem; font-size: .72rem; bottom: 10px; right: 10px; }
         }
+        /* HCSS_SLIDE_FIT — full slide always visible, fully responsive */
+        html, body { height: 100%; overflow: hidden; }
+        .slide.active { overflow: visible; }
+
 
     </style>
     <!-- HCSS_FULLSCREEN_CHIP_2026_05_05 -->
@@ -567,6 +571,63 @@
   };
 })();
 </script>
+    <!-- HCSS_SLIDE_FIT_2026_05_05 -->
+    
+<script>
+(function(){
+  if (window._hcssSlideFitBound) return;
+  window._hcssSlideFitBound = true;
+  // Map: slide element → { w, h } natural dimensions measured before scaling.
+  const naturals = new WeakMap();
+  function measure(slide){
+    const prev = slide.style.transform;
+    slide.style.transform = '';
+    const w = Math.max(slide.offsetWidth, slide.scrollWidth);
+    const h = Math.max(slide.offsetHeight, slide.scrollHeight);
+    slide.style.transform = prev;
+    if (w && h) naturals.set(slide, { w, h });
+  }
+  function fit(){
+    const slides = document.querySelectorAll('.slide');
+    if (!slides.length) return;
+    // Use chrome budget so prev/next/counter/fullscreen-chip don't get covered
+    const reservedTop = 16, reservedBottom = 56, reservedX = 24;
+    const availW = Math.max(200, window.innerWidth - reservedX * 2);
+    const availH = Math.max(200, window.innerHeight - reservedTop - reservedBottom);
+    slides.forEach(slide => {
+      if (!naturals.has(slide)) measure(slide);
+      const nat = naturals.get(slide);
+      if (!nat) return;
+      const scale = Math.min(availW / nat.w, availH / nat.h, 1);
+      slide.style.transformOrigin = 'center top';
+      slide.style.transform = scale < 1 ? `scale(${scale})` : '';
+    });
+  }
+  let _t;
+  function fitDebounced(){ clearTimeout(_t); _t = setTimeout(fit, 60); }
+  window.addEventListener('resize', fitDebounced);
+  window.addEventListener('orientationchange', fitDebounced);
+  // Initial pass on load + a delayed re-measure (some decks lazy-load images
+  // or apply layout post-load and the natural size only stabilises after
+  // ~300-600 ms).
+  function init(){ document.querySelectorAll('.slide').forEach(measure); fit(); }
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(init, 50);
+  } else {
+    window.addEventListener('DOMContentLoaded', init);
+  }
+  setTimeout(init, 600);
+  // Re-fit when slides switch (.active class moves). Re-measure too — the
+  // newly-active slide may have different natural dimensions than the
+  // previous one.
+  const mo = new MutationObserver(() => {
+    document.querySelectorAll('.slide').forEach(s => { if (s.classList.contains('active') && !naturals.has(s)) measure(s); });
+    fitDebounced();
+  });
+  mo.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+})();
+</script>
+
 
 </head>
 <body>
