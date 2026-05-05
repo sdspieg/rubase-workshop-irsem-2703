@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HCSS_DASHBOARD_RESTYLE_2026_05_05 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: #0a192f;
             color: #f8fafc;
             overflow-x: hidden;
@@ -23,13 +24,13 @@
 
         :root {
             --dark-bg: #0a192f;
-            --bright-cyan: #00ffff;
+            --bright-cyan: #dbad50;
             --bright-white: #ffffff;
             --light-gray: #c8c8c8;
             --bright-yellow: #ffff00;
             --bright-green: #00ff7f;
             --bright-red: #ff6347;
-            --bright-orange: #ffa500;
+            --bright-orange: #dbad50;
             --bright-purple: #9370db;
             --dark-accent: #142847;
         }
@@ -84,7 +85,7 @@
             position: absolute;
             left: 40px;
             top: 20px;
-            background: rgba(0, 255, 255, 0.1);
+            background: rgba(219,173,80, 0.1);
             color: var(--bright-cyan);
             border: 1px solid var(--bright-cyan);
             padding: 10px 20px;
@@ -117,7 +118,7 @@
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 40px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
+            border: 1px solid rgba(219,173,80, 0.3);
         }
 
         .schedule-title {
@@ -140,7 +141,7 @@
 
         .time-block:hover {
             transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(219,173,80, 0.2);
         }
 
         .time-label {
@@ -184,7 +185,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(219,173,80, 0.1) 0%, transparent 70%);
             animation: rotate 20s linear infinite;
         }
 
@@ -196,7 +197,7 @@
         .resource-card:hover {
             border-color: var(--bright-cyan);
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(219,173,80, 0.3);
         }
 
         .card-icon {
@@ -233,13 +234,13 @@
 
         /* Special styling for break */
         .break-block {
-            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 165, 0, 0.2));
+            background: linear-gradient(135deg, rgba(219,173,80, 0.1), rgba(219,173,80, 0.2));
             border-left-color: var(--bright-orange);
         }
 
         /* Workshop highlight */
         .workshop-highlight {
-            background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(0, 255, 255, 0.1));
+            background: linear-gradient(135deg, rgba(147, 112, 219, 0.1), rgba(219,173,80, 0.1));
             border: 2px solid var(--bright-cyan);
             padding: 30px;
             border-radius: 20px;
@@ -288,7 +289,7 @@
 
         .workshop-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(219,173,80, 0.5);
         }
     </style>
 </head>
@@ -430,7 +431,7 @@
 
 <!-- Navigation -->
 <div style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(30, 41, 59, 0.95); padding: 10px 20px; border-radius: 50px; border: 1px solid #334155; backdrop-filter: blur(10px); z-index: 1000;">
-    <button onclick="window.location.href='../../index.html'" style="background: linear-gradient(135deg, #00ffff, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: 'Titillium Web', sans-serif;">🏠 Home</button>
+    <button onclick="window.location.href='../../index.html'" style="background: linear-gradient(135deg, #dbad50, #0099ff); color: #0f172a; border: none; padding: 10px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; font-family: system-ui, sans-serif;">🏠 Home</button>
 </div>
 
 </body>

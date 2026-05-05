@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HCSS_DASHBOARD_RESTYLE_2026_05_05 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: #0a192f;
             color: #f8fafc;
             overflow-x: hidden;
@@ -23,13 +24,13 @@
 
         :root {
             --dark-bg: #0a192f;
-            --bright-cyan: #00ffff;
+            --bright-cyan: #dbad50;
             --bright-white: #ffffff;
             --light-gray: #c8c8c8;
             --bright-yellow: #ffff00;
             --bright-green: #00ff7f;
             --bright-red: #ff6347;
-            --bright-orange: #ffa500;
+            --bright-orange: #dbad50;
             --bright-purple: #9370db;
             --dark-accent: #142847;
         }
@@ -93,7 +94,7 @@
         }
 
         .resource-section {
-            background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.05));
+            background: linear-gradient(135deg, var(--dark-accent), rgba(219,173,80,0.05));
             border: 2px solid var(--bright-cyan);
             border-radius: 20px;
             padding: 30px;
@@ -102,7 +103,7 @@
 
         .resource-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(219,173,80, 0.3);
         }
 
         .section-title {
@@ -137,7 +138,7 @@
         }
 
         .resource-item:hover {
-            background: rgba(0, 255, 255, 0.1);
+            background: rgba(219,173,80, 0.1);
             transform: translateX(5px);
         }
 
@@ -171,9 +172,9 @@
         }
 
         .back-button:hover {
-            background: rgba(0, 255, 255, 0.15);
+            background: rgba(219,173,80, 0.15);
             transform: translateX(-50%) scale(1.05);
-            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 6px 30px rgba(219,173,80, 0.5);
         }
 
         .external-link {

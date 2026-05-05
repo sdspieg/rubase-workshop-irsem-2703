@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HCSS_DASHBOARD_RESTYLE_2026_05_05 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: #0a192f;
             color: #f8fafc;
             overflow: hidden;
@@ -23,13 +24,13 @@
 
         :root {
             --dark-bg: #0a192f;
-            --bright-cyan: #00ffff;
+            --bright-cyan: #dbad50;
             --bright-white: #ffffff;
             --light-gray: #c8c8c8;
             --bright-yellow: #ffff00;
             --bright-green: #00ff7f;
             --bright-red: #ff6347;
-            --bright-orange: #ffa500;
+            --bright-orange: #dbad50;
             --bright-purple: #9370db;
             --dark-accent: #142847;
         }
@@ -100,7 +101,7 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.5px; /* Minimal letter spacing */
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            text-shadow: 0 0 20px rgba(219,173,80, 0.3);
             flex-shrink: 0;
             line-height: 1.1; /* Tighter line height */
         }
@@ -321,7 +322,7 @@
 
         .radar-ring {
             position: absolute;
-            border: 2px solid rgba(0, 255, 255, 0.2);
+            border: 2px solid rgba(219,173,80, 0.2);
             border-radius: 50%;
             left: 50%;
             top: 50%;
@@ -549,13 +550,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(219,173,80, 0.3);
         }
 
         .exit-btn:hover, .back-btn:hover {
-            background: rgba(0, 255, 255, 0.15);
+            background: rgba(219,173,80, 0.15);
             transform: scale(1.05);
-            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 6px 30px rgba(219,173,80, 0.5);
         }
     </style>
     <link rel="stylesheet" href="../../presentation-styles.css">
@@ -702,7 +703,7 @@
                 <div style="display: flex; align-items: center; justify-content: center; gap: 60px;">
                     <!-- Left: Arcadia Fund -->
                     <div style="flex: 1; max-width: 500px;">
-                        <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(255,165,0,0.2)); border: 3px solid var(--bright-orange); border-radius: 20px; padding: 30px; text-align: center;">
+                        <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(219,173,80,0.2)); border: 3px solid var(--bright-orange); border-radius: 20px; padding: 30px; text-align: center;">
                             <div style="font-size: 4rem; margin-bottom: 20px;">🏛️</div>
                             <div style="font-size: 2.5rem; color: var(--bright-orange); font-weight: 900; margin-bottom: 10px;">ARCADIA FUND</div>
                             <div style="font-size: 1rem; color: var(--light-gray); margin-bottom: 20px;">UK Charity by Lisbet Rausing (Tetra Pak heiress) & Peter Baldwin (UCLA historian)<br/>Supporting Cultural Heritage & Open Knowledge</div>
@@ -765,7 +766,7 @@
                 </div>
 
                 <!-- Bottom summary -->
-                <div style="margin-top: 30px; text-align: center; padding: 20px; background: rgba(0,255,255,0.1); border-radius: 15px; border: 1px solid var(--bright-cyan);">
+                <div style="margin-top: 30px; text-align: center; padding: 20px; background: rgba(219,173,80,0.1); border-radius: 15px; border: 1px solid var(--bright-cyan);">
                     <div style="font-size: 1.8rem; color: var(--bright-cyan); font-weight: 900;">100% Free Forever</div>
                     <div style="color: var(--light-gray); margin-top: 10px;">Committed to Open Science Infrastructure</div>
                 </div>
@@ -779,7 +780,7 @@
             <div class="visual-container">
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto;">
                     <!-- Boolean Operators -->
-                    <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.1)); border: 3px solid var(--bright-cyan); border-radius: 20px; padding: 30px;">
+                    <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(219,173,80,0.1)); border: 3px solid var(--bright-cyan); border-radius: 20px; padding: 30px;">
                         <div style="font-size: 3rem; margin-bottom: 20px; text-align: center;">✅</div>
                         <div style="font-size: 1.8rem; color: var(--bright-cyan); font-weight: 900; margin-bottom: 20px; text-align: center;">BOOLEAN OPERATORS</div>
                         <div style="font-family: monospace; font-size: 1.3rem; line-height: 2;">
@@ -1312,7 +1313,7 @@
                     </div>
 
                     <!-- The Power -->
-                    <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(0,255,255,0.2);">
+                    <div style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(219,173,80,0.2);">
                         <div style="font-size: 1.3rem; color: var(--bright-cyan);">
                             From <span style="color: var(--bright-yellow); font-weight: 900;">6,196 papers</span> →
                             <span style="color: var(--bright-green); font-weight: 900;">Structured knowledge</span>
@@ -1368,7 +1369,7 @@
                     </div>
 
                     <!-- Access Instructions -->
-                    <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,0,0.1)); border: 2px solid var(--bright-green); border-radius: 15px; padding: 20px;">
+                    <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(219,173,80,0.1)); border: 2px solid var(--bright-green); border-radius: 15px; padding: 20px;">
                         <div style="font-size: 1.3rem; color: var(--bright-green); margin-bottom: 15px; font-weight: 700;">
                             🔗 How to Access
                         </div>
@@ -1461,7 +1462,7 @@
                     </div>
 
                     <!-- Quick Help -->
-                    <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(255,215,0,0.1)); border: 2px solid var(--bright-yellow); border-radius: 15px; padding: 20px; text-align: center;">
+                    <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(219,173,80,0.1)); border: 2px solid var(--bright-yellow); border-radius: 15px; padding: 20px; text-align: center;">
                         <div style="font-size: 1.4rem; color: var(--bright-yellow); margin-bottom: 10px; font-weight: 700;">
                             🆘 Need More Help?
                         </div>

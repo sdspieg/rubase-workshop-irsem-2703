@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HCSS_DASHBOARD_RESTYLE_2026_05_05 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,13 @@
 
         :root {
             --dark-bg: #0a192f;
-            --bright-cyan: #00ffff;
+            --bright-cyan: #dbad50;
             --bright-white: #ffffff;
             --light-gray: #c8c8c8;
             --bright-yellow: #ffff00;
             --bright-green: #00ff7f;
             --bright-red: #ff6347;
-            --bright-orange: #ffa500;
+            --bright-orange: #dbad50;
             --bright-purple: #9370db;
             --dark-accent: #142847;
         }
@@ -28,7 +29,7 @@
         }
 
         body {
-            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: linear-gradient(135deg, var(--dark-bg), #0f2340);
             color: var(--bright-white);
             line-height: 1.8;
@@ -100,7 +101,7 @@
 
         .nav-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+            box-shadow: 0 5px 20px rgba(219,173,80, 0.4);
         }
 
         .nav-btn.home {
@@ -230,7 +231,7 @@
 
         /* Example Box */
         .example-box {
-            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1), rgba(255, 165, 0, 0.05));
+            background: linear-gradient(135deg, rgba(219,173,80, 0.1), rgba(219,173,80, 0.05));
             border: 2px solid var(--bright-orange);
             border-radius: 15px;
             padding: 25px;
@@ -259,7 +260,7 @@
 
         .csv-box pre {
             background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(0, 255, 255, 0.3);
+            border: 1px solid rgba(219,173,80, 0.3);
             border-radius: 10px;
             padding: 20px;
             overflow-x: auto;
@@ -284,7 +285,7 @@
 
         /* Info Box */
         .info-box {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05));
+            background: linear-gradient(135deg, rgba(219,173,80, 0.1), rgba(219,173,80, 0.05));
             border: 2px solid var(--bright-cyan);
             border-radius: 15px;
             padding: 25px;
@@ -347,13 +348,13 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 5px 20px rgba(219,173,80, 0.3);
             z-index: 1000;
         }
 
         .back-to-top:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(219,173,80, 0.5);
         }
 
         /* Responsive */
@@ -394,7 +395,7 @@
     <!-- Container -->
     <div class="container">
         <!-- Full Copyable Text Section -->
-        <div class="section" style="background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 165, 0, 0.1)); border: 3px solid var(--bright-yellow);">
+        <div class="section" style="background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(219,173,80, 0.1)); border: 3px solid var(--bright-yellow);">
             <h2 style="color: var(--bright-yellow); border-bottom-color: var(--bright-yellow);">📋 Complete Framework Text (Copy for AI)</h2>
             <div style="position: relative;">
                 <button onclick="copyFullText()" style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, var(--bright-yellow), var(--bright-orange)); color: var(--dark-bg); border: none; padding: 12px 24px; border-radius: 25px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 1rem; transition: all 0.3s;">

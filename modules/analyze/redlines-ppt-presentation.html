@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HCSS_DASHBOARD_RESTYLE_2026_05_05 -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Applying AI to Decipher Putin's Red Lines</title>
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-<style>
+<title>Applying AI to Decipher Putin's Red Lines</title><style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0a192f; font-family:'Titillium Web',sans-serif; overflow:hidden; }
+body { background:#0a192f; font-family:system-ui,sans-serif; overflow:hidden; }
 .slide { display:none; width:100vw; height:100vh; justify-content:center; align-items:center; background:#0a192f; }
 .slide.active { display:flex; }
 .slide img { max-width:100%; max-height:calc(100vh - 36px); object-fit:contain; }
-.nav-arrow { position:fixed; top:50%; transform:translateY(-50%); background:rgba(30,41,59,.7); color:#00ffff; border:1px solid rgba(100,255,218,.3); width:44px; height:70px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; cursor:pointer; z-index:100; border-radius:8px; opacity:.5; transition:all .3s; }
-.nav-arrow:hover { opacity:1; background:rgba(0,255,255,.15); }
+.nav-arrow { position:fixed; top:50%; transform:translateY(-50%); background:rgba(30,41,59,.7); color:#dbad50; border:1px solid rgba(100,255,218,.3); width:44px; height:70px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; cursor:pointer; z-index:100; border-radius:8px; opacity:.5; transition:all .3s; }
+.nav-arrow:hover { opacity:1; background:rgba(219,173,80,.15); }
 .nav-arrow:disabled { opacity:.15; cursor:not-allowed; }
 .nav-arrow.left { left:12px; }
 .nav-arrow.right { right:12px; }
-.bar { position:fixed; bottom:0; left:0; right:0; display:flex; justify-content:center; align-items:center; gap:12px; padding:5px 20px; background:rgba(10,14,39,.95); border-top:1px solid rgba(100,255,218,.2); z-index:100; }
-.bar button { background:#00ffff; color:#0a192f; border:none; padding:4px 14px; border-radius:16px; font-weight:600; font-size:.75rem; cursor:pointer; font-family:inherit; }
+.bar { position:fixed; bottom:0; left:0; right:0; display:flex; justify-content:center; align-items:center; gap:12px; padding:5px 20px; background:rgba(13,31,60,.95); border-top:1px solid rgba(100,255,218,.2); z-index:100; }
+.bar button { background:#dbad50; color:#0a192f; border:none; padding:4px 14px; border-radius:16px; font-weight:600; font-size:.75rem; cursor:pointer; font-family:inherit; }
 .bar button:hover { opacity:.8; }
 .bar span { color:#64ffda; font-weight:700; font-size:.8rem; }
 .prog { position:fixed; bottom:32px; left:0; right:0; height:2px; background:rgba(42,63,95,.5); z-index:101; }
-.prog-fill { height:100%; background:#00ffff; transition:width .3s; }
+.prog-fill { height:100%; background:#dbad50; transition:width .3s; }
 @media (max-width:768px) { .nav-arrow { width:36px; height:60px; font-size:1.2rem; } .nav-arrow.left { left:5px; } .nav-arrow.right { right:5px; } }
 </style>
 </head>
@@ -37,8 +36,8 @@ body { background:#0a192f; font-family:'Titillium Web',sans-serif; overflow:hidd
 <div class="slide" data-slide="9" style="position:relative;">
   <img src="redlines-ppt-slides/slide-9.png" alt="Slide 9">
   <div style="position:absolute; top:40%; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; gap:20px; align-items:center;">
-    <a href="https://sdspieg.github.io/redlines-dashboard/" target="_blank" style="background:#00ffff; color:#0a192f; padding:12px 32px; border-radius:8px; font-weight:700; font-size:1.1rem; text-decoration:none; font-family:inherit; transition:all .2s; display:block; text-align:center; min-width:350px;">Red Line Dashboard</a>
-    <a href="https://sdspieg.github.io/war-datasets-dashboard/" target="_blank" style="background:#ffd700; color:#0a192f; padding:12px 32px; border-radius:8px; font-weight:700; font-size:1.1rem; text-decoration:none; font-family:inherit; transition:all .2s; display:block; text-align:center; min-width:350px;">Ukraine War Data Dashboard</a>
+    <a href="https://sdspieg.github.io/redlines-dashboard/" target="_blank" style="background:#dbad50; color:#0a192f; padding:12px 32px; border-radius:8px; font-weight:700; font-size:1.1rem; text-decoration:none; font-family:inherit; transition:all .2s; display:block; text-align:center; min-width:350px;">Red Line Dashboard</a>
+    <a href="https://sdspieg.github.io/war-datasets-dashboard/" target="_blank" style="background:#dbad50; color:#0a192f; padding:12px 32px; border-radius:8px; font-weight:700; font-size:1.1rem; text-decoration:none; font-family:inherit; transition:all .2s; display:block; text-align:center; min-width:350px;">Ukraine War Data Dashboard</a>
     <a href="https://sdspieg.github.io/russian_redlines-causal-dashboard/" target="_blank" style="background:#b794f4; color:#0a192f; padding:12px 32px; border-radius:8px; font-weight:700; font-size:1.1rem; text-decoration:none; font-family:inherit; transition:all .2s; display:block; text-align:center; min-width:350px;">Causal Analysis App</a>
   </div>
 </div>

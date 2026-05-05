@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- HCSS_DASHBOARD_RESTYLE_2026_05_05 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: #0a192f;
             color: #f8fafc;
             overflow: hidden;
@@ -23,13 +24,13 @@
 
         :root {
             --dark-bg: #0a192f;
-            --bright-cyan: #00ffff;
+            --bright-cyan: #dbad50;
             --bright-white: #ffffff;
             --light-gray: #c8c8c8;
             --bright-yellow: #ffff00;
             --bright-green: #00ff7f;
             --bright-red: #ff6347;
-            --bright-orange: #ffa500;
+            --bright-orange: #dbad50;
             --bright-purple: #9370db;
             --dark-accent: #142847;
         }
@@ -190,13 +191,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(219,173,80, 0.3);
         }
 
         .exit-btn:hover, .back-btn:hover {
-            background: rgba(0, 255, 255, 0.15);
+            background: rgba(219,173,80, 0.15);
             transform: scale(1.05);
-            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 6px 30px rgba(219,173,80, 0.5);
         }
 
         /* Link Buttons */
@@ -215,7 +216,7 @@
 
         .link-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 30px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 6px 30px rgba(219,173,80, 0.5);
         }
     </style>
 </head>
@@ -242,7 +243,7 @@
                 <div style="max-width: 1200px; margin: 0 auto;">
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
                         <!-- Instructors Box -->
-                        <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(0,255,255,0.1)); border: 2px solid var(--bright-cyan); border-radius: 20px; padding: 30px;">
+                        <div style="background: linear-gradient(135deg, var(--dark-accent), rgba(219,173,80,0.1)); border: 2px solid var(--bright-cyan); border-radius: 20px; padding: 30px;">
                             <div style="font-size: 1.8rem; color: var(--bright-cyan); margin-bottom: 20px; font-weight: 700;">Your Instructors</div>
                             <div style="margin-bottom: 15px;">
                                 <div style="color: var(--bright-yellow); font-size: 1.3rem; font-weight: 600;">Stephan De Spiegeleire</div>
@@ -276,7 +277,7 @@
                 <div style="max-width: 1200px; margin: 0 auto;">
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
                         <!-- Day 1 -->
-                        <div style="background: rgba(0,255,255,0.1); border: 3px solid var(--bright-cyan); border-radius: 20px; padding: 25px;">
+                        <div style="background: rgba(219,173,80,0.1); border: 3px solid var(--bright-cyan); border-radius: 20px; padding: 25px;">
                             <div style="color: var(--bright-cyan); font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">DAY 1: DISCOVER</div>
                             <div style="color: var(--bright-yellow); margin-bottom: 15px;">Tuesday, March 11</div>
                             <div style="color: var(--light-gray); font-size: 0.95rem; line-height: 1.6;">
@@ -290,7 +291,7 @@
                         </div>
 
                         <!-- Day 2 -->
-                        <div style="background: rgba(148,0,211,0.1); border: 3px solid var(--bright-purple); border-radius: 20px; padding: 25px;">
+                        <div style="background: rgba(219,173,80,0.1); border: 3px solid var(--bright-purple); border-radius: 20px; padding: 25px;">
                             <div style="color: var(--bright-purple); font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">DAY 2: FRAME</div>
                             <div style="color: var(--bright-yellow); margin-bottom: 15px;">Thursday, March 13</div>
                             <div style="color: var(--light-gray); font-size: 0.95rem; line-height: 1.6;">
@@ -304,7 +305,7 @@
                         </div>
 
                         <!-- Day 3 -->
-                        <div style="background: rgba(0,255,0,0.1); border: 3px solid var(--bright-green); border-radius: 20px; padding: 25px;">
+                        <div style="background: rgba(219,173,80,0.1); border: 3px solid var(--bright-green); border-radius: 20px; padding: 25px;">
                             <div style="color: var(--bright-green); font-size: 1.6rem; font-weight: 700; margin-bottom: 15px;">DAY 3: ANALYZE</div>
                             <div style="color: var(--bright-yellow); margin-bottom: 15px;">Friday, March 14</div>
                             <div style="color: var(--light-gray); font-size: 0.95rem; line-height: 1.6;">
