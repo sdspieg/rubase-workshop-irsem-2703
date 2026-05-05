@@ -512,7 +512,7 @@
     document.querySelectorAll('.slide').forEach(s => { if (s.classList.contains('active') && !naturals.has(s)) measure(s); });
     fitDebounced();
   });
-  mo.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+  if (document.body) mo.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
 })();
 </script>
     <!-- HCSS_SLIM_DECK_2026_05_05 -->
@@ -576,7 +576,7 @@
     }
     pm.querySelector('.hcss-pm-prev').onclick = () => goTo(currentIdx() - 1);
     pm.querySelector('.hcss-pm-next').onclick = () => goTo(currentIdx() + 1);
-    new MutationObserver(() => sync()).observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    (document.body && new MutationObserver(() => sync()).observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] }));
     sync();
   }
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
