@@ -436,6 +436,166 @@
         .home-chip:not(.hcss-home-chip) {
             display: none !important;
         }
+        /* HCSS_PROGRESS_MONITOR — slim, gold, bottom-center pill */
+        .hcss-progress-monitor {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 99998;
+            background: rgba(26,55,97,.92);
+            border: 1.5px solid #dbad50;
+            border-radius: 18px;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            font-family: system-ui, -apple-system, "Segoe UI", Helvetica, sans-serif;
+            box-shadow: 0 2px 8px rgba(0,0,0,.3);
+        }
+        .hcss-pm-btn {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            background: #dbad50;
+            color: #1a3761;
+            border: none;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+            transition: transform .12s, background .14s;
+        }
+        .hcss-pm-btn:hover { background: #e8be64; transform: scale(1.08); }
+        .hcss-pm-btn:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+        .hcss-pm-dots {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            padding: 0 6px;
+            max-width: 60vw;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .hcss-pm-dots::-webkit-scrollbar { display: none; }
+        .hcss-pm-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            border: 1px solid #dbad50;
+            background: transparent;
+            cursor: pointer;
+            transition: transform .12s, background .14s;
+            flex-shrink: 0;
+        }
+        .hcss-pm-dot:hover { transform: scale(1.3); }
+        .hcss-pm-dot.active { background: #dbad50; transform: scale(1.4); }
+        @media (max-width: 600px) {
+            .hcss-progress-monitor { padding: 2px 6px; gap: 4px; }
+            .hcss-pm-btn { width: 22px; height: 22px; font-size: .85rem; }
+            .hcss-pm-dot { width: 5px; height: 5px; }
+        }
+        /* Hide any pre-existing slide-progress UI so we don't double up */
+        .nav-controls:not(.hcss-progress-monitor),
+        .slide-nav,
+        .slide-indicator,
+        .slide-dots:not(.hcss-pm-dots) {
+            display: none !important;
+        }
+        /* HCSS_PROGRESS_MONITOR — slim, gold, bottom-center pill */
+        .hcss-progress-monitor {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 99998;
+            background: rgba(26,55,97,.92);
+            border: 1.5px solid #dbad50;
+            border-radius: 18px;
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            font-family: system-ui, -apple-system, "Segoe UI", Helvetica, sans-serif;
+            box-shadow: 0 2px 8px rgba(0,0,0,.3);
+        }
+        .hcss-pm-btn {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            background: #dbad50;
+            color: #1a3761;
+            border: none;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+            transition: transform .12s, background .14s;
+        }
+        .hcss-pm-btn:hover { background: #e8be64; transform: scale(1.08); }
+        .hcss-pm-btn:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+        .hcss-pm-dots {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            padding: 0 6px;
+            max-width: 60vw;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .hcss-pm-dots::-webkit-scrollbar { display: none; }
+        .hcss-pm-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            border: 1px solid #dbad50;
+            background: transparent;
+            cursor: pointer;
+            transition: transform .12s, background .14s;
+            flex-shrink: 0;
+        }
+        .hcss-pm-dot:hover { transform: scale(1.3); }
+        .hcss-pm-dot.active { background: #dbad50; transform: scale(1.4); }
+        @media (max-width: 600px) {
+            .hcss-progress-monitor { padding: 2px 6px; gap: 4px; }
+            .hcss-pm-btn { width: 22px; height: 22px; font-size: .85rem; }
+            .hcss-pm-dot { width: 5px; height: 5px; }
+        }
+        /* Hide any pre-existing slide-progress UI so we don't double up */
+        .nav-controls:not(.hcss-progress-monitor),
+        .slide-nav,
+        .slide-indicator,
+        .slide-dots:not(.hcss-pm-dots) {
+            display: none !important;
+        }
+        /* HCSS_FIX_OVERFLOW_OVERLAP — slide content visible (no overflow:auto clipping)
+           and bottom chrome chips raised above any centered nav-controls bar. */
+        .slide.active {
+            overflow: visible !important;
+            height: auto !important;
+            max-height: none !important;
+        }
+        /* If a centered nav-controls bar is still showing (pre-existing pill),
+           push the chips up so they don'''t overlap with it. */
+        .hcss-fs-chip { bottom: 14px; }
+        body:has(.nav-controls:not([style*="display: none"])) .hcss-fs-chip,
+        body:has(.nav-controls:not([style*="display: none"])) .hcss-home-chip {
+            bottom: 60px;
+        }
+        /* Always ensure chips sit above the standardized progress monitor */
+        .hcss-fs-chip, .hcss-home-chip { z-index: 99999; }
+        .hcss-progress-monitor { z-index: 99998; }
+
+
+
 
 
 
@@ -518,6 +678,75 @@
 
 
     <!-- HCSS_HIDE_TOP_PARTNER_LOGOS_2026_05_05 -->
+
+    <!-- HCSS_PROGRESS_MONITOR_2026_05_05 -->
+    <script>
+(function(){
+  if (window._hcssPmBound) return;
+  window._hcssPmBound = true;
+  function build(){
+    if (document.querySelector('.hcss-progress-monitor')) return;
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length < 2) return;
+    const pm = document.createElement('div');
+    pm.className = 'hcss-progress-monitor';
+    pm.setAttribute('aria-label', 'Slide progress');
+    pm.innerHTML = '<button class="hcss-pm-btn hcss-pm-prev" type="button" title="Previous slide" aria-label="Previous slide">&#8249;</button>'
+                 + '<div class="hcss-pm-dots" role="tablist"></div>'
+                 + '<button class="hcss-pm-btn hcss-pm-next" type="button" title="Next slide" aria-label="Next slide">&#8250;</button>';
+    document.body.appendChild(pm);
+    const dotsContainer = pm.querySelector('.hcss-pm-dots');
+    for (let i = 0; i < slides.length; i++) {
+      const d = document.createElement('span');
+      d.className = 'hcss-pm-dot';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('tabindex', '0');
+      d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.dataset.idx = i;
+      d.onclick = () => goTo(i);
+      d.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(i); } };
+      dotsContainer.appendChild(d);
+    }
+    function currentIdx(){
+      let idx = 0;
+      const all = document.querySelectorAll('.slide');
+      all.forEach((s, i) => { if (s.classList.contains('active')) idx = i; });
+      return idx;
+    }
+    function sync(){
+      const cur = currentIdx();
+      const total = document.querySelectorAll('.slide').length;
+      dotsContainer.querySelectorAll('.hcss-pm-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+      pm.querySelector('.hcss-pm-prev').disabled = cur <= 0;
+      pm.querySelector('.hcss-pm-next').disabled = cur >= total - 1;
+      const ad = dotsContainer.querySelector('.hcss-pm-dot.active');
+      if (ad) ad.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    function goTo(i){
+      const all = document.querySelectorAll('.slide');
+      const n = all.length;
+      i = Math.max(0, Math.min(n - 1, i));
+      all.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      if (typeof window.showSlide === 'function') { try { window.showSlide(i); } catch (e) {} }
+      if (typeof window.goToSlide === 'function') { try { window.goToSlide(i); } catch (e) {} }
+      if (typeof window.currentSlide !== 'undefined') { try { window.currentSlide = i; } catch (e) {} }
+      sync();
+    }
+    pm.querySelector('.hcss-pm-prev').onclick = () => goTo(currentIdx() - 1);
+    pm.querySelector('.hcss-pm-next').onclick = () => goTo(currentIdx() + 1);
+    new MutationObserver(() => sync()).observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    sync();
+  }
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(build, 100);
+  } else {
+    window.addEventListener('DOMContentLoaded', () => setTimeout(build, 100));
+  }
+  setTimeout(build, 800);
+})();
+</script>
+
+    <!-- HCSS_FIX_OVERFLOW_OVERLAP_2026_05_05 -->
 
 <body>
     <button class="hcss-fs-chip" onclick="toggleHcssFullscreen()" title="Toggle fullscreen (F or Esc)">⛶ Fullscreen</button>
