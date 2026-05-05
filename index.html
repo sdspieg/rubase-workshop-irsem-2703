@@ -38,32 +38,45 @@
             overflow-x: hidden;
         }
 
-        /* Header — mirror dashboard 5-logo sticky header */
+        /* Header — 2-row banner. Row 1: HCSS+GT logos (left), title (center),
+           CCNY+RuBase logos (right). Row 2: nav buttons (Home, Resources,
+           Deliverables Overview, version selector). */
         .header {
             background: var(--db);
             border-bottom: 1px solid rgba(255,255,255,.10);
-            padding: 0 1.5rem;
-            height: 72px;
+            padding: 8px 1.5rem;
             position: sticky;
             top: 0;
             z-index: 100;
             display: grid;
+            grid-template-rows: auto auto;
+            row-gap: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.25);
+        }
+        .header-row1 {
+            display: grid;
             grid-template-columns: auto 1fr auto;
             align-items: center;
             gap: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,.25);
+        }
+        .header-row2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255,255,255,.06);
+            flex-wrap: wrap;
         }
         .h-left, .h-right { display: flex; align-items: center; gap: 1rem; }
         .h-right { justify-content: flex-end; }
-        .h-logo { height: 36px; width: auto; flex-shrink: 0; display: inline-flex; align-items: center; }
-        .h-logo img { height: 36px; width: auto; }
+        .h-logo { height: 40px; width: auto; flex-shrink: 0; display: inline-flex; align-items: center; }
+        .h-logo img { height: 40px; width: auto; }
         .h-logo.invert img { filter: brightness(0) invert(1); }   /* HCSS+CCNY are black-on-white SVGs; invert for dark header */
-        .h-logo.shorter img { height: 32px; }
-        @media (max-width: 1100px) { .h-logo.opt-hide { display: none; } }
-        @media (max-width: 760px) { .h-right .h-logo { display: none; } .h-right { gap: .35rem; } }
+        @media (max-width: 760px) { .h-logo, .h-logo img { height: 32px; } }
 
         .header-title {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--wh);
             letter-spacing: .4px;
@@ -72,9 +85,9 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        @media (max-width: 760px) { .header-title { font-size: .9rem; } }
+        @media (max-width: 760px) { .header-title { font-size: .95rem; } }
 
-        .header-nav { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+        .header-nav { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; justify-content: center; }
 
         .header-nav a, .header-nav button {
             background: transparent;
@@ -428,28 +441,31 @@
     </style>
 </head>
 <body>
-    <!-- Header (5-logo dashboard pattern: HCSS + GT on left, Carnegie + KL + RuBase on right) -->
+    <!-- Header — 2-row banner.
+         Row 1: HCSS + GT (left) · Title (center) · Carnegie + RuBase (right)
+         Row 2: Home · Resources · RuBase Deliverables Overview · version selector -->
     <header class="header">
-        <div class="h-left">
-            <a href="https://hcss.nl" target="_blank" rel="noreferrer" class="h-logo invert" title="HCSS"><img src="assets/logos/hcss_logo.svg" alt="HCSS"></a>
-            <a href="https://gatech.edu" target="_blank" rel="noreferrer" class="h-logo" title="Georgia Tech"><img src="assets/logos/gt.svg" alt="Georgia Tech"></a>
+        <div class="header-row1">
+            <div class="h-left">
+                <a href="https://hcss.nl" target="_blank" rel="noreferrer" class="h-logo invert" title="HCSS"><img src="assets/logos/hcss_logo.svg" alt="HCSS"></a>
+                <a href="https://gatech.edu" target="_blank" rel="noreferrer" class="h-logo" title="Georgia Tech"><img src="assets/logos/gt.svg" alt="Georgia Tech"></a>
+            </div>
+            <div class="header-title">RuBase/StratBase Methods Workshop</div>
+            <div class="h-right">
+                <a href="https://www.carnegie.org" target="_blank" rel="noreferrer" class="h-logo invert" title="Carnegie Corporation of New York"><img src="assets/logos/ccny_logo.svg" alt="Carnegie Corporation"></a>
+                <a href="https://hcss.nl/rubase/" target="_blank" rel="noreferrer" class="h-logo" title="RuBase"><img src="assets/logos/rubase_logo.svg" alt="RuBase"></a>
+            </div>
         </div>
-        <div class="header-title">RuBase/StratBase Methods Workshop</div>
-        <div class="h-right">
-            <a href="https://www.carnegie.org" target="_blank" rel="noreferrer" class="h-logo invert opt-hide" title="Carnegie Corporation of New York"><img src="assets/logos/ccny_logo.svg" alt="Carnegie Corporation"></a>
-            <a href="https://www.defensie.nl/organisatie/landmacht" target="_blank" rel="noreferrer" class="h-logo shorter opt-hide" title="Koninklijke Landmacht"><img src="assets/logos/kl_logo.svg" alt="Koninklijke Landmacht"></a>
-            <a href="https://hcss.nl/rubase/" target="_blank" rel="noreferrer" class="h-logo" title="RuBase"><img src="assets/logos/rubase_logo.svg" alt="RuBase"></a>
-            <nav class="header-nav">
-                <button onclick="showHome()">Home</button>
-                <a href="modules/resources/index.html">Resources</a>
-                <a href="https://rubase.org/" target="_blank" rel="noreferrer" class="deliverables-btn">RuBase Deliverables Overview</a>
-                <select id="workshopSelector" onchange="navigateToWorkshop(this.value)" style="background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: .35rem .55rem; border-radius: 6px; font-size: .8rem; font-family: inherit;">
-                    <option value="current" selected>Latest Version</option>
-                    <option value="irsem-2703">IRSEM Paris - March 2026</option>
-                    <option value="fletcher-2603">Fletcher School - March 2026</option>
-                </select>
-            </nav>
-        </div>
+        <nav class="header-row2 header-nav">
+            <button onclick="showHome()">Home</button>
+            <a href="modules/resources/index.html">Resources</a>
+            <a href="https://rubase.org/" target="_blank" rel="noreferrer" class="deliverables-btn">RuBase Deliverables Overview</a>
+            <select id="workshopSelector" onchange="navigateToWorkshop(this.value)" style="background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: .35rem .55rem; border-radius: 6px; font-size: .8rem; font-family: inherit;">
+                <option value="current" selected>Latest Version</option>
+                <option value="irsem-2703">IRSEM Paris - March 2026</option>
+                <option value="fletcher-2603">Fletcher School - March 2026</option>
+            </select>
+        </nav>
     </header>
 
     <!-- Timeline Progress Bar -->
